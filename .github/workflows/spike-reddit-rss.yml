@@ -2,19 +2,23 @@ name: spike-reddit-rss
 
 # 스파이크 전용. 검증이 끝나면 삭제한다.
 #
-# 배경: 2026년 Responsible Builder Policy로 OAuth script 앱 자체 등록이 막혔다.
-#       (r/redditdev 다수 증언, 개인 스크립트는 승인 대상 아님)
-#       남은 경로는 인증 없는 RSS뿐이다.
+# 배경: OAuth 앱 등록이 Responsible Builder Policy로 막혔고,
+#       /new 를 2페이지씩 긁는 방식은 Actions 러너에서 429가 89% 나왔다.
+#
+# 새 가설: top/.rss?t=day 는 서브레딧당 요청 1회로 하루치 인기글을 준다.
+#          요청 수가 확 줄면 러너에서도 통과할지 모른다.
 #
 # 검증 항목:
-#   A. 데이터센터 IP(Actions 러너)에서 RSS가 200을 주는가
-#   B. 429 비율은 얼마이고 재시도 몇 번에 뚫리는가
-#   C. 페이지네이션(after/count)이 러너에서도 동작하는가
-#   D. 글별 댓글 RSS를 가져올 수 있는가
-#   E. 연속 요청 시 지속 가능한 처리량은 얼마인가
+#   A. top?t=day 가 러너에서 되는가, 재시도 몇 번에 되는가
+#   B. 반환된 글이 정말 24시간 이내인가
+#   C. 상위 N건의 댓글 RSS까지 감당 가능한가 (성공률 측정)
 
 on:
   workflow_dispatch:
+    inputs:
+      comment_sample:
+        description: "댓글 RSS를 시도할 상위 글 수 (서브레딧당)"
+        default: "10"
 
 jobs:
   rss:
@@ -24,91 +28,89 @@ jobs:
         run: |
           echo "runner ip: $(curl -s https://api.ipify.org)"
 
-      - name: RSS 도달성 및 처리량 측정
+      - name: top?t=day 수집 및 댓글 감당량 측정
+        env:
+          SAMPLE: ${{ github.event.inputs.comment_sample }}
         run: |
           python3 - <<'PY'
-          import urllib.request, urllib.error, time, re, sys, datetime
+          import urllib.request, urllib.error, time, re, sys, os, datetime
 
           UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
                 "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
-          stats = {"200": 0, "429": 0, "other": 0, "retries": 0}
+          SAMPLE = int(os.environ.get("SAMPLE") or 10)
+          stats = {"200": 0, "429": 0, "other": 0}
 
-          def fetch(url, tries=8, backoff=5):
+          def fetch(url, tries=12, backoff=9):
               for i in range(tries):
-                  req = urllib.request.Request(url, headers={"User-Agent": UA})
                   try:
+                      req = urllib.request.Request(url, headers={"User-Agent": UA})
                       with urllib.request.urlopen(req, timeout=30) as r:
                           stats["200"] += 1
-                          return r.read().decode("utf-8", "replace")
+                          return r.read().decode("utf-8", "replace"), i + 1
                   except urllib.error.HTTPError as e:
-                      code = e.code
-                      stats["429" if code == 429 else "other"] += 1
-                      if code != 429:
-                          print(f"    HTTP {code} <- {url[:80]}")
-                  except Exception as e:
+                      stats["429" if e.code == 429 else "other"] += 1
+                  except Exception:
                       stats["other"] += 1
-                      print(f"    {type(e).__name__} <- {url[:80]}")
-                  stats["retries"] += 1
                   time.sleep(backoff)
-              return None
+              return None, tries
 
-          def entries(x):
-              return re.findall(r"<entry>(.*?)</entry>", x, re.S)
+          def parse(x):
+              out = []
+              for e in re.findall(r"<entry>(.*?)</entry>", x, re.S):
+                  pid = re.search(r"<id>(t3_\w+)</id>", e)
+                  ti = re.search(r"<title>(.*?)</title>", e, re.S)
+                  pu = re.search(r"<published>(.*?)</published>", e)
+                  if pid and ti and pu:
+                      out.append((pid.group(1), ti.group(1).strip(),
+                                  datetime.datetime.fromisoformat(pu.group(1))))
+              return out
 
-          print("=== A/B/C: 서브레딧 RSS 2페이지 ===")
-          all_ids, all_ts = [], []
+          now = datetime.datetime.now(datetime.timezone.utc)
           ok = True
+          tops = {}
+
+          print("=== A/B: top?t=day ===")
           for sub in ["ClaudeCode", "ClaudeAI"]:
-              after, got = None, 0
-              for page in (1, 2):
-                  url = f"https://www.reddit.com/r/{sub}/new/.rss?limit=100"
-                  if after:
-                      url += f"&count=100&after={after}"
-                  t0 = time.time()
-                  body = fetch(url)
-                  if body is None:
-                      print(f"  r/{sub} p{page}: 8회 재시도 모두 실패")
-                      ok = False
-                      break
-                  es = entries(body)
-                  ids = re.findall(r"<id>(t3_\w+)</id>", body)
-                  ts = [datetime.datetime.fromisoformat(t)
-                        for t in re.findall(r"<published>(.*?)</published>", body)]
-                  all_ids += ids
-                  all_ts += ts
-                  got += len(es)
-                  after = ids[-1] if ids else None
-                  print(f"  r/{sub} p{page}: {len(es)}건 "
-                        f"{min(ts):%m-%d %H:%M}~{max(ts):%m-%d %H:%M} ({time.time()-t0:.1f}s)")
-                  time.sleep(3)
-              print(f"  r/{sub} 합계 {got}건, 고유 {len(set(all_ids))}건")
-
-          if all_ts:
-              span = (max(all_ts) - min(all_ts)).total_seconds() / 3600
-              print(f"  → 커버 범위 {span:.1f}시간 (하루 충족: {'예' if span >= 24 else '아니오'})")
-
-          print()
-          print("=== D: 글별 댓글 RSS (샘플 5건) ===")
-          sample = all_ids[:5]
-          for pid in sample:
-              body = fetch(f"https://www.reddit.com/comments/{pid[3:]}/.rss?limit=50")
+              body, tries = fetch(f"https://www.reddit.com/r/{sub}/top/.rss?t=day&limit=100")
               if body is None:
-                  print(f"  {pid}: 실패")
+                  print(f"  r/{sub}: 12회 재시도 실패")
                   ok = False
                   continue
-              print(f"  {pid}: 댓글 entry {len(entries(body))}건")
-              time.sleep(3)
+              items = parse(body)
+              tops[sub] = items
+              within = sum(1 for _, _, t in items if (now - t).total_seconds() < 86400)
+              oldest = max((now - t).total_seconds() / 3600 for _, _, t in items)
+              print(f"  r/{sub}: {len(items)}건 (재시도 {tries}회) | "
+                    f"24h 이내 {within}/{len(items)} | 최고령 {oldest:.1f}h")
+              print(f"    1위: {items[0][1][:70]}")
+              time.sleep(10)
 
           print()
-          print("=== E: 요약 ===")
-          total = stats["200"] + stats["429"] + stats["other"]
-          print(f"  요청 {total}회 | 200: {stats['200']} | 429: {stats['429']} | 기타실패: {stats['other']}")
+          print(f"=== C: 상위 {SAMPLE}건 댓글 RSS ===")
+          c_ok = c_fail = 0
+          for sub, items in tops.items():
+              for pid, title, _ in items[:SAMPLE]:
+                  body, tries = fetch(f"https://www.reddit.com/comments/{pid[3:]}/.rss?limit=100",
+                                      tries=6, backoff=9)
+                  if body is None:
+                      c_fail += 1
+                      print(f"  ✗ {pid} {title[:45]}")
+                  else:
+                      n = len(re.findall(r"<entry>", body))
+                      c_ok += 1
+                      print(f"  ✓ {pid} 댓글 {n:3d}건 (재시도 {tries}) {title[:40]}")
+                  time.sleep(6)
+
+          print()
+          print("=== 요약 ===")
+          total = sum(stats.values())
+          print(f"  전체 요청 {total}회 | 200: {stats['200']} | 429: {stats['429']} | 기타: {stats['other']}")
           if total:
               print(f"  429 비율: {stats['429']/total*100:.0f}%")
-          print(f"  재시도 총 {stats['retries']}회")
+          print(f"  댓글 수집: 성공 {c_ok} / 실패 {c_fail}")
 
-          if not ok or stats["200"] == 0:
-              print("::error::RSS 폴백 불가 — 러너에서 안정적으로 못 가져옴")
+          if not ok:
+              print("::error::top?t=day 조차 러너에서 불안정")
               sys.exit(1)
-          print("::notice::RSS 폴백 가능 — 러너에서 수집 성공")
+          print("::notice::top?t=day 러너에서 수집 성공")
           PY
