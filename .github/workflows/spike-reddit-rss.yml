@@ -21,7 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 러너 공인 IP
-        run: echo "runner ip: $(curl -s https://api.ipify.org)"
+        run: |
+          echo "runner ip: $(curl -s https://api.ipify.org)"
 
       - name: RSS 도달성 및 처리량 측정
         run: |
