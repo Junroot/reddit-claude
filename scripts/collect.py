@@ -57,6 +57,17 @@ ATOM = {"atom": "http://www.w3.org/2005/Atom"}
 # 여기에 걸리면 로그로 알린다.
 GITHUB_MAX_PAGES = 10
 
+# GitHub은 `updated_at` 기준이라 라벨이 붙거나 상태만 바뀐 이슈도 갱신으로 잡힌다.
+# 실측에서 24시간에 831건이 들어왔고 그중 262건은 댓글도 리액션도 0건이었다.
+# 그 규모를 1차 LLM에 그대로 넘기면 주제 묶기가 성립하지 않으므로, 반응이 하나도
+# 없는 이슈는 "지난 24시간의 논의"로 보지 않고 수집에서 제외한다.
+#
+# 대가가 있다. 댓글 0건인 갓 열린 이슈가 Reddit 글과 같은 사건인 날에는 그 교차
+# 주제의 GitHub 쪽 재료가 사라진다. 소스 다양성 배수가 그런 주제를 위로 올리는
+# 장치인데 재료가 없으면 헛돈다. 얼마나 버려지는지 status.json에 남겨 두는 것은
+# 나중에 이 값을 다시 판단하기 위해서다.
+GITHUB_MIN_ENGAGEMENT = 1
+
 
 def _get(entry: dict, url: str, headers: dict | None = None, timeout: int = 30) -> bytes:
     """요청 한 건을 보내고 그 결과를 status의 소스 칸에 센다."""
@@ -210,6 +221,7 @@ def collect_github(entry: dict, now_dt: datetime, out: list) -> None:
         headers["Authorization"] = f"Bearer {token}"
 
     seen_pull_requests = 0
+    seen_unengaged = 0
     for page in range(1, GITHUB_MAX_PAGES + 1):
         url = (
             f"https://api.github.com/repos/{GITHUB_REPO}/issues?"
@@ -235,6 +247,14 @@ def collect_github(entry: dict, now_dt: datetime, out: list) -> None:
             number = row.get("number")
             if number is None:
                 continue
+
+            reactions = ((row.get("reactions") or {}).get("total_count")) or 0
+            comments = row.get("comments") or 0
+            if reactions + comments < GITHUB_MIN_ENGAGEMENT:
+                # 반응이 하나도 없는 이슈는 논의로 보지 않는다.
+                seen_unengaged += 1
+                continue
+
             published_raw = row.get("created_at") or ""
             published = common.parse_iso(published_raw)
             out.append({
@@ -248,8 +268,8 @@ def collect_github(entry: dict, now_dt: datetime, out: list) -> None:
                 "body": row.get("body") or "",
                 "signals": {
                     "number": number,
-                    "reactions": ((row.get("reactions") or {}).get("total_count")) or 0,
-                    "comments": row.get("comments") or 0,
+                    "reactions": reactions,
+                    "comments": comments,
                     "state": row.get("state") or "",
                     "labels": [
                         (lb.get("name") if isinstance(lb, dict) else str(lb))
@@ -264,7 +284,9 @@ def collect_github(entry: dict, now_dt: datetime, out: list) -> None:
     else:
         print(f"[github] 경고: 페이지 상한 {GITHUB_MAX_PAGES}에 걸렸다. 일부 이슈가 빠졌을 수 있다")
 
-    print(f"[github] 이슈 {len(out)}건 (Pull Request {seen_pull_requests}건 제외)")
+    entry["filtered"] = seen_unengaged
+    print(f"[github] 이슈 {len(out)}건 "
+          f"(Pull Request {seen_pull_requests}건, 반응 없는 이슈 {seen_unengaged}건 제외)")
 
 
 # ── 실행 ────────────────────────────────────────────────────────────────────

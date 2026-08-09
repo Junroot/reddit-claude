@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 """두 LLM 호출에 넣을 입력 파일을 만든다.
 
-    llm_input.py cluster     items.json                    → cluster_input.json
+    llm_input.py cluster     items.json                    → cluster_input.jsonl
     llm_input.py summarize   ranked.json + comments.json   → summary_input.json
+
+주제 묶기 입력을 **항목당 한 줄(JSONL)**로 쓰는 것은 읽는 쪽 사정 때문이다.
+들여쓴 JSON으로 쓰면 항목 하나가 여섯 줄을 차지해 875건이 5천 줄을 넘는데,
+Claude Code의 Read는 기본 2천 줄까지만 준다. 첫 시운전에서 1차 LLM은 입력의
+3분의 1만 본 채 나머지를 다른 도구로 뒤지려다 실패했다. 한 줄 형식이면 같은
+항목 수가 875줄에 들어가 한 번의 Read로 전부 읽힌다.
 
 `items.json`을 통째로 넣으면 컨텍스트가 커진다. 특히 GitHub 이슈 본문에는 로그와
 스택 트레이스가 길게 붙는다. 그래서 여기서만 본문 길이를 자른다 — `items.json`
@@ -16,14 +22,16 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import re
 from html.parser import HTMLParser
 
 import common
 
-# 주제를 묶는 데는 제목과 도입부면 충분하다. 실제 수집량을 보고 조정한다.
-CLUSTER_BODY_CHARS = 300
+# 주제를 묶는 데는 제목과 도입부면 충분하다. 첫 시운전에서 잰 수집량(875건)을
+# 근거로 정한 값이다. 항목당 한 줄이 약 200자가 되어 전체가 한 번의 Read에 들어간다.
+CLUSTER_BODY_CHARS = 150
 
 # 2차에는 상위 8개 주제에 속한 항목만 들어가므로 더 긴 본문을 넣어도 여유가 있다.
 SUMMARY_BODY_CHARS = 2000
@@ -63,21 +71,26 @@ def clip(text: str, limit: int) -> str:
 
 # ── 1차: 주제 묶기 입력 ─────────────────────────────────────────────────────
 
-def build_cluster_input(items_doc: dict, body_chars: int) -> dict:
-    items = items_doc.get("items") or []
-    return {
-        "generated_at": items_doc.get("generated_at") or "",
-        "count": len(items),
-        "items": [
-            {
-                "item_id": it["item_id"],
-                "source": it["source"],
-                "title": it.get("title") or "",
-                "excerpt": clip(it.get("body") or "", body_chars),
-            }
-            for it in items
-        ],
-    }
+def build_cluster_input(items_doc: dict, body_chars: int) -> list:
+    """항목당 한 줄로 쓸 dict 목록을 만든다. 줄 순서는 items.json 순서를 따른다."""
+    return [
+        {
+            "item_id": it["item_id"],
+            "source": it["source"],
+            "title": it.get("title") or "",
+            "excerpt": clip(it.get("body") or "", body_chars),
+        }
+        for it in (items_doc.get("items") or [])
+    ]
+
+
+def write_jsonl(path: str, rows: list) -> None:
+    os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        for row in rows:
+            # 항목 하나가 정확히 한 줄을 차지해야 한다. separators로 군더더기 공백을
+            # 없애 줄 길이를 줄인다.
+            f.write(json.dumps(row, ensure_ascii=False, separators=(",", ":")) + "\n")
 
 
 # ── 2차: 요약 입력 ──────────────────────────────────────────────────────────
@@ -132,12 +145,13 @@ def main() -> int:
 
     if args.stage == "cluster":
         items_doc = common.read_json(os.path.join(args.work, "items.json"), {"items": []})
-        built = build_cluster_input(items_doc, args.body_chars)
-        out = os.path.join(args.work, "cluster_input.json")
-        common.write_json(out, built)
+        rows = build_cluster_input(items_doc, args.body_chars)
+        out = os.path.join(args.work, "cluster_input.jsonl")
+        write_jsonl(out, rows)
         size = os.path.getsize(out)
-        print(f"항목 {built['count']}건, 본문 {args.body_chars}자로 잘라 {out}에 썼다 "
-              f"({size / 1024:.0f} KB)")
+        longest = max((len(json.dumps(r, ensure_ascii=False)) for r in rows), default=0)
+        print(f"항목 {len(rows)}건을 한 줄씩, 본문 {args.body_chars}자로 잘라 {out}에 썼다")
+        print(f"  {len(rows)}줄, {size / 1024:.0f} KB, 가장 긴 줄 {longest}자")
         return 0
 
     ranked = common.read_json(os.path.join(args.work, "ranked.json"), {"topics": [], "top": []})

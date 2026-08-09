@@ -14,11 +14,12 @@ Claude Code를 둘러싼 논의가 Reddit, Hacker News, GitHub Issues 세 곳에
 |---|---|---|---|
 | Reddit | r/ClaudeCode | `top/.rss?t=day`, 요청 1회 | `t=day`가 준 결과를 그대로 쓰되 게시 48시간 초과분은 버린다 |
 | Hacker News | 검색어 `Claude Code` | Algolia 검색 API | `created_at` 기준 24시간 |
-| GitHub Issues | `anthropics/claude-code` | REST API | `updated_at` 기준 24시간 |
+| GitHub Issues | `anthropics/claude-code` | REST API, 댓글+리액션 0건 제외 | `updated_at` 기준 24시간 |
 
 - 세 소스의 결과를 공통 항목 스키마로 정규화한다.
 - GitHub Issues 엔드포인트는 Pull Request를 이슈로 섞어 반환한다. `pull_request` 필드가 있는 항목은 제외한다.
 - GitHub은 `updated_at` 기준이므로 사흘 전에 열린 이슈라도 오늘 댓글이 달렸으면 수집된다. "지난 24시간의 논의"라는 정의에 이쪽이 맞다.
+- 다만 `updated_at`은 라벨이 붙거나 상태만 바뀌어도 갱신된다. 댓글도 리액션도 0건인 이슈는 논의로 보지 않고 제외한다. 제외한 건수는 기록에 남긴다. 이 조건의 대가는 design 단계의 D14에 적는다.
 - Reddit에만 24시간을 넘는 여유를 두는 이유는 아래 "Reddit 시간 창" 절에 적는다.
 
 ### 랭킹

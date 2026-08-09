@@ -1,12 +1,19 @@
 # 주제 묶기
 
-`work/cluster_input.json`을 읽고 `work/topics.json`을 써라. 다른 파일은 만들지도 고치지도 마라.
+`work/cluster_input.jsonl`을 읽고 `work/topics.json`을 써라. 다른 파일은 만들지도 고치지도 마라.
 설명 문장을 출력하지 말고 파일만 남겨라.
 
-## 하는 일
+## 입력 읽기
 
-입력에는 Reddit(r/ClaudeCode), Hacker News, GitHub Issues(anthropics/claude-code)에서 지난 하루
-동안 모은 항목이 들어 있다. 항목마다 `item_id`, `source`, `title`, `excerpt`가 있다.
+`work/cluster_input.jsonl`은 **한 줄에 항목 하나**가 들어 있는 JSONL 파일이다. 줄 하나가 이렇게 생겼다.
+
+```json
+{"item_id":"rd_1a2b3c","source":"reddit","title":"...","excerpt":"..."}
+```
+
+Reddit(r/ClaudeCode), Hacker News, GitHub Issues(anthropics/claude-code)에서 지난 하루 동안 모은
+항목이다. **파일 전체를 읽어라.** 파일이 길어 한 번에 다 보이지 않으면 `offset`을 옮겨 가며 끝까지
+읽어라. 앞부분만 보고 판단하면 뒤쪽 항목이 통째로 빠진다.
 
 **같은 사건을 다루는 항목끼리 묶어라.** 제목의 문자열이 다르거나 소스가 달라도 내용이 같은 사건을
 가리키면 같은 주제다. 예를 들어 Reddit 글 "2.1 업데이트 후 MCP 서버가 안 붙어요"와 GitHub 이슈
