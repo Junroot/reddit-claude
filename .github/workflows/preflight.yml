@@ -1,0 +1,336 @@
+name: preflight
+
+# 선행 검증 전용. tasks.md 1장(1.1·1.3·1.4·1.5)을 한 번의 수동 실행으로 확인한다.
+# 본 파이프라인이 자리 잡으면 삭제한다.
+#
+# 여기서 확인하려는 것:
+#   1.1  구독 OAuth 토큰으로 claude-code-action이 Actions에서 실행되고,
+#        LLM 결과를 작업 디렉터리의 파일로 받을 수 있는가.
+#        (API 키 입력 anthropic_api_key는 쓰지 않는다)
+#   1.3  LLM이 정해진 스키마의 JSON을 파일로 쓰고, 그것이 스키마를 만족하는가.
+#        본 파이프라인 [2] cluster 단계의 예행이므로 실제 topics.json 구조로 검사한다.
+#   1.4  Discord 웹훅으로 알림이 도달하는가.
+#   1.5  워크플로에서 gh-pages 브랜치에 push하고 GitHub Pages에 반영되는가.
+#
+# 1.1이 실패하면 이후 구현을 시작하지 않는다. 구독 인증으로 Actions에서 LLM을
+# 돌릴 수 없다면 "별도 API 과금 없음"이라는 전제가 깨지므로 proposal로 돌아간다.
+#
+# 선행 조건: 저장소 시크릿 CLAUDE_CODE_OAUTH_TOKEN(로컬 `claude setup-token`으로 발급),
+#            DISCORD_WEBHOOK_URL이 등록되어 있어야 한다.
+#
+# 1.2 관련 — 액션 소스(고정한 SHA 기준)를 읽어 미리 확인한 사실:
+#   * workflow_dispatch와 schedule 모두 지원한다(src/github/context.ts). 액션 README가
+#     workflow_dispatch를 "coming soon"으로 적어 둔 것은 낡은 서술이다.
+#   * prompt 입력이 있으면 agent 모드로 동작하고, 추적 코멘트를 만들지 않는다.
+#   * 엔티티(PR·이슈) 맥락이 아니므로 저장소 쓰기 권한 검사를 건너뛴다.
+#     그래서 issues·pull-requests 권한이 필요 없다.
+#   * 다만 agent 모드는 checkHumanActor로 github.actor가 User 계정인지 확인한다.
+#     스케줄 실행에서 actor는 cron을 마지막으로 건드린 사람이므로 통과할 것으로 보이나,
+#     이것만은 소스로 확정할 수 없다. 본 워크플로에 cron을 켜는 9.7·11.1 시점에
+#     스케줄 실행 로그에서 "Verified human actor"가 찍히는지 반드시 확인한다.
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_llm:
+        description: "1.1·1.3 LLM 실행과 topics.json 스키마 검증"
+        type: boolean
+        default: true
+      run_pages:
+        description: "1.5 gh-pages push와 Pages 반영 확인"
+        type: boolean
+        default: true
+      run_discord:
+        description: "1.4 Discord 알림 (다른 검사 결과를 함께 실어 보낸다)"
+        type: boolean
+        default: true
+
+# gh-pages push에 contents: write가, Pages 설정 조회에 pages: read가 필요하다.
+permissions:
+  contents: write
+  pages: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # ── 1.1 / 1.3 ────────────────────────────────────────────────────────
+      # 본 파이프라인 [2] cluster의 예행이다. 고정된 items.json을 주고
+      # topics.json을 파일로 쓰게 한 뒤, 스크립트가 구조를 검사한다.
+      - name: 고정 입력 생성 (work/items.json)
+        if: inputs.run_llm
+        run: |
+          mkdir -p work
+          cat > work/items.json <<'JSON'
+          {
+            "items": [
+              {"item_id": "rd_1a2b3c", "source": "reddit",
+               "title": "2.1 업데이트 후 MCP 서버가 안 붙어요",
+               "body": "어제 2.1로 올린 뒤부터 MCP 서버 연결이 계속 끊깁니다."},
+              {"item_id": "gh_4821", "source": "github",
+               "title": "MCP connection fails after v2.1",
+               "body": "Since upgrading to v2.1 the MCP stdio transport times out."},
+              {"item_id": "hn_39114522", "source": "hn",
+               "title": "Claude Code 2.1 released",
+               "body": "Release notes for the 2.1 version of Claude Code."},
+              {"item_id": "rd_9z8y7x", "source": "reddit",
+               "title": "내가 쓰는 CLAUDE.md 템플릿 공유합니다",
+               "body": "몇 달 다듬은 프로젝트 지침 파일 구조를 정리해 봤습니다."},
+              {"item_id": "gh_4830", "source": "github",
+               "title": "Feature request: configurable output style",
+               "body": "It would help to define a reusable output style per project."}
+            ]
+          }
+          JSON
+          echo "생성한 항목 5건"
+
+      - name: LLM 실행 (1.1 · 1.3)
+        id: llm
+        if: inputs.run_llm
+        # D3의 규율대로 커밋 SHA로 고정한다. @v1·@main·@latest 같은 부동 태그를 쓰지 않는다.
+        # 이 SHA는 태그 v1.0.189이자 2026-08-10 기준 v1이 가리키는 커밋이다.
+        uses: anthropics/claude-code-action@6b082c41935b4c8a3b8b0ef85ba4ba4d9eeb8975
+        with:
+          # 인증은 구독 OAuth 토큰으로만 한다. anthropic_api_key를 쓰지 않는다.
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            work/items.json 을 읽어라. 항목 5건이 들어 있다.
+
+            같은 사건을 다루는 항목끼리 묶어 주제를 만들고, 결과를 work/topics.json 에 써라.
+            제목의 문자열이 달라도 내용이 같은 사건을 가리키면 같은 주제로 묶는다.
+            순위를 매기지 마라. 묶기만 한다.
+
+            work/topics.json 의 형식은 정확히 다음과 같아야 한다.
+
+            {
+              "topics": [
+                {
+                  "topic_id": "<이 파일 안에서 고유한 문자열>",
+                  "title": "<주제를 한 줄로 나타낸 한국어 제목>",
+                  "item_ids": ["<items.json의 item_id>", "..."]
+                }
+              ]
+            }
+
+            규칙:
+            - item_ids 에는 work/items.json 에 실제로 있는 item_id만 쓴다. 새로 지어내지 않는다.
+            - items.json 의 모든 항목이 어떤 주제에든 최소 한 번은 들어가야 한다.
+            - topic_id 는 주제마다 서로 달라야 한다.
+            - work/topics.json 외의 파일을 만들거나 고치지 마라.
+            - 설명 문장을 출력하지 말고 파일만 남겨라.
+          claude_args: |
+            --allowedTools Read,Write
+            --max-turns 15
+
+      - name: topics.json 스키마 검증 (1.3)
+        id: schema
+        if: inputs.run_llm && always()
+        run: |
+          python3 - <<'PY'
+          import json, os, sys
+
+          def fail(msg):
+              print(f"✗ {msg}")
+              open(os.environ["GITHUB_ENV"], "a").write("CHECK_LLM=fail\n")
+              sys.exit(1)
+
+          if not os.path.exists("work/topics.json"):
+              fail("work/topics.json 이 생성되지 않았다 (1.1 실패: LLM 결과를 파일로 받지 못함)")
+
+          raw = open("work/topics.json", encoding="utf-8").read()
+          print(f"파일 크기 {len(raw)} bytes\n{raw}\n")
+
+          try:
+              data = json.loads(raw)
+          except json.JSONDecodeError as e:
+              fail(f"유효한 JSON이 아니다: {e}")
+
+          if not isinstance(data, dict) or not isinstance(data.get("topics"), list):
+              fail("기대 구조가 아니다: 최상위가 객체이고 topics가 배열이어야 한다")
+
+          topics = data["topics"]
+          if not topics:
+              fail("주제가 0건이다")
+
+          items = json.load(open("work/items.json", encoding="utf-8"))["items"]
+          known = {it["item_id"] for it in items}
+
+          # 4.4가 중단 사유로 삼는 셋: 유효한 JSON, 기대 구조, 고유한 주제 ID
+          ids = []
+          for i, t in enumerate(topics):
+              for field, typ in (("topic_id", str), ("title", str), ("item_ids", list)):
+                  if not isinstance(t.get(field), typ):
+                      fail(f"topics[{i}]에 {field}가 없거나 형이 다르다")
+              if not t["item_ids"]:
+                  fail(f"topics[{i}]의 item_ids가 비어 있다")
+              ids.append(t["topic_id"])
+          if len(set(ids)) != len(ids):
+              fail(f"주제 ID가 고유하지 않다: {ids}")
+
+          # 아래 둘은 본 파이프라인에서 중단 사유가 아니라 rank 단계의 보정 대상이다.
+          # 여기서는 프롬프트가 통하는지 보려고 함께 출력만 한다.
+          refd = {i for t in topics for i in t["item_ids"]}
+          ghost = sorted(refd - known)
+          uncovered = sorted(known - refd)
+
+          print(f"✓ 유효한 JSON, 기대 구조, 주제 ID 고유 — 주제 {len(topics)}건")
+          for t in topics:
+              print(f"    [{t['topic_id']}] {t['title']}  ← {', '.join(t['item_ids'])}")
+          print(f"\n참고(중단 사유 아님) 허깨비 참조 {len(ghost)}건 {ghost}")
+          print(f"참고(중단 사유 아님) 미커버 항목 {len(uncovered)}건 {uncovered}")
+
+          open(os.environ["GITHUB_ENV"], "a").write(
+              f"CHECK_LLM=ok\nLLM_TOPICS={len(topics)}\n"
+              f"LLM_GHOST={len(ghost)}\nLLM_UNCOVERED={len(uncovered)}\n")
+          PY
+
+      # ── 1.5 ──────────────────────────────────────────────────────────────
+      - name: gh-pages push (1.5)
+        id: pages_push
+        if: inputs.run_pages && always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          STAMP="$(date -u '+%Y-%m-%d %H:%M UTC')"
+          WORK=/tmp/ghpages
+          rm -rf "$WORK" && mkdir -p "$WORK"
+
+          git -C "$WORK" init -q
+          git -C "$WORK" config user.name  "github-actions[bot]"
+          git -C "$WORK" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C "$WORK" remote add origin \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+          # 브랜치가 이미 있으면 그 위에 커밋을 쌓는다 (D7: 매일 커밋이 생겨야
+          # 60일 무활동 자동 비활성화를 피한다). 없으면 새로 만든다.
+          if git -C "$WORK" fetch -q --depth=1 origin gh-pages 2>/dev/null; then
+            git -C "$WORK" checkout -q FETCH_HEAD
+            git -C "$WORK" checkout -q -B gh-pages
+            echo "기존 gh-pages 위에 커밋한다"
+          else
+            git -C "$WORK" checkout -q -b gh-pages
+            echo "gh-pages를 새로 만든다"
+          fi
+
+          # 8.5의 "이전 날짜 파일이 남지 않도록 한다"를 예행한다. 매번 한 벌만 남긴다.
+          find "$WORK" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+
+          touch "$WORK/.nojekyll"   # 2.2 — Jekyll 빌드를 끈다
+          cat > "$WORK/index.html" <<HTML
+          <!doctype html>
+          <html lang="ko"><head><meta charset="utf-8">
+          <title>preflight probe</title></head>
+          <body>
+          <h1>preflight probe</h1>
+          <p>PREFLIGHT_MARKER ${GITHUB_RUN_ID}</p>
+          <p>발행 시각 ${STAMP}</p>
+          </body></html>
+          HTML
+
+          git -C "$WORK" add -A
+          git -C "$WORK" commit -q -m "preflight: gh-pages 발행 경로 검증 (run ${GITHUB_RUN_ID})"
+          git -C "$WORK" push -q origin gh-pages
+          echo "✓ push 성공"
+          echo "CHECK_PAGES_PUSH=ok" >> "$GITHUB_ENV"
+
+      - name: Pages 반영 확인 (1.5 · 2.3)
+        id: pages_check
+        if: inputs.run_pages && always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Pages 소스가 gh-pages로 지정되어 있어야 반영된다(2.3). 아직 설정 전이면
+          # 여기서 404가 나는 것이 정상이고, push 자체(위 단계)와는 별개다.
+          if ! URL=$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.html_url' 2>/dev/null); then
+            echo "✗ Pages가 아직 설정되지 않았다 — 저장소 Settings > Pages에서 소스를 gh-pages로 지정하라 (2.3)"
+            echo "CHECK_PAGES_LIVE=unset" >> "$GITHUB_ENV"
+            exit 1
+          fi
+          echo "Pages URL: $URL"
+          echo "PAGES_URL=$URL" >> "$GITHUB_ENV"
+
+          # 빌드 반영에 시간이 걸린다. 20초 간격으로 최대 10회 확인한다.
+          for i in $(seq 1 10); do
+            if curl -fsSL "$URL" 2>/dev/null | grep -q "PREFLIGHT_MARKER ${GITHUB_RUN_ID}"; then
+              echo "✓ ${i}회째에 이번 실행 내용이 반영됐다"
+              echo "CHECK_PAGES_LIVE=ok" >> "$GITHUB_ENV"
+              exit 0
+            fi
+            echo "  [$i/10] 아직 반영되지 않음"
+            sleep 20
+          done
+          echo "✗ 200초 안에 반영되지 않았다"
+          echo "CHECK_PAGES_LIVE=timeout" >> "$GITHUB_ENV"
+          exit 1
+
+      # ── 1.4 ──────────────────────────────────────────────────────────────
+      # always()로 두는 것은 9.5의 "어느 단계에서 실패해도 알림이 나간다"를
+      # 함께 예행하기 위해서다. 앞 단계가 죽어도 이 단계는 실행된다.
+      - name: Discord 알림 (1.4)
+        if: inputs.run_discord && always()
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request, urllib.error, sys
+
+          hook = os.environ.get("WEBHOOK", "")
+          if not hook:
+              print("✗ DISCORD_WEBHOOK_URL 시크릿이 없다")
+              sys.exit(1)
+
+          e = os.environ.get
+          verdict = {"ok": "성공", "fail": "실패", "unset": "미설정",
+                     "timeout": "시간 초과", None: "건너뜀"}
+
+          lines = [
+              "**선행 검증(preflight) 결과**",
+              f"저장소 `{e('GITHUB_REPOSITORY')}` · 실행 `{e('GITHUB_RUN_ID')}`",
+              "",
+              f"- 1.1·1.3 LLM 실행과 스키마: **{verdict.get(e('CHECK_LLM'))}**"
+              + (f" (주제 {e('LLM_TOPICS')}건, 허깨비 참조 {e('LLM_GHOST')}건,"
+                 f" 미커버 {e('LLM_UNCOVERED')}건)" if e("CHECK_LLM") == "ok" else ""),
+              f"- 1.5 gh-pages push: **{verdict.get(e('CHECK_PAGES_PUSH'))}**",
+              f"- 2.3 Pages 반영: **{verdict.get(e('CHECK_PAGES_LIVE'))}**"
+              + (f" {e('PAGES_URL')}" if e("PAGES_URL") else ""),
+              f"- 1.4 이 메시지가 도착했다면 Discord 경로: **성공**",
+              "",
+              f"전체 job 상태: `{e('JOB_STATUS')}`",
+              f"로그: {e('GITHUB_SERVER_URL')}/{e('GITHUB_REPOSITORY')}"
+              f"/actions/runs/{e('GITHUB_RUN_ID')}",
+          ]
+
+          body = json.dumps({"content": "\n".join(lines)}).encode()
+          req = urllib.request.Request(
+              hook, data=body,
+              headers={"Content-Type": "application/json", "User-Agent": "reddit-claude-preflight"})
+          try:
+              with urllib.request.urlopen(req, timeout=20) as r:
+                  print(f"✓ Discord 응답 {r.status}")
+          except urllib.error.HTTPError as ex:
+              print(f"✗ Discord {ex.code}: {ex.read().decode('utf-8', 'replace')[:300]}")
+              sys.exit(1)
+          PY
+
+      - name: 요약
+        if: always()
+        run: |
+          {
+            echo "## 선행 검증 결과"
+            echo ""
+            echo "| 항목 | 결과 |"
+            echo "|---|---|"
+            echo "| 1.1 LLM 실행 · 결과를 파일로 수신 | ${CHECK_LLM:-건너뜀} |"
+            echo "| 1.3 topics.json 스키마 만족 | ${CHECK_LLM:-건너뜀} |"
+            echo "| 1.5 gh-pages push | ${CHECK_PAGES_PUSH:-건너뜀} |"
+            echo "| 2.3 Pages 반영 | ${CHECK_PAGES_LIVE:-건너뜀} |"
+            echo ""
+            echo "1.4 Discord는 채널에 메시지가 도착했는지로 판정한다."
+            echo ""
+            echo "고정한 액션 SHA: \`6b082c41935b4c8a3b8b0ef85ba4ba4d9eeb8975\` (v1.0.189)"
+          } >> "$GITHUB_STEP_SUMMARY"
