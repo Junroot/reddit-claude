@@ -109,7 +109,16 @@ GitHub Actions 러너에 python3가 기본 설치돼 있다. `[1] collect`·`[3]
 
 대신 구독 인증에서만 나오는 실패 유형이 셋 생긴다(한도 소진, 토큰 만료, 개인 계정 종속). Risks에 세운다.
 
-액션 참조는 D3의 규율대로 커밋 SHA로 고정한다.
+액션 참조는 D3의 규율대로 커밋 SHA로 고정한다. 확정한 값은 `6b082c41935b4c8a3b8b0ef85ba4ba4d9eeb8975`(태그 `v1.0.189`)이다.
+
+**선행 검증에서 액션 소스를 읽어 확인한 사실.** 검증 워크플로는 확인이 끝난 뒤 지웠으므로 여기 남긴다.
+
+- `workflow_dispatch`와 `schedule`을 모두 지원한다(`src/github/context.ts`). 액션 README가 `workflow_dispatch`를 "coming soon"으로 적어 둔 것은 낡은 서술이다.
+- `prompt` 입력이 있으면 agent 모드로 돌고 추적 코멘트를 만들지 않는다.
+- PR·이슈 맥락이 아니므로 저장소 쓰기 권한 검사를 건너뛴다. `issues`·`pull-requests` 권한이 필요 없다.
+- **`github_token` 입력을 넘기면 OIDC 교환을 건너뛴다**(`src/github/token.ts`의 `setupGitHubToken`). 넘기지 않으면 OIDC 토큰을 받아 Anthropic 쪽 엔드포인트에서 Claude GitHub App 토큰으로 교환하며, 그러려면 `id-token: write` 권한이 필요하다. 첫 실행이 여기서 죽었다. 권한을 늘리는 대신 `github_token`을 직접 넘겨 교환 경로를 건너뛴다 — 우리 LLM 단계는 작업 디렉터리의 파일만 다루므로 App 신원이 필요 없고, 매일 도는 파이프라인에서 외부 실패 지점이 하나 줄어든다.
+
+**아직 확인하지 못한 것이 하나 있다.** agent 모드는 `checkHumanActor`로 `github.actor`가 User 계정인지 검사한다. 스케줄 실행에서 actor는 cron을 마지막으로 건드린 사람이 되므로 통과할 것으로 보이지만, `workflow_dispatch` 실행으로는 이 경로를 밟을 수 없어 검증하지 못했다. **첫 스케줄 실행 로그에 `Verified human actor`가 찍히는지 확인해야 한다.** 실패하면 LLM 단계가 죽고 Discord 실패 알림이 나간다.
 
 ### D4. 소스 내 등수는 신호별 등수의 평균으로 매긴다
 

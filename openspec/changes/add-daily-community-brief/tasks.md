@@ -136,7 +136,7 @@
 ## 11. 마무리
 
 - [x] 11.1 cron을 활성화한다 (`40 20 * * *` UTC, 한국 시간 05:40 시작)
-- [ ] 11.2 며칠 동안 매일 아침 브리프와 Discord 알림을 확인한다
+- [ ] 11.2 며칠 동안 매일 아침 브리프와 Discord 알림을 확인한다. **첫 스케줄 실행 로그에 `Verified human actor`가 찍히는지 반드시 본다** — agent 모드의 `checkHumanActor`는 `workflow_dispatch`로 검증할 수 없어 선행 검증에서 유일하게 남겨 둔 항목이다 (design.md D3a)
 - [x] 11.3 스파이크 워크플로 세 개를 제거한다 (`spike-reddit-oauth`, `spike-reddit-rss`, `spike-reddit-pace`)
 - [x] 11.4 README를 갱신한다. 브리프 URL, 실행 시각, 수집 대상, 토큰 갱신 방법을 적는다
 - [ ] 11.5 `CLAUDE_CODE_OAUTH_TOKEN` 만료 시점을 확인하고 갱신 알림을 걸어둔다. 갱신은 `claude setup-token` 재실행과 시크릿 교체다
