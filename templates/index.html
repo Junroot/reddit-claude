@@ -1,0 +1,140 @@
+<!doctype html>
+<!--
+  브리프 페이지 템플릿.
+
+  중괄호 두 개로 감싼 자리는 발행 스크립트가 채운다. 여기 들어가는 것은 전부
+  사실 보고이지 서술이 아니므로 기계가 채워야 정확하다. LLM이 쓰는 것은 본문
+  자리에 들어가는 문장뿐이다.
+
+  2차 LLM은 본문에 원문 URL과 게시 시각을 직접 쓰지 않는다. 항목을 가리킬
+  자리에는 항목 ID 자리표시자 [[item:<항목 ID>]]만 쓴다. 발행 스크립트가 이
+  자리표시자를 items.json의 원문 URL·제목·게시 시각으로 치환해 링크와 시각
+  표기로 채운다.
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>{{TITLE}}</title>
+<style>
+  :root {
+    --bg: #fbfaf8;
+    --fg: #23201c;
+    --muted: #6d675f;
+    --rule: #e2ddd5;
+    --card: #f3f0ea;
+    --accent: #9a5b28;
+    --warn-bg: #fdf3e6;
+    --warn-fg: #7a4a12;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16150f;
+      --fg: #e8e3d9;
+      --muted: #9b948a;
+      --rule: #34312a;
+      --card: #201e18;
+      --accent: #d9a066;
+      --warn-bg: #2b2114;
+      --warn-fg: #e0b981;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+                 "Pretendard", "Noto Sans KR", "Segoe UI", sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+
+  header { border-bottom: 2px solid var(--fg); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+  h1 { font-size: 1.7rem; line-height: 1.3; margin: 0 0 .35rem; letter-spacing: -.01em; }
+  .asof { color: var(--muted); font-size: .875rem; margin: 0; }
+
+  .banner {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: .85rem 1rem;
+    margin-bottom: 2rem;
+    font-size: .875rem;
+    line-height: 1.65;
+  }
+  .banner.attention { background: var(--warn-bg); border-color: var(--warn-fg); color: var(--warn-fg); }
+  .banner b { font-weight: 600; }
+  .banner ul { margin: .4rem 0 0; padding-left: 1.1rem; }
+  .banner li { margin: .1rem 0; }
+
+  main h2 {
+    font-size: 1.22rem;
+    line-height: 1.4;
+    margin: 2.5rem 0 .6rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    letter-spacing: -.01em;
+  }
+  main h2:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+  main h3 { font-size: 1.02rem; margin: 1.5rem 0 .4rem; }
+  main p { margin: .7rem 0; }
+  main ul { margin: .7rem 0; padding-left: 1.3rem; }
+  main li { margin: .25rem 0; }
+  main blockquote {
+    margin: 1rem 0;
+    padding: .1rem 0 .1rem 1rem;
+    border-left: 3px solid var(--rule);
+    color: var(--muted);
+  }
+  main blockquote p { margin: .45rem 0; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+    font-size: .87em;
+    background: var(--card);
+    padding: .1em .35em;
+    border-radius: 4px;
+  }
+
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+  .ref { white-space: nowrap; color: var(--muted); font-size: .82em; }
+  .ref-plain { color: var(--muted); font-size: .82em; }
+
+  .empty { color: var(--muted); font-style: italic; }
+
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: .8rem;
+  }
+  footer p { margin: .2rem 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>{{TITLE}}</h1>
+  <p class="asof">기준 시각 {{GENERATED_AT}}</p>
+</header>
+
+{{BANNER}}
+
+<main>
+{{BODY}}
+</main>
+
+<footer>
+  <p>생성 {{BUILT_AT}}</p>
+  <p><a href="{{REPO_URL}}">{{REPO_NAME}}</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
+</footer>
+
+</div>
+</body>
+</html>
