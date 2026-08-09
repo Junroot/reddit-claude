@@ -121,7 +121,7 @@
 - [x] 9.5 어느 단계에서 실패해도 Discord 알림이 나가도록 한다. 실행이 조용히 종료되지 않게 한다
 - [x] 9.6 수집·순위 계산·발행 단계에 패키지 설치 단계가 없는지 확인한다. LLM 실행 도구 설치는 예외로 허용된다
 - [x] 9.6a `anthropics/claude-code-action` 참조를 1.2에서 확정한 커밋 SHA로 고정한다. `@v1`·`@main`·`@latest` 같은 부동 태그를 쓰지 않는다
-- [x] 9.7 cron `40 20 * * *`을 추가하되 아직 활성화하지 않는다
+- [x] 9.7 cron `40 20 * * *`을 추가하되 아직 활성화하지 않는다 (11.1에서 활성화함)
 
 ## 10. 시운전
 
@@ -135,8 +135,8 @@
 
 ## 11. 마무리
 
-- [ ] 11.1 cron을 활성화한다
+- [x] 11.1 cron을 활성화한다 (`40 20 * * *` UTC, 한국 시간 05:40 시작)
 - [ ] 11.2 며칠 동안 매일 아침 브리프와 Discord 알림을 확인한다
-- [ ] 11.3 스파이크 워크플로 세 개를 제거한다 (`spike-reddit-oauth`, `spike-reddit-rss`, `spike-reddit-pace`)
+- [x] 11.3 스파이크 워크플로 세 개를 제거한다 (`spike-reddit-oauth`, `spike-reddit-rss`, `spike-reddit-pace`)
 - [x] 11.4 README를 갱신한다. 브리프 URL, 실행 시각, 수집 대상, 토큰 갱신 방법을 적는다
 - [ ] 11.5 `CLAUDE_CODE_OAUTH_TOKEN` 만료 시점을 확인하고 갱신 알림을 걸어둔다. 갱신은 `claude setup-token` 재실행과 시크릿 교체다
