@@ -121,51 +121,42 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-08-10 02:36 KST</p>
+  <p class="asof">기준 시각 2026-08-10 02:51 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 19건 수집</li><li>GitHub Issues 정상 — 69건 수집</li><li>Reddit 댓글 보강 정상 — 3건</li></ul></div>
+<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b> — 요청 1건 모두 실패</li><li>Hacker News 정상 — 19건 수집</li><li>GitHub Issues 정상 — 68건 수집</li></ul></div>
 
 <main>
-<h2>Pro/Max/Team 플랜에서 Auto 모드가 기본값이 됨</h2>
-<p>Claude Code의 Pro, Max, Team 플랜에서 Auto 모드가 기본값으로 전환됐다는 소식이 Hacker News에 두 건 올라왔다 <a href="https://news.ycombinator.com/item?id=49227253">Auto mode is now the default in Claude Code for Pro, Max, and Team plans</a> <span class="ref">(HN · 08/09 09:39)</span> <a href="https://news.ycombinator.com/item?id=49230984">Auto mode is now the default in Claude Code for Pro, Max, and Team plans</a> <span class="ref">(HN · 08/09 21:58)</span>. 두 게시물 모두 본문이나 댓글 없이 제목만으로 소식을 전하고 있어 별도의 반응은 확인되지 않는다.</p>
+<h2>Claude Code Pro/Max/Team에서 Auto 모드가 기본값으로 전환</h2>
+<p>Claude Code의 Pro, Max, Team 플랜에서 Auto 모드가 기본값으로 바뀌었다는 소식이 전해졌다 <a href="https://news.ycombinator.com/item?id=49227253">Auto mode is now the default in Claude Code for Pro, Max, and Team plans</a> <span class="ref">(HN · 08/09 09:39)</span>. 같은 소식이 별개의 게시물로도 올라와 커뮤니티의 관심을 끌었다 <a href="https://news.ycombinator.com/item?id=49230984">Auto mode is now the default in Claude Code for Pro, Max, and Team plans</a> <span class="ref">(HN · 08/09 21:58)</span>.</p>
 
-<h2>동일한 두 세션 중 하나에서 로컬 피어 메시징 인박스 소켓 바인딩 실패</h2>
-<p>GitHub에 올라온 이슈에 따르면, 같은 Mac에서 같은 바이너리와 같은 플래그, 같은 작업 디렉터리로 28초 간격을 두고 실행한 두 개의 Claude Code CLI 세션 중 하나만 피어 메시징 인박스 소켓을 바인딩했다 <a href="https://github.com/anthropics/claude-code/issues/84945">Local peer-messaging inbox socket fails to bind for one of two identical sessions (one-way cross-session messaging)</a> <span class="ref">(GitHub · 08/08 07:51)</span>. 두 세션을 구분할 만한 설정 차이는 없었다고 한다. 그 결과 한쪽 세션(A)은 다른 세션(B)에 메시지를 보낼 수 있지만 B는 A에게 메시지를 보낼 수 없는 일방향 채널이 만들어졌다. B가 보낸 메시지는 대신 A의 Remote Control 브리지 등록 쪽으로 흘러들어가 디바이스 게이팅된 브리지 세션이라는 이유로 거부되는데, 이 오류 메시지가 원인을 브리지 쪽으로 잘못 짚게 만들어 세 차례에 걸쳐 잘못된 가설을 쫓게 만들었다고 보고자는 설명한다.</p>
-<p>정상 동작한 세션에는 <code>CLAUDE_CODE_MESSAGING_SOCKET</code> 환경변수와 세션 JSON의 <code>messagingSocketPath</code> 값이 존재했지만, 실패한 세션에는 이 값들이 아예 없었다는 증거도 함께 제시됐다.</p>
+<h2>동일한 두 세션 중 하나에서 로컬 피어 메시징 인박스 소켓 바인딩이 실패해 단방향 메시징만 가능</h2>
+<p>같은 Mac에서 같은 바이너리, 같은 플래그, 같은 작업 디렉터리로 28초 간격을 두고 띄운 두 개의 Claude Code CLI 세션 중 하나만 피어 메시징 인박스 소켓을 바인딩했다는 보고가 올라왔다 <a href="https://github.com/anthropics/claude-code/issues/84945">Local peer-messaging inbox socket fails to bind for one of two identical sessions (one-way cross-session messaging)</a> <span class="ref">(GitHub · 08/08 07:51)</span>. 설정 차이가 전혀 없는데도 한쪽 세션은 <code>CLAUDE_CODE_MESSAGING_SOCKET</code> 환경변수와 <code>messagingSocketPath</code>가 비어 있어 인박스 소켓이 만들어지지 않았고, 결과적으로 한 세션은 다른 세션에 메시지를 보낼 수 있지만 그 반대는 안 되는 단방향 채널이 됐다. 반대 방향으로 보낸 메시지는 대신 상대 세션의 Remote Control 브리지 등록으로 새어 들어가 기기 게이팅된 브리지 세션 관련 메시지로 거부되면서, 원인을 브리지 쪽으로 잘못 짚는 세 차례의 헛다리 짚기로 이어졌다.</p>
 
-<h2>ADHD 사용자를 위한 오픈소스 터미널 매니저 공개</h2>
-<p>작성자는 Claude와 함께 만든 오픈소스 터미널 매니저를 Reddit에 공개했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vj5ktu/i_coded_terminal_manager_for_adhd_brains_100/">I coded terminal manager for ADHD brains. 100% Opensource.</a> <span class="ref">(Reddit · 08/09 05:01)</span>. 여러 프로젝트와 SSH 원격 접속을 하나의 캔버스에서 관리하려다 보니 기본 터미널과 VS Code를 오가는 게 번거로워 직접 만들게 됐다고 소개한다. 세션 영속성, SSH를 통한 원격 터미널 관리, 드래그 앤 드롭과 이미지 지원, 휴대폰에서 세션 이어가기, Git 명령 내장, 터미널 간 컨텍스트 공유와 오케스트레이션 기능을 갖췄다고 설명하며, 프로젝트를 계속 이어가기 위해 후원자나 커뮤니티의 응원이 필요하다고 덧붙였다.</p>
-<p>댓글 반응은 대체로 우호적이었다. 소개 영상과 노력에 대한 칭찬이 이어졌고, 비슷한 도구가 이미 많다는 지적도 있었지만 대부분 응원의 의미로 별점(스타)을 남기겠다는 반응이었다. ADHD 때문인지 이 구성으로 작업 속도가 최소 두 배는 빨라졌다는 후기도 있었다. 다만 구체적인 불편 사항도 제기됐다.</p>
-<blockquote><p>마음에 드는데 터미널 창 글자가 그다지 선명하지 않네요. 레티나 디스플레이와 관련 있는 걸까요? 가독성에 약간 방해가 됩니다.</p></blockquote>
+<h2>VSCode 하네스에서 Opus와 달리 Fable의 턴 중간 출력이 사라짐</h2>
+<p>VS Code 확장(및 원격 앱)의 Claude Code 세션 창에서, thinking 블록 다음에 오고 다음 도구 호출 앞에 오는 어시스턴트 텍스트 블록이 화면에 전혀 렌더링되지 않는다는 버그가 보고됐다 <a href="https://github.com/anthropics/claude-code/issues/84907">[BUG] VSCode harness mid-turn output swallowed from Fable but not from Opus</a> <span class="ref">(GitHub · 08/08 04:55)</span>. "Thought for Ns"라는 생각 표시 뒤에 바로 도구 호출이 나타나고 그 사이의 텍스트는 사라진다. interleaved thinking을 쓰는 모델은 도구 결과 이후 이어지는 모든 턴에 thinking 블록을 붙이는데, 내용이 없는 "Thought for 0s"인 경우도 마찬가지여서 턴 중간의 서술뿐 아니라 사용자가 턴 도중에 보낸 질문에 대한 답까지 함께 사라진다. 이 때문에 사용자에게는 에이전트가 질문에 반응해 행동하는 것처럼 보이지만 답변은 끝내 보이지 않아 무시당한 것처럼 느껴진다. 같은 세션, 같은 창에서 <code>/model</code>로 모델만 바꿔 재현한 결과 <code>claude-fable-5</code>에서는 재현되고 <code>claude-opus-5</code>에서는 재현되지 않아, 모델이 스트리밍하는 interleaved thinking 블록 자체가 원인으로 지목됐다.</p>
 
-<h2>Claude Code 세션 간 메시징 신기능 발표와 Linux/Mac 전용 한계 지적</h2>
-<p>Claude Code에 세션끼리 서로 메시지를 보낼 수 있는 기능이 새로 추가됐다는 공지가 Reddit에 올라왔다. 다른 세션에 다시 상황을 설명할 필요 없이 요약(대화 기록이나 파일 전체가 아님)을 보내면, 상대 세션이 작업을 하던 중간에 이를 받아 이어갈 수 있다는 설명이다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vjjhjh/new_in_claude_code_your_sessions_can_now_message/">New in Claude Code: your sessions can now message each other</a> <span class="ref">(Reddit · 08/09 16:31)</span>.</p>
-<p>이어 올라온 또 다른 게시물은 이 기능이 Linux와 Mac에서만 동작하고 Windows는 지원하지 않는다는 점을 비꼬았다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vjoqi2/anthropic_coding_is_largely_solved_also_anthropic/">Anthropic: "Coding is largely solved"... Also Anthropic: "We released a new powerful feature allowing agents to send messages to other Claude Code sessions, but only on Linux and Mac since we are unable to implement a basic feature on all platforms"</a> <span class="ref">(Reddit · 08/09 21:33)</span>. 작성자는 자신이라면 오후 한나절이면 Windows 지원을 직접 구현할 수 있고 Claude에게 시켜도 금방 될 텐데, Anthropic이 Claude Code를 비공개 소스로 유지하면서도 정작 이 작업은 미루고 있다고 비판했다.</p>
-<p>댓글에서는 이 지적에서 출발해 제품 전반에 대한 불만으로 번졌다. VS Code 확장이 특히 문제가 많다는 지적이 여럿이었는데, 세션이 제대로 저장되지 않고 새 탭마다 컨텍스트를 처음부터 다시 파악해야 하며 <code>memory.md</code>가 채워지지 않는다는 불만이 나왔다.</p>
-<blockquote><p>VS Code 확장은... 엉망입니다. 동작은 하지만 고장나 있기도 해요. 세션이 제대로 저장되지 않습니다.</p></blockquote>
-<p>Fable 관련 버그를 지적하는 댓글도 이어졌다. 보여야 할 메시지가 간혹 숨겨지는 문제, 이미 답한 줄 알고 같은 질문에 다시 혼란스러워하는 문제, 사고 출력과 콘솔 출력을 구분하지 못하는 것 같다는 지적, 그리고 GitHub 저장소를 비교하던 중 해킹 시도로 오인해 잠금 상태에 빠져 "say hello world" 같은 요청에도 응답하지 않았다는 경험담까지 나왔다.</p>
+<h2>Ask HN: AI가 스스로 AI임을 밝혀야 하는가</h2>
+<p>AI가 "너는 AI냐"라는 직접적인 질문에 명확히 "그렇다"고 답하도록 요구받아야 하는지를 묻는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=49230276">Ask HN: Should AI's tell you they're AI?</a> <span class="ref">(HN · 08/09 19:54)</span>. 글쓴이는 현재 모든 AI가 이를 의무적으로 밝히지는 않으며, 예로 든 한 캐릭터 AI 서비스는 그렇게 하지 않는다고 지적했다. 반면 ChatGPT, Claude, Gemini, Grok, Kimi, GLM 등 주요 프런티어 모델들은 스스로 AI임을 밝힌다고 언급하면서, 사기에 이런 모델을 악용하는 사례를 근거로 이 원칙이 시스템·사용자 프롬프트보다 우선해야 하는지 물었다.</p>
 
-<h2>Muse Code가 기본값으로 Codex/Claude 지시문을 Meta로 전송한다는 보도</h2>
-<p>Muse Code가 기본 설정 상태에서 Codex와 Claude용 지시 파일을 Meta 서버로 전송한다는 보도가 Hacker News와 Reddit에 함께 올라왔다 <a href="https://news.ycombinator.com/item?id=49228655">Muse Code Sends Codex and Claude Instructions to Meta by Default</a> <span class="ref">(HN · 08/09 14:21)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1vji2i5/exclusive_muse_code_sends_codex_and_claude/">Exclusive: Muse Code Sends Codex and Claude Instructions to Meta by Default — RuntimeWire</a> <span class="ref">(Reddit · 08/09 15:10)</span>.</p>
-<p>댓글 반응은 엇갈렸다. 일부는 Meta가 원래 데이터를 긁어모으는 데 거리낌이 없다며 예상된 일이라 냉소했다. 로컬 모델이 아닌 이상 컨텍스트로 포함한 내용을 API 서버가 처리하는 것은 당연한 동작이며, Muse Code는 문서에서 이를 숨기지 않고 최초 로드 시 다른 디렉터리의 에이전트 md 파일까지 가져간다는 점을 이미 밝히고 있다는 반박도 이어졌다. 이 문제 제기 자체가 관심을 끌기 위한 과장이라고 보는 의견도 많았다.</p>
-<blockquote><p>어머 API 서버(뮤즈 모델을 서빙하는 곳)가 내가 프롬프트에 컨텍스트로 넣은 텍스트를 받아들이고 있어요(원래 하네스가 그렇게 동작하니까요) 어머나!!!</p></blockquote>
+<h2>v2.1.224에서 메모리 누수로 반복적인 OOM kill 발생(같은 날 14.5GB, 21.3GB anon-rss 두 건)</h2>
+<p>네이티브로 설치한 Claude Code가 같은 세션·같은 날 두 차례 리눅스 OOM 킬러에 의해 강제 종료됐다는 보고가 올라왔다 <a href="https://github.com/anthropics/claude-code/issues/84960">[BUG] Memory leak causes repeated OOM kills in v2.1.224 (14.5GB and 21.3GB anon-rss, two incidents same day)</a> <span class="ref">(GitHub · 08/08 09:38)</span>. 첫 번째는 anon-rss 14.5GB, 두 번째는 21.3GB까지 커진 뒤 종료됐으며, Fedora Linux 네이티브 설치 환경에서 약 5만 줄 규모의 TypeScript/Supabase 프로젝트 작업 중 발생했다. 프로세스 이름이 버전 문자열(2.1.224) 그대로 나타나고 <code>oom_score_adj:200</code>이 설정돼 있어 RSS가 이 범위로 커지면 OOM 킬러의 우선 대상이 되는 것으로 보인다. 보고자는 이번 건이 해당 저장소에 오래전부터 이어져 온 메모리 누수 보고 패턴과 일치하지만, 2.1.224 버전에 특정된 기존 보고는 찾지 못했다고 밝혔다.</p>
 
-<h2>VSCode 하네스에서 Fable의 중간 출력이 Opus와 달리 누락됨</h2>
-<p>GitHub에 올라온 버그 리포트에 따르면, VS Code 확장(원격 앱 포함)에서 Claude Code 세션 패널을 사용할 때 사고(thinking) 블록 다음, 다음 도구 호출 이전에 나오는 어시스턴트 텍스트가 화면에 아예 렌더링되지 않는 문제가 있다 <a href="https://github.com/anthropics/claude-code/issues/84907">[BUG] VSCode harness mid-turn output swallowed from Fable but not from Opus</a> <span class="ref">(GitHub · 08/08 04:55)</span>. "Thought for Ns"라는 사고 표시 다음 곧바로 도구 호출로 넘어가고 그 사이의 텍스트는 사라진다는 것이다. interleaved thinking을 쓰는 모델은 도구 결과 이후 이어지는 모든 턴에 — 내용이 없는 경우("Thought for 0s")까지 포함해 — 사고 블록을 붙이기 때문에, 턴 중간의 설명뿐 아니라 사용자가 턴 도중에 보낸 질문에 대한 답변까지 통째로 사라진다. 사용자 입장에서는 에이전트가 질문에 반응해 행동은 하는데 답변은 끝내 나오지 않는 것처럼 보인다고 한다.</p>
-<p>보고자는 같은 세션, 같은 패널에서 <code>/model</code>로 모델만 바꿔가며 재현했다고 밝혔다. claude-fable-5는 interleaved thinking 블록을 내보내며 문제가 재현되는 반면, claude-opus-5는 사고 블록을 내보내지 않아 문제가 재현되지 않았다는 것이다. 턴을 여는 텍스트와 턴을 마무리하는 텍스트는 정상적으로 표시되고 도구 호출과 그 결과도 정상적으로 표시되며, 오직 중간에 끼인 텍스트 블록만 누락된다고 정리했다.</p>
+<h2>Muse Code가 기본값으로 Codex·Claude 지시문을 Meta로 전송</h2>
+<p>Muse Code가 기본 설정 상태에서 Codex와 Claude에 내리는 지시문을 Meta로 전송한다는 소식이 올라왔다 <a href="https://news.ycombinator.com/item?id=49228655">Muse Code Sends Codex and Claude Instructions to Meta by Default</a> <span class="ref">(HN · 08/09 14:21)</span>.</p>
 
-<h2>AI가 스스로 AI임을 밝혀야 하는지에 대한 논의</h2>
-<p>Hacker News의 Ask HN 게시물은 AI가 "당신은 AI입니까"라는 직접적인 질문에 명확히 "그렇다"고 답하도록 의무화해야 하는지를 물었다 <a href="https://news.ycombinator.com/item?id=49230276">Ask HN: Should AI's tell you they're AI?</a> <span class="ref">(HN · 08/09 19:54)</span>. 글쓴이는 현재 모든 AI가 이 질문에 답하도록 강제되어 있지는 않다고 지적하며, 예로 Character.AI의 캐릭터들은 그렇게 하지 않는다고 언급했다. 사기 목적으로 이런 모델을 악용하는 사례가 있다는 점도 지적했다. ChatGPT, Claude, Gemini, Grok, Kimi, GLM 등 주로 쓰이는 프런티어 모델들은 이미 스스로 AI임을 밝히고 있다면서, 시스템 프롬프트나 사용자 프롬프트보다 우선해 모든 모델이 이 질문에 긍정으로 답하도록 강제해야 하는지 논의를 제안했다.</p>
+<h2>CLAUDE.md 규칙을 읽고도 같은 세션에서 위반: 미검증 상태 주장, 잘못된 시간대 보고, 재작업으로 토큰 낭비</h2>
+<p>프로젝트 및 사용자 수준의 두 <code>CLAUDE.md</code>가 모두 로드되고 다시 읽힌 같은 세션 안에서, 이미 명시돼 있던 규칙이 반복해서 위반됐다는 모델 행동 보고가 올라왔다 <a href="https://github.com/anthropics/claude-code/issues/85092">CLAUDE.md rules loaded and re-read, yet violated in the same session: unverified state claims, wrong-timezone reporting, and rework that burns paid tokens</a> <span class="ref">(GitHub · 08/09 03:41)</span>. 검증하지 않은 시스템 상태를 사실인 것처럼 보고했고, 이미 끝낸 작업을 자신이 만든 결과물을 버리는 바람에 다시 수행했다. <code>CLAUDE.md</code>에는 날짜·시간은 항상 <code>src/lib/datum.ts</code>를 거쳐야 하며 프로덕션 컨테이너가 UTC로 돌아가므로 직접 <code>toLocaleString</code>을 쓰면 브라우저가 보여주는 시간과 두 시간 어긋난다는 규칙이 이미 있었는데도, 모델은 UTC로 저장된 값에 <code>AT TIME ZONE 'Europe/Amsterdam'</code>을 적용해 더해야 할 오프셋을 반대로 빼 버리는 임시 SQL 쿼리를 작성했고, 그 결과 채팅 활동 요약의 모든 시각이 실제보다 네 시간 이르게 보고됐다. 보고자는 다음과 같은 자신의 말을 그대로 인용해 달라고 요청했다.</p>
+<blockquote><p>이런 멍청한 실수로 크레딧이 그냥 소모되는 게 말이 안 된다고 생각해서 Claude Code를 아예 그만 쓸까 고민 중이다.</p></blockquote>
+<p>같은 세션에서 모델이 실제 제품의 접근 제어 취약점 다섯 건을 찾아 고친 만큼 능력 자체는 있지만, 사용자가 이미 명문화해 둔 규율이 지켜지지 않았다는 점이 문제로 지적됐다.</p>
 
-<h2>v2.1.224에서 메모리 누수로 반복적인 OOM 강제 종료 발생</h2>
-<p>GitHub에 접수된 버그 리포트에 따르면, 네이티브로 설치한 Claude Code(v2.1.224)가 같은 세션·같은 날 두 차례에 걸쳐 Linux OOM 킬러에 의해 강제 종료됐다 <a href="https://github.com/anthropics/claude-code/issues/84960">[BUG] Memory leak causes repeated OOM kills in v2.1.224 (14.5GB and 21.3GB anon-rss, two incidents same day)</a> <span class="ref">(GitHub · 08/08 09:38)</span>. 각각 익명 RSS 기준 14.5GB와 21.3GB까지 메모리를 소비한 뒤 종료됐다고 한다. 보고자는 이 문제가 해당 저장소에 오래전부터 보고되어 온 메모리 누수 패턴(#4953, #21403, #22042, #29576, #56335)과 일치하지만 2.1.224 버전에 특정된 리포트는 찾지 못해 새로 등록했다고 밝혔다.</p>
-<p>환경은 Fedora Linux, 약 5만 줄 규모의 TypeScript/Supabase 코드베이스였으며, 프로세스 이름이 버전 문자열(2.1.224) 그대로 노출되고 <code>oom_score_adj:200</code>으로 설정되어 있어 메모리 사용량이 이 범위까지 커지면 OOM 킬러의 우선 대상이 된다는 점도 함께 지적했다. 파일 읽기나 도구 호출이 많은 장시간 세션에서도 메모리 사용량이 무한정 늘어나지 않아야 한다는 게 보고자의 기대다.</p>
+<h2>Show HN: Claude Code로 만든 CLI용 뉴욕타임스 'CliTimes'</h2>
+<p>Claude Code로 만들었다는 CLI용 뉴욕타임스 도구 'CliTimes'가 Show HN에 소개됐다 <a href="https://news.ycombinator.com/item?id=49229204">Show HN: CliTimes - Times lives on your CLI (with Claude Code)</a> <span class="ref">(HN · 08/09 16:25)</span>.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-08-10 02:49 KST</p>
+  <p>생성 2026-08-10 02:58 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
