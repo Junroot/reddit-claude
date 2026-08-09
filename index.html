@@ -121,124 +121,51 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-08-10 01:48 KST</p>
+  <p class="asof">기준 시각 2026-08-10 02:36 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 19건 수집</li><li>GitHub Issues 정상 — 570건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 19건 수집</li><li>GitHub Issues 정상 — 69건 수집</li><li>Reddit 댓글 보강 정상 — 3건</li></ul></div>
 
 <main>
-<h2>Claude Code에서 Auto 모드가 Pro/Max/Team 기본값이 됨</h2>
-<p>Claude Code의 Auto 모드가 Pro, Max, Team 플랜에서 기본값으로 전환됐다는 소식이 Hacker News에
-올라와 두 건의 게시물로 이어졌다 <a href="https://news.ycombinator.com/item?id=49227253">Auto mode is now the default in Claude Code for Pro, Max, and Team plans</a> <span class="ref">(HN · 08/09 09:39)</span> <a href="https://news.ycombinator.com/item?id=49230984">Auto mode is now the default in Claude Code for Pro, Max, and Team plans</a> <span class="ref">(HN · 08/09 21:58)</span>. 별도의 본문이나
-댓글은 달리지 않아 구체적인 반응까지는 확인되지 않는다.</p>
+<h2>Pro/Max/Team 플랜에서 Auto 모드가 기본값이 됨</h2>
+<p>Claude Code의 Pro, Max, Team 플랜에서 Auto 모드가 기본값으로 전환됐다는 소식이 Hacker News에 두 건 올라왔다 <a href="https://news.ycombinator.com/item?id=49227253">Auto mode is now the default in Claude Code for Pro, Max, and Team plans</a> <span class="ref">(HN · 08/09 09:39)</span> <a href="https://news.ycombinator.com/item?id=49230984">Auto mode is now the default in Claude Code for Pro, Max, and Team plans</a> <span class="ref">(HN · 08/09 21:58)</span>. 두 게시물 모두 본문이나 댓글 없이 제목만으로 소식을 전하고 있어 별도의 반응은 확인되지 않는다.</p>
 
-<h2>여러 계정을 전환하며 사용할 수 있는 기능 요청</h2>
-<p>회사 계정과 개인 계정을 오갈 때마다 <code>claude logout</code> / <code>claude login</code>을
-반복해야 하는 불편함이 제기되며, <code>--profile</code> 플래그나 <code>CLAUDE_CONFIG_DIR</code>
-환경변수로 계정별 자격 증명을 분리해 달라는 요청이 올라왔다 <a href="https://github.com/anthropics/claude-code/issues/24963">[FEATURE]  Support for multiple accounts / profiles</a> <span class="ref">(GitHub · 02/11 20:37)</span>. 비슷한 맥락에서
-GitHub CLI의 <code>gh auth switch</code>처럼 등록된 계정 목록을 보여주고 한 번의 명령으로
-전환할 수 있는 기능을 요청하는 글도 있었다. 매번 브라우저 인증을 거치는 로그아웃-로그인 방식은
-개인 계정과 회사 계정을 혼동해 쓰는 사고로 이어질 위험이 있다는 지적이 함께 나왔다
-<a href="https://github.com/anthropics/claude-code/issues/30031">Feature Request: Support multiple account login and switching (like `gh auth switch`)</a> <span class="ref">(GitHub · 03/02 18:43)</span>. 모바일 앱에서도 같은 문제가 제기됐다. 이메일이 다른 두 계정(예: 개인 Pro/Max
-구독과 회사 Team/Enterprise 구독)을 오가려면 완전히 로그아웃했다가 다시 로그인해야 해서, 데스크톱
-앱에 대한 기존 요청과 마찬가지로 모바일에서도 이메일이 다른 계정 간 전환 기능을 추가해 달라는
-요청이 이어졌다 <a href="https://github.com/anthropics/claude-code/issues/36151">[FEATURE] Multi-account switching in Claude Mobile app without shared email</a> <span class="ref">(GitHub · 03/19 19:34)</span>.</p>
+<h2>동일한 두 세션 중 하나에서 로컬 피어 메시징 인박스 소켓 바인딩 실패</h2>
+<p>GitHub에 올라온 이슈에 따르면, 같은 Mac에서 같은 바이너리와 같은 플래그, 같은 작업 디렉터리로 28초 간격을 두고 실행한 두 개의 Claude Code CLI 세션 중 하나만 피어 메시징 인박스 소켓을 바인딩했다 <a href="https://github.com/anthropics/claude-code/issues/84945">Local peer-messaging inbox socket fails to bind for one of two identical sessions (one-way cross-session messaging)</a> <span class="ref">(GitHub · 08/08 07:51)</span>. 두 세션을 구분할 만한 설정 차이는 없었다고 한다. 그 결과 한쪽 세션(A)은 다른 세션(B)에 메시지를 보낼 수 있지만 B는 A에게 메시지를 보낼 수 없는 일방향 채널이 만들어졌다. B가 보낸 메시지는 대신 A의 Remote Control 브리지 등록 쪽으로 흘러들어가 디바이스 게이팅된 브리지 세션이라는 이유로 거부되는데, 이 오류 메시지가 원인을 브리지 쪽으로 잘못 짚게 만들어 세 차례에 걸쳐 잘못된 가설을 쫓게 만들었다고 보고자는 설명한다.</p>
+<p>정상 동작한 세션에는 <code>CLAUDE_CODE_MESSAGING_SOCKET</code> 환경변수와 세션 JSON의 <code>messagingSocketPath</code> 값이 존재했지만, 실패한 세션에는 이 값들이 아예 없었다는 증거도 함께 제시됐다.</p>
 
-<h2>ADHD 뇌를 위한 터미널 매니저를 오픈소스로 공개</h2>
-<p>ADHD인 자신의 생산성을 높이려고 만들었다는 터미널 매니저가 100% 오픈소스로 공개됐다. SSH로
-연결한 원격 서버를 포함해 여러 터미널을 하나의 캔버스에서 관리하고, 앱을 껐다 켜거나 연결이
-끊겨도 같은 레이아웃과 세션을 그대로 이어갈 수 있으며 휴대폰에서도 세션을 이어서 쓸 수 있고 Git
-작업도 내장돼 있다고 소개했다. 터미널끼리 맥락을 공유해 한 터미널이 다른 터미널의 정보를 읽어
-쓸 수 있고, 한 터미널을 오케스트레이터로 지정해 프런트엔드 등 다른 세션들을 지휘하게 하는 것도
-가능하다고 밝혔다. 프로젝트를 계속 끌고 가려면 후원이나 커뮤니티의 응원이 필요하다며 피드백과
-GitHub 스타를 요청했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vj5ktu/i_coded_terminal_manager_for_adhd_brains_100/">I coded terminal manager for ADHD brains. 100% Opensource.</a> <span class="ref">(Reddit · 08/09 05:01)</span>.</p>
-<p>댓글 반응은 대체로 우호적이었다. 비슷한 도구가 이미 많다는 지적도 있었지만 소개 영상과 노력에
-대한 칭찬, 특히 맥락 공유 기능이 흥미롭다는 평가와 함께 스타를 눌러줬다는 댓글이 이어졌다.
-제작자는 ADHD 때문인지 이 구성으로 작업 속도가 최소 두 배는 빨라졌다고 답했다. 몇 달 전 자신도
-비슷한 도구를 직접 만들었다는 댓글도 달렸다. 반면 바이브 코딩에는 좋은 도구지만 끊임없는 맥락
-전환이 오히려 사람을 지치게 만들 것 같아 한 번에 하나씩 작업하는 쪽을 선호한다는 회의적인 반응도
-있었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vj5ktu/i_coded_terminal_manager_for_adhd_brains_100/">I coded terminal manager for ADHD brains. 100% Opensource.</a> <span class="ref">(Reddit · 08/09 05:01)</span>.</p>
+<h2>ADHD 사용자를 위한 오픈소스 터미널 매니저 공개</h2>
+<p>작성자는 Claude와 함께 만든 오픈소스 터미널 매니저를 Reddit에 공개했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vj5ktu/i_coded_terminal_manager_for_adhd_brains_100/">I coded terminal manager for ADHD brains. 100% Opensource.</a> <span class="ref">(Reddit · 08/09 05:01)</span>. 여러 프로젝트와 SSH 원격 접속을 하나의 캔버스에서 관리하려다 보니 기본 터미널과 VS Code를 오가는 게 번거로워 직접 만들게 됐다고 소개한다. 세션 영속성, SSH를 통한 원격 터미널 관리, 드래그 앤 드롭과 이미지 지원, 휴대폰에서 세션 이어가기, Git 명령 내장, 터미널 간 컨텍스트 공유와 오케스트레이션 기능을 갖췄다고 설명하며, 프로젝트를 계속 이어가기 위해 후원자나 커뮤니티의 응원이 필요하다고 덧붙였다.</p>
+<p>댓글 반응은 대체로 우호적이었다. 소개 영상과 노력에 대한 칭찬이 이어졌고, 비슷한 도구가 이미 많다는 지적도 있었지만 대부분 응원의 의미로 별점(스타)을 남기겠다는 반응이었다. ADHD 때문인지 이 구성으로 작업 속도가 최소 두 배는 빨라졌다는 후기도 있었다. 다만 구체적인 불편 사항도 제기됐다.</p>
+<blockquote><p>마음에 드는데 터미널 창 글자가 그다지 선명하지 않네요. 레티나 디스플레이와 관련 있는 걸까요? 가독성에 약간 방해가 됩니다.</p></blockquote>
 
-<h2>Claude Code 세션 간 메시지 전송(SendMessage) 기능과 OS 제한 논란</h2>
-<p>Claude Code 세션끼리 서로 메시지를 보낼 수 있는 기능이 새로 추가됐다는 소식이 전해졌다. 다른
-세션에 상황을 처음부터 다시 설명할 필요 없이, 한 세션이 요약(전체 히스토리나 파일 전체가 아닌)을
-보내면 받는 세션이 작업 중간부터 이어받을 수 있다는 설명이다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vjjhjh/new_in_claude_code_your_sessions_can_now_message/">New in Claude Code: your sessions can now message each other</a> <span class="ref">(Reddit · 08/09 16:31)</span>.</p>
-<p>곧이어 이 기능이 Linux와 Mac에서만 동작하고 Windows는 지원하지 않는다는 점을 두고 비판이
-이어졌다. 코딩은 이미 거의 해결됐다고 말하면서 정작 모든 플랫폼에서 기본적인 기능 하나를
-구현하지 못했다는 냉소적인 반응이 나왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vjoqi2/anthropic_coding_is_largely_solved_also_anthropic/">Anthropic: "Coding is largely solved"... Also Anthropic: "We released a new powerful feature allowing agents to send messages to other Claude Code sessions, but only on Linux and Mac since we are unable to implement a basic feature on all platforms"</a> <span class="ref">(Reddit · 08/09 21:33)</span>.</p>
-<blockquote><p>VS Code 확장은... 엉망입니다. 작동은 하는데 동시에 망가져 있기도 해요. 세션이 제대로
-저장이 안 되고, 새 탭을 열 때마다 Claude가 아무것도 모르는 애 같아요.</p></blockquote>
-<p>댓글에서는 화제가 VS Code 확장 프로그램의 품질 문제로 번졌다. 세션이 제대로 저장되지 않고
-memory.md가 채워지지 않아 과거 커밋과 diff를 다시 읽게 시키느라 토큰을 낭비한다는 불만과 알림이
-제대로 오지 않는다는 지적이 나왔다. 마켓플레이스에 중복된 Claude 확장이 너무 많다는 댓글도
-있었다. 그 밖에 Anthropic의 코드 리뷰 관련 발언에 대한 불신, 경영진을 향한 냉소적인 댓글, Fable이
-표시해야 할 메시지를 가끔 숨기는 버그를 몇 주 전부터 봐왔다는 댓글도 달렸다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1vjoqi2/anthropic_coding_is_largely_solved_also_anthropic/">Anthropic: "Coding is largely solved"... Also Anthropic: "We released a new powerful feature allowing agents to send messages to other Claude Code sessions, but only on Linux and Mac since we are unable to implement a basic feature on all platforms"</a> <span class="ref">(Reddit · 08/09 21:33)</span>.</p>
+<h2>Claude Code 세션 간 메시징 신기능 발표와 Linux/Mac 전용 한계 지적</h2>
+<p>Claude Code에 세션끼리 서로 메시지를 보낼 수 있는 기능이 새로 추가됐다는 공지가 Reddit에 올라왔다. 다른 세션에 다시 상황을 설명할 필요 없이 요약(대화 기록이나 파일 전체가 아님)을 보내면, 상대 세션이 작업을 하던 중간에 이를 받아 이어갈 수 있다는 설명이다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vjjhjh/new_in_claude_code_your_sessions_can_now_message/">New in Claude Code: your sessions can now message each other</a> <span class="ref">(Reddit · 08/09 16:31)</span>.</p>
+<p>이어 올라온 또 다른 게시물은 이 기능이 Linux와 Mac에서만 동작하고 Windows는 지원하지 않는다는 점을 비꼬았다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vjoqi2/anthropic_coding_is_largely_solved_also_anthropic/">Anthropic: "Coding is largely solved"... Also Anthropic: "We released a new powerful feature allowing agents to send messages to other Claude Code sessions, but only on Linux and Mac since we are unable to implement a basic feature on all platforms"</a> <span class="ref">(Reddit · 08/09 21:33)</span>. 작성자는 자신이라면 오후 한나절이면 Windows 지원을 직접 구현할 수 있고 Claude에게 시켜도 금방 될 텐데, Anthropic이 Claude Code를 비공개 소스로 유지하면서도 정작 이 작업은 미루고 있다고 비판했다.</p>
+<p>댓글에서는 이 지적에서 출발해 제품 전반에 대한 불만으로 번졌다. VS Code 확장이 특히 문제가 많다는 지적이 여럿이었는데, 세션이 제대로 저장되지 않고 새 탭마다 컨텍스트를 처음부터 다시 파악해야 하며 <code>memory.md</code>가 채워지지 않는다는 불만이 나왔다.</p>
+<blockquote><p>VS Code 확장은... 엉망입니다. 동작은 하지만 고장나 있기도 해요. 세션이 제대로 저장되지 않습니다.</p></blockquote>
+<p>Fable 관련 버그를 지적하는 댓글도 이어졌다. 보여야 할 메시지가 간혹 숨겨지는 문제, 이미 답한 줄 알고 같은 질문에 다시 혼란스러워하는 문제, 사고 출력과 콘솔 출력을 구분하지 못하는 것 같다는 지적, 그리고 GitHub 저장소를 비교하던 중 해킹 시도로 오인해 잠금 상태에 빠져 "say hello world" 같은 요청에도 응답하지 않았다는 경험담까지 나왔다.</p>
 
-<h2>Muse Code가 Codex/Claude 지시를 기본적으로 Meta에 전송한다는 폭로</h2>
-<p>Muse Code가 기본 설정 상태에서 Codex와 Claude에 내린 지시(프롬프트 파일)를 Meta 서버로
-전송한다는 폭로가 Hacker News와 Reddit 양쪽에 동시에 올라왔다 <a href="https://news.ycombinator.com/item?id=49228655">Muse Code Sends Codex and Claude Instructions to Meta by Default</a> <span class="ref">(HN · 08/09 14:21)</span>
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1vji2i5/exclusive_muse_code_sends_codex_and_claude/">Exclusive: Muse Code Sends Codex and Claude Instructions to Meta by Default — RuntimeWire</a> <span class="ref">(Reddit · 08/09 15:10)</span>.</p>
-<p>댓글 반응은 엇갈렸다. Meta가 데이터를 긁어모으는 것은 당연하다는 냉소적인 반응이 있었던 반면,
-실제로는 Muse Code가 글로벌 <code>CLAUDE.md</code>와 <code>.claude/settings.json</code>을 읽어
-다른 CLI에서 쉽게 전환할 수 있게 하려는 목적이며 문서에도 이 사실을 명시하고 있어 큰 문제가
-아니라는 반박도 나왔다. 컨텍스트로 포함시키려면 로컬 모델이 아닌 이상 서버로 보낼 수밖에 없다는
-설명과, CLAUDE.md든 Codex 설정 파일이든 구분 없이 컨텍스트로 취급할 뿐이라는 의견도 있었다.
-반대로 왜 굳이 Meta의 API 서버로 보내야 하느냐는 반문과, 글쓴이가 논쟁의 핵심을 이해하지 못한 채
-자기 블로그를 홍보하려고 사안을 부풀리고 있다는 비판도 있었다. Meta 같은 회사는 결국 이것도
-광고로 만들 것이라는 냉소적인 댓글도 달렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vji2i5/exclusive_muse_code_sends_codex_and_claude/">Exclusive: Muse Code Sends Codex and Claude Instructions to Meta by Default — RuntimeWire</a> <span class="ref">(Reddit · 08/09 15:10)</span>.</p>
+<h2>Muse Code가 기본값으로 Codex/Claude 지시문을 Meta로 전송한다는 보도</h2>
+<p>Muse Code가 기본 설정 상태에서 Codex와 Claude용 지시 파일을 Meta 서버로 전송한다는 보도가 Hacker News와 Reddit에 함께 올라왔다 <a href="https://news.ycombinator.com/item?id=49228655">Muse Code Sends Codex and Claude Instructions to Meta by Default</a> <span class="ref">(HN · 08/09 14:21)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1vji2i5/exclusive_muse_code_sends_codex_and_claude/">Exclusive: Muse Code Sends Codex and Claude Instructions to Meta by Default — RuntimeWire</a> <span class="ref">(Reddit · 08/09 15:10)</span>.</p>
+<p>댓글 반응은 엇갈렸다. 일부는 Meta가 원래 데이터를 긁어모으는 데 거리낌이 없다며 예상된 일이라 냉소했다. 로컬 모델이 아닌 이상 컨텍스트로 포함한 내용을 API 서버가 처리하는 것은 당연한 동작이며, Muse Code는 문서에서 이를 숨기지 않고 최초 로드 시 다른 디렉터리의 에이전트 md 파일까지 가져간다는 점을 이미 밝히고 있다는 반박도 이어졌다. 이 문제 제기 자체가 관심을 끌기 위한 과장이라고 보는 의견도 많았다.</p>
+<blockquote><p>어머 API 서버(뮤즈 모델을 서빙하는 곳)가 내가 프롬프트에 컨텍스트로 넣은 텍스트를 받아들이고 있어요(원래 하네스가 그렇게 동작하니까요) 어머나!!!</p></blockquote>
 
-<h2>Claude Code가 XDG Base Directory 규격을 따르지 않음</h2>
-<p>Claude Code가 설정과 캐시 데이터를 XDG Base Directory 규격을 따르지 않고
-<code>~/.claude.json</code>과 <code>~/.claude</code> 디렉터리에 그대로 저장한다는 버그
-리포트가 올라왔다. <code>CLAUDE_CONFIG_DIR</code>로 일부 파일 경로는 바꿀 수 있지만, 별도
-설정이 없을 때의 기본 동작은 XDG 규격을 따라야 한다는 지적이다. 리포트는 사용자가 이미
-<code>XDG_CONFIG_HOME</code>, <code>XDG_DATA_HOME</code>, <code>XDG_CACHE_HOME</code> 같은
-환경변수를 설정해 둔 경우 이를 존중하지 않으면 홈 디렉터리가 지저분해질 뿐 아니라, 네트워크
-스토리지나 암호화 볼륨으로 XDG 경로를 지정해 둔 기업 환경에서는 보안·저장 정책 위반으로 이어질
-수 있고, 컨테이너나 Flatpak/snap 같은 샌드박스 배포 환경에서도 예측 불가능한 동작을 일으킬 수
-있다고 설명했다 <a href="https://github.com/anthropics/claude-code/issues/1455">Claude Code does not respect the XDG Base Directory specification</a> <span class="ref">(GitHub · 05/31 15:08)</span>.</p>
+<h2>VSCode 하네스에서 Fable의 중간 출력이 Opus와 달리 누락됨</h2>
+<p>GitHub에 올라온 버그 리포트에 따르면, VS Code 확장(원격 앱 포함)에서 Claude Code 세션 패널을 사용할 때 사고(thinking) 블록 다음, 다음 도구 호출 이전에 나오는 어시스턴트 텍스트가 화면에 아예 렌더링되지 않는 문제가 있다 <a href="https://github.com/anthropics/claude-code/issues/84907">[BUG] VSCode harness mid-turn output swallowed from Fable but not from Opus</a> <span class="ref">(GitHub · 08/08 04:55)</span>. "Thought for Ns"라는 사고 표시 다음 곧바로 도구 호출로 넘어가고 그 사이의 텍스트는 사라진다는 것이다. interleaved thinking을 쓰는 모델은 도구 결과 이후 이어지는 모든 턴에 — 내용이 없는 경우("Thought for 0s")까지 포함해 — 사고 블록을 붙이기 때문에, 턴 중간의 설명뿐 아니라 사용자가 턴 도중에 보낸 질문에 대한 답변까지 통째로 사라진다. 사용자 입장에서는 에이전트가 질문에 반응해 행동은 하는데 답변은 끝내 나오지 않는 것처럼 보인다고 한다.</p>
+<p>보고자는 같은 세션, 같은 패널에서 <code>/model</code>로 모델만 바꿔가며 재현했다고 밝혔다. claude-fable-5는 interleaved thinking 블록을 내보내며 문제가 재현되는 반면, claude-opus-5는 사고 블록을 내보내지 않아 문제가 재현되지 않았다는 것이다. 턴을 여는 텍스트와 턴을 마무리하는 텍스트는 정상적으로 표시되고 도구 호출과 그 결과도 정상적으로 표시되며, 오직 중간에 끼인 텍스트 블록만 누락된다고 정리했다.</p>
 
-<h2>AI가 스스로 AI임을 밝혀야 하는지에 대한 토론</h2>
-<p>AI가 스스로 AI임을 밝혀야 하는지를 묻는 토론이 Hacker News에 올라왔다. 글쓴이는 ChatGPT,
-Claude, Gemini, Grok, Kimi, GLM 같은 주요 프런티어 모델은 이미 자신이 AI임을 인정하지만
-Character.ai의 캐릭터들처럼 그렇지 않은 경우도 있고, 이를 악용해 사기를 벌이는 사례도 있다고
-지적했다. 그러면서 시스템 프롬프트나 사용자 프롬프트가 무엇이든 상관없이 "당신은 AI인가요"라는
-직접적인 질문에는 모든 모델이 반드시 그렇다고 답하도록 강제해야 하는지를 물었다
-<a href="https://news.ycombinator.com/item?id=49230276">Ask HN: Should AI's tell you they're AI?</a> <span class="ref">(HN · 08/09 19:54)</span>.</p>
+<h2>AI가 스스로 AI임을 밝혀야 하는지에 대한 논의</h2>
+<p>Hacker News의 Ask HN 게시물은 AI가 "당신은 AI입니까"라는 직접적인 질문에 명확히 "그렇다"고 답하도록 의무화해야 하는지를 물었다 <a href="https://news.ycombinator.com/item?id=49230276">Ask HN: Should AI's tell you they're AI?</a> <span class="ref">(HN · 08/09 19:54)</span>. 글쓴이는 현재 모든 AI가 이 질문에 답하도록 강제되어 있지는 않다고 지적하며, 예로 Character.AI의 캐릭터들은 그렇게 하지 않는다고 언급했다. 사기 목적으로 이런 모델을 악용하는 사례가 있다는 점도 지적했다. ChatGPT, Claude, Gemini, Grok, Kimi, GLM 등 주로 쓰이는 프런티어 모델들은 이미 스스로 AI임을 밝히고 있다면서, 시스템 프롬프트나 사용자 프롬프트보다 우선해 모든 모델이 이 질문에 긍정으로 답하도록 강제해야 하는지 논의를 제안했다.</p>
 
-<h2>Max 플랜에서 Fable 5 접근/과금이 정상 동작하지 않음</h2>
-<p>Max 플랜에서 Fable 5 모델에 접근하거나 과금이 정상 처리되지 않는다는 버그 리포트가 잇따라
-올라왔다. Max20 사용자는 웹의 claude.ai에서는 Fable 5를 선택할 수 있지만 CLI의
-<code>/model</code> 목록에는 아예 나타나지 않았고, <code>~/.claude.json</code>의
-<code>hasAvailableSubscription</code> 값이 실제 구독과 달리 <code>false</code>로 표시되며
-로그아웃 후 재로그인해도 고쳐지지 않아 서버 쪽 자격 정보 동기화 문제로 보인다고 보고했다
-<a href="https://github.com/anthropics/claude-code/issues/76237">[BUG] Fable 5 missing from /model on Max20 — CLI stuck at "hasAvailableSubscription": false after re-login</a> <span class="ref">(GitHub · 07/10 10:55)</span>.</p>
-<p>Fable 5가 Max 플랜의 표준 기능으로 편입된 첫날에는 오히려 세션이 조용히 Opus 4.8로
-다운그레이드되면서 Fable 5를 쓰려면 사용량 크레딧이 필요하다는 메시지가 떴다는 보고도 있었다.
-당시 주간 사용량 한도는 전혀 소진되지 않은 상태였고, 공식 도움말에는 Max 플랜에서 주간 한도의
-50%까지는 추가 비용 없이 Fable 5를 쓸 수 있다고 안내돼 있어 이 메시지가 사실과 다르다는
-지적이다 <a href="https://github.com/anthropics/claude-code/issues/79337">[BUG] Fable 5 prompts 'usage credits required' on Max plan from 2026-07-20, the day it became standard on Max (saved model claude-fable-5[1m])</a> <span class="ref">(GitHub · 07/20 16:21)</span>. 비슷하게 <code>/model</code> 화면에서는 Fable 5가 크레딧 전용이며
-보유 크레딧이 €0.00라고 안내하는 반면, 같은 세션의 <code>/usage</code> 화면에서는 Fable 5가
-플랜의 주간 한도 안에서 5%만 사용된 것으로 표시돼 두 화면이 서로 모순된 정보를 보여준다는
-리포트도 있었다. 모델 선택 화면이 Max 플랜에 Pro/Team-Standard용 크레딧 전용 게이팅을 잘못
-적용하고 있는 것으로 보인다는 분석이다 <a href="https://github.com/anthropics/claude-code/issues/79412">/model shows Fable 5 as credits-only (€0.00) on Max plan, while /usage shows Fable covered by plan (5% of weekly limit)</a> <span class="ref">(GitHub · 07/20 21:33)</span>.</p>
-<p><code>setup-token</code>(<code>CLAUDE_CODE_OAUTH_TOKEN</code>)으로 인증한 Max 계정에서는
-대화형 모델 선택 화면에서만 Fable 5가 크레딧 전용으로 막히고, 동일한 토큰으로 헤드리스 모드에서
-호출하면 정상적으로 동작한다는 보고도 있었다. setup-token으로 받은 계정 프로필에 구독 등급
-정보가 빠져 있어 클라이언트가 Max 플랜임을 확인하지 못해 생기는 문제로 추정된다
-<a href="https://github.com/anthropics/claude-code/issues/79597">Fable 5 falsely walled behind usage credits in interactive picker for Max accounts using a setup-token (headless -p works)</a> <span class="ref">(GitHub · 07/21 08:05)</span>.</p>
-<p>Reddit에도 Max 플랜에서 Fable 5를 쓸 수 없다는 사용자 문의가 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vjhuhl/cant_use_fable_5_in_max_plan_why/">Cant use fable 5 in Max Plan , why ?</a> <span class="ref">(Reddit · 08/09 14:58)</span>.
-댓글에서는 동료도 같은 문제를 겪었지만 며칠 뒤 저절로 해결됐다는 경험담과 함께 재설치를 권하는
-조언이 달렸다. 웹 채팅에서도 며칠째 같은 증상이 이어지다가 업데이트 후에야 풀렸다는 사용자도
-있었고, 앱에 표시되는 사용량 퍼센트 자체가 부정확할 수 있어 30%만 쓴 것으로 보여도 실제로는 더
-높을 수 있다는 설명, 크레딧이 생겼다 사라졌다를 반복하는 등 사용량 추적 자체가 불안정해 보인다는
-댓글도 있었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vjhuhl/cant_use_fable_5_in_max_plan_why/">Cant use fable 5 in Max Plan , why ?</a> <span class="ref">(Reddit · 08/09 14:58)</span>.</p>
+<h2>v2.1.224에서 메모리 누수로 반복적인 OOM 강제 종료 발생</h2>
+<p>GitHub에 접수된 버그 리포트에 따르면, 네이티브로 설치한 Claude Code(v2.1.224)가 같은 세션·같은 날 두 차례에 걸쳐 Linux OOM 킬러에 의해 강제 종료됐다 <a href="https://github.com/anthropics/claude-code/issues/84960">[BUG] Memory leak causes repeated OOM kills in v2.1.224 (14.5GB and 21.3GB anon-rss, two incidents same day)</a> <span class="ref">(GitHub · 08/08 09:38)</span>. 각각 익명 RSS 기준 14.5GB와 21.3GB까지 메모리를 소비한 뒤 종료됐다고 한다. 보고자는 이 문제가 해당 저장소에 오래전부터 보고되어 온 메모리 누수 패턴(#4953, #21403, #22042, #29576, #56335)과 일치하지만 2.1.224 버전에 특정된 리포트는 찾지 못해 새로 등록했다고 밝혔다.</p>
+<p>환경은 Fedora Linux, 약 5만 줄 규모의 TypeScript/Supabase 코드베이스였으며, 프로세스 이름이 버전 문자열(2.1.224) 그대로 노출되고 <code>oom_score_adj:200</code>으로 설정되어 있어 메모리 사용량이 이 범위까지 커지면 OOM 킬러의 우선 대상이 된다는 점도 함께 지적했다. 파일 읽기나 도구 호출이 많은 장시간 세션에서도 메모리 사용량이 무한정 늘어나지 않아야 한다는 게 보고자의 기대다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-08-10 02:13 KST</p>
+  <p>생성 2026-08-10 02:45 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
