@@ -24,7 +24,7 @@
 - [x] 3.2 Reddit 수집을 구현한다. `top/.rss?t=day` 요청 1회, `xml.etree.ElementTree`로 Atom 네임스페이스를 다루며 파싱, 피드 나열 순서를 보존
 - [x] 3.3 Reddit 결과에서 게시 48시간을 넘긴 글을 제외하고, 남은 글의 상대 순서를 유지한 채 Reddit 등수를 1부터 다시 부여한다. 원래 피드 위치 번호는 등수로 쓰지 않는다
 - [x] 3.4 Hacker News 수집을 구현한다. Algolia 검색어 `Claude Code`, `created_at` 24시간 이내, `points`와 `num_comments` 추출
-- [x] 3.5 GitHub Issues 수집을 구현한다. `anthropics/claude-code`, `updated_at` 24시간 이내, 페이지네이션 처리
+- [x] 3.5 GitHub Issues 수집을 구현한다. `anthropics/claude-code`, **`created_at` 48시간 이내**, 생성 시각 내림차순으로 받아 창을 벗어나면 조기 종료, 페이지네이션 처리 (`updated_at`은 라벨 변경만으로도 갱신되어 수백 일 된 이슈가 섞이고 누적 신호가 등수를 왜곡한다. design.md D14)
 - [x] 3.6 GitHub 결과에서 `pull_request` 필드가 있는 항목을 제외한다
 - [x] 3.6a GitHub 결과에서 댓글 수와 리액션 수의 합이 0인 이슈를 제외하고, 제외한 건수를 `status.json`의 GitHub 항목에 `filtered`로 기록한다. 실패와 구분해서 센다 (첫 시운전에서 드러난 입력 규모 문제로 추가됨, design.md D14)
 - [x] 3.7 `status.json`을 요청 단위로 기록한다. 성공한 날에도 항상 생성한다

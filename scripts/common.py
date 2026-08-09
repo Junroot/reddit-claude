@@ -105,8 +105,8 @@ def blank_status(generated_at: str) -> dict:
     return {
         "generated_at": generated_at,
         # `filtered`는 요청은 성공했지만 수집 조건에 걸려 버린 항목 수다. 지금은
-        # GitHub의 반응 없는 이슈만 여기 잡힌다. 실패와 구분해서 세야 "그날 논의가
-        # 적었다"와 "우리가 걸러냈다"를 나중에 가려낼 수 있다.
+        # 시간 창 안에 있으나 이슈가 아닌 GitHub Pull Request가 여기 잡힌다. 실패와
+        # 구분해서 세야 "그날 논의가 적었다"와 "우리가 걸러냈다"를 가려낼 수 있다.
         "sources": {
             "reddit": {"requested": 0, "ok": 0, "failed": 0, "items": 0, "filtered": 0},
             "hn": {"requested": 0, "ok": 0, "failed": 0, "items": 0, "filtered": 0},

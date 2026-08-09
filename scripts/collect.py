@@ -44,28 +44,39 @@ REDDIT_FEED = f"https://www.reddit.com/r/{SUBREDDIT}/top/.rss?t=day"
 HN_QUERY = "Claude Code"
 GITHUB_REPO = "anthropics/claude-code"
 
-# Reddit에만 48시간을 주는 이유는 어제 저녁에 올라와 밤새 표를 모은 글을
-# 지키기 위해서다. top?t=day가 그 글을 상위로 올렸다는 사실 자체가 커뮤니티의
-# 판단이므로 시각으로 뒤집지 않는다. 48시간은 Reddit이 이따금 훨씬 오래된 글을
-# 순위에 올려보내는 경우만 막는 안전장치다.
+# 시간 창은 소스마다 다르다. 통일하면 각 소스에서 그날 가장 중요한 것을 버리게 된다.
+# 페이지에 기준 시각과 항목별 게시 시각을 표시해 독자가 판단하게 한다.
+#
+#   Reddit  48시간  어제 저녁에 올라와 밤새 표를 모은 글을 지킨다. top?t=day가 그
+#                   글을 상위로 올렸다는 사실 자체가 커뮤니티의 판단이므로 시각으로
+#                   뒤집지 않는다. 48시간은 Reddit이 이따금 훨씬 오래된 글을 순위에
+#                   올려보내는 경우만 막는 안전장치다.
+#   HN      24시간  검색 결과가 시각 기준으로 깔끔하게 잘린다.
+#   GitHub  48시간  이슈는 열린 당일에 반응이 다 붙지 않는다. 24시간으로 자르면
+#                   그날 열려 이튿날부터 논의가 붙은 이슈를 통째로 놓친다. Reddit과
+#                   같은 폭으로 두어 두 소스가 같은 사건을 다룰 때 한쪽만 창에 걸려
+#                   교차 주제가 반쪽이 되는 일을 줄인다.
 REDDIT_MAX_AGE_HOURS = 48
-OTHER_MAX_AGE_HOURS = 24
+HN_MAX_AGE_HOURS = 24
+GITHUB_MAX_AGE_HOURS = 48
 
 ATOM = {"atom": "http://www.w3.org/2005/Atom"}
 
-# 24시간 창을 서버 쪽에서 걸러도 페이지가 넘칠 수 있다. 폭주를 막는 상한이며,
-# 여기에 걸리면 로그로 알린다.
+# 생성 시각 내림차순으로 받아 창을 벗어나면 멈춘다. 이 상한은 이슈가 폭증한 날의
+# 안전장치이며, 걸리면 로그로 알린다.
 GITHUB_MAX_PAGES = 10
 
-# GitHub은 `updated_at` 기준이라 라벨이 붙거나 상태만 바뀐 이슈도 갱신으로 잡힌다.
-# 실측에서 24시간에 831건이 들어왔고 그중 262건은 댓글도 리액션도 0건이었다.
-# 그 규모를 1차 LLM에 그대로 넘기면 주제 묶기가 성립하지 않으므로, 반응이 하나도
-# 없는 이슈는 "지난 24시간의 논의"로 보지 않고 수집에서 제외한다.
+# 창 안에 열린 이슈 중 아무도 반응하지 않은 것은 제외한다. 실측에서 24시간에 216건이
+# 열렸는데 그중 190건이 댓글 0건이었다.
 #
-# 대가가 있다. 댓글 0건인 갓 열린 이슈가 Reddit 글과 같은 사건인 날에는 그 교차
-# 주제의 GitHub 쪽 재료가 사라진다. 소스 다양성 배수가 그런 주제를 위로 올리는
-# 장치인데 재료가 없으면 헛돈다. 얼마나 버려지는지 status.json에 남겨 두는 것은
-# 나중에 이 값을 다시 판단하기 위해서다.
+# 이 조건이 `updated_at` 시절과 성격이 다르다는 점이 중요하다. 그때는 댓글 수가
+# 이슈가 열린 이래의 누적값이라 143일 된 이슈도 통과했고 등수까지 왜곡했다. 생성
+# 시각으로 자른 뒤에는 창 안에 열린 이슈만 남으므로, 반응이 있다는 것은 그 창 안에서
+# 실제로 누군가 응답했다는 뜻이다. 신호가 낡지 않는다.
+#
+# 대가는 남는다. 창 안에 열렸고 아직 답이 없는 이슈가 같은 날 Reddit 글과 같은 사건을
+# 다루면 그 교차 주제의 GitHub 쪽 재료가 사라진다. 얼마나 버려지는지 status.json에
+# 남겨 나중에 다시 판단한다.
 GITHUB_MIN_ENGAGEMENT = 1
 
 
@@ -163,7 +174,7 @@ def collect_hn(entry: dict, now_dt: datetime, out: list) -> None:
 
     24시간 안에 결과가 하나도 없는 것은 실패가 아니라 조용한 날이다.
     """
-    cutoff = int(now_dt.timestamp()) - OTHER_MAX_AGE_HOURS * 3600
+    cutoff = int(now_dt.timestamp()) - HN_MAX_AGE_HOURS * 3600
     url = (
         "https://hn.algolia.com/api/v1/search_by_date?"
         + urllib.parse.urlencode({
@@ -205,12 +216,27 @@ def collect_hn(entry: dict, now_dt: datetime, out: list) -> None:
 # ── GitHub Issues ───────────────────────────────────────────────────────────
 
 def collect_github(entry: dict, now_dt: datetime, out: list) -> None:
-    """anthropics/claude-code의 이슈 중 24시간 안에 갱신된 것을 모은다(3.5).
+    """anthropics/claude-code의 이슈 중 48시간 안에 **생성된** 것을 모은다(3.5).
 
-    updated_at 기준이므로 사흘 전에 열린 이슈라도 오늘 댓글이 달렸으면 대상이
-    된다. "지난 24시간의 논의"라는 정의에 이쪽이 맞다.
+    갱신 시각이 아니라 생성 시각으로 자른다. `updated_at`은 라벨이 붙거나 담당자나
+    상태만 바뀌어도 갱신되는데, 실측에서 그렇게 들어온 570건 중 80%가 30일 넘게 전에
+    열린 이슈였고 가장 오래된 것은 435일 전이었다. 더 나쁜 것은 등수였다. 응답의
+    댓글 수와 리액션 수는 이슈가 열린 이래의 누적값이라, 라벨 하나 바뀐 143일 된
+    이슈가 누적 리액션 765건으로 GitHub 1위를 차지했다. 그날 무슨 일이 있었는지와
+    무관한 순위다.
+
+    생성 시각으로 자르면 이 문제가 사라진다. 창 안에 열린 이슈는 누적 댓글과 리액션이
+    곧 그 창 안의 활동이므로 신호가 시간 범위를 벗어나지 않는다. 그 위에 반응이
+    하나도 없는 이슈를 거르는 조건을 얹는다(GITHUB_MIN_ENGAGEMENT).
+
+    대가가 둘이다. 48시간보다 전에 열린 이슈에 오늘 활발한 토론이 붙어도 수집되지
+    않는다 — 실측한 날에는 오늘 댓글이 11건 달린 오래된 이슈가 있었고 그런 논의는
+    빠진다. 그리고 창 안에 열렸으나 아직 답이 없는 이슈도 빠진다.
+
+    생성 시각 내림차순으로 받아 창을 벗어나는 첫 항목에서 멈춘다. 이슈 생성량이
+    하루 수백 건 규모이므로 보통 요청 서너 회로 끝난다.
     """
-    since = common.to_iso(now_dt - timedelta(hours=OTHER_MAX_AGE_HOURS))
+    cutoff = now_dt - timedelta(hours=GITHUB_MAX_AGE_HOURS)
     headers = {
         "User-Agent": common.BOT_UA,
         "Accept": "application/vnd.github+json",
@@ -222,15 +248,15 @@ def collect_github(entry: dict, now_dt: datetime, out: list) -> None:
 
     seen_pull_requests = 0
     seen_unengaged = 0
+    reached_cutoff = False
     for page in range(1, GITHUB_MAX_PAGES + 1):
         url = (
             f"https://api.github.com/repos/{GITHUB_REPO}/issues?"
             + urllib.parse.urlencode({
                 "state": "all",
-                "sort": "updated",
+                "sort": "created",
                 "direction": "desc",
                 "per_page": 100,
-                "since": since,
                 "page": page,
             })
         )
@@ -239,7 +265,15 @@ def collect_github(entry: dict, now_dt: datetime, out: list) -> None:
             break
 
         for row in rows:
+            published_raw = row.get("created_at") or ""
+            published = common.parse_iso(published_raw)
+            if published is not None and published < cutoff:
+                # 생성 시각 내림차순이므로 여기서부터는 전부 창 밖이다.
+                reached_cutoff = True
+                break
+
             # 이 엔드포인트는 Pull Request를 이슈로 섞어 반환한다(3.6).
+            # PR도 창 안에 있는지 판정한 뒤에 걸러야 조기 종료가 어긋나지 않는다.
             if "pull_request" in row:
                 seen_pull_requests += 1
                 continue
@@ -248,15 +282,13 @@ def collect_github(entry: dict, now_dt: datetime, out: list) -> None:
             if number is None:
                 continue
 
+            # 오늘 열린 이슈이므로 이 누적값이 곧 오늘의 활동량이다.
             reactions = ((row.get("reactions") or {}).get("total_count")) or 0
             comments = row.get("comments") or 0
             if reactions + comments < GITHUB_MIN_ENGAGEMENT:
-                # 반응이 하나도 없는 이슈는 논의로 보지 않는다.
                 seen_unengaged += 1
                 continue
 
-            published_raw = row.get("created_at") or ""
-            published = common.parse_iso(published_raw)
             out.append({
                 "item_id": f"gh_{number}",
                 "source": "github",
@@ -279,14 +311,14 @@ def collect_github(entry: dict, now_dt: datetime, out: list) -> None:
                 },
             })
 
-        if len(rows) < 100:
+        if reached_cutoff or len(rows) < 100:
             break
     else:
         print(f"[github] 경고: 페이지 상한 {GITHUB_MAX_PAGES}에 걸렸다. 일부 이슈가 빠졌을 수 있다")
 
     entry["filtered"] = seen_unengaged
-    print(f"[github] 이슈 {len(out)}건 "
-          f"(Pull Request {seen_pull_requests}건, 반응 없는 이슈 {seen_unengaged}건 제외)")
+    print(f"[github] {GITHUB_MAX_AGE_HOURS}시간 내 생성된 이슈 {len(out)}건 "
+          f"(반응 없는 이슈 {seen_unengaged}건, 같은 창의 Pull Request {seen_pull_requests}건 제외)")
 
 
 # ── 실행 ────────────────────────────────────────────────────────────────────

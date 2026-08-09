@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""수집 단계에서 항목을 걸러내는 규칙 테스트 (3.6, 3.6a).
+"""수집 단계에서 항목을 걸러내는 규칙 테스트 (3.5, 3.6).
 
 거르는 규칙은 조용히 틀리기 쉽다. 요청은 성공하고 로그도 깨끗한데 항목만
 사라지므로, 잘못 걸러도 "그날 논의가 적었다"와 구분되지 않는다.
@@ -24,13 +24,13 @@ NOW = common.parse_iso("2026-08-10T00:00:00Z")
 
 
 def issue(number: int, *, comments: int = 0, reactions: int = 0,
-          pull_request: bool = False) -> dict:
+          created_hours_ago: float = 5, pull_request: bool = False) -> dict:
     row = {
         "number": number,
         "title": f"issue {number}",
         "html_url": f"https://github.com/anthropics/claude-code/issues/{number}",
         "user": {"login": "someone"},
-        "created_at": common.to_iso(NOW - timedelta(hours=5)),
+        "created_at": common.to_iso(NOW - timedelta(hours=created_hours_ago)),
         "updated_at": common.to_iso(NOW - timedelta(hours=1)),
         "body": "본문",
         "comments": comments,
@@ -43,16 +43,16 @@ def issue(number: int, *, comments: int = 0, reactions: int = 0,
     return row
 
 
-class GithubFilterTest(unittest.TestCase):
-    """GitHub 응답을 가짜로 돌려주고 걸러지는 항목을 확인한다."""
+class GithubWindowTest(unittest.TestCase):
+    """생성 시각으로 자르고, 창을 벗어나는 첫 항목에서 멈춘다."""
 
-    def collect_with(self, rows: list) -> tuple:
-        """collect_github을 HTTP 없이 돌린다."""
-        pages = [rows, []]
+    def collect_with(self, *pages: list) -> tuple:
+        """collect_github을 HTTP 없이 돌린다. 요청 횟수도 함께 돌려준다."""
+        served = list(pages) + [[]]
         calls = {"n": 0}
 
         def fake_get(url, headers=None, timeout=30):
-            page = pages[calls["n"]] if calls["n"] < len(pages) else []
+            page = served[calls["n"]] if calls["n"] < len(served) else []
             calls["n"] += 1
             return json.dumps(page).encode("utf-8")
 
@@ -62,19 +62,44 @@ class GithubFilterTest(unittest.TestCase):
             entry = common.blank_status("x")["sources"]["github"]
             out: list = []
             collect.collect_github(entry, NOW, out)
-            return out, entry
+            return out, entry, calls["n"]
         finally:
             common.http_get = original
 
+    # 창의 폭은 바뀔 수 있으므로 상수를 기준으로 테스트한다.
+    WINDOW = collect.GITHUB_MAX_AGE_HOURS
+
+    def test_창을_넘겨_생성된_이슈는_제외된다(self):
+        out, _, _ = self.collect_with([
+            issue(1, comments=1, created_hours_ago=1),
+            issue(2, comments=1, created_hours_ago=self.WINDOW - 1),
+            issue(3, comments=1, created_hours_ago=self.WINDOW + 1),
+            issue(4, comments=1, created_hours_ago=self.WINDOW * 10),
+        ])
+        self.assertEqual([i["item_id"] for i in out], ["gh_1", "gh_2"])
+
+    def test_창을_벗어나면_다음_페이지를_요청하지_않는다(self):
+        first = [issue(n, comments=1, created_hours_ago=1) for n in range(1, 100)]
+        first.append(issue(999, comments=1, created_hours_ago=self.WINDOW + 1))
+        _, _, calls = self.collect_with(first, [issue(1000, comments=1, created_hours_ago=1)])
+        self.assertEqual(calls, 1, "생성 시각 내림차순이므로 한 번에 끝나야 한다")
+
+    def test_한_페이지가_가득_차면_다음_페이지를_이어_받는다(self):
+        full = [issue(n, comments=1, created_hours_ago=1) for n in range(1, 101)]
+        out, _, calls = self.collect_with(full, [issue(200, comments=1, created_hours_ago=2)])
+        self.assertEqual(len(out), 101)
+        self.assertEqual(calls, 2)
+
     def test_Pull_Request는_제외된다(self):
-        out, _ = self.collect_with([
+        out, entry, _ = self.collect_with([
             issue(1, comments=3),
             issue(2, comments=3, pull_request=True),
         ])
         self.assertEqual([i["item_id"] for i in out], ["gh_1"])
+        self.assertEqual(entry["failed"], 0)
 
-    def test_댓글도_리액션도_0이면_제외된다(self):
-        out, entry = self.collect_with([
+    def test_반응이_하나도_없는_이슈는_제외된다(self):
+        out, entry, _ = self.collect_with([
             issue(1, comments=0, reactions=0),
             issue(2, comments=1, reactions=0),
             issue(3, comments=0, reactions=1),
@@ -84,13 +109,22 @@ class GithubFilterTest(unittest.TestCase):
         self.assertEqual(entry["filtered"], 1)
 
     def test_제외를_요청_실패로_세지_않는다(self):
-        _, entry = self.collect_with([issue(n, comments=0, reactions=0) for n in range(1, 6)])
+        _, entry, _ = self.collect_with([issue(n, comments=0, reactions=0) for n in range(1, 6)])
         self.assertEqual(entry["failed"], 0)
         self.assertEqual(entry["ok"], entry["requested"])
         self.assertEqual(entry["filtered"], 5)
 
+    def test_시간_창을_벗어난_이슈는_참여도_판정을_거치지_않는다(self):
+        # 창 밖에서 멈추므로 오래된 이슈는 filtered로 세지 않는다. 그래야 이 값이
+        # "창 안에 열렸는데 아무도 반응하지 않은 이슈 수"라는 뜻을 유지한다.
+        _, entry, _ = self.collect_with([
+            issue(1, comments=1, created_hours_ago=2),
+            issue(2, comments=0, created_hours_ago=self.WINDOW * 2),
+        ])
+        self.assertEqual(entry["filtered"], 0)
+
     def test_신호가_그대로_보존된다(self):
-        out, _ = self.collect_with([issue(7, comments=4, reactions=11)])
+        out, _, _ = self.collect_with([issue(7, comments=4, reactions=11)])
         signals = out[0]["signals"]
         self.assertEqual(signals["comments"], 4)
         self.assertEqual(signals["reactions"], 11)
