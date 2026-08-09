@@ -46,6 +46,13 @@ on:
         default: true
 
 # gh-pages push에 contents: write가, Pages 설정 조회에 pages: read가 필요하다.
+#
+# id-token: write는 두지 않는다. 액션은 github_token 입력이 없으면 OIDC 토큰을
+# 받아 Anthropic 쪽 엔드포인트에서 Claude GitHub App 토큰으로 교환하는데
+# (src/github/token.ts의 setupGitHubToken), 우리는 아래에서 github_token을 직접
+# 넘겨 그 경로를 건너뛴다. LLM 단계는 작업 디렉터리의 파일만 읽고 쓰고 발행은
+# 별도 스크립트가 GITHUB_TOKEN으로 push하므로 App 신원이 필요 없다. 매일 도는
+# 파이프라인에서 실패 지점 하나를 줄이는 편이 낫다.
 permissions:
   contents: write
   pages: read
@@ -93,8 +100,11 @@ jobs:
         # 이 SHA는 태그 v1.0.189이자 2026-08-10 기준 v1이 가리키는 커밋이다.
         uses: anthropics/claude-code-action@6b082c41935b4c8a3b8b0ef85ba4ba4d9eeb8975
         with:
-          # 인증은 구독 OAuth 토큰으로만 한다. anthropic_api_key를 쓰지 않는다.
+          # LLM 인증은 구독 OAuth 토큰으로만 한다. anthropic_api_key를 쓰지 않는다.
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # 아래는 LLM 인증과 무관한 GitHub 쪽 토큰이다. 이것을 넘기면 액션이
+          # OIDC 교환을 건너뛴다(위 permissions 주석 참고).
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: |
             work/items.json 을 읽어라. 항목 5건이 들어 있다.
 
