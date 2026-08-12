@@ -64,9 +64,9 @@ h2   h3   p   ul   li   blockquote   code
 
 ```html
 <h2>2.1 업데이트 이후 MCP 서버 연결 끊김</h2>
-<p>2.1로 올린 뒤 MCP 서버 연결이 끊긴다는 보고가 Reddit과 GitHub 양쪽에서 나왔다
-[[item:rd_1a2b3c]]. 이슈에는 <code>stdio</code> 전송이 시간 초과된다는 로그가 붙어 있다
-[[item:gh_4821]].</p>
+<p>2.1로 올린 뒤 MCP 서버 연결이 끊긴다는 보고가 Reddit과 Hacker News 양쪽에서 나왔다
+[[item:rd_1a2b3c]]. 릴리스 스레드에는 <code>stdio</code> 전송이 시간 초과된다는 지적이 붙었다
+[[item:hn_38210]].</p>
 <blockquote><p>롤백하니 바로 붙습니다.</p></blockquote>
 ```
 

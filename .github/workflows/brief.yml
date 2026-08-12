@@ -2,7 +2,7 @@ name: brief
 
 # 하루 한 번 Claude Code 커뮤니티 브리프를 만들어 GitHub Pages에 발행한다.
 #
-#   [1] collect     스크립트   세 소스 수집        → items.json, status.json
+#   [1] collect     스크립트   두 소스 수집        → items.json, status.json
 #   [2] cluster     LLM 1차    주제 묶기           → topics.json
 #   [3] rank        스크립트   보정·점수·상위 8    → ranked.json
 #   [4] enrich      스크립트   상위 주제 댓글      → comments.json
@@ -82,8 +82,6 @@ jobs:
       # ── [1] collect ───────────────────────────────────────────────────────
       - name: 수집
         if: inputs.from_run_id == ''
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/collect.py --work "$WORK"
 
       # ── [2] cluster (LLM 1차) ─────────────────────────────────────────────

@@ -57,21 +57,6 @@ def hn_item(item_id: str, points: int, num_comments: int) -> dict:
     }
 
 
-def gh_item(item_id: str, reactions: int, comments: int) -> dict:
-    return {
-        "item_id": item_id,
-        "source": "github",
-        "title": f"github {item_id}",
-        "url": f"https://github.com/anthropics/claude-code/issues/{item_id}",
-        "author": "someone",
-        "published_at": common.to_iso(NOW - timedelta(hours=5)),
-        "published_raw": "",
-        "body": "",
-        "signals": {"number": 1, "reactions": reactions, "comments": comments,
-                    "state": "open", "labels": [], "updated_at": ""},
-    }
-
-
 def topic(topic_id: str, *item_ids: str, title: str = "") -> dict:
     return {"topic_id": topic_id, "title": title or topic_id, "item_ids": list(item_ids)}
 
@@ -151,8 +136,7 @@ class CoverageTest(unittest.TestCase):
     def setUp(self):
         self.items = (
             [reddit_item(f"rd_{n:02d}", n) for n in range(1, 26)]
-            + [hn_item(f"hn_{n:02d}", 100 - n, 100 - n) for n in range(1, 21)]
-            + [gh_item(f"gh_{n:02d}", 100 - n, 100 - n) for n in range(1, 41)]
+            + [hn_item(f"hn_{n:02d}", 100 - n, 100 - n) for n in range(1, 61)]
         )
         self.assertEqual(len(self.items), 85)
 
@@ -194,13 +178,13 @@ class MergeTest(unittest.TestCase):
         self.items = [
             reddit_item("rd_01", 1),
             reddit_item("rd_02", 2),
-            gh_item("gh_01", 50, 50),
+            hn_item("hn_01", 50, 50),
         ]
 
     def test_주제_ID_사전순_첫_번째가_남는다(self):
         result = run(self.items, [
-            topic("zeta", "rd_01", "gh_01", title="2.1 업데이트 반응"),
-            topic("alpha", "gh_01", "rd_01", title="2.1 릴리스"),
+            topic("zeta", "rd_01", "hn_01", title="2.1 업데이트 반응"),
+            topic("alpha", "hn_01", "rd_01", title="2.1 릴리스"),
             topic("solo", "rd_02"),
         ])
         self.assertEqual(result["counts"]["merged_topics"], 1)
@@ -211,8 +195,8 @@ class MergeTest(unittest.TestCase):
 
     def test_나열_순서를_섞어도_남는_주제가_같다(self):
         base = [
-            topic("zeta", "rd_01", "gh_01"),
-            topic("alpha", "gh_01", "rd_01"),
+            topic("zeta", "rd_01", "hn_01"),
+            topic("alpha", "hn_01", "rd_01"),
             topic("solo", "rd_02"),
         ]
         expected = [t["topic_id"] for t in run(self.items, base)["topics"]]
@@ -222,7 +206,7 @@ class MergeTest(unittest.TestCase):
 
     def test_일부만_겹치는_두_주제는_병합되지_않는다(self):
         result = run(self.items, [
-            topic("a", "rd_01", "gh_01"),
+            topic("a", "rd_01", "hn_01"),
             topic("b", "rd_01", "rd_02"),
         ])
         self.assertEqual(result["counts"]["merged_topics"], 0)
@@ -234,24 +218,24 @@ class MergeTest(unittest.TestCase):
 
 class ScoreFormulaTest(unittest.TestCase):
 
-    def test_Reddit_2위와_GitHub_4위가_묶이면_1점125다(self):
+    def test_Reddit_2위와_HN_4위가_묶이면_1점5다(self):
         items = [
             reddit_item("rd_01", 1),
             reddit_item("rd_02", 2),
-            gh_item("gh_01", 40, 40),
-            gh_item("gh_02", 30, 30),
-            gh_item("gh_03", 20, 20),
-            gh_item("gh_04", 10, 10),
+            hn_item("hn_01", 40, 40),
+            hn_item("hn_02", 30, 30),
+            hn_item("hn_03", 20, 20),
+            hn_item("hn_04", 10, 10),
         ]
-        result = run(items, [topic("t1", "rd_02", "gh_04")])
+        result = run(items, [topic("t1", "rd_02", "hn_04")])
 
         self.assertEqual(result["item_ranks"]["rd_02"], 2)
-        self.assertEqual(result["item_ranks"]["gh_04"], 4)
+        self.assertEqual(result["item_ranks"]["hn_04"], 4)
 
         got = find(result, "t1")
-        self.assertEqual(got["sources"], ["github", "reddit"])
-        # 0.5 + 0.25 = 0.75, 소스 2개이므로 배수 1.5 → 1.125
-        self.assertAlmostEqual(got["score"], 1.125)
+        self.assertEqual(got["sources"], ["hn", "reddit"])
+        # 0.5 + 0.25 = 0.75, 소스 2개이므로 배수 2.0 → 1.5
+        self.assertAlmostEqual(got["score"], 1.5)
 
     def test_상위_등수의_간격이_하위보다_크다(self):
         items = [reddit_item(f"rd_{n:02d}", n) for n in range(1, 12)]
@@ -283,21 +267,27 @@ class FloatTieTest(unittest.TestCase):
     """등수 {1, 2, 6}을 갖는 두 주제는 합산 순서 때문에 double 값이 갈린다."""
 
     def setUp(self):
-        # GitHub 항목의 ID 사전순과 등수 순서를 일부러 어긋나게 둔다. 그래야
+        # Hacker News 항목의 ID 사전순과 등수 순서를 일부러 어긋나게 둔다. 그래야
         # "float 값이 큰 쪽"과 "4번 키에서 이기는 쪽"이 서로 달라져서, 정확
         # 일치로 비교했을 때와 허용 오차로 비교했을 때의 결과가 갈린다.
+        #
+        # HN 등수는 points와 num_comments 기준 등수의 평균으로 정해지므로 두 신호를
+        # 같은 값으로 두면 등수가 점수 내림차순 그대로 나온다. 90짜리 둘이 동점 2위를
+        # 차지하므로 다음 값은 4위이고, 그 아래로 5위와 6위가 이어진다.
         self.items = (
             [reddit_item("rd_hi", 1), reddit_item("rd_lo", 6)]
-            + [hn_item("hn_top", 100, 100), hn_item("hn_a", 50, 50), hn_item("hn_b", 50, 50)]
-            + [gh_item("gh_20", 60, 60), gh_item("gh_30", 50, 50), gh_item("gh_40", 40, 40),
-               gh_item("gh_50", 30, 30), gh_item("gh_60", 20, 20), gh_item("gh_10", 10, 10)]
+            + [hn_item("hn_b1", 100, 100),                                  # 1위
+               hn_item("hn_c2", 90, 90), hn_item("hn_d2", 90, 90),          # 공동 2위
+               hn_item("hn_e4", 80, 80), hn_item("hn_f5", 70, 70),          # 4위, 5위
+               hn_item("hn_a6", 60, 60)]                                    # 6위
         )
         # 합산은 항목 ID 사전순이다.
-        #   t_big   : gh_20(1) → hn_a(2) → rd_lo(6)   즉 (1, 2, 6) 순
-        #   t_small : gh_10(6) → hn_b(2) → rd_hi(1)   즉 (6, 2, 1) 순
+        #   t_big   : hn_b1(1) → hn_c2(2) → rd_lo(6)   즉 (1, 2, 6) 순
+        #   t_small : hn_a6(6) → hn_d2(2) → rd_hi(1)   즉 (6, 2, 1) 순
+        # 두 주제 모두 Reddit과 HN에 걸쳐 있어 배수 2.0을 똑같이 받는다.
         self.topics = [
-            topic("t_big", "gh_20", "hn_a", "rd_lo"),
-            topic("t_small", "gh_10", "hn_b", "rd_hi"),
+            topic("t_big", "hn_b1", "hn_c2", "rd_lo"),
+            topic("t_small", "hn_a6", "hn_d2", "rd_hi"),
         ]
 
     def test_두_점수가_비트_단위로는_다르다(self):
@@ -316,7 +306,7 @@ class FloatTieTest(unittest.TestCase):
 
         # 정확 일치로 비교했다면 값이 큰 t_big이 앞섰을 것이다. 허용 오차 비교가
         # 둘을 동점으로 만들면 항목 수(3=3)와 최고 등수(1=1)를 지나 4번 키로
-        # 내려가고, gh_10 < gh_20 이므로 t_small이 앞선다. 두 비교 방식이 서로
+        # 내려가고, hn_a6 < hn_b1 이므로 t_small이 앞선다. 두 비교 방식이 서로
         # 다른 답을 내는 입력이라야 이 검사가 의미를 갖는다.
         self.assertEqual([t["topic_id"] for t in result["topics"][:2]], ["t_small", "t_big"])
 
@@ -333,32 +323,31 @@ class StructuralTieTest(unittest.TestCase):
     """서로 다른 소스의 같은 등수 단일 항목 주제는 정렬 키로 일관되게 갈린다."""
 
     def test_소스가_달라도_등수가_같으면_점수가_정확히_같다(self):
-        items = [reddit_item("rd_01", 1), hn_item("hn_01", 100, 100), gh_item("gh_01", 100, 100)]
-        topics = [topic("t_rd", "rd_01"), topic("t_hn", "hn_01"), topic("t_gh", "gh_01")]
+        items = [reddit_item("rd_01", 1), hn_item("hn_01", 100, 100)]
+        topics = [topic("t_rd", "rd_01"), topic("t_hn", "hn_01")]
         result = run(items, topics)
 
-        scores = [find(result, t)["score"] for t in ("t_rd", "t_hn", "t_gh")]
-        self.assertEqual(len(set(scores)), 1, "세 점수가 비트 단위로 같아야 구조적 동점이다")
+        scores = [find(result, t)["score"] for t in ("t_rd", "t_hn")]
+        self.assertEqual(len(set(scores)), 1, "두 점수가 비트 단위로 같아야 구조적 동점이다")
 
         # 항목 수와 최고 등수까지 같으므로 4번 키(항목 ID 사전순)가 가른다.
-        self.assertEqual([t["topic_id"] for t in result["topics"]], ["t_gh", "t_hn", "t_rd"])
+        self.assertEqual([t["topic_id"] for t in result["topics"]], ["t_hn", "t_rd"])
 
     def test_나열_순서를_섞어도_같다(self):
-        items = [reddit_item("rd_01", 1), hn_item("hn_01", 100, 100), gh_item("gh_01", 100, 100)]
-        topics = [topic("t_rd", "rd_01"), topic("t_hn", "hn_01"), topic("t_gh", "gh_01")]
+        items = [reddit_item("rd_01", 1), hn_item("hn_01", 100, 100)]
+        topics = [topic("t_rd", "rd_01"), topic("t_hn", "hn_01")]
         for seed in range(8):
             got = [t["topic_id"] for t in run(items, shuffled(topics, seed))["topics"]]
-            self.assertEqual(got, ["t_gh", "t_hn", "t_rd"], f"seed={seed}")
+            self.assertEqual(got, ["t_hn", "t_rd"], f"seed={seed}")
 
     def test_최고_등수가_점수와_항목_수_다음을_가른다(self):
         items = [
             reddit_item("rd_01", 1), reddit_item("rd_05", 5),
-            gh_item("gh_01", 50, 50), gh_item("gh_02", 40, 40),
-            gh_item("gh_03", 30, 30), gh_item("gh_04", 20, 20), gh_item("gh_05", 10, 10),
+            hn_item("hn_01", 50, 50), hn_item("hn_02", 40, 40),
+            hn_item("hn_03", 30, 30), hn_item("hn_04", 20, 20), hn_item("hn_05", 10, 10),
         ]
-        # 두 주제 모두 1/2 + 1/3 = 0.8333…, 항목 2건, 소스 1개.
-        # 최고 등수는 2와 3이므로 2인 쪽이 앞선다.
-        result = run(items, [topic("t_low", "gh_03", "gh_04"), topic("t_high", "gh_02", "gh_03")])
+        # 두 주제 모두 항목 2건에 소스 1개다. 최고 등수는 2와 3이므로 2인 쪽이 앞선다.
+        result = run(items, [topic("t_low", "hn_03", "hn_04"), topic("t_high", "hn_02", "hn_03")])
         a, b = find(result, "t_high"), find(result, "t_low")
         self.assertEqual(a["best_rank"], 2)
         self.assertEqual(b["best_rank"], 3)
@@ -370,24 +359,26 @@ class StructuralTieTest(unittest.TestCase):
 class DeterminismTest(unittest.TestCase):
 
     def build(self):
+        # 옛 GitHub 항목 12건은 hn_09~hn_20으로 옮겼다. 주제마다 묶인 항목 수와
+        # 소스 조합의 모양을 그대로 두어 같은 정렬 키 사다리를 밟게 한다.
         items = (
             [reddit_item(f"rd_{n:02d}", n) for n in range(1, 11)]
             + [hn_item(f"hn_{n:02d}", 100 - 3 * n, 90 - 2 * n) for n in range(1, 9)]
-            + [gh_item(f"gh_{n:02d}", 60 - 4 * n, 45 - n) for n in range(1, 13)]
+            + [hn_item(f"hn_{n + 8:02d}", 60 - 4 * n, 45 - n) for n in range(1, 13)]
         )
         topics = [
-            topic("t01", "rd_01", "gh_01", "hn_01"),
+            topic("t01", "rd_01", "hn_09", "hn_01"),
             topic("t02", "rd_02", "hn_02"),
-            topic("t03", "gh_02", "gh_03", "rd_03"),
+            topic("t03", "hn_10", "hn_11", "rd_03"),
             topic("t04", "hn_03"),
-            topic("t05", "rd_04", "rd_05", "gh_04"),
-            topic("t06", "hn_04", "gh_05"),
-            topic("t07", "rd_06", "hn_05", "gh_06"),
-            topic("t08", "gh_07", "gh_08"),
+            topic("t05", "rd_04", "rd_05", "hn_12"),
+            topic("t06", "hn_04", "hn_13"),
+            topic("t07", "rd_06", "hn_05", "hn_14"),
+            topic("t08", "hn_15", "hn_16"),
             topic("t09", "rd_07", "hn_06"),
-            topic("t10", "gh_09", "rd_08"),
-            topic("t11", "hn_07", "gh_10"),
-            topic("t12", "rd_09", "rd_10", "hn_08", "gh_11", "gh_12"),
+            topic("t10", "hn_17", "rd_08"),
+            topic("t11", "hn_07", "hn_18"),
+            topic("t12", "rd_09", "rd_10", "hn_08", "hn_19", "hn_20"),
         ]
         return items, topics
 
@@ -421,14 +412,16 @@ class SharedItemTest(unittest.TestCase):
     """한 항목이 두 주제에 배정되는 것은 허용한다(5.7a, 5.7e)."""
 
     def build(self):
+        # hn_01과 hn_03을 신호까지 같게 두어 둘 다 HN 등수 1을 받게 한다. 그래야
+        # rd_01을 공유하는 두 주제가 같은 점수를 갖고, 겹침 때문에 어느 한쪽이
+        # 깎이는지를 볼 수 있다.
         items = (
             [reddit_item(f"rd_{n:02d}", n) for n in range(1, 6)]
-            + [hn_item(f"hn_{n:02d}", 100 - 5 * n, 90 - 5 * n) for n in range(1, 4)]
-            + [gh_item(f"gh_{n:02d}", 50 - 5 * n, 40 - 3 * n) for n in range(1, 4)]
+            + [hn_item("hn_01", 100, 100), hn_item("hn_02", 80, 80), hn_item("hn_03", 100, 100)]
         )
         # rd_01이 두 맥락에 함께 논의된 상황.
         topics = [
-            topic("t_mcp", "rd_01", "gh_01"),
+            topic("t_mcp", "rd_01", "hn_03"),
             topic("t_release", "rd_01", "hn_01"),
             topic("t_other", "rd_02", "hn_02"),
         ]
@@ -442,7 +435,7 @@ class SharedItemTest(unittest.TestCase):
             got = find(result, topic_id)
             self.assertEqual(got["item_count"], 2)
             self.assertIn("rd_01", got["item_ids"])
-            self.assertAlmostEqual(got["score"], (1.0 + 1.0) * 1.5)
+            self.assertAlmostEqual(got["score"], (1.0 + 1.0) * 2.0)
 
     def test_겹침을_이유로_제외하거나_후순위로_밀지_않는다(self):
         items, topics = self.build()
@@ -480,16 +473,18 @@ class ReservationTest(unittest.TestCase):
 
         Reddit 1위 단일 항목 주제의 점수는 1/1 × 1.0 = 1.0으로 원래 꽤 높다.
         이것을 8위 밖으로 밀어내려면 그보다 높은 주제가 여덟 개 넘게 있어야 한다.
-        Hacker News와 GitHub 항목의 신호를 소스 안에서 전부 동점으로 두면 모두
-        등수 1을 받으므로, 두 소스를 묶은 주제가 (1 + 1) × 1.5 = 3.0으로 열 개
-        만들어진다.
+        Hacker News 항목의 신호를 전부 동점으로 두면 모두 등수 1을 받으므로, HN
+        스토리 둘을 묶은 주제가 (1 + 1) × 1.0 = 2.0으로 열 개 만들어진다.
+
+        HN에서 큰 스토리가 여러 건 터진 날이 예약이 필요한 날이라는 것이 이
+        고정 입력이 재현하는 상황이다.
         """
         items = [reddit_item("rd_01", 1)]
-        for n in range(1, 11):
+        for n in range(1, 21):
             items.append(hn_item(f"hn_{n:02d}", 100, 100))
-            items.append(gh_item(f"gh_{n:02d}", 100, 100))
         topics = [topic("t_buried", "rd_01")]
-        topics += [topic(f"t_{n:02d}", f"hn_{n:02d}", f"gh_{n:02d}") for n in range(1, 11)]
+        topics += [topic(f"t_{n:02d}", f"hn_{2 * n - 1:02d}", f"hn_{2 * n:02d}")
+                   for n in range(1, 11)]
         return items, topics
 
     def test_묻힌_Reddit_1위_주제가_구제된다(self):
@@ -591,11 +586,11 @@ class RedditWindowTest(unittest.TestCase):
         kept, _ = collect.filter_and_rank_reddit(parsed, NOW)
 
         items = list(kept)
-        for n in range(1, 11):
-            items.append(hn_item(f"hn_{n:02d}", 200 - n, 200 - n))
-            items.append(gh_item(f"gh_{n:02d}", 200 - n, 200 - n))
+        for n in range(1, 21):
+            items.append(hn_item(f"hn_{n:02d}", 200, 200))
         topics = [topic("t_reddit", "rd_p04")]
-        topics += [topic(f"t_{n:02d}", f"hn_{n:02d}", f"gh_{n:02d}") for n in range(1, 11)]
+        topics += [topic(f"t_{n:02d}", f"hn_{2 * n - 1:02d}", f"hn_{2 * n:02d}")
+                   for n in range(1, 11)]
 
         result = run(items, topics)
         self.assertEqual(result["item_ranks"]["rd_p04"], 1)
@@ -614,8 +609,7 @@ CHILD = textwrap.dedent("""
     ids = []
     for n in range(1, 41):
         for source, signals in (("reddit", {{"rank": n}}),
-                                ("hn", {{"points": 400 - n, "num_comments": 400 - n}}),
-                                ("github", {{"reactions": 400 - n, "comments": 400 - n}})):
+                                ("hn", {{"points": 400 - n, "num_comments": 400 - n}})):
             item_id = "%s_%03d" % (source[:2], n)
             ids.append(item_id)
             items.append({{"item_id": item_id, "source": source, "title": item_id,

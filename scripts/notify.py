@@ -20,20 +20,21 @@ import urllib.request
 
 import common
 
-SOURCE_LABELS = (("reddit", "Reddit"), ("hn", "Hacker News"), ("github", "GitHub Issues"))
+SOURCE_LABELS = (("reddit", "Reddit"), ("hn", "Hacker News"))
 
 
 def source_lines(status: dict) -> list:
+    """소스마다 한 줄. 갈래는 정상과 수집 실패 둘뿐이다.
+
+    두 소스 모두 실행당 요청이 1회라 "일부 요청만 실패"를 만들 수 있는 경로가
+    없다. 요청 건수를 인용하는 표시는 실제로 여러 요청을 보내는 댓글 보강에만
+    남는다.
+    """
     lines = []
     for key, label in SOURCE_LABELS:
         entry = (status.get("sources") or {}).get(key) or {}
-        requested, failed, got = entry.get("requested", 0), entry.get("failed", 0), entry.get("items", 0)
-        if requested == 0:
-            lines.append(f"· {label} — 수집을 시도하지 못함")
-        elif failed == 0:
-            lines.append(f"· {label} — {got}건")
-        elif got > 0:
-            lines.append(f"· {label} — {got}건 (요청 {requested}건 중 {failed}건 실패)")
+        if entry.get("collected"):
+            lines.append(f"· {label} — {entry.get('items', 0)}건")
         else:
             lines.append(f"· {label} — **수집 실패**")
     return lines

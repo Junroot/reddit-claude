@@ -95,8 +95,10 @@ def write_json(path: str, data) -> None:
 #
 # 실행 기록의 단일 출처다(D13). 발행 여부 판정과 페이지의 수집 상태 배너,
 # Discord 알림 문구가 모두 이 한 파일을 읽으므로 서로 어긋날 수 없다.
-# 실패는 소스 단위가 아니라 요청 단위로 센다. 소스 단위로만 세면 한 소스
-# 안에서 일부 요청만 실패한 상황을 표현할 수 없다.
+# 소스 칸은 소스 단위로 센다. 남은 두 소스는 실행당 요청이 각 1회뿐이라 한 소스
+# 안에서 일부 요청만 실패하는 상황이 존재하지 않고, 요청 건수를 세어 두면 없는
+# 다중 요청 경로가 있는 것처럼 읽힌다. 요청 단위 기록은 실제로 여러 요청을
+# 보내는 `enrich` 절에만 남는다.
 
 STATUS_NAME = "status.json"
 
@@ -104,13 +106,14 @@ STATUS_NAME = "status.json"
 def blank_status(generated_at: str) -> dict:
     return {
         "generated_at": generated_at,
-        # `filtered`는 요청은 성공했지만 수집 조건에 걸려 버린 항목 수다. 지금은
-        # 시간 창 안에 있으나 이슈가 아닌 GitHub Pull Request가 여기 잡힌다. 실패와
-        # 구분해서 세야 "그날 논의가 적었다"와 "우리가 걸러냈다"를 가려낼 수 있다.
+        # `collected`는 그 소스의 수집이 끝까지 성공했는가다. "성공했으나 0건"과
+        # "실패해서 0건"이 갈라지는 자리이므로 항목 수와 따로 둔다.
+        # `filtered`는 수집은 성공했지만 수집 조건에 걸려 버린 항목 수다. Reddit의
+        # 48시간 초과 제외가 여기 잡힌다. 실패와 구분해서 세야 "그날 논의가 적었다"와
+        # "우리가 걸러냈다"를 가려낼 수 있다.
         "sources": {
-            "reddit": {"requested": 0, "ok": 0, "failed": 0, "items": 0, "filtered": 0},
-            "hn": {"requested": 0, "ok": 0, "failed": 0, "items": 0, "filtered": 0},
-            "github": {"requested": 0, "ok": 0, "failed": 0, "items": 0, "filtered": 0},
+            "reddit": {"collected": False, "items": 0, "filtered": 0},
+            "hn": {"collected": False, "items": 0, "filtered": 0},
         },
         "enrich": {"requested": 0, "ok": 0, "failed": 0},
         "cluster": {
@@ -136,27 +139,36 @@ def status_path(work: str) -> str:
     return os.path.join(work, STATUS_NAME)
 
 
+def _normalize(got: dict, defaults: dict) -> dict:
+    """읽어 온 기록을 기본 스키마에 맞춘다. 없는 칸은 채우고 남는 칸은 버린다."""
+    out = {}
+    for key, default in defaults.items():
+        value = got.get(key)
+        if isinstance(default, dict):
+            out[key] = _normalize(value if isinstance(value, dict) else {}, default)
+        else:
+            out[key] = default if value is None else value
+    return out
+
+
 def load_status(work: str) -> dict:
     """status.json을 읽는다. 없으면 빈 기록을 만든다.
 
     뒤 단계가 앞 단계의 기록 위에 자기 몫을 얹는 구조라, 없을 때 예외를 던지는
     대신 빈 기록으로 시작해 그 단계만이라도 관측 가능하게 둔다.
+
+    읽어 온 기록은 언제나 현재 스키마로 정규화한다. 빠진 칸을 채우기만 하고
+    남는 칸을 통과시키면, 재실행이 이전 실행의 status.json을 이어받는 경로에서
+    지금은 수집하지 않는 소스의 항목 수가 살아남아 발행 여부 판정을 잘못
+    통과시킨다(D4). 같은 문제가 소스 칸 **안의 필드**에서도 나므로 정리는
+    필드 수준까지 내려간다 — 그래야 blank_status가 스키마의 단일 출처라는
+    성질이 끝까지 성립한다(D6).
     """
     data = read_json(status_path(work))
     if not isinstance(data, dict):
         return blank_status(to_iso(now()))
-    # 오래된 실행의 기록을 이어받을 때 빠진 칸을 채운다.
     base = blank_status(data.get("generated_at") or to_iso(now()))
-    for section, defaults in base.items():
-        if not isinstance(defaults, dict):
-            continue
-        got = data.get(section)
-        if not isinstance(got, dict):
-            data[section] = defaults
-            continue
-        for key, value in defaults.items():
-            got.setdefault(key, value)
-    return data
+    return _normalize(data, base)
 
 
 def save_status(work: str, status: dict) -> None:
@@ -178,7 +190,7 @@ def any_source_succeeded(status: dict) -> bool:
 
     발행을 거르는 쪽이 더 위험하다. 고정 주소 한 페이지를 덮어쓰는 구조라
     발행하지 않으면 어제 페이지가 그 자리에 남고 독자는 그것을 오늘 브리프로
-    읽는다. 그래서 세 소스가 전부 실패한 날에만 발행하지 않는다.
+    읽는다. 그래서 두 소스가 전부 실패한 날에만 발행하지 않는다.
     """
     return any(
         (s or {}).get("items", 0) > 0
