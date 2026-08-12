@@ -1,7 +1,7 @@
 # reddit-claude
 
-Claude Code를 둘러싼 논의가 Reddit, Hacker News, GitHub Issues 세 곳에 흩어져 있다.
-흐름을 따라가려면 매일 세 곳을 각각 돌아야 하고, 같은 사건이 세 곳에서 다른 제목으로
+Claude Code를 둘러싼 논의가 Reddit과 Hacker News 두 곳에 흩어져 있다.
+흐름을 따라가려면 매일 두 곳을 각각 돌아야 하고, 같은 사건이 양쪽에서 다른 제목으로
 다뤄지기 때문에 무엇이 그날의 진짜 화제였는지는 한참 읽어야 드러난다.
 
 하루 한 번 자동으로 모아 주제별로 묶고 화제 순으로 정렬한 브리프를 한 페이지에 발행한다.
@@ -23,19 +23,14 @@ GitHub Actions 스케줄은 원래 수 분에서 수십 분까지 밀릴 수 있
 |---|---|---|
 | Reddit | r/ClaudeCode의 `top?t=day` | 게시 48시간 이내 |
 | Hacker News | Algolia 검색어 `Claude Code` | 작성 24시간 이내 |
-| GitHub Issues | `anthropics/claude-code` | **생성** 48시간 이내, 댓글+리액션 0건 제외 |
 
 시간 창이 소스마다 다른 것은 의도한 것이다. 통일하면 각 소스에서 그날 가장 중요한 것을
 버리게 된다. 대신 페이지에 기준 시각과 항목별 게시 시각을 표시해 독자가 판단하게 한다.
 
-GitHub만 `created_at`을 쓰는 이유는 [design.md의 D14](openspec/changes/add-daily-community-brief/design.md)에
-적혀 있다. 요약하면 `updated_at`은 라벨 변경만으로도 갱신되어 수백 일 된 이슈가 섞이고,
-API가 주는 댓글·리액션 수가 누적값이라 등수까지 왜곡되기 때문이다.
-
 ## 어떻게 도나
 
 ```
- [1] collect     스크립트   세 소스 수집        → items.json, status.json
+ [1] collect     스크립트   두 소스 수집        → items.json, status.json
  [2] cluster     LLM 1차    주제 묶기           → topics.json
  [3] rank        스크립트   보정·점수·상위 8    → ranked.json
  [4] enrich      스크립트   상위 주제 댓글      → comments.json
@@ -91,7 +86,7 @@ python3 -m unittest discover -s tests
 |---|---|
 | `CLAUDE_CODE_OAUTH_TOKEN` | Actions에서 LLM 실행 (구독 인증) |
 | `DISCORD_WEBHOOK_URL` | 발행 및 실패 알림 |
-| `GITHUB_TOKEN` | 이슈 조회, gh-pages 발행 (Actions 기본 제공) |
+| `GITHUB_TOKEN` | gh-pages 발행 (Actions 기본 제공) |
 
 ### 토큰 갱신
 

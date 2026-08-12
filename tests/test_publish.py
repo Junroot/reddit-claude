@@ -13,6 +13,7 @@ from __future__ import annotations
 import html
 import os
 import sys
+import tempfile
 import unittest
 from html.parser import HTMLParser
 
@@ -192,7 +193,7 @@ class SubstitutionTest(unittest.TestCase):
 # ── 8.3f 이스케이프와 스킴 확인 ─────────────────────────────────────────────
 
 class EscapingTest(unittest.TestCase):
-    """제목은 세 소스가 준 그대로다. 꺾쇠나 `&`가 든 것이 이상한 일이 아니다."""
+    """제목은 두 소스가 준 그대로다. 꺾쇠나 `&`가 든 것이 이상한 일이 아니다."""
 
     def substitute(self, entry: dict) -> tuple:
         return publish.substitute_refs(f"<p>보고 [[item:{entry['item_id']}]]</p>",
@@ -204,8 +205,8 @@ class EscapingTest(unittest.TestCase):
 
     def test_꺾쇠가_든_제목(self):
         title = "Prompt leaks <system-reminder> into output"
-        body, counts = self.substitute(item("gh_1", title=title,
-                                            url="https://github.com/a/b/issues/1"))
+        body, counts = self.substitute(item("hn_1", title=title,
+                                            url="https://news.ycombinator.com/item?id=1"))
         self.assertEqual(counts["unsafe_links"], 0)
         self.assertNotIn("system-reminder", read(body).tags, "태그로 해석되면 안 된다")
         self.assertIn("&lt;system-reminder&gt;", body)
@@ -213,14 +214,16 @@ class EscapingTest(unittest.TestCase):
 
     def test_앰퍼샌드가_든_제목(self):
         title = "Q&A: tips & tricks"
-        body, _ = self.substitute(item("gh_2", title=title, url="https://github.com/a/b/issues/2"))
+        body, _ = self.substitute(item("hn_2", title=title,
+                                       url="https://news.ycombinator.com/item?id=2"))
         self.assertIn("&amp;", body)
         self.assertNotIn("&amp;amp;", body, "이중 이스케이프가 나면 안 된다")
         self.assert_renders_as(body, title)
 
     def test_따옴표가_든_제목(self):
         title = 'He said "it\'s broken"'
-        body, _ = self.substitute(item("gh_3", title=title, url="https://github.com/a/b/issues/3"))
+        body, _ = self.substitute(item("hn_3", title=title,
+                                       url="https://news.ycombinator.com/item?id=3"))
         self.assert_renders_as(body, title)
         # 제목은 텍스트 자리에 들어가므로 따옴표가 속성을 탈출하지 못한다.
         parsed = read(body)
@@ -265,37 +268,54 @@ class EscapingTest(unittest.TestCase):
 
 class PublishDecisionTest(unittest.TestCase):
 
-    def status(self, reddit: int, hn: int, github: int) -> dict:
+    def status(self, reddit: int, hn: int, *, quiet: tuple = ()) -> dict:
+        """소스 칸을 채운 기록을 만든다.
+
+        기본은 "항목이 있으면 수집 성공, 없으면 수집 실패"다. `quiet`에 이름을
+        넣으면 그 소스는 성공했으나 0건인 날이 된다 — 항목 수만으로는 표현할 수
+        없어서 성공 여부 필드가 따로 있다.
+        """
         import common
         built = common.blank_status("2026-08-10T00:00:00Z")
-        for key, got in (("reddit", reddit), ("hn", hn), ("github", github)):
+        for key, got in (("reddit", reddit), ("hn", hn)):
             built["sources"][key]["items"] = got
-            built["sources"][key]["requested"] = 1
-            built["sources"][key]["ok"] = 1 if got else 0
-            built["sources"][key]["failed"] = 0 if got else 1
+            built["sources"][key]["collected"] = bool(got) or key in quiet
         return built
 
     def test_한_소스만_성공해도_발행한다(self):
         import common
-        self.assertTrue(common.any_source_succeeded(self.status(0, 0, 12)))
+        self.assertTrue(common.any_source_succeeded(self.status(0, 19)))
 
-    def test_세_소스가_모두_실패하면_발행하지_않는다(self):
+    def test_두_소스가_모두_실패하면_발행하지_않는다(self):
         import common
-        self.assertFalse(common.any_source_succeeded(self.status(0, 0, 0)))
+        self.assertFalse(common.any_source_succeeded(self.status(0, 0)))
 
     def test_배너는_전부_성공한_날에도_표시된다(self):
-        banner = publish.build_banner(self.status(25, 19, 830))
+        banner = publish.build_banner(self.status(25, 19))
         self.assertIn("이번 회차 수집 상태", banner)
         self.assertIn("Reddit 정상", banner)
+        self.assertIn("Hacker News 정상", banner)
         self.assertNotIn("attention", banner)
 
     def test_실패한_소스가_배너에_명시된다(self):
-        banner = publish.build_banner(self.status(0, 19, 830))
+        banner = publish.build_banner(self.status(0, 19))
         self.assertIn("Reddit 수집 실패", banner)
         self.assertIn("attention", banner)
 
+    def test_성공했으나_0건인_소스는_실패로_표시되지_않는다(self):
+        # HN은 24시간 안에 결과가 없는 날이 있다. 조용한 날과 실패한 날은 다르다.
+        banner = publish.build_banner(self.status(25, 0, quiet=("hn",)))
+        self.assertIn("Hacker News 정상 — 0건 수집", banner)
+        self.assertNotIn("attention", banner)
+
+    def test_제거된_소스는_배너에_나오지_않는다(self):
+        built = self.status(25, 19)
+        built["sources"]["github"] = {"collected": True, "items": 830, "filtered": 0}
+        banner = publish.build_banner(built)
+        self.assertNotIn("GitHub", banner)
+
     def test_규약_위반_건수가_배너에_노출된다(self):
-        built = self.status(25, 19, 830)
+        built = self.status(25, 19)
         built["publish"].update({"unresolved_refs": 2, "raw_links": 3, "unsafe_links": 1})
         banner = publish.build_banner(built)
         self.assertIn("원문을 찾지 못한 항목 참조 2건", banner)
@@ -303,12 +323,74 @@ class PublishDecisionTest(unittest.TestCase):
         self.assertIn("링크로 만들지 못한 주소 1건", banner)
 
     def test_제거한_태그와_속성은_배너에_올리지_않는다(self):
-        built = self.status(25, 19, 830)
+        built = self.status(25, 19)
         built["publish"].update({"filtered_tags": 4, "filtered_attrs": 7})
         banner = publish.build_banner(built)
         # 독자가 아니라 우리가 볼 신호이므로 status.json에만 남긴다.
         self.assertNotIn("4", banner.split("<ul>")[1])
         self.assertNotIn("attention", banner)
+
+
+# ── 8.4 / 3.8 이어받은 기록의 정규화 ────────────────────────────────────────
+
+class InheritedStatusTest(unittest.TestCase):
+    """재실행이 이전 실행의 status.json을 이어받는 경로를 지킨다.
+
+    워크플로의 `from_run_id` 경로는 이전 실행의 산출물을 그대로 내려받아 그 위에
+    이어 쓴다. 그래서 지금 스키마에 없는 소스 칸과 필드가 살아 들어올 수 있다.
+    """
+
+    def write(self, work: str, status: dict) -> None:
+        import common
+        common.write_json(common.status_path(work), status)
+
+    def test_제거된_소스의_항목_수는_발행_판정에_쓰이지_않는다(self):
+        import common
+        with tempfile.TemporaryDirectory() as work:
+            self.write(work, {
+                "generated_at": "2026-08-10T00:00:00Z",
+                "sources": {
+                    "reddit": {"collected": False, "items": 0, "filtered": 0},
+                    "hn": {"collected": False, "items": 0, "filtered": 0},
+                    "github": {"collected": True, "items": 69, "filtered": 354},
+                },
+            })
+            status = common.load_status(work)
+
+            self.assertNotIn("github", status["sources"])
+            # 두 소스가 모두 실패한 날이므로 발행하지 않는다. 옛 GitHub 항목 수가
+            # 판정을 통과시키면 어제 페이지를 오늘 브리프로 덮어쓰게 된다.
+            self.assertFalse(common.any_source_succeeded(status))
+
+    def test_옛_스키마의_소스_칸이_현재_스키마로_정규화된다(self):
+        import common
+        with tempfile.TemporaryDirectory() as work:
+            self.write(work, {
+                "generated_at": "2026-08-10T00:00:00Z",
+                "sources": {
+                    "reddit": {"requested": 1, "ok": 1, "failed": 0, "items": 25, "filtered": 0},
+                    "hn": {"requested": 1, "ok": 1, "failed": 0, "items": 19, "filtered": 0},
+                },
+            })
+            status = common.load_status(work)
+
+            entry = status["sources"]["reddit"]
+            self.assertEqual(set(entry), {"collected", "items", "filtered"})
+            # 옛 기록에 성공 여부 필드가 없으므로 기본값이 들어간다. 배너와 알림이
+            # 한시적으로 수집 실패로 표시하는 것은 설계에서 수용한 대가다(D6).
+            self.assertFalse(entry["collected"])
+            self.assertEqual(entry["items"], 25)
+            self.assertNotIn("requested", entry)
+            # 항목 수는 보존되므로 발행 자체는 정상이다.
+            self.assertTrue(common.any_source_succeeded(status))
+
+    def test_빠진_절은_기본값으로_채워진다(self):
+        import common
+        with tempfile.TemporaryDirectory() as work:
+            self.write(work, {"generated_at": "2026-08-10T00:00:00Z"})
+            status = common.load_status(work)
+            self.assertEqual(status["enrich"], {"requested": 0, "ok": 0, "failed": 0})
+            self.assertEqual(set(status["sources"]), {"reddit", "hn"})
 
 
 if __name__ == "__main__":

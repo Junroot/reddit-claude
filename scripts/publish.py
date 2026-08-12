@@ -15,7 +15,7 @@ r/ClaudeCode 글과 댓글이 들어가므로, 태그 이름만 보고 속성을
 반쯤 열린 채로 남는다. 그래서 속성 화이트리스트를 두지 않고 전부 지운다. 본문
 조각이 쓰는 태그 일곱 개 중 속성이 필요한 것은 하나도 없다.
 
-②는 ①보다 뒤 단계라 필터가 이 문자열을 아예 보지 못한다. 항목 제목은 세 소스가
+②는 ①보다 뒤 단계라 필터가 이 문자열을 아예 보지 못한다. 항목 제목은 두 소스가
 준 그대로이고 꺾쇠나 `&`가 들어 있는 것이 이상한 일이 아니므로, 무해화는 치환하는
 쪽이 해야 한다.
 
@@ -46,7 +46,7 @@ PLACEHOLDER = re.compile(r"\[\[item:([^\]\s]+)\]\]")
 RAW_LINK = re.compile(r"https?://", re.IGNORECASE)
 
 KST = timezone(timedelta(hours=9))
-SOURCE_LABEL = {"reddit": "Reddit", "hn": "HN", "github": "GitHub"}
+SOURCE_LABEL = {"reddit": "Reddit", "hn": "HN"}
 TITLE = "Claude Code 커뮤니티 브리프"
 
 
@@ -194,19 +194,16 @@ def build_banner(status: dict) -> str:
     lines: list = []
     attention = False
 
-    for key, label in (("reddit", "Reddit"), ("hn", "Hacker News"), ("github", "GitHub Issues")):
+    # 소스 갈래는 둘뿐이다. 두 소스 모두 실행당 요청이 1회라 "일부 요청만 실패"가
+    # 존재하지 않는다. 요청 단위 표시는 실제로 여러 요청을 보내는 댓글 보강에만 남는다.
+    for key, label in (("reddit", "Reddit"), ("hn", "Hacker News")):
         entry = (status.get("sources") or {}).get(key) or {}
-        requested = entry.get("requested", 0)
-        failed = entry.get("failed", 0)
         got = entry.get("items", 0)
-        if failed == 0 and requested > 0:
+        if entry.get("collected"):
             lines.append(f"{label} 정상 — {got}건 수집")
-        elif got > 0:
-            attention = True
-            lines.append(f"<b>{label} 부분 실패</b> — 요청 {requested}건 중 {failed}건 실패, {got}건 수집")
         else:
             attention = True
-            lines.append(f"<b>{label} 수집 실패</b> — 요청 {requested}건 모두 실패")
+            lines.append(f"<b>{label} 수집 실패</b>")
 
     enrich = status.get("enrich") or {}
     if enrich.get("requested", 0):
@@ -294,12 +291,12 @@ def main() -> int:
     print(f"원시 링크 {raw_links}건, 링크로 만들지 못한 주소 {counts['unsafe_links']}건")
     print(f"제거한 태그 {filtered_tags}개, 제거한 속성 {filtered_attrs}개")
 
-    # 항목을 하나라도 얻은 소스가 있으면 발행한다. 세 소스가 전부 실패한 날에만
+    # 항목을 하나라도 얻은 소스가 있으면 발행한다. 두 소스가 전부 실패한 날에만
     # 발행하지 않는다(8.4).
     # 판정 결과도 파일로 남긴다. 단계 사이 값 전달을 파일로만 하는 규율을
     # 지켜야 재실행이 성립하고, 발행 여부의 근거가 로그에 흩어지지 않는다.
     should_publish = common.any_source_succeeded(status)
-    reason = "" if should_publish else "세 소스에서 항목을 하나도 얻지 못했다"
+    reason = "" if should_publish else "두 소스에서 항목을 하나도 얻지 못했다"
     common.write_json(os.path.join(args.work, "publish.json"),
                       {"publish": should_publish, "reason": reason})
 
