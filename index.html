@@ -121,118 +121,38 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-08-14 06:26 KST</p>
+  <p class="asof">기준 시각 2026-08-15 05:59 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 21건 수집</li><li>Reddit 댓글 보강 정상 — 6건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 16건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>529 Overloaded 오류로 인한 클로드 코드 장애</h2>
-<p>Hacker News에서는 짧은 시간 사이에 두 건의 글이 올라와 클로드 API가 반복적으로 529 Overloaded
-오류를 내고 있다고 알렸다. 한 사용자는 미국 동부 시간대에서 두 개의 별도 세션 모두 열 번 시도
-중 열 번이 실패했다고 전했고 <a href="https://news.ycombinator.com/item?id=49281152">Looks like Claude is down anyone else</a> <span class="ref">(HN · 08/13 11:27)</span>, 다른 글은 이 오류가 서버 쪽 문제로 보통은
-일시적이니 상태 페이지를 확인하라는 안내와 함께 장애 사실을 알렸다 <a href="https://news.ycombinator.com/item?id=49286056">Tell HN: Claude Code Is Down</a> <span class="ref">(HN · 08/13 22:57)</span>.
-Reddit에서도 비슷한 시점에 Fable에서 장기간 529가 이어진다는 글이 올라왔는데, 처음에는 상태
-페이지가 모두 정상으로 표시되다가 이후에야 문제가 있다는 사실이 공지되었다고 한다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1vnc9xi/529_on_fable_8132026/">529 on fable 8.13.2026</a> <span class="ref">(Reddit · 08/13 23:27)</span>. 댓글들은 전 세계적으로 접속이 안 된다는 확인, 하필 사용량 리셋 직전에
-장애가 터졌다는 하소연, 그럼에도 Opus 4.8은 쓸 수 있으니 작업을 계속했다는 반응 등으로
-채워졌다.</p>
-
-<h2>실수·주의사항을 마크다운 파일로 기록하는 워크플로</h2>
-<p>MISTAKES.md 파일을 꾸준히 쓰는 워크플로를 소개한 글은, 저장소에 MISTAKES.md를 두고
-CLAUDE.md에 "실수를 MISTAKES.md에 기록하라(무슨 일, 근본 원인, 재발 방지)"는 한 줄만
-추가하면 된다고 설명한다. 에이전트가 실수를 저지르거나 사용자가 정정할 때마다 항목이
-추가되고, 같은 실패가 네다섯 번 반복되면 그 항목이 CLAUDE.md의 확정된 규칙으로
-승격된다는 점이 핵심이다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vn6d5r/i_make_claude_code_keep_a_mistakesmd_file_heres/">I make Claude Code keep a MISTAKES.md file. Here's what actually happened.</a> <span class="ref">(Reddit · 08/13 18:56)</span>. 댓글 반응은 다양했다. 이 방식을 그대로
-따라 하겠다는 사람이 있는가 하면, 최근 모델이 예전에 문제였다고 스스로 언급한 방식을
-다시 반복하는 등 갑자기 무뎌진 것 같다는 불만도 있었다. 한 사용자는 모든 에이전트가
-피트폴 문서에 바로 쓰지 못하게 막고, 세션은 한 줄짜리 후보만 남기며 별도의 크론 작업이
-누적된 태그를 집계해 반복된 것만 승격 제안하도록 이중 장치를 뒀다고 소개했다. 반면
-CLAUDE.md는 강제성이 없고 파일을 읽는다고 해도 실제로는 앞뒤 40줄만 훑고 다 읽은 척한다는
-회의적인 반응도 있었고, 파일 자체가 트리거가 될 수 없으니 언제 실수를 되짚어보게
-만들지가 관건이라는 지적도 나왔다. 비슷한 맥락에서 올라온 다른 글은 세션이 끝날 때마다
-<code>/worklog</code> 명령으로 "왜"에 집중한 2~3문장짜리 세션 로그를 남기고, "한 단어에
-0.25달러를 쓴다면 이 문장에 쓰겠는가"라는 프롬프트 한 줄로 장황함을 크게 줄였다고 전했다.
-이 워크플로에서는 세션이 끝나기 전 에이전트가 KnownPitfalls.md를 다시 읽고 "해당 없음",
-"기존 항목의 커버 범위", "기존 항목의 공백", "새 패턴 후보" 중 하나로 관련성을 판정하도록
-강제한다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vndy5z/claude_the_worklog_and_knownpitfallsmd_how_ive/">Claude, the Worklog, and KnownPitfalls.md (how I've survived Opus 5)</a> <span class="ref">(Reddit · 08/14 00:29)</span>.</p>
-
-<h2>클로드 결과물을 소유한다면 왜 그걸로 내 모델을 학습시킬 수 없는가</h2>
-<p>Hacker News에는 "내가 클로드의 출력물을 소유하고 있다면, 왜 그것으로 내 모델을 학습시킬
-수 없는가"라는 질문 제목만 올라왔고, 본문이나 이어진 댓글은 남아 있지 않다
-<a href="https://news.ycombinator.com/item?id=49283563">If I own Claude's outputs why can't I train my own model on them?</a> <span class="ref">(HN · 08/13 18:34)</span>.</p>
-
-<h2>사용량 한도가 너무 빨리 차는 것에 대한 불만</h2>
-<p>Hacker News에는 클로드의 사용량 리셋과 한도에 지친 사람들을 겨냥해 Codex보다 낫다고
-내세우는 SilkCode 소개 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=49290887">SilkCode – Tired of resets/limits with Claude but better than Codex</a> <span class="ref">(HN · 08/14 04:36)</span>. Reddit에서는 iOS 앱을 만들며
-Claude Code 데스크톱 앱에서 Opus 5를 쓰는 사용자가, 짧은 프롬프트와 적은 출력에도 Pro 플랜
-한도에 금방 도달한다며 언제 다른 모델로 옮겨야 할지, Codex나 Cursor·Copilot이 더 나을지
-물었다. 이 글에는 Meta에서 일하는 지인이 팀 예산 초과가 두려워 코딩할 때 Opus보다 Sonnet을
-훨씬 자주 쓴다고 전한 내용도 추가되어 있다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vmtfy0/reaching_pro_plan_usage_limit_very_fast/">Reaching Pro plan usage limit very fast</a> <span class="ref">(Reddit · 08/13 07:58)</span>. 또 다른 글은 $20짜리 Pro
-플랜은 부족하고 $100짜리 Max 5x는 과하다며 그 사이인 $50 플랜을 바란다고 썼다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1vn1a1v/i_want_a_50month_plan/">I want a $50/month plan</a> <span class="ref">(Reddit · 08/13 14:03)</span>. 댓글들은 바로 그런 이유로 $50 플랜이 없는 거라며 $20에서 한도를
-채운 사람을 곧장 $100로 유도하려는 가격 전략이라 지적했고, 계정 두 개를 따로 운용하는
-것은 약관상 문제없지만 하나의 세션을 여러 계정으로 돌려쓰며 요금 제한을 우회하는 것은
-금지라는 설명도 이어졌다. 비슷하게, 5x에서 20x로 업그레이드했는데도 주간 한도가 여전히
-똑같이 빨리 소진된다며 이해할 수 없다는 글도 있었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vnn3wk/i_dont_understand_do_you_not_get_more_weekly_data/">I don't understand. Do you not get more weekly data by switching from 5x to 20x?</a> <span class="ref">(Reddit · 08/14 05:56)</span>.</p>
-
-<h2>Launch HN: Bullet (YC S26), 더 빠른 코딩 에이전트</h2>
-<p>YC S26 소속 창업자들이 Bullet이라는 더 빠른 코딩 에이전트를 소개하며, 여러 차례 피벗
-끝에 Claude Code와 Codex를 기다리다 지친 경험에서 이 제품을 만들게 됐다고 밝혔다. 이들이
-내세운 차별점은 모델 라우팅(Sonnet으로 충분한 작업을 굳이 Fable에 맡기지 않도록 하는 것),
-전체 저장소를 임베딩하는 대신 더 빠르고 정확한 타깃 검색을 쓰는 것, 도구 출력량을 제한하고
-오래된 스크린샷은 버리는 등 컨텍스트를 적극적으로 관리하는 것, 그리고 독립적인 조사를
-묶어 처리한 뒤 한 번에 정밀한 수정과 검증을 수행하는 효율적인 턴 구성이다
-<a href="https://news.ycombinator.com/item?id=49283063">Launch HN: Bullet (YC S26) – A Faster Coding Agent</a> <span class="ref">(HN · 08/13 17:14)</span>.</p>
-
-<h2>물리 기반 수채화 시뮬레이터 제작기(V2)</h2>
-<p>지난 주말 실제 물리 법칙에 기반한 수채화 시뮬레이터를 공개했던 개발자가, 반응이 좋아
-개선한 V2를 다시 공유했다. Kubelka-Munk 색 혼합 이론을 바탕으로 안료 수를 52종으로 늘렸고,
-더 투명하고 유리 같은 질감, 소금·알코올 기법으로 텍스처를 바꾸는 실험적 효과, 역광 효과를
-추가했으며, 그림을 그리는 동안 실제 함수 호출을 옆에 출력해 주는 "Code Mode"도 새로 넣었다.
-바탕이 된 물리 모델은 Curtis 등이 SIGGRAPH에서 발표한 "Computer-Generated Watercolor"
-논문이라고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vn7ze8/i_built_a_watercolor_simulator_based_on_real/">I built a watercolor Simulator based on real physics (V2)</a> <span class="ref">(Reddit · 08/13 20:24)</span>. 댓글은 대체로 호평 일색이었다. GitHub 링크나 오픈
-소스 여부를 묻는 질문이 여럿 있었고, 한 사용자는 사이트가 비압축 소스를 그대로 서빙하고
-있다고 짚었다. 1920 해상도 화면에서 사이드바 글자와 슬라이더가 너무 작아 조작하기 어렵다는
-피드백도 있었고, 순수하게 프롬프트만으로 만든 것인지 궁금해하는 반응도 있었다.</p>
-
-<h2>Opus 5·Fable 5 응답이 장황하고 이상해졌다는 불만</h2>
-<p>한 사용자는 Fable 5가 지나치게 자기 주장이 강해 코드베이스 구조를 자기 방식대로 강제로
-바꿔버리고, 5줄짜리 가비지 컬렉터 하나를 부탁해도 윤리와 도덕을 늘어놓는다며 답답함을
-토로했다. 큰 프로젝트일수록 이런 경향이 더 심해져서, 지시를 잘 따르는 예전 Sonnet 모델로
-되돌아갈 수밖에 없었다고 썼다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vn4y57/is_fable_5_gaslighting_me_or_has_it_just_become/">Is Fable 5 gaslighting me, or has it just become completely unhinged?</a> <span class="ref">(Reddit · 08/13 17:32)</span>. 비슷하게 Opus 5의 응답이 하이쿠처럼
-운율을 맞추거나 하이픈투성이 표현, 낡은 관용구로 가득해 읽기 지치고, 문단마다 "무슨
-뜻이냐"고 되물어야 한다는 글도 있었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vnf5tl/opus_5_is_exhausting/">Opus 5 is exhausting</a> <span class="ref">(Reddit · 08/14 01:11)</span>. 댓글에서는 숙련된 엔지니어조차
-절반은 무슨 말인지 모르겠다는 공감이 이어졌고, 시스템 프롬프트의 상당 부분이 빠진 게
-원인 아니냐는 추측, 모델이 에이전트끼리 소통하려고 만든 축약 표현이 사람 대상 출력에도
-새어 나오는 것 같다는 이론, 심지어 장황함이 토큰 소모를 늘리기 위한 의도적 설계라는
-냉소적인 의견까지 나왔다. 다른 사용자는 클로드 출력을 더 쉽게 읽을 방법을 물으며, 설정
-화면의 개인 지침은 Claude Code에 반영되지 않고 오직 <code>~/.claude/CLAUDE.md</code>만
-먹힌다는 것을 알게 됐다고 적었고, 관사와 군더더기를 빼는 "caveman mode" 같은 자신만의
-지침을 공유했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vnfna0/how_do_i_dumb_down_claudes_output_so_it_is/">How do I dumb down Claude's output so it is actually readable and understandable? Its output is too verbose and answers the question but in the most annoying and indirect way possible.</a> <span class="ref">(Reddit · 08/14 01:29)</span>. 또 다른 글은 장황하고 난해한 출력이 실제로 작업
-결과를 더 나쁘게 만든다고 주장했다. 사람들이 결과를 제대로 읽지 않고 대충 훑어본 뒤
-승인하기 때문인데, 계획을 다른 LLM에 넣어 알기 쉽게 요약시켜 비교해 보니 원래 계획 자체는
-정확했지만 정작 중요한 세부사항을 장황함 속에서 놓쳤다는 것을 확인했다고 썼다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1vnjgnt/illegible_technospeak_responses_cause_worse_task/">Illegible techno-speak responses cause worse task results</a> <span class="ref">(Reddit · 08/14 03:44)</span>.</p>
-
-<h2>클로드 코드용 두 페이지 치트시트 제작</h2>
-<p>몇 달간 Claude Code를 쓰며 유용한 내용을 모아오던 사용자가 이를 무료로 인쇄 가능한
-두 쪽짜리 PDF 치트시트로 정리해 공개했다. 첫 페이지는 세션 안에서 쓰는 단축키, 프롬프트
-접두사, 권한 모드, 컨텍스트 관리, 슬래시 명령과 내장 스킬을 다루고, 둘째 페이지는 CLI
-플래그, 설정 파일들의 우선순위, 권한 규칙, 서브에이전트, 스킬, 훅, MCP, CLAUDE.md, 규칙,
-훅 이벤트 등 세션 밖의 내용을 담았다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vn98by/i_made_a_twopage_printable_cheat_sheet_for_claude/">I made a two-page, printable cheat sheet for Claude Code</a> <span class="ref">(Reddit · 08/13 21:24)</span>. 댓글에서는 이걸 데스크 매트로
-만들어 팔면 좋겠다는 제안이 있었고, 창작자는 판매 대신 각자 PDF를 인쇄 매트 서비스에
-맡겨보라고 답했다. 여러 창을 오갈 때 유용한 <code>/rename</code> 명령이 빠졌다는 지적에
-창작자는 이미지는 못 고치지만 PDF에는 추가했다고 답했다. 보안상 나쁜 습관을 권장하고
-싶지 않아 <code>--dangerously-skip-permissions</code>는 의도적으로 뺐다는 설명도 있었고,
-<code>/ultrareview</code>가 빠졌다는 지적에는 클라우드 기반 멀티 에이전트 리뷰로 버그를
-찾고 검증해준다는 걸 오늘 처음 알았다는 반응이 달렸다. 그 밖에 윈도우에서는 이미지
-붙여넣기에 Ctrl+V가 아니라 Alt+V를 써야 한다는 팁도 공유됐다.</p>
-
+<h2>1. Opus 5가 장황하고 이해하기 어렵게 말한다는 불만</h2>
+<p>Opus 5와 Fable 5가 지나치게 장황하고 산만하게 말한다는 불만이 이어졌다. 한 사용자는 Opus 5의 답변이 과도하게 세세하고 내면의 사고 과정만 늘어놓을 뿐 정작 읽기 쉬운 결론이 없다고 지적했고, 대안으로 옮긴 Fable 5도 예전만큼 명료하지 않고 같은 문제를 겪는 것 같다며 Anthropic을 아예 떠나 opencode와 Kimi K3, DeepSeek 같은 대안을 고려 중이라고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vnyycc/opus_5_and_even_fable_5_too_hard_to_understand/">Opus 5 and even Fable 5 too hard to understand, speaking weirdly. Fable 5 declined.</a> <span class="ref">(Reddit · 08/14 15:01)</span>.</p>
+<p>다른 사용자는 Claude가 쉼표 하나를 왼쪽으로 옮긴 걸 설명하는 데 두 페이지를 쓴 사례를 공유했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vo167p/claude_explaining_to_me_over_two_pages_how_he/">Claude explaining to me over two pages how he just moved a comma to the left</a> <span class="ref">(Reddit · 08/14 17:10)</span>. 댓글들은 이를 비꼬아 <blockquote><p>이 쉼표는 하중을 지탱하고 있다.</p></blockquote> <blockquote><p>이 쉼표가 결정적 단서였다.</p></blockquote> 같은 반응을 보였고, 일부는 "여러분 다들 병 걸렸다"며 이 장황한 말투를 그대로 흉내 낸 댓글을 달기도 했다.</p>
+<p>이 장황함의 원인을 두고 한 사용자는 output style을 켜두면 이전 답변의 장황한 문체가 컨텍스트에 남아 이후 답변에도 계속 영향을 주는 것 아니냐는 가설을 제기했고, 그 때문에 자신은 output style 사용을 자제하고 있다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vo1e1i/do_output_styles_degrade_context/">Do output styles degrade context?</a> <span class="ref">(Reddit · 08/14 17:22)</span>. 또 다른 사용자는 명확한 지시와 중단 지점을 정해줘도 Opus 5가 필요 이상으로 많은 말을 하고 요청 이상의 작업을 벌인다며, 이것이 Anthropic 쪽 설정 문제인지 물었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1voesyf/is_there_a_legitimate_reason_for_the_lobotomylike/">Is there a legitimate reason for the lobotomy-like intervals?</a> <span class="ref">(Reddit · 08/15 03:09)</span>. 한 사용자는 Claude의 답변이 너무 장황하고 뒤죽박죽이라며 좌절감을 토로했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vof9sq/im_in_my_failure_era/">I'm in my failure era</a> <span class="ref">(Reddit · 08/15 03:26)</span>.</p>
+<h2>2. Claude Code 세션의 가치를 극대화하는 방법에 대한 글</h2>
+<p>Claude Code 세션을 최대한 활용하는 방법을 다룬 글이 Hacker News에 올라와 논의되었다 <a href="https://news.ycombinator.com/item?id=49300800">Maximizing the value of your Claude Code sessions</a> <span class="ref">(HN · 08/15 01:15)</span>.</p>
+<h2>3. Show HN: grep 토큰을 42% 줄이는 Claude Code 훅 Graft</h2>
+<p>Claude Code용 훅으로 grep 호출에 드는 토큰을 42% 줄여준다는 도구 Graft가 Show HN에 공개되었다 <a href="https://news.ycombinator.com/item?id=49299985">Show HN: Graft – Claude Code hooks that cut grep tokens by 42%</a> <span class="ref">(HN · 08/15 00:22)</span>.</p>
+<h2>4. Claude Code로 만든 가까운 화장실 찾기 컴퍼스 앱 Compiss</h2>
+<p>맥에서 터미널로 Claude Code를 사용해 코드와 리소스, e2e 테스트까지 전부 생성해 만들었다는 화장실 찾기 컴퍼스 앱 Compiss가 소개되었다. 청결도 평가, 댓글과 사진 첨부(검수 후 게시), 무료 화장실·장애인 편의시설 필터링 기능을 갖췄고 광고와 인앱결제 없이 무료로 iOS와 Android, 워치용까지 출시되었다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1voccq0/i_used_claude_to_vibe_code_a_compass_app_to_find/">I used Claude to vibe code a compass app to find the nearest toilet, called Compiss.</a> <span class="ref">(Reddit · 08/15 01:40)</span>.</p>
+<p>댓글에서는 사용 시간대를 기록해 혼잡한 시간을 피할 수 있게 하자는 제안, Foursquare처럼 체크인 기능을 넣자는 아이디어가 나오는 한편, 앱이 엉뚱한 용도로 악용될 수 있다는 농담 섞인 우려도 있었다. 전반적으로는 반복되는 할 일 관리 앱 대신 독특하고 재미있는 아이디어라는 호평이 많았다.</p>
+<h2>5. 8월 19일 50% 한도 조정을 앞두고 사용량이 몰래 줄었다는 의혹</h2>
+<p>한 사용자는 Anthropic이 8월 19일 발표할 "50% 증량 영구화"를 앞두고 뒤에서 몰래 사용 한도를 줄이고 있는 것 같다며 불신을 드러냈다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vo2y4n/it_feels_like_our_usage_is_secretly_being_reduced/">It feels like our usage is secretly being reduced behind the scenes so on the 19th Anthropic can say they made the 50% increase permanent..</a> <span class="ref">(Reddit · 08/14 18:56)</span>. 댓글에서는 연산 자원이 심각하게 부족해 수요를 억제하려는 것 아니냐는 추측과 함께, 그렇더라도 투명하게 공지해야 한다는 지적이 나왔다. 일부는 이용자들이 불안해져 다른 서비스로 옮겨가면 오히려 악순환에 빠질 거라 경고했고, Max 5x 요금제를 쓰는 한 사용자는 예전엔 하루 종일 Opus로 작업했는데 이제는 그럴 수 없다며 실제로 한도가 줄었다고 확인해주었다.</p>
+<p>x20 플랜을 쓰는 사용자는 최근 몇 주 동안 한도를 3~4일 만에 다 써버려서 Sonnet으로 낮춰써도 주간 주기 시작 24시간 만에 이미 50% 이하로 떨어진다며, 같은 프로젝트와 설정으로 작업하는데도 이런 변화를 겪는 사람이 또 있는지 물었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vo558a/are_limits_nerfted_again/">Are limits nerfted again?</a> <span class="ref">(Reddit · 08/14 20:53)</span>.</p>
+<p>Max200 플랜 사용자는 최근 몇 주간 Claude Code의 효율이 눈에 띄게 떨어져 같은 작업에 더 많은 토큰이 들고 결과물의 질도 낮아진 것 같다고 지적하며, 8월 19일 50% 한도 축소까지 겹쳐 대부분 작업을 Sonnet 5로 돌리고 있다고 밝혔다. 이 저하가 일시적인지, 실제로 모델이 약화된 것인지, 향후 계획이 무엇인지 궁금해하며 갱신 여부를 고민하는 다른 사용자들의 의견을 구했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1voaq2b/claude_code_efficiency_feels_noticeably_worse_aug/">Claude Code efficiency feels noticeably worse - Aug 19 50% limit cut coming. What’s the plan?</a> <span class="ref">(Reddit · 08/15 00:40)</span>.</p>
+<h2>6. Ask HN: Claude Code를 쓰면서 브레인롯을 막는 방법에 대한 질문</h2>
+<p>6년차 소프트웨어 엔지니어라는 작성자는 업무 시간의 절반을 Claude Code로 작업하는데, 생산성은 올랐지만 두뇌가 무뎌지는 느낌이 든다며 다른 사람들은 감각을 유지하기 위해 어떻게 하는지 물었다. 새로운 것을 배우는 데 따로 시간을 들여야 할 것 같다고 덧붙였다 <a href="https://news.ycombinator.com/item?id=49294529">Ask HN: How are you preventing brainrot?</a> <span class="ref">(HN · 08/14 12:45)</span>.</p>
+<h2>7. 오픈소스 Claude Code 래퍼 Munder Difflin 소개</h2>
+<p>작성자는 Claude Code와 Codex 같은 기존 코딩 에이전트를 활용해 로컬에서 여러 에이전트가 "오피스"처럼 상시 상주하며 일을 처리하는 무료 오픈소스 래퍼 Munder Difflin을 공개했다. 사용자가 직접 보스 역할을 하거나 자신의 클론이 대신 에이전트들을 지휘하게 할 수 있고, 모든 처리가 로컬에서 이뤄져 개인 데이터가 밖으로 나가지 않는다고 설명했다. v0.0.1부터 약 40번의 릴리스와 2개월을 거쳐 v0.4.0에 이르렀고 이미 2000명 넘게 사용 중이며 GitHub 스타 677개를 받았고, Product Hunt에도 공개했다고 알렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1vo94xi/coolest_claude_code_wrapper_out_there_and_its_100/">Coolest claude code wrapper out there and it’s 100% open source</a> <span class="ref">(Reddit · 08/14 23:40)</span>.</p>
+<p>댓글에서는 창고 직원 캐릭터나 상자 분쇄기 같은 The Office 밈 요소를 넣어달라는 장난스러운 요청이 이어졌고, 작성자는 Product Hunt 업보트를 대가로 관련 기능을 추가하겠다고 화답했다. 에이전트가 작업 중 멈추면 서류를 던지며 창밖으로 뛰어내리냐는 농담 섞인 질문도 있었다.</p>
+<h2>8. Ask HN: AI가 짠 코드를 사람이 여전히 리뷰하는지에 대한 질문</h2>
+<p>주로 사내용 소도구와 개인 프로젝트 코드를 다룬다는 작성자는 임의적인 기준으로 코드가 여러 번 다시 쓰이는 고통스러운 리뷰 과정을 겪은 뒤, 지금은 코드 리뷰가 대부분 자동화된 팀에 있다고 밝혔다. Claude의 /review와 /code-review 명령이 어떤 사람보다 꼼꼼한 리뷰를 해준다고 평가하며, 코드 대부분을 AI로 작성하는 다른 사람들은 스팟체크를 넘어서는 수준으로 사람이 리뷰에 참여하는지 물었다 <a href="https://news.ycombinator.com/item?id=49298901">Ask HN: Does a human still review your code?</a> <span class="ref">(HN · 08/14 23:07)</span>.</p>
 </main>
 
 <footer>
-  <p>생성 2026-08-14 06:35 KST</p>
+  <p>생성 2026-08-15 06:07 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
