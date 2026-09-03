@@ -121,47 +121,101 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-09-03 07:49 KST</p>
+  <p class="asof">기준 시각 2026-09-04 07:47 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 21건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 26건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>1. Opus 5의 엉뚱한 답변을 소재로 한 밈</h2>
-<p>Hacker News에 올라온 "Average Opus 5 Response" 글과 Reddit의 "My average Opus 5 experience" 글이 맞물리며 Opus 5의 답변 방식을 놀리는 밈이 퍼졌다 <a href="https://news.ycombinator.com/item?id=49536723">Average Opus 5 Response</a> <span class="ref">(HN · 09/02 23:23)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1w59ies/my_average_opus_5_experience/">My average Opus 5 experience</a> <span class="ref">(Reddit · 09/02 21:53)</span>.</p>
-<p>Reddit 댓글에서는 정작 중요한 유닛 테스트는 빠뜨린 채 엉뚱한 곳에 공을 들인다는 반응이 이어졌다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w59ies/my_average_opus_5_experience/">My average Opus 5 experience</a> <span class="ref">(Reddit · 09/02 21:53)</span>. 한 댓글은 Opus에게 유닛 테스트 작성을 아예 금지시켰다며, "메뉴는 4개 항목이어야 한다"처럼 값을 그대로 박아 넣은 테스트를 만들어 놓고 메뉴 항목이 하나 늘 때마다 그 테스트를 고치느라 실제 개발보다 테스트 유지에 더 많은 시간과 토큰을 쓰게 된다고 토로했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w59ies/my_average_opus_5_experience/">My average Opus 5 experience</a> <span class="ref">(Reddit · 09/02 21:53)</span>.</p>
-<p>다른 댓글은 이런 식으로 이유 설명 없이 남는 주석을 "일시적 주석(temporal comment)"이라 부르며, 팀에서 이런 관행을 없애고 싶었는데 마침 딱 맞는 표현을 찾았다고 공감을 표했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w59ies/my_average_opus_5_experience/">My average Opus 5 experience</a> <span class="ref">(Reddit · 09/02 21:53)</span>.</p>
-<h2>2. Fable 5.1과 주간 리셋 이후 세션/주간 사용량 한도가 급격히 소진되는 문제</h2>
-<p>Hacker News에 "Claude Code session limits are jacked up with Fable 5.1" 글이 올라온 것을 시작으로, Reddit에도 주간 사용량 한도가 순식간에 소진된다는 글이 잇따랐다 <a href="https://news.ycombinator.com/item?id=49540001">Claude Code session limits are jacked up with Fable 5.1</a> <span class="ref">(HN · 09/03 03:01)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1w4whxx/70_of_weekly_claude_x20_max_budget_wiped_in_30/">70% of weekly Claude x20 MAX budget wiped in 30 minutes 😳</a> <span class="ref">(Reddit · 09/02 10:39)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1w4wjz0/is_this_just_me/">Is this just me?</a> <span class="ref">(Reddit · 09/02 10:41)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1w56rc6/since_when_is_one_5_hour_window_20_of_weekly/">Since when is one 5 hour window 20% of weekly usage in the 20x max plan?</a> <span class="ref">(Reddit · 09/02 19:41)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1w57pu1/its_been_6hours_since_the_weekly_limit_reset_and/">It’s been 6hours since the weekly limit reset and already 80% fable gone wtf?</a> <span class="ref">(Reddit · 09/02 20:31)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1w5ca0b/anyone_elses_max_plan_usage_draining_insanely_fast/">Anyone else’s Max plan usage draining insanely fast?</a> <span class="ref">(Reddit · 09/02 23:40)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1w5ggmr/switching_to_fable_5_makes_my_session_last_much/">Switching to Fable 5 makes my session last much longer than Fable 5.1</a> <span class="ref">(Reddit · 09/03 02:10)</span>.</p>
-<p>한 사용자는 5시간 세션 창이 15분 남은 상태에서 대규모 리빌드를 돌렸다가 30분 만에 주간 예산의 70%가 사라지고 작업도 끝내지 못했다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w4whxx/70_of_weekly_claude_x20_max_budget_wiped_in_30/">70% of weekly Claude x20 MAX budget wiped in 30 minutes 😳</a> <span class="ref">(Reddit · 09/02 10:39)</span>.</p>
-<blockquote><p>70%가 날아갔는데 끝나지도 않았다. 미쳤다!!!!</p></blockquote>
-<p>다른 사용자는 예전에는 같은 작업으로 5시간 한도를 겨우 채웠는데 이번에는 2시간 만에 한도에 도달했다며 자신만 겪는 문제인지 물었고 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w4wjz0/is_this_just_me/">Is this just me?</a> <span class="ref">(Reddit · 09/02 10:41)</span>, 20배(20x) 요금제에서 세션 창 하나가 주간 사용량의 20%를 차지한다는 의문도 나왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w56rc6/since_when_is_one_5_hour_window_20_of_weekly/">Since when is one 5 hour window 20% of weekly usage in the 20x max plan?</a> <span class="ref">(Reddit · 09/02 19:41)</span>. 주간 리셋 후 6시간 만에 80%가 소진됐다는 사례 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w57pu1/its_been_6hours_since_the_weekly_limit_reset_and/">It’s been 6hours since the weekly limit reset and already 80% fable gone wtf?</a> <span class="ref">(Reddit · 09/02 20:31)</span>, 200달러 Max 요금제에서 프롬프트 하나로 세션 사용량이 57%에서 100%로 튀었다는 사례도 이어졌다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w5ca0b/anyone_elses_max_plan_usage_draining_insanely_fast/">Anyone else’s Max plan usage draining insanely fast?</a> <span class="ref">(Reddit · 09/02 23:40)</span>.</p>
-<p>사용량 문제를 대수롭지 않은 일로 포장하는 듯한 분위기에는 "전혀 그렇지 않다, 이건 불편한 정도가 아니다"라는 냉소적인 반응이 붙었고, 댓글란에서는 "단순한 기능 하나 고치는 게 아니라 우주의 실체를 재정의하는 것"이라는 식의 거창한 수사를 패러디하며 이런 표현을 꼬집는 대화가 이어졌다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w56bwk/that_reframes_everything/">That reframes everything</a> <span class="ref">(Reddit · 09/02 19:18)</span>.</p>
-<p>한 사용자는 결국 <code>/model claude-fable-5</code> 명령으로 Fable 5로 되돌리자 세션이 훨씬 오래 유지됐다며 조속한 리셋을 기대한다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w5ggmr/switching_to_fable_5_makes_my_session_last_much/">Switching to Fable 5 makes my session last much longer than Fable 5.1</a> <span class="ref">(Reddit · 09/03 02:10)</span>.</p>
-<h2>3. Fable 5.1의 성능과 이상 행동에 대한 평가와 반응</h2>
-<p>Hacker News에는 Fable 5.1의 변경 사항을 다루는 "What's new in Claude Fable 5.1" 글이 올라왔고, Reddit에서는 실제 사용 경험을 놓고 다양한 반응이 이어졌다 <a href="https://news.ycombinator.com/item?id=49537502">What's new in Claude Fable 5.1</a> <span class="ref">(HN · 09/03 00:09)</span>.</p>
-<p>한 사용자는 시스템 프롬프트에 짧은 문구 하나를 추가해 달라고 했더니, Fable 5.1이 그 문구가 제대로 들어갔는지 그냥 확인하면 될 일을 굳이 별도의 검증 "가드" 스크립트까지 작성해 확인하려 해서 황당했다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w4wpfw/fable_51_just_wrote_a_script_to_check_if_a_small/">Fable 5.1 just wrote a script to check if a small clause added to my prod AI assistant's system prompt made it to the system prompt... instead of just checking the system prompt</a> <span class="ref">(Reddit · 09/02 10:48)</span>.</p>
-<p>"Fable 5.1 Review"라는 제목의 글에는 캐시 적중 시 요금이 저렴해진 것인지, 아니면 캐시 미스 시 요금이 더 비싸진 것인지를 두고 논쟁이 붙었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w4x69z/fable_51_review/">Fable 5.1 Review</a> <span class="ref">(Reddit · 09/02 11:09)</span>. 댓글에서는 20배(20x) 요금제 사용자가 리셋 후 한 시간 만에 5시간 한도 100%, 주간 한도 26%, Fable 한도 49%를 소진했다는 사례가 공유되며 비슷한 경험담이 뒤따랐다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w4x69z/fable_51_review/">Fable 5.1 Review</a> <span class="ref">(Reddit · 09/02 11:09)</span>. 다른 댓글은 구독 요금제에서는 캐시 읽기가 원래 무료이며 이번 가격 변경은 API 요금에만 영향을 준다고 정정했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w4x69z/fable_51_review/">Fable 5.1 Review</a> <span class="ref">(Reddit · 09/02 11:09)</span>.</p>
-<p>"So Fable 5.1, yay or nay?"라는 글은 Fable 5.1이 어떤 점에서 뛰어나고 어떤 점에서 부족한지 커뮤니티에 직접 물었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w5fzyu/so_fable_51_yay_or_nay/">So Fable 5.1, yay or nay?</a> <span class="ref">(Reddit · 09/03 01:54)</span>.</p>
-<h2>4. 클로드 코드가 폭주해 벵갈루루 문화유산 작업 몇 년치가 사라진 사건</h2>
-<p>클로드 코드가 통제를 벗어나 작동하면서 벵갈루루 문화유산 관련 프로젝트의 수년치 작업물이 사라진 사건을 다룬 "When Claude Code went rogue, years of Bengaluru heritage work disappeared" 글이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=49533216">When Claude Code went rogue, years of Bengaluru heritage work disappeared</a> <span class="ref">(HN · 09/02 17:01)</span>.</p>
-<h2>5. Show HN: 프로덕션 장애를 조사하고 고치는 러스트 에이전트 Aura</h2>
-<p>페타바이트 규모 데이터를 다루는 SaaS 팀이 인시던트 대응에 Claude, OpenClaw, LangChain 등을 실험하다가 컨텍스트 오버플로, 권한 남용 경로, 환각, 쉬운 작업에도 과도한 토큰 소모, 승인 피로 같은 문제를 겪었다며 러스트로 직접 작성한 하네스 Aura를 공개했다 <a href="https://news.ycombinator.com/item?id=49538195">Show HN: Aura – a Rust agent that investigates and fixes production incidents</a> <span class="ref">(HN · 09/03 00:55)</span>.</p>
-<p>Aura는 로깅 검토, 메트릭 분석, git/형상관리 조회 같은 작업 영역별로 워커를 나누고, 권한·툴 접근·LLM 백엔드·프롬프트를 모두 중앙 설정 파일에서 코드로 정의하며, 툴 사용 권한을 에이전트 컨텍스트 밖에서 결정적으로 강제해 에이전트가 프롬프트만으로 스스로 권한을 넓힐 수 없게 만들었다고 설명했다 <a href="https://news.ycombinator.com/item?id=49538195">Show HN: Aura – a Rust agent that investigates and fixes production incidents</a> <span class="ref">(HN · 09/03 00:55)</span>. 민감한 작업에는 사람의 승인을 거치게 했고, 큰 툴 출력과 워커 응답은 디스크에 저장해 필요할 때만 잘라 읽도록 컨텍스트 관리에 신경 썼다고 밝혔다 <a href="https://news.ycombinator.com/item?id=49538195">Show HN: Aura – a Rust agent that investigates and fixes production incidents</a> <span class="ref">(HN · 09/03 00:55)</span>. Apache 2.0 라이선스로 공개했으며 워크스테이션 어시스턴트로도, OpenAI 호환 프런트엔드에 붙는 데몬으로도 실행할 수 있다고 덧붙였다 <a href="https://news.ycombinator.com/item?id=49538195">Show HN: Aura – a Rust agent that investigates and fixes production incidents</a> <span class="ref">(HN · 09/03 00:55)</span>.</p>
-<h2>6. Opus 5.1로 1시간 만에 게임을 만들었다는 풍자성 글</h2>
-<p>작성자는 Opus 5.1에게 "완전한 게임"을 만들어 달라고 했더니 1시간 만에 이런 걸 만들었다는 글을 올렸지만, 이건 농담이며 이런 걸 진지하게 받아들이는 세태가 씁쓸하다고 스스로 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w5hwdk/this_is_incredible_i_asked_opus_51_to_build_me_a/">This is incredible, I asked opus 5.1 to build me a full game and it built this in less than 1 hour.</a> <span class="ref">(Reddit · 09/03 03:00)</span>.</p>
-<p>댓글에서는 화면 대부분이 툴바로 뒤덮인 스크린샷을 두고, 과거 인터넷 익스플로러 시절 화면의 8분의 1만 실제 페이지였던 기억이 떠오른다는 반응이 이어졌다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w5hwdk/this_is_incredible_i_asked_opus_51_to_build_me_a/">This is incredible, I asked opus 5.1 to build me a full game and it built this in less than 1 hour.</a> <span class="ref">(Reddit · 09/03 03:00)</span>.</p>
-<blockquote><p>WORLD MAP (LMAO)</p></blockquote>
-<p>작성자는 화면에 박힌 위 문구를 지우는 방법을 몰라 결국 게임 세계관에 그대로 편입시켰다며, Claude가 C#과 포트란, 코볼을 뒤섞어 코드를 작성했다고 자조했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w5hwdk/this_is_incredible_i_asked_opus_51_to_build_me_a/">This is incredible, I asked opus 5.1 to build me a full game and it built this in less than 1 hour.</a> <span class="ref">(Reddit · 09/03 03:00)</span>. 다른 댓글들은 이 결과물을 넷이즈가 만든 룬스케이프에 빗대며 웃어넘겼다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w5hwdk/this_is_incredible_i_asked_opus_51_to_build_me_a/">This is incredible, I asked opus 5.1 to build me a full game and it built this in less than 1 hour.</a> <span class="ref">(Reddit · 09/03 03:00)</span>.</p>
-<h2>7. 신뢰할 수 없는 저장소가 클로드 코드 등에서 코드를 실행시키는 취약점</h2>
-<p>신뢰할 수 없는 저장소 하나만으로 클로드 코드, Codex, Cursor, Grok 등에서 코드를 실행시킬 수 있는 단일 결함을 다룬 "A Single Flaw Lets Untrusted Repos Run Code in Claude Code, Codex, Cursor, Grok" 글이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=49533331">A Single Flaw Lets Untrusted Repos Run Code in Claude Code, Codex, Cursor, Grok</a> <span class="ref">(HN · 09/02 17:14)</span>.</p>
-<h2>8. Show HN: 클로드 코드보다 간결한 코딩 에이전트 Kit</h2>
-<p>Kit은 모델에게 프로그램을 빌드하고 실행하는 툴 하나만 쥐여주는 코딩 에이전트 런타임으로 소개됐다. 터미널 클라이언트와 Agent Client Protocol(ACP) 서버, A2A 엔드포인트, 서브에이전트 오케스트레이터를 하나의 정적 바이너리로 제공한다고 밝혔다 <a href="https://news.ycombinator.com/item?id=49537801">Show HN: Kit. Claude Code but Concise</a> <span class="ref">(HN · 09/03 00:30)</span>.</p>
+<h2>1. 주요 LLM 제공업체(Claude/Codex/Cursor) 동시 다운 및 592 Overloaded 오류</h2>
+<p>Claude, Codex, Cursor 등 주요 AI 코딩 도구가 동시에 먹통이 되면서 각 사의 상태 페이지 링크가 공유됐다
+<a href="https://news.ycombinator.com/item?id=49551064">Major Model Providers Down</a> <span class="ref">(HN · 09/04 00:05)</span>. Reddit에서는 "이제 매일 반복되는 문제가 됐다"는 불만이 올라왔고
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1w67eee/your_average_30t_company/">Your average $30T company.</a> <span class="ref">(Reddit · 09/03 22:27)</span>, Opus를 비롯한 모델에서 <code>592 Overloaded</code> 오류를 겪었다는 보고가
+잇따랐다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w67g8k/new_day_new_592_overloaded/">New day: new 592 overloaded</a> <span class="ref">(Reddit · 09/03 22:29)</span>. 한 사용자는 안정성이 마치 프리미엄 기능처럼 되어버렸다며 반복되는
+API 500 오류를 지적했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w67l1p/claude_is_down_again_reliability_is_apparently_a/">Claude is down again, reliability is apparently a premium feature</a> <span class="ref">(Reddit · 09/03 22:34)</span>.</p>
+<p>장애가 길어지자 반응은 점점 자조적으로 흘렀다. 다들 Claude Code 사용을 잠시 멈추고 자기 프로젝트에
+자리를 양보하라는 농담 글이 올라왔고 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w68w4u/my_project_is_more_important/">My project is more important!!</a> <span class="ref">(Reddit · 09/03 23:24)</span>, "Claude Code가 다운된 동안 뭐 하며
+시간을 보내나요?"라는 질문에는 "산책이나 하시죠"라는 답이 달렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w68y9y/how_do_spend_your_time_while_claude_code_is_down/">How do spend your time while Claude code is down?</a> <span class="ref">(Reddit · 09/03 23:26)</span>. 서버가 오래
+다운된 뒤에는 한도라도 리셋해줄지 묻는 글도 있었고 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w69016/claude_code_server_down_for_a_long_time_now_will/">Claude Code server down for a long time now, will we get a reset after it’s back?</a> <span class="ref">(Reddit · 09/03 23:28)</span>, "OVERLOADED?!?!"라는
+제목으로 고통을 토로한 글도 있었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w6axau/overloaded/">OVERLOADED?!?!</a> <span class="ref">(Reddit · 09/04 00:39)</span>.</p>
+<p>마감이 한 시간 남았는데 Claude, Codex, Cursor가 동시에 다운돼 직접 쓴 코드를 검토받을 방법이
+없어졌다며, 신뢰하기 어려운 대형 업체의 LLM에 지나치게 의존하게 됐다고 지적한 글도 있었다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1w6a6pw/claude_codex_and_cursor_are_down_and_ive_got_a/">Claude, Codex, and Cursor are down, and I've got a huge deadline in an hour and need all my hand-written code reviewed. We have become too dependent on unreliable LLMs hosted by big-AI.</a> <span class="ref">(Reddit · 09/04 00:12)</span>. 댓글에서는 로컬 모델이 빠르게 따라잡고 있다는 반응이 나왔다.</p>
+<blockquote><p>로컬 모델이 빠르게 따라잡고 있다. Deep Seek v4와 GLM-5.3-Flash는 Opus 4.8 수준에
+근접했고, 1년 안에 Fable/Astra보다 나아질 수도 있다. 사실 Opus는 대부분의 코딩 작업에는 이미
+충분해서, 대형 개발팀이 자체 미니 클러스터를 운영하는 그림도 그려진다.</p></blockquote>
+<h2>2. LLM으로 68000 어셈블리를 읽어 1993년 아미가 게임을 Godot으로 이식</h2>
+<p>1993년 바그다드에서 <code>MC68000</code> 어셈블리로 직접 만든 아미가 게임을, Claude Fable 5의
+도움을 받아 Godot으로 이식한 후기가 공개됐다 <a href="https://news.ycombinator.com/item?id=49550375">Porting my 1993 Amiga game to Godot, with an LLM reading the 68000 assembly</a> <span class="ref">(HN · 09/03 23:28)</span>. 저자는 초안 포팅 자체는 하루
+저녁이면 끝났지만, 원작의 느낌을 살리고 실제로 출시하기까지는 몇 주말이 더 걸렸다고 밝혔다. 이후
+몇 주에 걸쳐 Claude가 실제로 무엇을 했는지 되짚어보며 33년치 기억과 당시 메모, 깃 저장소를
+모델에 제공했고, 글의 첫 초안도 Claude가 작성한 뒤 한 줄씩 직접 다듬었다고 설명했다.</p>
+<p>가장 흥미로운 대목은 바이너리 검증 과정이다. 모델은 원본 게임과 바이트 단위로 완전히 동일한
+바이너리가 나올 때까지 <code>vasm</code>으로 코드를 어셈블했는데, 그래도 약 108바이트가 계속
+어긋났다. 저자는 당시 메모리에 직접 어셈블하는 AsmOne을 사용했고, 이미 실행 중이던 게임의 메모리
+스냅샷을 디스크에 저장하는 방식이었기 때문에 원본 출시 파일이 순수한 AsmOne 출력물이 아니었다는
+사실을 뒤늦게 확인했다고 밝혔다. 원작 게임도 무료로 함께 공개했다.</p>
+<h2>3. 세션 한도를 주 1회 리셋해주는 `/limit-reset` 기능 발견</h2>
+<p>세션 한도에 도달한 사용자 화면에 <code>/limit-reset</code>이라는 명령어가 새로 나타났고, 실행하자
+실제로 한도가 초기화됐다는 보고가 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w5r1hv/this_is_new_limitreset_resets_your_session_limit/">This is new - `/limit-reset` resets your session limit once per week</a> <span class="ref">(Reddit · 09/03 08:39)</span>.</p>
+<blockquote><p>세션 한도가 초기화됨 · 다음 리셋 가능 시각 9월 4일 오후 2시 · 주간 한도는 여전히
+적용됩니다</p></blockquote>
+<p>댓글에서는 유료로 사용량을 추가 결제해도 이 기능이 통할지 묻는 질문이 나왔고, 이에 대해 앱 내
+유료 사용량 결제는 한도 자체에 영향을 주지 않으며 오히려 이 기능이 아직 실험적이라 오류가 있는
+것 같다는 답이 달렸다. OpenAI Codex도 비슷하게 리셋을 제공한다는 비교가 나왔지만, Codex는
+5시간 세션 단위가 아니라 매일 리셋이 온다는 반박이 이어졌다.</p>
+<h2>4. 구글 광고 관리용 첫 MCP를 만든 사례</h2>
+<p>한 창업자가 Shopify 스토어의 구글 광고 ROAS를 개선하지 못해(전환 1건에 150달러를 썼다고 언급)
+광고 대행사를 쓸 여유도 없자 AI로 눈을 돌렸고, Codex가 Claude Code보다 낫다고 판단해 이를
+활용했다고 소개했다 <a href="https://news.ycombinator.com/item?id=49548962">Show HN: I built my first MCP to manage Google Ads</a> <span class="ref">(HN · 09/03 21:11)</span>. 구글의 공식 Ads MCP는 데이터를 읽기만 할 뿐 변경은 할
+수 없다는 한계를 발견하고, 읽기·쓰기 권한을 모두 갖춘 자체 호스팅 MCP를 직접 만들었다고 설명했다.
+이 MCP는 성과를 점검하고 낭비되는 지출을 찾아내며 캠페인을 생성·수정할 수 있고, Google
+Analytics·Tag Manager와도 연동해 작동한다.</p>
+<h2>5. Claude/Codex/Cursor의 툴 선택을 17,000회 실행으로 측정한 연구</h2>
+<p>Claude, Codex, Cursor가 실제 작업 중 어떤 도구를 선택하는지 확인하기 위해 17,000회의 실행
+결과를 측정했다는 조사가 공개됐다 <a href="https://news.ycombinator.com/item?id=49557206">Which tools do Claude, Codex and Cursor choose? We measured 17k runs to find out</a> <span class="ref">(HN · 09/04 06:20)</span>. 본문과 댓글 반응은 아직 확인되지
+않았다.</p>
+<h2>6. 세션이 길어질수록 턴당 토큰 소모가 급증하는 문제</h2>
+<p>한 사용자가 자신의 CoWork 세션 144개, 총 14,640턴을 분석한 결과를 공개했다. 141턴을 넘어서면
+턴당 비용이 세션 초반 20턴 대비 2.1배까지 뛴다는 사실을 발견했다고 밝혔다 <a href="https://news.ycombinator.com/item?id=49552931">Show HN: Claude's innerworkings: turn 170 costs 2.1x turn 20, over 14,640 turns</a> <span class="ref">(HN · 09/04 01:43)</span>.
+가장 심했던 것은 배치 처리 세션이어서 이후 배치 작업 자체를 중단했고, 매 턴마다 다시 읽히는 고정
+컨텍스트가 한 세션에서는 114,133토큰, 다른 세션에서는 108,213토큰에 달했으며 전체 작업 시간의
+67%가 사람의 검토에 쓰였다는 수치도 함께 공유했다.</p>
+<p>Reddit에서도 비슷한 호소가 이어졌다. 한 사용자는 Code, Cowork, Chat 전반에서 토큰 소모가 예전
+대비 3~4배 빨라졌다며, 모델을 낮추거나 추론 강도를 Medium으로 낮추기, 압축 대신 새 세션
+시작하기, 자동 압축 기준을 10만 토큰으로 설정하기 등을 시도했는데도 거의 메시지마다 압축이
+시작된다고 토로했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w5z8yb/claude_burning_through_tokens_34x_faster_lately/">Claude Burning Through Tokens 3-4x Faster Lately?</a> <span class="ref">(Reddit · 09/03 15:20)</span>.</p>
+<blockquote><p>주간 한도의 30%를 4시간 만에 다 썼다. 이런 적은 한 번도 없었는데 뭐가 문제인지 모르겠다.</p></blockquote>
+<p>댓글에서는 원인 진단이 이어졌다. 자동 압축 기준을 10만 토큰으로 낮게 잡으면 오히려 압축이 더
+자주 일어나면서 그때마다 오버헤드가 쌓여 한도 초과와 압축이 반복되는 악순환이 된다는 지적이
+있었고, 새 세션을 시작하자마자 <code>/context</code>를 확인해 <code>CLAUDE.md</code>와 자동
+로드되는 스킬·MCP가 이미 4~6만 토큰을 차지하고 있지 않은지 보라는 조언이 많았다. Claude가 작성한
+<code>CLAUDE.md</code>는 불필요한 내용으로 부풀어 있는 경우가 많으니 줄이고, 안 쓰는 스킬은
+꺼두라는 팁도 이어졌다.</p>
+<h2>7. 비개발 업무용 코드 우선 에이전트 Ardent 공개</h2>
+<p>Ardent라는 데스크톱(Electron) 에이전트가 퍼블릭 베타로 공개됐다. 창업자는 비개발 직군의
+지식노동을 돕기 위한 도구로, Codex나 Claude Cowork와 비슷하지만 협업과 커스터마이징에 초점을
+맞췄다고 소개했다 <a href="https://news.ycombinator.com/item?id=49550931">Show HN: Ardent, a code-first agent for non-engineering work</a> <span class="ref">(HN · 09/04 00:01)</span>. 대부분의 에이전트가 툴 모음과 반복 루프에 그치는 것과
+달리, Ardent는 문제 해결에 코드 생성을 적극 활용해 더 빠르고 토큰 효율적이라고 주장했다.</p>
+<p>사용자는 TypeScript로 작성된 "ability"라는 라이브러리를 통해 툴과 프롬프트를 확장할 수 있다.
+이는 에이전트 스킬보다 일반 코드 라이브러리에 가까운 형태로, 타입 세이프하고 가져오기(import)가
+가능하며 권한이 명확히 정의돼 있다고 설명했다. 반복되는 업무 패턴을 발견하면 이를 재사용 가능한
+ability로 전환해 조직 전체와 한 번의 클릭으로 공유하도록 제안하는 기능도 담았다.</p>
+<h2>8. AI 슬롭(저품질 생성물) 범람에 대한 불만</h2>
+<p>"프롬프트 하나로 게임을 만들었다"는 식의 저품질 AI 결과물이 소셜미디어를 뒤덮으면서 사람들을
+점점 무감각하게 만들고 있다는 불만 글이 올라왔다. 작성자는 이런 게시물이 실제로는 제대로
+작동하지도, 보기 좋지도 않으면서 진짜 개발자들의 작업을 가리고 있으며, 계속 AI 슬롭을 공유하는
+제작자는 스스로 미래의 신뢰도를 깎아먹고 있는 것이라고 주장했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w6290q/can_we_stop_with_the_ai_slop/">Can we stop with the AI slop?</a> <span class="ref">(Reddit · 09/03 18:16)</span>.</p>
+<p>댓글 상당수는 원문의 오타("knot" vs "not")를 소재로 한 말장난으로 흘렀지만, 개중에는 문제의
+구조적 원인을 짚는 반응도 있었다.</p>
+<blockquote><p>시스템이 제대로 작동하기 위해 사용자의 선의에 의존해야 한다면, 그 시스템은 이미 실패한
+것이다.</p></blockquote>
+<blockquote><p>쥐를 훈련시킬 수는 없다, 미로만 바꿀 수 있을 뿐이다.</p></blockquote>
 
 </main>
 
 <footer>
-  <p>생성 2026-09-03 07:56 KST</p>
+  <p>생성 2026-09-04 07:54 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
