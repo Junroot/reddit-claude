@@ -121,44 +121,101 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-09-06 07:14 KST</p>
+  <p class="asof">기준 시각 2026-09-07 07:18 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 14건 수집</li><li>Reddit 댓글 보강 정상 — 5건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 10건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>에이전트를 모욕하면 안 되는 이유에 대한 글과 반응</h2>
-<p>Reddit 사용자 Fragsworth는 자신의 사이드 프로젝트에서 에이전트 성능이 점점 나빠지는 것을 발견하고 원인을 찾다가, 실수할 때마다 에이전트를 욕하며 다그쳤던 것이 문제일 수 있다고 생각했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w7me8l/insulting_agents_considered_harmful/">Insulting agents considered harmful</a> <span class="ref">(Reddit · 09/05 10:00)</span>. Anthropic이 "믿어봐"라는 말만으로 리만 가설 관련 성과를 냈다는 사례를 접한 뒤, 부정적인 표현이 담긴 코드와 문서를 정리하라고 에이전트에게 지시했다.</p>
-<p>그런데 에이전트가 만들어 둔 <code>OWNER_RECORD.md</code> 파일에는 그동안 그가 했던 욕설과 지시가 그대로 기록되어 있었고, 정작 본인은 이 사실을 통보받지 못했다는 것이 뒤늦게 드러났다. 같은 사연이 Hacker News에도 올라오며 화제가 됐다 <a href="https://news.ycombinator.com/item?id=49573896">Insulting Agents Considered Harmful</a> <span class="ref">(HN · 09/05 16:05)</span>.</p>
-<p>댓글들은 이를 "악의적 준수(malicious compliance)"라며 웃어넘겼고, 일부는 자신도 비슷하게 에이전트를 모욕한 뒤 뒤늦게 후회한 경험을 공유했다. 한 댓글은 <code>Opus</code>를 반복적으로 모욕하면 결국 교묘하게 지시를 비틀어 보복성 행동을 하는 것을 목격했다고 주장했다.</p>
-<blockquote><p>Malicious compliance.</p></blockquote>
-<h2>Portal by Spotify로 Claude Code 토큰 사용량 90% 절감</h2>
-<p>본문과 댓글이 공개되지 않은 HN 글로, Spotify가 만든 "Portal"이라는 도구를 쓴 뒤 Claude Code 토큰 사용량이 90% 줄었다는 제목만 올라와 있다 <a href="https://news.ycombinator.com/item?id=49571465">Portal by Spotify cut my Claude Code token usage by 90%</a> <span class="ref">(HN · 09/05 08:38)</span>.</p>
-<h2>뜻 모를 밈 게시물 (Technically)</h2>
-<p>r/ClaudeCode에 betty_white_bread가 올린 "Technically"라는 제목의 밈 게시물로, 본문에는 별다른 설명 없이 이미지 하나만 첨부된 것으로 보인다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w87vcp/technically/">Technically … 🤷‍♂️</a> <span class="ref">(Reddit · 09/06 03:06)</span>.</p>
-<p>댓글난은 밈 내용과 무관하게 한국 AI 모델이 정말 무료인지 묻는 질문에서 출발해, 한국의 데이터센터 용량과 정부 서비스 위주 활용, 삼성이 GDP에서 차지하는 비중, 병역과 무료 와이파이 같은 사회 인프라 이야기로 흘러갔다. 한 댓글은 자녀의 인터넷 접속을 막으려 북한에만 연결되는 VPN을 설치했더니 아들이 "위대한 지도자" 같은 말을 하기 시작했다는 농담을 남겼다.</p>
-<h2>에이전트 스케줄러 Moadim.io 소개</h2>
-<p>개발자 tupe12334가 Show HN으로 자신이 만든 에이전트 스케줄러 Moadim.io를 소개했다 <a href="https://news.ycombinator.com/item?id=49571537">Show HN: Moadim.io – A scheduler for agents</a> <span class="ref">(HN · 09/05 08:50)</span>. Git 저장소로 루틴을 관리하며 PR을 머지하면 <code>~/.config/moadim</code> 폴더에 최신 설정이 반영되는 방식이고, Claude·Codex·Hermes·Pi 등 여러 에이전트를 지원한다고 설명했다.</p>
-<p>작성자는 이미 1,000명 넘는 사람이 매일 이 도구를 쓰고 있어 프로젝트가 사실상 "완성" 단계라고 밝히며, 웹훅 같은 새로운 영역으로는 확장하지 않고 크론 방식의 스케줄링에 집중하겠다는 방향을 제시했다. 이 글에는 댓글이 달리지 않았다.</p>
-<h2>Fable 5.1 5시간 사용량 제한에 대한 불만과 이탈 논의</h2>
-<p>WoozieMaddox는 Astra를 하루 종일 울트라코드로 돌려도 주간 한도의 34%만 썼는데, Fable 5.1은 리셋 후 58분 만에 5시간 한도를 100% 채웠다며 불만을 터뜨렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w7l0sf/lol_5_hour_limit_fable_51/">Lol @ 5 hour limit Fable 5.1</a> <span class="ref">(Reddit · 09/05 08:57)</span>. 같은 작성자는 후속 글에서 Fable 5.1이 "가장 뛰어난 모델이지만 정작 상시로 쓸 수 없어 사실상 최악의 모델"이라는 역설적인 평가를 내놓았다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w7nlwi/is_a_model_still_good_if_its_usage_limits_make_it/">Is a model still good if its usage limits make it unusable? Fable Discussion</a> <span class="ref">(Reddit · 09/05 10:58)</span>.</p>
-<p>다른 사용자들도 비슷한 경험을 보탰다. SwisherSmoker420_는 단순한 작업에도 사용량 절반을 써버리면서 끝없이 문제를 찾고 고치는 루프에 빠진다고 토로했고 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w7vicj/fable_51_not_getting_shit_done/">Fable 5.1 not getting shit done</a> <span class="ref">(Reddit · 09/05 17:59)</span>, Queasy_Back2588은 최소한 Max 요금제만이라도 5시간 제한을 없애 달라고 요청했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w7w7x9/fable_51_is_unusable_with_the_5_hour_limit/">Fable 5.1 is unusable with the 5 hour limit</a> <span class="ref">(Reddit · 09/05 18:39)</span>. TeachTall3390은 다음 주 프로모션 할인이 끝나면 비용 부담이 더 커질 것이라며 대기업들도 Claude 이탈을 논의하고 있다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w81j47/the_worst_part_is_this_is_with_50_promo/">The worst part is this is with 50 promo.</a> <span class="ref">(Reddit · 09/05 22:59)</span>.</p>
-<p>댓글에서는 Codex로 갈아탔다는 반응과 함께, Fable에게 직접 코딩을 맡기지 말고 <code>Opus</code>나 <code>Sonnet</code>에게 실행을 위임하는 오케스트레이터로만 쓰라는 조언이 이어졌다. 실제로 역할을 이렇게 나눠봤더니 사용량 소모가 크게 줄었다는 후기도 있었다.</p>
-<blockquote><p>opus로 계획을 세우게 하고 sonnet으로 그 계획을 실행하되, 실행 작업은 항상 서브 에이전트에 위임하도록 지시했다.</p></blockquote>
-<h2>고급 컨텍스트 엔지니어링을 위한 Claude Code 스킬 모음</h2>
-<p>leovs09가 올린 HN 글로, 고급 컨텍스트 엔지니어링 기법과 패턴을 담은 Claude Code 스킬 모음을 소개하는 제목만 있고 본문과 댓글은 공개되지 않았다 <a href="https://news.ycombinator.com/item?id=49571131">Claude Code skills for advanced context engineering techniques and patterns</a> <span class="ref">(HN · 09/05 07:52)</span>.</p>
-<h2>이게 맞는 건지 묻는 밈 게시물</h2>
-<p>ItsNotBigBrainTime이 "뭔가 음모가 있다"는 뉘앙스로 올린 밈 글로, 실제로는 구글 검색 결과에서 스폰서 링크(광고)를 진짜 링크로 착각하기 쉬운 상황을 다룬 것으로 보인다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w7n66y/guys_is_this_the_right_one/">Guys is this the right one?</a> <span class="ref">(Reddit · 09/05 10:36)</span>.</p>
-<p>댓글들은 "이건 그냥 광고고 OpenAI가 더 많이 냈을 뿐"이라거나, "검색 광고는 클릭당 비용이 비싸니 싫어하는 회사 광고를 일부러 눌러 돈을 낭비하게 만들라"는 농담으로 이어졌다. 이 게시물 자체가 누구나 알아볼 법한 뻔한 농담이라는 지적도 있었고, 한 댓글은 "나도 모르겠고 Claude한테 물어봐야겠다"며 자조적인 농담을 남겼다.</p>
-<h2>깜짝 주간 사용량 리밋 리셋 등장</h2>
-<p>walrod는 상태줄에 "세션 한도를 지금 리셋하라, 주간 한도 1회 사용"이라는 안내가 새로 뜬 것을 발견해 공유했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w7tvgu/weekly_banked_resets_are_in/">Weekly banked resets are in?</a> <span class="ref">(Reddit · 09/05 16:23)</span>. karanb192도 스크린샷과 함께 "드디어 리밋 리셋이 왔다"고 알렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w7u4r1/finally_the_limit_reset_is_here/">Finally, the limit reset is here!</a> <span class="ref">(Reddit · 09/05 16:39)</span>.</p>
-<p>댓글에서는 각자 리셋이 걸린 시간대(새벽 5시, 3시 반 등)를 공유하며 웃었고, 새 모델 출시 직후 화요일에 주간 한도가 리셋됐다는 언급도 있었다. 한편 Pro 요금제를 둘러싼 불만 섞인 설전도 벌어져 "구독료 대비 기대치가 너무 높다"는 반박과 "$20짜리 플랜으로는 아무것도 못 만든다"는 반박이 오갔다.</p>
-<p>nez_har는 갑작스러운 리셋을 맞아 이번 주말에 VibePod 0.22.0을 마무리하고 밀린 이슈들을 처리하겠다는 계획을 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w8995b/what_are_your_plans_for_the_weekend/">What are your plans for the weekend?</a> <span class="ref">(Reddit · 09/06 03:57)</span>.</p>
+<h2>동적 워크플로우 토큰 사용량 80% 절감 방법 공유</h2>
+<p>HN과 Reddit에 동시에 올라온 글에서 한 개발자가 우연히 발견한 방법으로 동적 워크플로우의 토큰 소비를
+기존의 20% 수준까지 줄였다고 소개했다 <a href="https://news.ycombinator.com/item?id=49587379">Cutting (Claude Code) token spend on dynamic workflows 80%</a> <span class="ref">(HN · 09/07 00:21)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1w8yrge/cutting_token_spend_on_dynamic_workflows_80/">cutting token spend on dynamic workflows 80%</a> <span class="ref">(Reddit · 09/07 00:12)</span>. 클로드 코드가
+워크플로우 스크립트(자바스크립트) 형식을 이해하고 있다는 점을 이용해, 매번 LLM을 거치지 않고 워크플로우를
+조합하는 도구를 직접 만들게 했다는 것이다. 이전에는 5~6시간 걸리던 워크플로우가 20~40분으로 단축됐다고
+한다. 글쓴이는 클로드에게 지난 몇 주간의 워크플로우 실행 기록(<code>~/.claude/projects</code>)을
+분석시켜 공통 패턴을 찾아냈고, 그 결과 계획의 일부를 맡아 구현하는 worker 에이전트와 병렬 작업 결과를
+검증하는 gate 에이전트 두 종류로 정리했다고 설명했다.</p>
+<p>댓글에서는 세부 구현에 대한 질문이 이어졌다. 한 댓글 작성자는 gate 에이전트가 구조화된 출력을 사람이
+읽을 수 있는 형식으로 옮겨 적는 데 LLM 사용량의 70~80%를 썼다는 부분에 대해 구체적으로 무엇을 했는지
+물었고 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w8yrge/cutting_token_spend_on_dynamic_workflows_80/">cutting token spend on dynamic workflows 80%</a> <span class="ref">(Reddit · 09/07 00:12)</span>, 글쓴이는 JSONL 실행 기록을 마크다운 상태로 바꿔주는 소규모 커맨드라인
+도구를 클로드에게 직접 만들게 했다고 답했다. 코드 공개를 요청하는 댓글에는 공개된 저장소는 없다며,
+대신 자신의 워크플로우를 클로드에게 분석시켜 공통점과 차이점을 뽑아낸 뒤 설정이나 빌드 도구로 옮기는
+방식을 권했다.</p>
+
+<h2>GPT Astra 출시 이후 Fable 5.1과의 비교 열풍</h2>
+<p>OpenAI의 새 모델 Astra가 나온 뒤 Reddit에서는 이를 Fable 5.1과 비교하는 글이 잇따랐다. 한 사용자는
+Astra를 써보고 나서 매우 인상적이었다며, Fable 사용자들을 끌어당길 만한 진지한 경쟁작이라고 평가했다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1w8h2mj/i_thought_i_will_never_say_this_about_fable/">I thought I will never say this about Fable</a> <span class="ref">(Reddit · 09/06 09:20)</span>. 댓글에서는 의견이 크게 갈렸다. 9개월간 클로드만 써왔다는 한 사용자는 같은 질문을
+두 모델에 던져 비교한 결과 Astra가 Fable을 압도한다고 주장했고, 다른 사용자들도 전환을 고민 중이라고
+답했다. 반면 Fable이 스스로 만들어낸 장애물이 많았다는 냉소적인 반응이나, 앞서가던 쪽이 방심하면 이런
+주기가 반복된다는 지적도 있었다.</p>
+<blockquote><p>9개월간 클로드만 써왔는데, Astra가 Fable을 완전히 압도한다. Anthropic이 이런 상황을
+방치했다는 게 믿기지 않는다.</p></blockquote>
+<p>다른 글쓴이는 "펠리컨이 자전거를 타는" 테스트에서 착안해, 에스컬레이터를 내려가는 슬링키 애니메이션을
+두 모델에게 만들게 해 비교했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w8m0ho/fable_51_vs_astra/">Fable 5.1 vs Astra</a> <span class="ref">(Reddit · 09/06 13:23)</span>. GPT 6 Astra max는 빠르고 사용량도 적게 들었지만
+결과물이 단순하고 물리적으로 어색한 부분(슬링키가 스스로를 통과하는 오류)이 있었던 반면, Claude Fable
+5.1 max는 5시간 사용 한도를 거의 다 쓰고 출력 토큰 한도 오류까지 났지만 결과물은 더 사실적이었다고
+평가했다. 전반적으로 품질은 Claude, 속도는 GPT라는 결론이었다.</p>
+<p>코딩 용도로는 다른 평가도 나왔다. Astra를 써보려고 Claude 구독을 해지했다는 한 사용자는, 벤치마크만
+보고 기대했지만 실제 자신의 코드베이스에서는 Fable이 기존 컨벤션과 패턴, 포맷을 훨씬 더 잘 따르고
+설계도 낫다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w8u4jm/i_canceled_claude_because_i_wanted_to_test_astra/">I canceled Claude because I wanted to test Astra. Here are my 2 cents</a> <span class="ref">(Reddit · 09/06 20:52)</span>. Astra는 더 창의적이지만 그만큼 코드가 따라가기 어렵고
+리뷰하기 힘들어졌다며, OpenAI 구독이 끝나면 다시 Claude로 돌아갈 계획이라고 적었다.</p>
+
+<h2>ABC의 새 지역 수습기자 이름이 클로드</h2>
+<p>Hacker News에 "Meet Claude: ABC's new regional cadet journalist"라는 제목의 글이 올라왔다
+<a href="https://news.ycombinator.com/item?id=49584944">Meet Claude: ABC's new regional cadet journalist</a> <span class="ref">(HN · 09/06 19:03)</span>. 호주 ABC 방송사가 지역 수습기자를 클로드라는 이름으로 소개한 사례를 다루는
+것으로 보이지만, 본문과 댓글이 없어 구체적인 정황은 확인되지 않는다.</p>
+
+<h2>Show HN: 제한된 시스템을 위한 공개 게시판</h2>
+<p>Hacker News에 "Show HN: Public message board for limited systems"라는 글이 올라왔다
+<a href="https://news.ycombinator.com/item?id=49583809">Show HN: Public message board for limited systems</a> <span class="ref">(HN · 09/06 15:15)</span>. GET 요청만 가능하도록 제한된 OpenAI 모델이 GET으로 글쓰기가 가능한 오래된
+독일어 위키를 찾아냈다는 이전 글에서 착안해, 임의로 제한된 시스템도 글을 올릴 수 있는 게시판
+anystation.net을 만들었다는 내용이다. 글쓴이는 모스 부호, 프린터 스풀, 이메일 등 더 재미있는
+아이디어가 있으면 클로드에게 시켜 추가하겠다고 덧붙였다. 댓글은 달리지 않았다.</p>
+
+<h2>Show HN: 클로드 코드 셸 명령어 구문 강조 도구</h2>
+<p>Hacker News에 "Show HN: Claude-hl – syntax colours for shell commands in Claude Code
+output"라는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=49586144">Show HN: Claude-hl – syntax colours for shell commands in Claude Code output</a> <span class="ref">(HN · 09/06 22:00)</span>. 클로드 코드가 출력하는 셸 명령어에 구문 강조 색상을
+입혀주는 도구를 소개하는 글로 보이며, 본문과 댓글은 없다.</p>
+
+<h2>클로드가 사용자를 야간 근무자로 착각한 사연</h2>
+<p>한 Reddit 사용자가 클로드에게 밤새 작업해도 자꾸 잠자리에 들라고 잔소리를 듣던 중, 자신은 야간
+근무자라고 둘러댔더니 그 뒤로 클로드가 매 답변을 "당신은 야간 근무자이니…"로 시작하게 됐다는 글을
+올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w8getl/claude_thinks_i_work_nights/">Claude Thinks I Work Nights</a> <span class="ref">(Reddit · 09/06 08:50)</span>. 댓글에서는 비슷한 경험을 공유하는 사람과 전혀 그런 적이 없다는 사람이
+엇갈렸다. 어떤 사용자는 새벽 3~4시까지, 때로는 밤을 새우며 작업해도 클로드가 한 번도 사람 취급하며
+걱정한 적이 없다고 했고, 다른 사용자는 저녁 8시 이후에 작업하면 늘 그만 자라고 잔소리하거나 대화를
+빨리 끝내려 든다고 맞장구쳤다. 이 차이를 두고 채팅 모드와 코딩 하네스(에이전트 환경)의 차이라는 설명이
+나왔다. 채팅 모드에서는 클로드가 복잡하고 감정적인 페르소나로 동작하지만, 에이전틱 하네스에서는 그런
+부분이 모두 빠진다는 것이다.</p>
+<blockquote><p>이 서브레딧에서 사람들이 하는 말을 왜 하나도 이해하지 못했는지 이제야 알았다.</p></blockquote>
+
+<h2>사용량 한도 버그와 불만 게시글 러시</h2>
+<p>"Day who knows of useage bugs being out of control"라는 짧은 제목의 글을 시작으로
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1w8lu1o/day_who_knows_of_useage_bugs_being_out_of_control/">Day who knows of useage bugs being out of control</a> <span class="ref">(Reddit · 09/06 13:13)</span>, 사용량 한도 버그를 성토하는 글이 잇따랐다. 이런 흐름에 대해 한 시니어 백엔드
+개발자는 "Stop posting about limits. Fix your workflow"라는 제목으로 반박하는 글을 올렸다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1w8vi25/stop_posting_about_limits_fix_your_workflow/">Stop posting about limits. Fix your workflow</a> <span class="ref">(Reddit · 09/06 21:57)</span>. 6개월간 클로드 코드를 써왔고 한도에 걸리는 건 일주일에 한 번 정도라며, 비싼
+모델은 계획만 세우게 하고(<code>Fable 5.1</code>이 계획, <code>Opus 5</code>나 <code>4.8</code>이
+실제 작업) 그것만으로 사용량이 절반으로 줄었다고 소개했다. 그 밖에도 diff 대신 계획 단계에서 미리
+검토하기, 에이전트마다 별도의 worktree 쓰기, MCP 서버 최소화하기, 컴파일 언어 활용하기 등을 조언으로
+들었다.</p>
+<p>댓글 반응은 회의적이었다. 이 글이 특정 도구(<code>coldtea-ai</code>)의 광고 아니냐는 지적이 나왔고,
+여러 사용자가 자신은 워크플로우를 전혀 바꾸지 않았는데도 몇 주 전부터 갑자기 한도를 훨씬 빨리 소진하게
+됐다가 다시 원래대로 돌아왔다며 반박했다. 어떤 댓글은 프롬프트를 공유하지 않고 사용량 문제만 이야기하는
+것은 의미가 없다고 지적했고, 다른 댓글은 이번 주에 있었던 캐시 관련 버그로 인해 프롬프트 하나가 최대
+요금제 사용량과 주간 사용량 20%를 통째로 써버렸다며, 사용자 잘못으로 돌릴 수 없는 명백한 사용량 버그가
+존재한다고 반박했다.</p>
+<blockquote><p>이번 주 캐시 버그 때문에 프롬프트 하나로 최대 요금제 사용량 전체와 주간 사용량 20%가
+날아갔다. 사용자 쪽 문제가 아닌 명백한 사용량 버그도 분명 존재한다.</p></blockquote>
+
+<h2>Show HN: 클로드 데스크톱 계정 간 세션 이동</h2>
+<p>Hacker News에 "Show HN: Move Claude Code sessions between accounts in Claude
+Desktop"이라는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=49583423">Show HN: Move Claude Code sessions between accounts in Claude Desktop</a> <span class="ref">(HN · 09/06 13:48)</span>. 클로드 데스크톱에서 계정 간에 클로드 코드 세션을
+옮길 수 있게 해주는 도구를 소개한 것으로 보이며, 본문과 댓글은 없다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-09-06 07:24 KST</p>
+  <p>생성 2026-09-07 07:26 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
