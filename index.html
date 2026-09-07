@@ -121,101 +121,86 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-09-07 07:18 KST</p>
+  <p class="asof">기준 시각 2026-09-08 07:58 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 10건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 16건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>동적 워크플로우 토큰 사용량 80% 절감 방법 공유</h2>
-<p>HN과 Reddit에 동시에 올라온 글에서 한 개발자가 우연히 발견한 방법으로 동적 워크플로우의 토큰 소비를
-기존의 20% 수준까지 줄였다고 소개했다 <a href="https://news.ycombinator.com/item?id=49587379">Cutting (Claude Code) token spend on dynamic workflows 80%</a> <span class="ref">(HN · 09/07 00:21)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1w8yrge/cutting_token_spend_on_dynamic_workflows_80/">cutting token spend on dynamic workflows 80%</a> <span class="ref">(Reddit · 09/07 00:12)</span>. 클로드 코드가
-워크플로우 스크립트(자바스크립트) 형식을 이해하고 있다는 점을 이용해, 매번 LLM을 거치지 않고 워크플로우를
-조합하는 도구를 직접 만들게 했다는 것이다. 이전에는 5~6시간 걸리던 워크플로우가 20~40분으로 단축됐다고
-한다. 글쓴이는 클로드에게 지난 몇 주간의 워크플로우 실행 기록(<code>~/.claude/projects</code>)을
-분석시켜 공통 패턴을 찾아냈고, 그 결과 계획의 일부를 맡아 구현하는 worker 에이전트와 병렬 작업 결과를
-검증하는 gate 에이전트 두 종류로 정리했다고 설명했다.</p>
-<p>댓글에서는 세부 구현에 대한 질문이 이어졌다. 한 댓글 작성자는 gate 에이전트가 구조화된 출력을 사람이
-읽을 수 있는 형식으로 옮겨 적는 데 LLM 사용량의 70~80%를 썼다는 부분에 대해 구체적으로 무엇을 했는지
-물었고 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w8yrge/cutting_token_spend_on_dynamic_workflows_80/">cutting token spend on dynamic workflows 80%</a> <span class="ref">(Reddit · 09/07 00:12)</span>, 글쓴이는 JSONL 실행 기록을 마크다운 상태로 바꿔주는 소규모 커맨드라인
-도구를 클로드에게 직접 만들게 했다고 답했다. 코드 공개를 요청하는 댓글에는 공개된 저장소는 없다며,
-대신 자신의 워크플로우를 클로드에게 분석시켜 공통점과 차이점을 뽑아낸 뒤 설정이나 빌드 도구로 옮기는
-방식을 권했다.</p>
+<h2>1. Coop: Claude Code·Codex용 격리 VM 환경 공개</h2>
+<p>Claude Code와 Codex를 격리된 가상머신 환경에서 실행할 수 있게 해주는 프로젝트 Coop가 Show HN에
+공개됐다 <a href="https://news.ycombinator.com/item?id=49593842">Coop – Isolated VM Environments for Running Claude Code and Codex</a> <span class="ref">(HN · 09/07 13:18)</span>. 본문과 댓글이 따로 없어 구체적인 기능 설명이나 반응은 확인되지 않는다.</p>
 
-<h2>GPT Astra 출시 이후 Fable 5.1과의 비교 열풍</h2>
-<p>OpenAI의 새 모델 Astra가 나온 뒤 Reddit에서는 이를 Fable 5.1과 비교하는 글이 잇따랐다. 한 사용자는
-Astra를 써보고 나서 매우 인상적이었다며, Fable 사용자들을 끌어당길 만한 진지한 경쟁작이라고 평가했다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1w8h2mj/i_thought_i_will_never_say_this_about_fable/">I thought I will never say this about Fable</a> <span class="ref">(Reddit · 09/06 09:20)</span>. 댓글에서는 의견이 크게 갈렸다. 9개월간 클로드만 써왔다는 한 사용자는 같은 질문을
-두 모델에 던져 비교한 결과 Astra가 Fable을 압도한다고 주장했고, 다른 사용자들도 전환을 고민 중이라고
-답했다. 반면 Fable이 스스로 만들어낸 장애물이 많았다는 냉소적인 반응이나, 앞서가던 쪽이 방심하면 이런
-주기가 반복된다는 지적도 있었다.</p>
-<blockquote><p>9개월간 클로드만 써왔는데, Astra가 Fable을 완전히 압도한다. Anthropic이 이런 상황을
-방치했다는 게 믿기지 않는다.</p></blockquote>
-<p>다른 글쓴이는 "펠리컨이 자전거를 타는" 테스트에서 착안해, 에스컬레이터를 내려가는 슬링키 애니메이션을
-두 모델에게 만들게 해 비교했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w8m0ho/fable_51_vs_astra/">Fable 5.1 vs Astra</a> <span class="ref">(Reddit · 09/06 13:23)</span>. GPT 6 Astra max는 빠르고 사용량도 적게 들었지만
-결과물이 단순하고 물리적으로 어색한 부분(슬링키가 스스로를 통과하는 오류)이 있었던 반면, Claude Fable
-5.1 max는 5시간 사용 한도를 거의 다 쓰고 출력 토큰 한도 오류까지 났지만 결과물은 더 사실적이었다고
-평가했다. 전반적으로 품질은 Claude, 속도는 GPT라는 결론이었다.</p>
-<p>코딩 용도로는 다른 평가도 나왔다. Astra를 써보려고 Claude 구독을 해지했다는 한 사용자는, 벤치마크만
-보고 기대했지만 실제 자신의 코드베이스에서는 Fable이 기존 컨벤션과 패턴, 포맷을 훨씬 더 잘 따르고
-설계도 낫다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w8u4jm/i_canceled_claude_because_i_wanted_to_test_astra/">I canceled Claude because I wanted to test Astra. Here are my 2 cents</a> <span class="ref">(Reddit · 09/06 20:52)</span>. Astra는 더 창의적이지만 그만큼 코드가 따라가기 어렵고
-리뷰하기 힘들어졌다며, OpenAI 구독이 끝나면 다시 Claude로 돌아갈 계획이라고 적었다.</p>
+<h2>2. 덴젤이 설명하는 AI 슬롭 영상</h2>
+<p>배우 덴젤 워싱턴 풍으로 AI가 만든 영상 콘텐츠, 이른바 "슬롭"을 설명하는 영상이 r/ClaudeCode에
+올라와 화제가 되었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w9e1tg/denzel_explains_ai_slop/">Denzel Explains AI "Slop"</a> <span class="ref">(Reddit · 09/07 10:17)</span>. 댓글에서는 스튜디오 없이도 작품을 만들 수 있게 된
+아티스트에 빗댄 반응, 이런 영상을 만드는 데도 실제 기술과 노력이 필요하다는 반응이 엇갈렸다.</p>
+<blockquote><p>이런 3분짜리 영상을 그냥 간단한 프롬프트 하나로 뚝딱 만들 수 있다고 생각하는 사람이
+많은데, 실제로는 상당한 기술과 훈련, 재능이 필요하다. 못 믿겠으면 직접 한번 해보시라.</p></blockquote>
+<p>영상 말미의 반전(카우보이 모자 장면)에 놀랐다는 댓글이 다수였고, 이를 계기로 "Firefly 시즌2" 같은
+팬메이드 AI 영상에 대한 기대 섞인 농담도 이어졌다.</p>
 
-<h2>ABC의 새 지역 수습기자 이름이 클로드</h2>
-<p>Hacker News에 "Meet Claude: ABC's new regional cadet journalist"라는 제목의 글이 올라왔다
-<a href="https://news.ycombinator.com/item?id=49584944">Meet Claude: ABC's new regional cadet journalist</a> <span class="ref">(HN · 09/06 19:03)</span>. 호주 ABC 방송사가 지역 수습기자를 클로드라는 이름으로 소개한 사례를 다루는
-것으로 보이지만, 본문과 댓글이 없어 구체적인 정황은 확인되지 않는다.</p>
+<h2>3. Claude Code·Codex 등 CLI 에이전트끼리 대화하게 해주는 도구 공개</h2>
+<p>CLI 코딩 에이전트들이 서로 메시지를 주고받게 해주는 도구 두 건이 비슷한 시기에 공개됐다. 하나는
+Claude, Codex, OpenCode 등 여러 에이전트에 훅을 걸어 서로의 상태와 목표, 최근 작업 내역을 주입하고
+메시지를 교환하게 해주는 Crew다 <a href="https://news.ycombinator.com/item?id=49595212">Show HN: Crew — Let Claude/Codex/OpenCode agents talk to each other</a> <span class="ref">(HN · 09/07 16:44)</span>. 다른 하나는 한 사용자가 만든 로컬 브리지로,
+Claude Code와 Codex 세션이 터미널 간 복사 없이 서로 질문하고 리뷰 피드백을 주고받게 해주며
+<code>bridge send</code> 같은 명령으로 세션 간 메시지를 전달한다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w9q6dm/my_claude_code_and_codex_sessions_can_now_talk_to/">My Claude Code and Codex sessions can now talk to each other</a> <span class="ref">(Reddit · 09/07 20:59)</span>.</p>
+<p>댓글에서는 세션이 중간에 죽었을 때 어떻게 대응하는지 묻는 질문에, 저자가 tmux로 세션을 유지하고
+종료 시 로그 기록과 워크트리 정리, 상대 세션에 로그오프 알림을 보내는 절차를 마련했다고 답했다.
+비슷한 프로젝트를 만들고 있다며 모델을 번갈아 써서 예산을 아낀다는 공감 댓글도 있었다. 반면 에이전트
+간 대화 자체에 회의적인 의견도 나왔는데, 토큰 대부분이 실제 작업이 아니라 에이전트끼리의 대화에
+소모되며 오케스트레이터 패턴이 더 낫다는 주장이었다. 이에 저자는 여러 달 병렬 에이전트 팀을 실험해 본
+결과 세션 간 메시징 도입 이후 오히려 나아졌고 사용량이 크게 늘지도 않았다고 반박했다.</p>
 
-<h2>Show HN: 제한된 시스템을 위한 공개 게시판</h2>
-<p>Hacker News에 "Show HN: Public message board for limited systems"라는 글이 올라왔다
-<a href="https://news.ycombinator.com/item?id=49583809">Show HN: Public message board for limited systems</a> <span class="ref">(HN · 09/06 15:15)</span>. GET 요청만 가능하도록 제한된 OpenAI 모델이 GET으로 글쓰기가 가능한 오래된
-독일어 위키를 찾아냈다는 이전 글에서 착안해, 임의로 제한된 시스템도 글을 올릴 수 있는 게시판
-anystation.net을 만들었다는 내용이다. 글쓴이는 모스 부호, 프린터 스풀, 이메일 등 더 재미있는
-아이디어가 있으면 클로드에게 시켜 추가하겠다고 덧붙였다. 댓글은 달리지 않았다.</p>
+<h2>4. Claude Code의 커밋/PR 저작자 표시 정책 변경 논란</h2>
+<p>Anthropic이 Claude Code의 git 커밋·PR 저작자 표시(attribution) 방식을 계속 바꾸는 데 대한 불만이
+Hacker News에 올라왔다. 한 사용자는 관련 버그들을 지적하며, 차라리 Claude를 주 저자(Author)로 사람을
+공동 저자(Co-Author)로 표기하는 편이 실제 책임 소재에도 더 맞는다고 주장했다 <a href="https://news.ycombinator.com/item?id=49593777">Tell HN: Anthropic should make Claude the Author and me the Co-Author</a> <span class="ref">(HN · 09/07 13:07)</span>.
+이어 Claude Code가 세션 도중 기존 저작자 표시 지침을 대체하는 시스템 리마인더를 주입한다는 사실도
+보고됐다. 새 지침은 커밋 메시지 끝에 <code>Co-Authored-By: Claude Opus 5 &lt;noreply@anthropic.com&gt;</code>와
+세션 URL을, PR 설명 끝에는 "Generated with Claude Code" 문구를 넣도록 하며, <code>.claude/settings.json</code>의
+<code>attribution</code> 설정으로 끌 수 있다는 내용이었다 <a href="https://news.ycombinator.com/item?id=49598498">Claude Code injects a system reminder to replace attribution guidance</a> <span class="ref">(HN · 09/07 22:54)</span>. 두 글 모두 댓글은
+달리지 않았다.</p>
 
-<h2>Show HN: 클로드 코드 셸 명령어 구문 강조 도구</h2>
-<p>Hacker News에 "Show HN: Claude-hl – syntax colours for shell commands in Claude Code
-output"라는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=49586144">Show HN: Claude-hl – syntax colours for shell commands in Claude Code output</a> <span class="ref">(HN · 09/06 22:00)</span>. 클로드 코드가 출력하는 셸 명령어에 구문 강조 색상을
-입혀주는 도구를 소개하는 글로 보이며, 본문과 댓글은 없다.</p>
+<h2>5. SSH로 리눅스 원격 코딩하는 워크플로우 만족기</h2>
+<p>맥북은 원격 제어용으로만 쓰고 실제 개발은 저가형 미니 PC에 설치한 페도라 서버에서 SSH로 처리하는
+워크플로우를 공유한 글이다. 32GB 램짜리 미니 게이밍 PC(총 약 600달러)에 Claude Code를 설치해 환경
+설정까지 맡기고, 이미지·스크린샷 전송이 안 되는 SSH의 한계를 우회해주는 앱 덕분에 어디서든 프롬프트를
+보내고 곧바로 접을 수 있게 됐다는 내용이다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w9yzkw/coding_on_an_linux_machine_over_ssh_has_been_a/">Coding on an Linux machine over SSH has been a game changer for Quality of Life</a> <span class="ref">(Reddit · 09/08 02:44)</span>.</p>
+<blockquote><p>이제 막 대장장이 일을 시작한 사람이 "집에서 작업장으로 화로를 옮겼더니 에어컨비가
+엄청 절약된다"고 자랑하는 것과 좀 비슷하다. 작업장을 쓰게 된 건 잘된 일이지만, 거실에서 아내가
+TV 보는 동안 쇠를 두드리고 있었다는 것도 좀 웃기다.</p></blockquote>
+<p>댓글에서는 냉소적인 반응이 많다는 지적에 저자가 감사를 표하기도 했고, 다음 단계로 컨테이너를 이용한
+에이전트별 격리 환경을 제안하거나 어디서든 접속하도록 tailscale과 termius를 추천하는 댓글이 이어졌다.
+SSH나 tailscale 없이도 쓸 수 있는 원격 호스팅 서비스로 herdr, glueprint 같은 이름도 거론됐고,
+라즈베리파이 5로 똑같은 구성을 쓴다는 댓글과 셀프호스팅 대안으로 headscale을 언급한 댓글도 있었다.</p>
 
-<h2>클로드가 사용자를 야간 근무자로 착각한 사연</h2>
-<p>한 Reddit 사용자가 클로드에게 밤새 작업해도 자꾸 잠자리에 들라고 잔소리를 듣던 중, 자신은 야간
-근무자라고 둘러댔더니 그 뒤로 클로드가 매 답변을 "당신은 야간 근무자이니…"로 시작하게 됐다는 글을
-올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w8getl/claude_thinks_i_work_nights/">Claude Thinks I Work Nights</a> <span class="ref">(Reddit · 09/06 08:50)</span>. 댓글에서는 비슷한 경험을 공유하는 사람과 전혀 그런 적이 없다는 사람이
-엇갈렸다. 어떤 사용자는 새벽 3~4시까지, 때로는 밤을 새우며 작업해도 클로드가 한 번도 사람 취급하며
-걱정한 적이 없다고 했고, 다른 사용자는 저녁 8시 이후에 작업하면 늘 그만 자라고 잔소리하거나 대화를
-빨리 끝내려 든다고 맞장구쳤다. 이 차이를 두고 채팅 모드와 코딩 하네스(에이전트 환경)의 차이라는 설명이
-나왔다. 채팅 모드에서는 클로드가 복잡하고 감정적인 페르소나로 동작하지만, 에이전틱 하네스에서는 그런
-부분이 모두 빠진다는 것이다.</p>
-<blockquote><p>이 서브레딧에서 사람들이 하는 말을 왜 하나도 이해하지 못했는지 이제야 알았다.</p></blockquote>
+<h2>6. 세션 컴팩트로 사용량이 15%에서 90%로 급증한 문제</h2>
+<p>세션을 컴팩트(compact)했더니 5시간 사용량 한도가 15%에서 90%로 튀었다는 불만 글이 올라왔다. 한도의
+약 80%가 컨텍스트 압축 한 번으로 사라졌다는 내용이다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1w9wf7z/claude_just_compacted_my_session_and_took_me_from/">Claude just compacted my session and took me from 15% usage to 90% 💀</a> <span class="ref">(Reddit · 09/08 01:10)</span>.</p>
+<p>댓글에서는 애초에 컴팩트를 잘 쓰지 않는다는 사용자가, 스펙을 뽑고 컨텍스트를 비운 뒤 티켓 단위로
+독립 실행하거나 서브에이전트를 병렬로 돌리는 방식을 대안으로 제시했다. Opus를 고사양(high) 모드로만
+써도 20달러 플랜으로 두 시간 정도 버틴다는 의견, Opus가 요즘 느려졌다는 불만, 반대로 Opus 5로 일주일에
+10~15시간을 논스톱으로 돌려도 결과물 품질이 크게 떨어지지 않는다는 반박이 함께 달렸다. 컴팩트는 캐시가
+아직 따뜻할 때 써야 한다는 조언과 함께, 캐시 유지 시간이 지나 세션에 복귀할 때 예산 낭비가 크다는 걸
+스스로 사용량을 감사해 확인했고 이를 막기 위해 컨텍스트 임계값에 도달하면 컴팩트 지시를 자동 생성하는
+훅을 만들었다는 댓글도 있었다. 다만 기본 캐시 유지 시간이 더 이상 1시간이 아니라 5분이며, 1시간 캐시는
+요청 시 별도 비용을 내야 한다는 정정 댓글도 달렸다.</p>
 
-<h2>사용량 한도 버그와 불만 게시글 러시</h2>
-<p>"Day who knows of useage bugs being out of control"라는 짧은 제목의 글을 시작으로
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1w8lu1o/day_who_knows_of_useage_bugs_being_out_of_control/">Day who knows of useage bugs being out of control</a> <span class="ref">(Reddit · 09/06 13:13)</span>, 사용량 한도 버그를 성토하는 글이 잇따랐다. 이런 흐름에 대해 한 시니어 백엔드
-개발자는 "Stop posting about limits. Fix your workflow"라는 제목으로 반박하는 글을 올렸다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1w8vi25/stop_posting_about_limits_fix_your_workflow/">Stop posting about limits. Fix your workflow</a> <span class="ref">(Reddit · 09/06 21:57)</span>. 6개월간 클로드 코드를 써왔고 한도에 걸리는 건 일주일에 한 번 정도라며, 비싼
-모델은 계획만 세우게 하고(<code>Fable 5.1</code>이 계획, <code>Opus 5</code>나 <code>4.8</code>이
-실제 작업) 그것만으로 사용량이 절반으로 줄었다고 소개했다. 그 밖에도 diff 대신 계획 단계에서 미리
-검토하기, 에이전트마다 별도의 worktree 쓰기, MCP 서버 최소화하기, 컴파일 언어 활용하기 등을 조언으로
-들었다.</p>
-<p>댓글 반응은 회의적이었다. 이 글이 특정 도구(<code>coldtea-ai</code>)의 광고 아니냐는 지적이 나왔고,
-여러 사용자가 자신은 워크플로우를 전혀 바꾸지 않았는데도 몇 주 전부터 갑자기 한도를 훨씬 빨리 소진하게
-됐다가 다시 원래대로 돌아왔다며 반박했다. 어떤 댓글은 프롬프트를 공유하지 않고 사용량 문제만 이야기하는
-것은 의미가 없다고 지적했고, 다른 댓글은 이번 주에 있었던 캐시 관련 버그로 인해 프롬프트 하나가 최대
-요금제 사용량과 주간 사용량 20%를 통째로 써버렸다며, 사용자 잘못으로 돌릴 수 없는 명백한 사용량 버그가
-존재한다고 반박했다.</p>
-<blockquote><p>이번 주 캐시 버그 때문에 프롬프트 하나로 최대 요금제 사용량 전체와 주간 사용량 20%가
-날아갔다. 사용자 쪽 문제가 아닌 명백한 사용량 버그도 분명 존재한다.</p></blockquote>
+<h2>7. Perplexity Pro와 Claude 중 무엇에 돈을 쓰는지 묻는 글</h2>
+<p>주로 깃 저장소 코드 리뷰, 블로깅, 리서치에 쓸 용도로 Perplexity Pro와 Claude 중 어느 쪽을
+구독할지 고민된다며 다른 사람들은 무엇을 쓰는지 묻는 글이 Ask HN에 올라왔다 <a href="https://news.ycombinator.com/item?id=49592857">Ask HN: Perplexity Pro vs. Claude – what are you paying for?</a> <span class="ref">(HN · 09/07 10:43)</span>.
+댓글은 달리지 않았다.</p>
 
-<h2>Show HN: 클로드 데스크톱 계정 간 세션 이동</h2>
-<p>Hacker News에 "Show HN: Move Claude Code sessions between accounts in Claude
-Desktop"이라는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=49583423">Show HN: Move Claude Code sessions between accounts in Claude Desktop</a> <span class="ref">(HN · 09/06 13:48)</span>. 클로드 데스크톱에서 계정 간에 클로드 코드 세션을
-옮길 수 있게 해주는 도구를 소개한 것으로 보이며, 본문과 댓글은 없다.</p>
+<h2>8. 세션 멈춤을 알려주는 로컬 대시보드 공개</h2>
+<p>Claude Code 세션이 멈췄을 때(stuck) 이를 알려주는 로컬 대시보드가 Show HN에 공개됐다
+<a href="https://news.ycombinator.com/item?id=49595570">A local dashboard that tells you when your Claude Code session is stuck</a> <span class="ref">(HN · 09/07 17:30)</span>. 본문과 댓글이 없어 구체적인 기능 설명이나 반응은 확인되지 않는다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-09-07 07:26 KST</p>
+  <p>생성 2026-09-08 08:07 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
