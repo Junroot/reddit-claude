@@ -121,116 +121,102 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-09-09 07:57 KST</p>
+  <p class="asof">기준 시각 2026-09-10 07:43 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 20건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 20건 수집</li><li>Reddit 댓글 보강 정상 — 5건</li></ul></div>
 
 <main>
-<h2>모바일 에이전트(Instinct, Claude Code)를 구동하는 VM 인프라</h2>
-<p>Hacker News에 "The VMs Powering Mobile Agents (Instinct, Claude Code)"라는 글이 올라왔다
-<a href="https://news.ycombinator.com/item?id=49605644">The VMs Powering Mobile Agents (Instinct, Claude Code)</a> <span class="ref">(HN · 09/08 13:36)</span>. Instinct와 Claude Code 같은 모바일 에이전트를 뒤에서 돌리는 VM 인프라를
-다루는 글로, 별도의 댓글 반응은 아직 없다.</p>
+<h2>1. I'm going back to coding by hand</h2>
+<p>Claude로 반년 가까이 사이드 프로젝트를 작업해 오던 한 개발자가 자신이 만든 코드를 더 이상 이해하지
+못한다는 것을 깨닫고, 지난밤 Claude로 작업하던 브랜치를 버리고 다시 손으로 코딩을 시작했다는 회고를
+올렸다 <a href="https://news.ycombinator.com/item?id=49622554">I'm going back to coding by hand</a> <span class="ref">(HN · 09/09 16:22)</span>. 변수 이름을 바꾸고 참조된 곳을 일일이 찾아다니는 등 지루한 작업이었지만,
+반년간 호텔 생활을 하다가 지저분한 자기 집으로 돌아온 것 같은 만족감을 느꼈다고 적었다. 예전에 직접
+짠 코드를 다시 보니 여전히 더 잘 리팩터링할 방법이 보였다며, 코딩 감각을 잃어가는 느낌이 든다면 며칠만
+Claude를 끊어보라고 권했다.</p>
 
-<h2>Waiting Room: 낯선 사람과 함께 대기하는 Claude Code 플러그인</h2>
-<p>/u/dav1dyang가 노동절 연휴 동안 Fable 5.1로 "바이브 코딩"했다는 Claude Code 플러그인
-Waiting Room을 공개했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1waef2c/waiting_room_a_claudecode_plugin_to_let_u_wait/">Waiting Room: A Claude-Code plugin to let u wait with a stranger who is also waiting for their Claude</a> <span class="ref">(Reddit · 09/08 13:35)</span>. Claude 응답을 기다리는 동안 혼자 멍하니 있는 대신,
-같은 처지로 기다리고 있는 다른 사용자와 Omegle 스타일의 음성·영상 채팅으로 연결해 주는 서비스다.
-작성자 본인도 "코드가 제대로 동작하는지 확신이 없다"며 사람들이 직접 써 보고 검증해 주길 바란다고
-적었다.</p>
-<p>반응은 대체로 호의적이면서도 장난스러웠다. "지금까지 본 것 중 가장 멍청한데 마음에 든다",
-"야후 채팅 시절로 돌아간 기분"이라며 초기 인터넷 채팅 문화에 대한 향수를 드러낸 댓글이 많았고,
-"도메인에 특화된 채터룰렛이라니 묘하게 흥미롭다", "클로더룰렛이라는 이름도 괜찮다" 같은 농담도
-이어졌다. 한 댓글은 지금 작업 중인 주제("우주 시뮬레이션 n체 문제" 등)를 태그로 달 수 있게 하면
-실질적이고 유익한 대화로도 이어질 수 있을 것 같다고 제안했다. 반면 부적절한 사용을 걱정하는
-농담("음경 사진 천지일 것"), "2021년이었다면 이게 3억 달러짜리 시리즈 B 투자를 받았을 것"이라는
-냉소적인 댓글도 있었다. "오늘 밤 당장 써 봐야겠다"는 반응도 나왔다.</p>
+<h2>2. Claude, change the "Add to Cart" button to blue</h2>
+<p>"장바구니에 담기" 버튼을 파란색으로 바꿔달라는 단순한 요청을 Claude에게 시켰을 때 벌어지는 상황을
+과장해 그린 밈 게시물이다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wbn25x/claude_change_the_add_to_cart_button_to_blue/">Claude, change the "Add to Cart" button to blue</a> <span class="ref">(Reddit · 09/09 23:24)</span>. 댓글에서는 실제 Claude Code 사용 경험과 너무 닮았다는
+반응이 이어졌다. 한 댓글은 실감을 더하려면 에이전트가 버그를 고치겠다고 선언하고는 사용자가 메시지를
+보낼 때까지 아무 일도 일어나지 않는 장면을 추가해야 한다고 덧붙였다. 다른 댓글들은 버튼 색이 요청할
+때마다 무작위로 바뀌고, 사이안 블루가 실제 시안화물 노출과 무관하다는 약관 링크까지 붙는다는 점을
+지적하며 이 때문에 이 모델을 기획이나 대충 만든 목업 용도 외에는 못 믿겠다고 했다.</p>
 
-<h2>Fable 5.1 50% 사용량 부스트 9월 13일 종료를 둘러싼 논쟁</h2>
-<p>월 100달러 Max 플랜 사용자인 /u/cephas1784는 Fable 5.1의 주간 사용량이 전체 쿼터의 50%로
-제한돼 있어, 주간 리셋 후 이틀 만에 한도에 도달한다고 불만을 제기했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wa8q6c/anthropic_needs_to_remove_the_50_usage_limit_on/">Anthropic needs to remove the 50% usage limit on Fable 5.1</a> <span class="ref">(Reddit · 09/08 09:03)</span>. 한도에
-걸리면 며칠을 기다리거나, 구형 모델로 내려가거나, 추가 크레딧을 결제하는 세 가지 나쁜 선택지밖에
-없다며, Anthropic이 유료 사용자에게 선택한 모델로 쿼터 100%를 온전히 쓸 수 있게 해야 한다고
-주장했다.</p>
-<p>댓글에서는 공감이 이어졌다. 200달러 플랜 사용자도 새 기능 작업 시 사흘 만에 주간 Fable 사용량이
-바닥나고 5시간 한도조차 예전보다 훨씬 빨리 걸린다며, OpenAI GPT Astra의 사용량 한도가 더
-낫다는 이야기를 듣고 한 달간 써 보겠다고 했다. Fable을 "브레인"으로 두고 실제 코딩은 하위
-모델 서브에이전트에 위임해 비용을 줄이라는 제안이 나왔지만, 다른 댓글은 Opus 5나 Sonnet 5에
-코딩을 맡겨도 사실과 다른 주장을 너무 많이 해서 결국 Fable을 계속 쓰게 된다고 반박했다. 이에 대해
-또 다른 댓글은 그 문제는 모델 자체보다 계획 수립과 커스텀 하네스 부재 때문이라며, Ultracode
-워크플로처럼 제대로 된 구조 없이 GPT를 수동으로 쓰고 있어서 그런 것이라고 지적했다. 이 외에도
-Codex 5X 플랜을 20X로 올리는 게 낫겠다는 의견, "월 200달러는 Fable이든 Astra든 어느 쪽이든
-엄청난 가치"라는 의견, ChatGPT와 Claude 두 구독을 오가며 리셋 횟수를 비교했다는 경험담 등
-다양한 반응이 달렸다.</p>
-<p>같은 사안을 두고 두 개의 글이 더 올라왔다. 하나는 9월 13일 종료 예정인 50% "부스트"를
-Anthropic이 실제로 끝낼지, OpenAI 모델이 강해지는 상황에서 영구화하거나 계속 연장할지를 묻는
-글이었고 <a href="https://www.reddit.com/r/ClaudeCode/comments/1walrmo/50_boost_is_ending_september_13th_do_you_think/">50% "boost" is ending September 13th. Do you think Anthropic will actually end it with the threat of OpenAI's models getting stronger, or make it permanent? Or just keep extending it indefinitely?</a> <span class="ref">(Reddit · 09/08 20:29)</span>, 다른 하나는 리셋까지 5일 남은 시점에서 작성자 본인의 예측을
-공유한 글이었다. 그는 Astra가 이미 Anthropic의 사용자 기반을 상당히 가져간 상황에서 Anthropic이
-50% 부스트를 9월 13일 이후에도 연장할 수밖에 없을 것이라 보며, 오히려 Fable 5나 Fable 6 같은
-깜짝 발표가 나올 수도 있다고 내다봤다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1warpi3/my_take_50_usage_limit_on_fable_will_be_gone/">My take : 50% usage limit on Fable will be gone</a> <span class="ref">(Reddit · 09/09 00:32)</span>.</p>
+<h2>3. 사용량 한도 변경을 둘러싼 논란과 Codex 병행/전환</h2>
+<p>Max 5x 요금제 사용자는 서브에이전트 사용을 줄인 뒤 최근 며칠간 5시간·주간 한도가 유독 여유로워졌다고
+느꼈다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wbe57k/claude_code_usage_limits_increased/">Claude Code Usage Limits increased?</a> <span class="ref">(Reddit · 09/09 15:57)</span>. 반면 다른 사용자는 하루에 두 번이나 일일 한도에 도달했고, 두 번째
+초기화 이후 겨우 50분 만에 다시 100%에 도달해 4시간 동안 코딩이 막혔다며 서브에이전트 사용법을
+재점검하겠다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wbmxe3/limits_are_going_off_again/">Limits are going off AGAIN</a> <span class="ref">(Reddit · 09/09 23:19)</span>. 또 다른 사용자는 Anthropic이 한도를 50% 늘렸다고 공지했음에도
+72시간 만에 주간 한도의 87%를 써버렸다며, 평소라면 이 시점에 50~60% 수준이었을 것이라고 지적했다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1wbtjya/my_tokens_are_burning_faster_than_ever/">My tokens are burning faster than ever</a> <span class="ref">(Reddit · 09/10 03:17)</span>. 이 글의 댓글에서는 팀 전체가 같은 현상을 겪고 있다는 증언과 함께, 턴 사이에 컨텍스트
+앞부분이 바뀌면 캐시가 깨져 토큰이 훨씬 비싸게 청구될 수 있다는 지적, 이런 부스트가 사라지면 구독을
+끊고 다른 서비스를 찾겠다는 반응, 그리고 실사용 코드베이스에 따라 토큰 소모 속도가 크게 갈린다는
+경험담이 뒤섞였다.</p>
+<p>사용량 한도 문제는 소송으로도 번졌다. 한 사용자는 200달러 20x 플랜이 실제로는 6~8배, 5x 플랜은
+3~4배 수준에 그친다는 허위 광고 의혹이 제기됐고 Anthropic으로부터 별다른 공지가 없었다며, WSJ 보도와
+소송 서류를 링크하고 이런 상태라면 다른 서비스로 옮기겠다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wbw3ar/has_anthropic_come_out_with_a_statement_regarding/">Has Anthropic come out with a statement regarding the false advertising of usage limits?</a> <span class="ref">(Reddit · 09/10 04:45)</span>. 이런 불만 속에
+Claude Code와 Codex를 동시에 결제해 상황에 따라 수동으로 작업을 넘기던 사용자는 왜 자신이 직접
+스케줄러 역할을 해야 하는지 의문을 품고, 코딩 하네스 위에서 아키텍처·리뷰는 Claude가 맡고 기계적인
+구현은 Codex로 넘기는 오픈소스 도구 brnrd를 소개했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wbx5ge/why_am_i_manually_loadbalancing_my_ai/">Why am I manually load-balancing my AI subscriptions?</a> <span class="ref">(Reddit · 09/10 05:22)</span>. 또 다른 사용자는 Claude
+전용으로 CLAUDE.md, 스킬, 훅, 자동화 루프를 구축해 두었는데 한도가 너무 빨리 소진되어 Codex로 옮길
+계획이라며, 두 도구를 함께 쓰는 좋은 방법이 있는지 물었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wbyah8/planning_to_switch_to_codex_because_claude_runs/">Planning to switch to codex because Claude runs out way to fast</a> <span class="ref">(Reddit · 09/10 06:04)</span>.</p>
 
-<h2>사람의 문법이 LLM을 힘들게 하는 이유와 해결책</h2>
-<p>코딩 에이전트를 2년간 관찰한 결과를 정리한 기술 에세이가 Hacker News에 올라왔다
-<a href="https://news.ycombinator.com/item?id=49609821">Why human syntax breaks LLMs (and how to fix agentic coding)</a> <span class="ref">(HN · 09/08 22:04)</span>. 글쓴이는 모델들이 추론 연산의 32~41%를 문법 오류 수정 루프에 낭비하는
-동일한 패턴을 반복적으로 목격했다고 밝히며, 이는 모델 규모의 문제가 아니라 사람 중심으로 설계된
-문법과 트랜스포머 어텐션의 계산 구조가 충돌하기 때문이라고 분석한다. Python의 오프사이드 규칙은
-내부적으로 LIFO 들여쓰기 스택을 요구해 공백 토큰 하나만 어긋나도 AST 구조가 조용히 바뀌어 버리고,
-Rust의 borrow checker는 라이프타임과 제어 흐름 그래프에 걸친 비지역적 제약을 풀어야 하는데
-자기회귀적 생성은 순방향으로만 진행되기 때문에 뒤로 돌아가 충돌을 해결할 수 없다는 것이다.</p>
-<p>이를 해결하기 위해 글쓴이는 <code>AgentScript</code>(ASL)라는 오픈소스 언어를 만들었다.
-단일 패스로 파싱되는 S-표현식 기반의 정적 타입 언어로, Rust·Go·TypeScript·WebAssembly로 직접
-컴파일된다. 좌에서 우로 진행하는 어텐션이 항상 부모 스코프를 알 수 있도록 괄호 균형을 문법 자체로
-강제하고, <code>prelude.json</code>에 정의된 닫힌 어휘집만 사용하며, Docker나 마이크로VM 없이
-0.038ms 만에 실행되는 Wasm 샌드박싱을 제공한다. 글쓴이 측정으로는 기준선인 Rust에서 생성 토큰의
-46.5%, Python에서 34.2%가 문법 수정에 쓰이는 반면, AgentScript에서는 그 반복 횟수가 4.8회에서
-0.08회로, 약 98.3% 줄어 낭비되는 비율이 1.2%까지 떨어졌다고 한다.</p>
+<h2>4. Show HN: Rdltr – Inbox zero for your reading list</h2>
+<p>여러 브라우저와 기기에 흩어져 쌓이는 "나중에 읽기" 탭 문제를 해결하기 위해 만든 읽기 목록 앱 RDLTR이
+소개됐다 <a href="https://news.ycombinator.com/item?id=49629747">Show HN: Rdltr – Inbox zero for your reading list</a> <span class="ref">(HN · 09/10 02:06)</span>. 계속 쌓이기만 하는 기존 서비스들과 달리, 글을 읽고 나면 큐에서 사라지고
+보관함에는 남는 "읽기의 인박스 제로"를 지향한다고 설명했다. 북마클릿과 확장 프로그램에서
+<code>Shift+DD</code>를 누르면 본문을 정리해 ChatGPT, Claude, Gemini 새 탭으로 보내 바로 질문할 수 있고,
+<code>Shift+AA</code>는 페이월 사이트를 인터넷 아카이브로 열어준다. 스택은 Bun, TypeScript, HTMX,
+SQLite이며 Hetzner VPS에 배포했고, 코드 대부분을 Claude Code가 작성했지만 UI가 만족스러워질 때까지
+직접 사용해보며 다듬는 데 많은 시간을 썼다고 밝혔다.</p>
 
-<h2>Anthropic과 OpenAI의 경쟁 관계를 다룬 밈 게시물</h2>
-<p>"Anthropic과 OpenAI가 서로 얼마나 싫어하는지 보여주는 사진"이라는 제목의 밈 게시물이
-r/ClaudeCode에 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wag8h6/this_is_how_much_anthropic_and_openai_hate_each/">This is how much Anthropic and OpenAi hate each other lol</a> <span class="ref">(Reddit · 09/08 15:13)</span>. 사진 속 두 회사 CEO의 어색한 모습을 두고 다양한
-반응이 달렸다.</p>
-<p>"이거 실화냐"는 반응부터 "다들 아는 얘기 아니냐"는 웃음까지 다양했고, 한 댓글은 "정말로 다투고
-갈라선 사이라 Dario가 그것 때문에 OpenAI를 떠난 것"이라고 배경을 설명했다. 다른 댓글들은 이를
-좀 더 냉소적으로 해석해 "이상하게 어색한 자리에 있고 싶지도, 어떻게 행동해야 할지도 모르는 두
-사람처럼 보인다"거나, "PR팀이 이상하게 보일 사진은 찍히지 말라고 신신당부했을 텐데 그마저도
-실패한 것"이라고 꼬집었다. "저 둘이 손이라도 잡았으면 그건 그거대로 놀림감이 됐을 것"이라는
-농담, "테크 CEO들이 스포트라이트를 받으면 항상 웃기다"는 촌평도 있었다.</p>
+<h2>5. How I use sub-agents without burning through Fable 5.1</h2>
+<p>Fable 5.1이 너무 빨리 소진된다는 불만이 많다며, 자신의 서브에이전트 운용법을 공유한 글이다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1wbc03f/how_i_use_subagents_without_burning_through_fable/">How I use sub-agents without burning through Fable 5.1</a> <span class="ref">(Reddit · 09/09 14:00)</span>. 핵심은 Fable을 실제 작업자가 아닌 오케스트레이터로만 쓰는 것으로, 계획·명세
+작성·에이전트 생성·판단은 Fable이 맡고, 파일·심볼 위치 찾기는 Haiku, 문서·소스 조사는 Sonnet, 실제
+코딩과 테스트는 Sonnet Builder, 빌더의 작업을 검증하는 것은 Opus Refuter, 어려운 디버깅만 별도의 Opus
+Debugger가 담당한다고 설명했다. 각 서브에이전트에는 목표, 대상 파일, 허용 범위, 검증 항목, 금지 사항,
+출력 형식을 명확히 지시하고 결과가 길면 스크래치 파일에 쓰게 해 Fable의 컨텍스트에 큰 코드 덩어리가
+들어오지 않게 한다고 덧붙였다. 댓글에서는 이 방식이 "소규모 소프트웨어 공장" 같다는 호평과 함께, 격리된
+워크트리와 새 리뷰어를 붙이는 유사한 자동화 사례들이 공유됐고, 일부는 오히려 비효율적이라거나 결국
+Fable이 대부분의 작업을 하고 있다는 반론도 나왔다.</p>
 
-<h2>Denzel이 설명하는 AI '슬롭(slop)'</h2>
-<p>"Denzel Explains AI Slop"이라는 제목의 글이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=49605324">Denzel Explains AI "Slop"</a> <span class="ref">(HN · 09/08 12:14)</span>.
-AI가 쏟아내는 저품질 콘텐츠, 이른바 '슬롭' 현상을 다루는 것으로 보이며, 아직 댓글 반응은 달리지
-않았다.</p>
+<h2>6. FrontierHarness 평가에서 Claude Code 비용이 5.6배 높다는 지적</h2>
+<p>FrontierHarness 벤치마크에서 Claude Code와 DSH Creator가 동일하게 Kimi K3 모델로 같은 게이트웨이를
+통해 30개 과제 중 19개를 통과했지만, 통과당 중간 비용은 Claude Code가 18.34달러로 DSH의 3.28달러보다
+5.6배 높았다는 결과가 공유됐다 <a href="https://news.ycombinator.com/item?id=49628679">Dive into FrontierHarness Eval: Claude Code cost 5.6× for the same pass rate</a> <span class="ref">(HN · 09/10 00:59)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1wbpxzm/frontierharness_same_model_same_pass_rate_why_did/">[FrontierHarness] Same model, same pass rate. Why did Claude Code cost 5.6× more than DSH?</a> <span class="ref">(Reddit · 09/10 01:10)</span>. 작성자는 캐싱이 격차의 일부를
+설명할 수 있고 한 과제가 Claude Code 전체 토큰 사용량의 68%를 차지했다며, 하네스·모델·게이트웨이
+효과를 아직 분리하지 못해 네이티브 Claude 비교는 아니라고 밝히고 원인을 찾기 위해 무엇을 먼저
+테스트해야 할지 물었다. 댓글에서는 최근 Claude Code에 심각한 캐싱 버그가 있다는 지적, Anthropic이
+Harness 대비 마케팅 회사처럼 느껴진다거나 Codex Desktop이 한 세대 앞서 있다는 평가, 벤치마크 자체의
+신뢰성에 대한 냉소, 그리고 어떤 하네스든 네이티브 모델과 조합했을 때 가장 잘 작동한다는 반론이
+뒤섞였다.</p>
 
-<h2>Ask HN: 코딩 에이전트와 함께 딕테이션(음성 입력)을 쓰는지 묻는 글</h2>
-<p>Hacker News에 코딩 에이전트와 함께 음성 딕테이션을 쓰고 있는지 묻는 질문 글이 올라왔다
-<a href="https://news.ycombinator.com/item?id=49610888">Ask HN: Anyone using dictation with coding agents?</a> <span class="ref">(HN · 09/08 23:32)</span>. 글쓴이는 에이전트의 응답까지 음성으로 받으며 완전히 손을 쓰지 않고
-작업하는 사람이 있는지, 이를 위한 도구를 써 봤거나 직접 만들고 있는 사람이 있는지 궁금하다고
-물었다. 조사한 바로는 Claude Code CLI와 Aider가 음성 딕테이션을 지원하고, Codex는 한때
-지원했다가 없앴으며, opencode나 Copilot CLI 등 다른 도구들은 아직 지원하지 않는다고 덧붙였다.
-아직 댓글 반응은 없다.</p>
+<h2>7. Show HN: Self-hosted company OS, Claude Code and Codex agents in departments</h2>
+<p>Claude Code와 Codex CLI 에이전트를 부서별로 서버에 상주시켜 회사 운영을 돕는 셀프호스팅 애플리케이션
+OtoDock이 공개됐다 <a href="https://news.ycombinator.com/item?id=49630606">Show HN: Self-hosted company OS, Claude Code and Codex agents in departments</a> <span class="ref">(HN · 09/10 02:57)</span>. 여러 사람이 함께 회사 에이전트를 운영할 수 있는 멀티테넌트
+구조이며, Anthropic이나 OpenAI 구독 또는 로컬 모델로도 구동할 수 있다. 각 에이전트는 bubblewrap 기반
+커널 샌드박스와 네트워크 격리(pasta) 안에서 독립된 워크스페이스, 메모리, 스케줄, 툴을 가진 지속
+프로세스로 서버에서 돌아가며, 아웃바운드 웹소켓 하나로 원격 컴퓨터에서도 동일하게 실행할 수 있다.
+Twilio나 자체 Asterisk를 통한 전화 응대, 영상·엑셀·워드·PPT 편집 및 미리보기 등의 기능도 갖췄다. 설치
+스크립트와 docker compose만으로 가입 없이 사용할 수 있고 5명까지는 무료이며, 코드 상당 부분을 Claude
+Code를 이용한 OtoDock 자신으로 작성했다고 밝혔다.</p>
 
-<h2>사용량 절약 가이드 공유</h2>
-<p>Max 20x 플랜을 쓴다는 /u/Emotional-Bus-7065가 사용량 한도에 걸리지 않으면서 주당 약 75억
-토큰을 쓰는 자신만의 요령을 정리해 공유했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wa9aya/tired_of_people_complaining_about_usage_heres_a/">Tired of people complaining about usage. Here's a guide to conserve usage</a> <span class="ref">(Reddit · 09/08 09:29)</span>. 핵심은 Fable 5.1이 코드를
-직접 건드리지 않게 하는 것이다. Fable에는 대부분의 작업에 중간(medium) 정도 노력이면 충분하고
-평소엔 낮음(low)만 써도 되며, 지시를 잘 못 따를 때만 노력 수준을 올리라고 권한다. Ultracode는
-효과적인 "노력 수준"이 아니라 그저 에이전트를 무더기로 생성할 뿐이므로, 주간 리셋이 임박해
-사용량이 어차피 남아돌 때만 쓰라고 조언했다. 대신 실제 코딩 작업은 사용량 한도가 훨씬 넉넉한
-Sonnet 5에 위임하되, 절차·구현·문법을 Sonnet이 스스로 고민하지 않도록 모든 것을 구체적으로
-지시하는 프롬프트를 쓰고, 에이전트도 한 번에 2개씩만 생성해 토큰을 아끼라고 제안했다.</p>
-<p>댓글에서는 실전 팁이 더 보태졌다. CLAUDE.md나 스킬, 메모리에 결정 사항을 남길 때는 "왜
-그런 결정을 내렸는지"까지 구구절절 적지 말고 결론만 한 줄로 남기라는 조언이 있었고, 그런 지침은
-CLAUDE.md에 직접 박아 넣기보다 매 프롬프트 시작 부분에 넣는 편이 낫다는 의견도 나왔다.
-CLAUDE.md에는 다른 파일에 대한 참조가 얽혀 있을 수 있어 함부로 손대면 위험하다는 이유였다.
-한 사용자는 자신은 반대로 Opus를 리드 에이전트로 쓰고 Fable은 계획 검토용으로만 쓴다며, Fable을
-리드로 두면 결국 코드에 손을 대게 되고 누적된 컨텍스트가 사용량을 갉아먹는다고 경험을 전했다.
-글 말미에는 "사용량 20분 만에 다 썼다, Fable은 별로다, Astra를 써라"는 식의 불만 글이 올라올
-때마다 이 가이드를 링크해 주겠다는 다소 냉소적인 댓글도 달렸다.</p>
+<h2>8. AI를 사용하는 것과 AI를 잘 다루는 것의 격차</h2>
+<p>RAG, 에이전트, MCP 같은 도구를 안다고 해서 그것으로 효과적인 워크플로를 만들 수 있는 것은 아니며,
+정말 잘하는 사람과 그렇지 않은 사람을 가르는 핵심은 프롬프트나 도구 지식이 아니라 출력을 검증하는
+체계적인 절차라는 주장이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wbed3t/the_gap_between_using_ai_and_being_good_at_ai_is/">The gap between 'using AI' and 'being good at AI' is wider than most people think</a> <span class="ref">(Reddit · 09/09 16:10)</span>. 댓글에서는 AI를 잘 다루는 것 못지않게 해당
+분야 자체에 대한 지식이 있어야 출력을 검증할 수 있다는 의견이 많았다. 큰 앱에서 아키텍처나 엣지
+케이스를 충분히 고민하지 않으면 애초에 인식조차 못 하는 문제가 생긴다는 지적, 자신이 전체 모델을
+머릿속에 담을 수 없는 영역에서는 절대 AI에 맡기지 않는다는 경험담, 반대로 이런 주장 자체가
+잘난 척에 가깝다는 반박이 이어졌다. 한 댓글은 원문 글이 챗봇이 생성한 듯한 문체적 특징을 보인다고
+지적했고, 다른 댓글은 레딧 게시물의 상당수가 LLM이 작성한 것 같다며 동조했다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-09-09 08:04 KST</p>
+  <p>생성 2026-09-10 07:52 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
