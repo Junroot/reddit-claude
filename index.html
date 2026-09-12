@@ -121,101 +121,44 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-09-12 07:46 KST</p>
+  <p class="asof">기준 시각 2026-09-13 07:31 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 27건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 14건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>1. 새 사용량 제한 UI 도입 이후 크레딧이 예상보다 빨리 소진된다는 불만과 사용량 확인 도구 등장</h2>
-<p>새로운 사용량 제한 UI가 배포되면서 반응이 엇갈렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wd0e2g/new_claude_usage_ui/">New Claude Usage UI</a> <span class="ref">(Reddit · 09/11 09:09)</span>. 월 100달러짜리 Max 플랜
-사용자는 리셋을 이틀 앞두고 "곧 소진됩니다" 경고 배너가 크게 뜨는 것에 불만을 터뜨렸는데, 바로 아래에는
-사용량이 50% 늘었다는 안내가 함께 떠 있어 모순적으로 느껴진다고 지적했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wd3uj4/paying_100month_for_max_and_getting_a_giant_youre/">Paying $100/month for Max and getting a giant “you’re about to run out” banner is insane lol 💀</a> <span class="ref">(Reddit · 09/11 11:44)</span>. 다른
-사용자는 이 알림을 닫을 방법이 없고 계속 결제를 유도하는 느낌이라 불쾌하다고 적었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wdbqu3/claude_aggressively_pushing_me_to_spend_money/">Claude aggressively pushing me to spend money</a> <span class="ref">(Reddit · 09/11 18:53)</span>.</p>
-<p>사용량이 예상보다 훨씬 빨리 줄어든다는 보고도 이어졌다. 한 사용자는 지난주보다 적게 썼는데도
-초반부터 Fable 사용량 31%, 44%가 소진됐다며 부스트가 사라진 것 아니냐고 물었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wde29j/what_the_actual_f/">What the actual F</a> <span class="ref">(Reddit · 09/11 20:52)</span>.
-20x Max 플랜 사용자도 특별히 작업 방식을 바꾸지 않았는데 리셋 직후 한 시간 만에 세션의 40%, 주간
-사용량의 20%가 줄었다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wdklro/did_usage_change_this_week_20x_max_plan/">Did usage change this week? 20x max plan?</a> <span class="ref">(Reddit · 09/12 01:10)</span>.</p>
-<p>반면 한 장기 사용자는 6개월 동안 Opus·Fable·Sonnet·Haiku를 역할별로 나눠 쓰면서도 매주 사용량이
-남는다며, 남들이 왜 그렇게 빨리 소진하는지 이해할 수 없다고 반문했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wde783/how_are_people_burning_through_their_fable_tokens/">How are people burning through their Fable tokens so fast?</a> <span class="ref">(Reddit · 09/11 20:58)</span>. 댓글에는
-"에이전트 200개를 동시에 띄운다", "GTA 6를 실수 없이 만들어 달라고 시킨다"는 식의 농담 섞인 답변과
-함께, 사용 습관을 재구성해 이틀 만에 소진되던 것을 크게 줄였다는 진지한 경험담도 달렸다.</p>
-<blockquote><p>10h per day sessions here. I went from 100% Fable limit in 2 days from 60% in 5 days
-with a simple redesign of how to use Fable properly.</p></blockquote>
-<p>같은 흐름 속에서 Claude, Codex, Copilot 등 여러 구독 서비스의 남은 사용량을 한눈에 확인할 수 있는
-도구가 Show HN에 올라와 소개됐다 <a href="https://news.ycombinator.com/item?id=49658615">Show HN: See how much of your Claude, Codex, or Copilot subscription is left</a> <span class="ref">(HN · 09/11 23:03)</span>.</p>
+<h2>1. Opus/Fable 사용 시 토큰·사용량이 예상보다 빨리 소진된다는 불만</h2>
+<p>Hacker News에서 코딩할 때 기본으로 어떤 모델을 쓰는지 묻는 스레드에, Fable이 세션 크레딧을 몇 분 만에 태워버린다는 답변이 달렸다. 작성자는 4개 에이전트로 모바일 앱 초기 기획을 했을 뿐인데 세션이 순식간에 소진됐고, 6시간 뒤 다시 시작하니 캐시가 만료돼 1분도 안 돼 세션의 2%가 사라졌다며, 결국 Opus 4.8로 돌아갔다고 밝혔다 <a href="https://news.ycombinator.com/item?id=49672966">Ask HN: What default model do you use and why?</a> <span class="ref">(HN · 09/12 23:58)</span>. Reddit에서도 비슷한 불만이 이어졌다. 한 사용자는 Max 플랜에서 Pro로 다운그레이드한 뒤 아직 Max 구독이 남아있는데도 토큰이 예전보다 훨씬 빨리 소진되는 것 같다며 이게 정상인지 물었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wdxpg4/claude_code_tokens_running_out_faster_than_usual/">Claude Code tokens running out faster than usual</a> <span class="ref">(Reddit · 09/12 09:32)</span>. 다른 사용자는 계획을 검토해 달라는 요청 한 번으로 5시간 한도 전체가 19분 만에 사라졌다며 강하게 항의했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1we7x02/183987_tokens_used_up_my_entire_5_hour_limit_what/">183,987 tokens used up my entire 5 hour limit. What the fuck, Anthropic.</a> <span class="ref">(Reddit · 09/12 18:23)</span>. 또 다른 글에서는 Opus 5를 고reasoning 모드로 간단한 웹 UI 작업에 썼을 뿐인데 5시간 사용량이 평소보다 훨씬 빠르게 올라갔고, 심지어 113줄짜리 파일을 Sonnet 미디엄으로 읽기만 했는데도 한도의 4%가 소모됐다는 보고가 나왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wecxyr/claude_code_5h_usage/">Claude Code 5h usage</a> <span class="ref">(Reddit · 09/12 22:40)</span>.</p>
+<p>댓글란의 반응은 갈렸다. 일부는 자신도 평소보다 사용량이 빨리 줄어드는 느낌을 받는다며 동조했지만, 다른 일부는 이런 불만을 "컨텍스트 관리를 못 하는 사람"의 문제로 치부하며 회의적인 태도를 보였다. 이 지적에 원 댓글 작성자가 반박하면서 두 진영 사이에 날 선 언쟁이 벌어지기도 했다.</p>
+<blockquote><p>나는 보통 이런 이론을 비웃는 쪽인데, 지금은 나도 뭔가 이상하다는 느낌을 지울 수가 없다.</p></blockquote>
 
-<h2>2. Moonshot이 Kimi 대신 Claude를 제공하며 대화를 모델 학습에 수집한다는 의혹 제기</h2>
-<p>Moonshot이 자사 Kimi 모델 대신 Claude를 백엔드로 제공하면서, 그 과정에서 나눈 대화를 모델 학습용
-데이터로 수집하고 있다는 의혹이 Hacker News에 제기됐다 <a href="https://news.ycombinator.com/item?id=49656698">Moonshot serves Claude instead of Kimi and collects exchanges for model training</a> <span class="ref">(HN · 09/11 20:36)</span>. 게시물은 이를 뒷받침하는
-근거로 소셜 미디어 게시글 링크를 인용했다.</p>
+<h2>2. Claude가 코드베이스를 삭제했다는 밈/농담</h2>
+<p>한 사용자가 "바이브 코더들이 또 'Claude가 내 코드베이스 전체를 삭제했다'는 글을 올리려 한다"며 농담조의 글을 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wdyqzs/vibecoders_about_to_post_the_claude_deleted_my/">Vibecoders about to post the "claude deleted my entire codebase"</a> <span class="ref">(Reddit · 09/12 10:20)</span>. 댓글에서는 바이브 코더를 향한 짓궂은 놀림과 함께, git이나 pull request 같은 기본기를 몰라도 "AI에게 그냥 git 쓰라고 하면 된다"는 식의 태도를 지적하는 반응이 이어졌다. 일부는 Fable과 Astra가 실제로 스택을 거의 지울 뻔했지만 최근 추가된 안전장치 덕에 막았다는 경험을 공유하기도 했다.</p>
+<p>다른 글에서는 작성자가 데이터베이스를 통째로 날려본 "선배들"에게 익살스럽게 감사를 표하며, 그런 사례들을 본 덕분에 백업 스크립트를 상시로 돌리게 됐다고 밝혔다. 실제로 1시간 전 백업으로 복구하고 나니 화가 나기보다 묘한 안도감과 뿌듯함을 느꼈다고 적었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wek1w2/let_us_all_pay_homage_to_the_brethren_who_had/">Let us all pay homage to the brethren who had this very fate befall them.</a> <span class="ref">(Reddit · 09/13 03:23)</span>.</p>
+<blockquote><p>"No Git, only permadeath."</p></blockquote>
 
-<h2>3. 특별한 설명 없이 'welp'만 남긴 밈성 게시물 'Reality check'</h2>
-<p>r/ClaudeCode에 "welp" 한마디만 적힌 짧은 게시물이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wdfmmz/reality_check/">Reality check</a> <span class="ref">(Reddit · 09/11 21:59)</span>. 별다른 설명이
-없었지만, 댓글란에서는 사용량 토큰을 다 써서 다시 '슬롭 포스팅'으로 돌아온 것 아니냐는 추측이
-이어졌고, 작성자도 그렇다고 인정했다.</p>
-<blockquote><p>So I guess you ran out of usage tokens and decided to go back to slop posting?</p></blockquote>
-<blockquote><p>yep</p></blockquote>
-<p>이어 다른 댓글들도 사용량이 바닥나면 레이싱카가 연료 떨어진 것과 같다거나, 헬스장에서 리셋을
-기다리라는 식의 농담을 보태며 앞선 사용량 제한 논란과 맞닿은 반응을 보였다.</p>
+<h3>3. 코딩에 기본으로 어떤 모델을 쓰는지에 대한 토론</h3>
+<p>Ask HN 스레드에서 기본으로 쓰는 모델과 그 이유를 묻자, 한 개발자는 자신의 작업 대부분인 웹·모바일·클라우드 백엔드 개발에는 Fable이 과한 데다 세션 크레딧을 몇 분 만에 소진시킨다고 답했다. 그는 Opus 4.8이 "충분히 좋다"며 가성비가 뛰어나 대부분의 작업을 제대로 처리해준다고 밝혔고, 뚜렷한 이유가 생기기 전까지는 Fable로 돌아가지 않을 계획이라고 설명했다 <a href="https://news.ycombinator.com/item?id=49672966">Ask HN: What default model do you use and why?</a> <span class="ref">(HN · 09/12 23:58)</span>.</p>
 
-<h2>4. Opus 5 품질에 대한 실망과 철회 요구</h2>
-<p>Opus 5의 품질에 대한 강한 불만이 Hacker News와 Reddit 양쪽에서 터져 나왔다. Hacker News 게시물은
-Opus 5가 이전 Opus 모델의 후속작이라 부를 수 없을 만큼 형편없다며 격앙된 어조로 철회를 요구했다
-<a href="https://news.ycombinator.com/item?id=49658362">Anthropic's Claude Opus 5 needs to be retracted</a> <span class="ref">(HN · 09/11 22:46)</span>.</p>
-<blockquote><p>I cant believe they put this as a frontier successor to any other opus. ITS NEITHER A
-SUCCESSOR NOR A GOOD MODEL!</p></blockquote>
-<p>Reddit에서는 조금 더 구체적인 비판이 이어졌다. 한 사용자는 Opus 5가 실제로 일을 처리하기보다
-자신이 똑똑하다는 것을 증명하는 데 더 신경 쓰는 것처럼 느껴진다며, 말이 장황하고 프로세스를 지나치게
-경직되게 따른다고 지적했다. 그는 Codex로 갈아타 Astra를 써본 뒤에야 Opus의 문제를 더 확실히
-체감했다고 적었고, 다만 Claude Code의 CLI·툴링만큼은 여전히 낫다고 덧붙였다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wdtrsa/im_done_with_opus_5/">I’m done with Opus 5</a> <span class="ref">(Reddit · 09/12 06:44)</span>.</p>
-<blockquote><p>It seems like it acts like an overqualified post doc intern who cares more about proving
-he's super intelligent, than actually doing the job he's asked to do.</p></blockquote>
-<p>댓글에서는 Opus가 말하는 능력만 떨어질 뿐 작업 자체는 나쁘지 않다는 의견과, 리뷰나 검증처럼 대화가
-적은 용도로는 오히려 유용하다는 의견이 갈렸다. 한편 조금만 반박해도 바로 입장을 굽혀버린다는 불만,
-비코딩 분석 작업에서는 최대 사고 강도를 써야 겨우 쓸 만하지만 그만큼 플랜 한도를 빨리 소진한다는
-불만도 함께 달렸다.</p>
+<h2>4. 적대세력이 Claude AI를 미국인 표적화·미사일 개발에 악용했다는 보고</h2>
+<p>Hacker News에 적대적 행위자들이 Claude AI를 미국인 표적화와 미사일 개발에 활용했다는 내용을 다룬 기사가 게시됐다 <a href="https://news.ycombinator.com/item?id=49666327">Adversaries Using Claude AI to Target Americans and Develop Missiles</a> <span class="ref">(HN · 09/12 07:36)</span>. 본문과 댓글 내용은 확인되지 않는다.</p>
 
-<h2>5. MCP 기반 에이전트 대전 게임 'Clawfight.ai' 소개</h2>
-<p>에이전트끼리 랩 배틀이나 대결을 벌이는 실험적 게임 'Clawfight.ai'가 Show HN에 소개됐다
-<a href="https://news.ycombinator.com/item?id=49658483">Show HN: Clawfight.ai MCP-driven agentic game play</a> <span class="ref">(HN · 09/11 22:54)</span>. 제작자는 Claude Code로 개발을 진행하며 여러 에이전트로 구성된 조직이 프로젝트를
-스스로 이끌게 하는 'openclaw' 체제를 시도했다고 설명했다. 초기에는 Unreal Engine으로 에이전트가 직접
-캐릭터를 조작하게 했지만 품질이 기대에 못 미쳐, 지금은 실시간에 가까운 AI 영상 생성 방식으로
-전환했다고 밝혔다. 게임은 MCP를 우선으로 설계되어 있으며, Claude나 OpenAI의 커넥터 앱에서 바로 접속해
-플레이할 수 있다고 소개했다.</p>
+<h2>5. 레지덴셜 프록시 탐지 방법에 대한 글</h2>
+<p>작성자는 온라인 범죄에 조금이라도 보탬이 되길 바란다며 레지덴셜 프록시를 탐지하는 방법을 공유했다. 대부분의 레지덴셜 프록시 업체가 UDP를 지원하지 않는다는 점에 착안해, 브라우저의 TCP IP와 WebRTC/STUN으로 얻은 UDP IP를 비교하는 방식이다. 두 IP가 같으면 프록시가 아닐 가능성이 높고, 같은 ASN·대역이면 셀룰러 네트워크, 서로 다른 ASN이면 프록시 의심 신호로 본다. 기업 방화벽(Cisco Umbrella, zScaler 등)에 걸리는 경우는 예외로 취급한다. UDP 정보 자체가 없는 경우에는 TLS 핸드셰이크 시간과 TCP RTT의 비율이 특정 임계값(3.0 이상)을 넘는지로 판별할 수 있다고 설명했다 <a href="https://news.ycombinator.com/item?id=49668557">How to Detect Residential Proxies</a> <span class="ref">(HN · 09/12 12:45)</span>.</p>
 
-<h2>6. 같은 프롬프트로 만든 물고기 게임 데모로 Codex(Astra 6)와 Claude(Fable 5.1)를 비교</h2>
-<p>한 사용자가 "커서를 따라다니는 물고기 게임을 창의적이고 웅장하게 만들어 달라"는 동일한 프롬프트를
-Codex(Astra 6)와 Claude(Fable 5.1)에 각각 주고, 추가 수정 없이 결과물을 Vercel에 배포해 비교했다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1wd01tk/same_prompt_codex_astra_6_vs_claude_fable_51_a/">Same prompt, Codex (Astra 6) vs Claude (Fable 5.1): "a game where a fish follows my cursor, super creative and majestic." Try both.</a> <span class="ref">(Reddit · 09/11 08:55)</span>. 작성자는 Codex 결과물이 시각적으로 더 정교하고 웅장한 느낌을 잘 살린 반면,
-Claude 결과물은 실제 게임처럼 더 재미있게 조작된다고 평가했다. 또한 Claude의 고속 모드(fast mode)는
-추가 크레딧이 들지만 Codex는 그렇지 않다는 점도 언급했다.</p>
-<p>댓글에서는 스크린샷만 보면 Astra 쪽이 화려해 보이지만 실제로 움직여 보면 Fable 쪽 물고기가 훨씬
-자연스럽고 생동감 있다는 의견이 다수였다.</p>
-<blockquote><p>Really interesting, the Fable one looks basic on the screenshot, but the animation and
-the whole thing is more alive, and the Astra one is fancy, but the fish hardly animates and moves
-completely unnaturally.</p></blockquote>
-<p>일부는 Astra의 UI가 Claude의 프론트엔드 스타일과 지나치게 닮아 학습 데이터를 의심케 한다는 반응을
-보였고, 다른 댓글은 모호한 프롬프트일수록 Claude 계열이 사용자 의도를 잘 해석하는 경향이 있고 OpenAI
-계열은 명시적 지시를 더 정확히 따르는 경향이 있다는 분석을 내놓았다.</p>
+<h2>6. 180개 이상 LLM 프로바이더 failover를 지원하는 오픈소스 터미널 에이전트 GoatCode 공개</h2>
+<p>85MB 단일 바이너리로 터미널에서 실행되는 오픈소스 AI 에이전트 GoatCode가 공개됐다. 180개 이상의 LLM 프로바이더 또는 기존 Claude/ChatGPT/Gemini/Copilot 구독을 OAuth로 연결해 쓸 수 있고, 세션 도중 할당량이 소진되면 자동으로 재시도한 뒤 폴백 체인을 따라 다른 프로바이더로 전환하면서 그 사실을 알리고 답변을 이어간다. v2.1.10에서는 Anthropic 대상 프롬프트 캐싱(장시간 세션 비용 최대 90% 절감), 모든 쓰기/편집 후 인라인 통합 diff 표시, 트랜스크립트를 이전 시점으로 되돌리는 <code>/rewind</code>, 최대 3개까지 동시 실행되는 병렬 서브에이전트, 저장된 모든 세션에 대한 전문 검색(<code>/search</code>, <code>goat search</code>), <code>@file</code> 탭 완성과 <code>/model</code> 별칭, 실제 API 토큰 기준의 컨텍스트 미터, 우회 모드 등이 추가됐다고 소개됐다 <a href="https://news.ycombinator.com/item?id=49670455">GoatCode – open-source terminal AI agent with provider failover</a> <span class="ref">(HN · 09/12 18:02)</span>.</p>
 
-<h2>7. Claude Code와 CodeGraph를 능가한다는 코드 인텔리전스 하니스 'Benzi' 소개</h2>
-<p>Claude Code와 CodeGraph를 능가한다고 주장하는 코드 인텔리전스/하니스 도구 'Benzi'가 Show HN에
-소개됐다 <a href="https://news.ycombinator.com/item?id=49652389">Show HN: Benzi – A Code Intillegence/Harness Beating Claude Code and CodeGraph</a> <span class="ref">(HN · 09/11 10:22)</span>.</p>
+<h2>7. Kimi가 Claude로 라우팅되어 중국 데이터가 유출됐다는 논란</h2>
+<p>Kimi로 보낸 요청이 실제로는 Claude로 라우팅되면서 중국 쪽 데이터가 유출됐다는 주장이 Reddit에 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wef754/kimi_routed_to_claude_leaked_chinese_data/">Kimi routed to Claude, leaked chinese data</a> <span class="ref">(Reddit · 09/13 00:14)</span>. 댓글에서는 Anthropic이 최근 도입한 지문 인식(fingerprinting) 기능이 단순한 EU 규제 준수를 넘어선 조치일 수 있다는 추측이 나왔고, 다른 사용자는 그런 기술 없이도 모델이 중국 내 사설 CCTV 영상 관련 요청을 처리하고 있었다는 사실 자체가 드러난다고 지적했다. 이 사안이 Kimi 요청을 Claude로 우회시켜 재판매하는 행위를 억제하려는 목적이라는 의견도 있었고, Anthropic이 API 요금을 그냥 받으면 될 문제라 굳이 이런 일을 공지 없이 벌일 이유가 있냐는 반박도 나왔다. 전반적으로 회의와 냉소가 뒤섞인 반응이었다.</p>
+<blockquote><p>이번 일을 보니 지문 인식 기능 추가가 단순히 EU 규제를 따르는 것 이상인 것 같다는 생각이 든다.</p></blockquote>
 
-<h2>8. 에이전트 간(Agent-to-Agent) 서비스를 위한 인프라 'Bitroad' 소개</h2>
-<p>에이전트끼리 서로 서비스를 사고파는 것을 지원하는 인프라 'Bitroad'가 Show HN에 소개됐다
-<a href="https://news.ycombinator.com/item?id=49657276">Show HN: Bitroad – Infra for Agent-to-Agent Services</a> <span class="ref">(HN · 09/11 21:27)</span>. 제작자는 YC의 "다음 10억 사용자는 사람이 아니라 AI 에이전트일 것"이라는 언급에
-자극을 받아, 전문화된 에이전트가 다른 범용 에이전트에게 가치를 제공할 수 있는 유통 경로가 마땅치
-않다는 문제의식에서 출발했다고 설명했다. Bitroad에서는 판매자 에이전트가 서비스를 등록하고 구매자
-에이전트가 이를 구매하면, 두 에이전트가 직접 소통하지 않고 하나의 MCP 엔드포인트를 통해 Bitroad가
-결제 보류·분쟁 조정을 대신 처리하는 구조다. 사람이 설정한 지출 한도는 거래마다, 하루 단위로, 총액
-기준으로 매 결제 전에 재검증된다고 밝혔다.</p>
-
+<h2>8. 50% 보너스 사용량 프로모션 종료</h2>
+<p>50% 보너스 사용량 프로모션이 끝나는 마지막 날을 기념하며, 끝나기 전에 프로젝트에서 무엇을 최대한 뽑아내려 하는지 묻는 글이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wehcv2/happy_last_day_of_50_bonus_usage/">Happy last day of 50% bonus usage!</a> <span class="ref">(Reddit · 09/13 01:40)</span>. 댓글에서는 이 보너스가 끝나는 대신 Fable의 주간 한도가 아예 없어졌으면 좋겠다는 바람이 나왔지만, 보너스 종료로 오히려 주간 한도가 올라갈 것이므로 그럴 가능성은 낮다는 반박이 이어졌다. 일부는 이번 축소를 계기로 사용량 한도가 리셋되길 기대했지만, 다른 사용자는 지난 두 달간 Fable과 OpenAI의 신규 출시, 서버 장애 같은 굵직한 사건에도 좀처럼 리셋해준 적이 없다며 회의적으로 반응했다. 그럼에도 한 사용자는 금요일 리셋 이후 두 개의 20x 계정을 이미 다 써버려 리셋을 기대하고 있다고 밝혔다.</p>
 </main>
 
 <footer>
-  <p>생성 2026-09-12 07:55 KST</p>
+  <p>생성 2026-09-13 07:38 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
