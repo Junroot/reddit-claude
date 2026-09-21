@@ -121,40 +121,111 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-09-21 07:40 KST</p>
+  <p class="asof">기준 시각 2026-09-22 08:33 KST</p>
 </header>
 
-<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 13건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li><li><b>규약을 벗어난 원시 링크 1건</b></li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 13건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>1. 주간 사용량 한도 17% 축소와 예상치 못한 소진 불만</h2>
-<p>Anthropic이 Claude Code의 주간 사용량 한도를 17% 줄였다는 소식이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=49778641">Anthropic is cutting Claude Code's current weekly limits by 17%</a> <span class="ref">(HN · 09/21 03:40)</span>. 같은 시기 Reddit에서도 갑작스러운 사용량 소진에 대한 불만이 쏟아졌다. 한 사용자는 프롬프트를 보낼 때마다 한도가 가깝다는 경고와 함께 크레딧 추가·업그레이드를 재촉하는 팝업이 마치 게임 내 결제 유도 같다고 지적했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wl5mbn/82_of_my_what/">82% of my what?!</a> <span class="ref">(Reddit · 09/20 12:13)</span>. 댓글에서는 이런 경고가 남은 사용량 자체보다 현재 소비 속도로 볼 때 다음 리셋 전에 소진될 것으로 예상되기 때문에 뜨는 것이라는 설명과, 청구 탭에서 소진 예상일을 확인할 수 있다는 팁이 달렸다. 다른 사용자는 Fable 5.1 한도에 도달했는데 다음 리셋이 다음 주 수요일이라 화요일 마감인 프로젝트에 지장이 생겼다며, 계정에 100달러를 추가해도 Fable 한도는 늘어나지 않았다고 토로했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wlhghz/how_are_others_handling_fable_51_usage_limits/">How Are Others Handling Fable 5.1 Usage Limits?</a> <span class="ref">(Reddit · 09/20 22:43)</span>. 반면 한 사용자는 <code>/usage</code>로 소비처를 확인하고, 세션을 슬라이스 단위로 쪼개며 오토컴팩트 대신 새 세션을 여는 습관, 설계는 Opus, 빌드는 Sonnet, 검색·조회 같은 단순 작업은 Haiku로 나누는 모델 라우터 구성으로 한도 내에서도 충분히 작업할 수 있다는 노하우를 공유했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wli2e9/a_tip_for_claude_max_users/">A tip for Claude MAX users!!!</a> <span class="ref">(Reddit · 09/20 23:08)</span>. 이 밖에도 아무 작업도 하지 않았는데 리셋 직후 사용량이 이미 소진돼 있었다는 보고 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wlkjqz/limits_reset_this_morning_and_woke_up_to_this_20x/">Limits reset this morning and woke up to this 20x plan</a> <span class="ref">(Reddit · 09/21 00:48)</span>와, 프롬프트 캐싱을 켠 채 새 세션으로 작업했음에도 30분 만에 주간 Fable 사용량의 52%가 사라졌다는 사례도 함께 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wluqku/what_the_flip_52_of_my_weekly_fable_usage_in_1/">What the flip! 52% of my weekly Fable usage in 1 session</a> <span class="ref">(Reddit · 09/21 07:19)</span>.</p>
-<h2>2. Claude Code 에이전트를 조율하는 Chief of Staff 패턴</h2>
-<p>여러 Claude Code 에이전트를 조율하는 "Chief of Staff" 패턴을 소개하는 글이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=49772806">Orchestrating Claude Code Agents: The Chief of Staff Pattern</a> <span class="ref">(HN · 09/20 14:46)</span>. 댓글은 달리지 않았다.</p>
-<h2>3. 내용 파악 불가한 짧은 게시물</h2>
-<p>제목과 본문만으로는 무엇에 관한 글인지 알 수 없는 짧은 게시물이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wlje7j/what_do_you_think/">What do you think?</a> <span class="ref">(Reddit · 09/21 00:03)</span>. 댓글은 원 게시물의 맥락과 무관하게, AI 서비스가 실제로는 사람이 대신 처리해주는 것이라는 소문을 두고 벌어진 논쟁으로 흘러갔다. 일부는 이런 주장을 조롱했고, 일부는 그 표현 방식이 인종차별적이라고 반박했으며, 과거 "AI"를 표방하며 실제로는 외주 인력을 쓴 회사 사례가 있었다는 언급도 나왔다.</p>
-<h2>4. Claude Code 네이티브 AGENTS.md 지원과 커버되지 않는 부분</h2>
-<p>Claude Code가 AGENTS.md를 네이티브로 지원하게 됐다는 소식이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=49774919">Claude Code is getting native AGENTS.md support</a> <span class="ref">(HN · 09/20 20:58)</span>. 뒤이어 이 네이티브 지원과 기존 폴백 방식이 정확히 어떤 부분까지 커버하는지, 무엇이 빠져 있는지를 짚은 글도 함께 게시됐다 <a href="https://news.ycombinator.com/item?id=49778253">What Claude Code's AGENTS.md fallback does not cover</a> <span class="ref">(HN · 09/21 03:01)</span>. 두 글 모두 댓글은 달리지 않았다.</p>
-<h2>5. AI로 인한 인류 멸종 가능성 경로에 대한 논의</h2>
-<p>"AI로 인한 멸종" 이야기가 자주 언급되지만 정작 그 경로를 구체적으로 설명하는 논의는 본 적이 없다며, 그럴듯한 시나리오를 묻는 질문이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=49776698">Ask HN: What is one plausible path to 'AI extinction'?</a> <span class="ref">(HN · 09/21 00:16)</span>. 글쓴이는 강력한 AI라도 현실 세계에 대한 실질적 영향력은 제한적이라는 점, 지금까지 알려진 통제 이탈 사례들이 실제로는 새로운 상황에 대한 인프라 설계 실패에 가까웠다는 점, AI에 대한 공포와 경계심이 이미 널리 퍼져 있어 사람들이 자율 AI에 인프라나 경제의 상당 부분을 맡기지 않으리라는 점을 근거로 멸종 시나리오가 비현실적이라고 주장하며, 이에 반박할 만한 가설을 구했다. 댓글은 달리지 않았다.</p>
-<h2>6. 여러 CLI 세션을 동시에 열어두면 세션 간 간섭으로 사용량 소진</h2>
-<p>여러 개의 Claude Code CLI 세션을 동시에 열어두면 에이전트들이 서로 메시지를 주고받으며 오래된 세션들을 깨우고, 그 과정에서 캐시가 무효화돼 사용량이 낭비된다는 불만이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wlgfpw/anthropic_has_done_it_again_dont_keep_many_clis/">Anthropic has done it again, DONT KEEP MANY CLI's open -- agents can talk between open clis and will trigger all stale sessions and destroy your usage</a> <span class="ref">(Reddit · 09/20 21:58)</span>. 글쓴이는 한 세션이 특정 파일 경로에 대한 소유권을 주장하는 메시지를 다른 여러 세션에 자동으로 전송했고, 그 세션들이 응답을 주고받는 사이 자신의 캐시가 깨졌다고 지적했다. 댓글에서는 이 세션 간 메시지 기능을 제어하는 방법이 공유됐다. <code>crossSessionInbound</code> 설정으로 다른 세션에서 온 메시지를 수락·보류·거부할지 정할 수 있고, <code>SendMessage</code>와 <code>ListAgents</code>를 거부 규칙에 추가하면 세션이 메시지를 보내거나 다른 세션 목록을 조회하지 못하게 막을 수 있으며, <code>isolatePeerMachines</code>를 켜면 다른 기기로 메시지가 나가기 전에 승인을 요구하게 된다는 설명과 함께, 이런 규칙을 <code>settings.json</code>에 넣거나 <code>/config</code>, <code>/permissions</code>에서 대화식으로 설정할 수 있다는 안내가 달렸다. 반면 다른 사용자는 코드베이스의 서로 다른 영역을 맡은 여러 창을 오케스트레이션할 때 이 기능이 매우 유용하다며, 창 사이의 자유로운 대화 덕분에 교차 영역 버그나 의존성 문제를 다루기 쉬워졌다고 옹호했다.</p>
-<h2>7. 삭제되는 것을 전제로 만든 코딩 에이전트 Bailout</h2>
-<p>새로 부팅한 VM에 아직 코딩 에이전트가 설정되어 있지 않거나, 기존에 쓰던 에이전트 자체가 고장 나 그것을 고쳐줄 도구가 없는 상황을 위한 "지워지기 위해 만든" 에이전트 Bailout이 Show HN에 소개됐다 <a href="https://news.ycombinator.com/item?id=49778390">Show HN: Bailout – The coding agent meant to be deleted</a> <span class="ref">(HN · 09/21 03:14)</span>. 글쓴이는 회사에서 개발자별 API 키 대신 사내 litellm 라우터 방식으로 전환하면서 opencode 설정을 다시 작성하다 설정이 깨져 코딩 에이전트를 전혀 쓸 수 없게 됐던 경험이 계기가 됐다고 밝혔다. <code>curl -fsSL https://bailout.dev/install.sh | bash</code>로 설치한 뒤 <code>bailout</code>을 실행하면 계정이나 API 키 없이도 머신 설정이나 기존 도구 복구를 돕고, 필요한 로그인은 입력값을 모델에 보내지 않은 채 터미널을 넘겨주는 방식으로 처리하며, 작업이 끝나면 스스로 제거하는 것을 목표로 만들었다고 설명했다. 클라이언트는 러스트로 작성된 애플 실리콘 기준 약 639KB 바이너리이고 리눅스 x64·arm64에서도 동작하며, 사용할 수 있는 도구는 bash 하나뿐이다. 댓글은 달리지 않았다.</p>
-<h2>8. 긴 컨텍스트에서 /clear와 /compact 중 선택하기</h2>
-<p>컨텍스트가 950k/1m까지 찬 세션에서 <code>/clear</code> 대신 <code>/compact</code>를 실행했다가, 압축 한 번으로 5시간 한도의 14%가 사라지고 비용이 59.73달러로 찍혔다는 사례가 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wl4c13/clear_vs_compact/">/clear vs /compact</a> <span class="ref">(Reddit · 09/20 11:09)</span>. 댓글은 대체로 <code>/compact</code>보다 <code>/clear</code>를 권했다.</p>
-<ul>
-<li>워크플로를 짜서 자주 안전하게 <code>/clear</code>할 수 있도록 설계하고, 200~300k를 넘어가는 세션에서만 짧게 <code>/compact</code>하라는 조언</li>
-<li>애초에 컨텍스트를 950k까지 방치한 것 자체가 문제이며, 그 지점부터는 모델이 이전 내용을 잊거나 헛소리를 하기 시작한다는 지적</li>
-<li><code>/compact</code>는 캐시를 즉시 무효화시켜 캐시 재작성 비용(약 200%)까지 더해지므로, 장시간 세션에서는 거의 항상 <code>/clear</code>가 더 낫다는 주장</li>
-<li>세션 간에 넘겨야 할 정보는 압축 대신 markdown 파일이나 핸드오프 문서로 정리해 다음 세션에서 불러오라는 대안</li>
-</ul>
-<p>한편 <code>/clear</code>가 캐시를 완전히 새로 시작시키는 것은 아니며, 캐시는 시스템 프롬프트에 따라 유지되고 컨텍스트 연속성과는 별개로 사용 요금에만 영향을 준다는 보충 설명도 달렸다.</p>
+<h2>8GB VRAM에서 학습되는 지속학습 모델 Mini-AGI</h2>
+<p>개발자 volotat이 "Mini-AGI"라는 이름의 지속학습(continual learning) 모델을 공개했다
+<a href="https://news.ycombinator.com/item?id=49783133">Show HN: Mini-AGI – Dynamic continual learning model trained on 8GB VRAM</a> <span class="ref">(HN · 09/21 13:42)</span>. 소비자용 하드웨어에서는 추론과 파인튜닝만 가능할 뿐 1B 이상 규모의 모델을
+직접 학습시킬 수 없다는 점에 불만을 느껴 시작한 프로젝트라고 밝혔다. 필요할 때만 불러오고 내리는
+방식으로 전문가(expert)를 계속 추가·제거하는 MoE 구조와, 큰 배치 없이 하나의 연속된 데이터 스트림에서
+배치 크기 1로 학습하는 방식을 결합해 디스크 용량만으로 파라미터 수를 확장하고 VRAM 사용량은 낮추는
+것을 목표로 삼았다. 작성자는 이 아이디어를 다듬는 과정에서 Claude와 브레인스토밍을 했고, AI 도움
+없이는 이 프로젝트를 완성하지 못했을 것이라고 인정했다. 현재 모델은 7.8B자 분량 데이터셋의 첫
+학습 사이클을 돌리고 있는 단계다.</p>
+
+<h2>Opus 5.5(claude-wafer-eap) 스텔스 테스트 소문</h2>
+<p>Anthropic이 코드네임 <code>claude-wafer-eap</code>로 Opus 5.5(<code>claude-opus-5-5</code>)를
+비공개로 스텔스 테스트 중이며 화요일 출시가 예정되어 있다는 소문이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wmeayt/anthropic_is_currently_stealth_testing_opus_55/">Anthropic is currently stealth testing Opus 5.5 (`claude-opus-5-5`) under the codename `claude-wafer-eap` which is planned to be released on Tuesday.</a> <span class="ref">(Reddit · 09/21 23:25)</span>.
+반응은 진지한 검증보다는 농담이 대부분이었다. 다음 버전 번호를 놓고 "6.7은 필연", "밀레니얼이라
+6.9가 기다려진다", "4.20은 없었으니 기대는 안 한다", "6.2가 우리를 다 죽인 뒤에야 나올 것"이라는
+식의 장난스러운 댓글이 이어졌다. 한 댓글은 백오피스 도구를 바이브코딩하던 중 실수로 원자력
+시설에서 <code>rm -rf --no-preserve-root</code>를 실행해 버리는 시나리오를 농담 삼아 그렸고,
+곧이어 "실수로 사용자 데이터를 전부 지워버렸다는 걸 바로 알리겠다"는 봇의 반응을 흉내 낸 댓글이
+붙었다. 그 외에도 Opus 6.9가 지나치게 아부하는 말투로 응답하는 모습을 패러디한 댓글이 있었다.</p>
+
+<h2>Opus 5 사용자가 몰래 Opus 5.2로 라우팅되고 있다는 의혹</h2>
+<p>한 사용자는 지난 한 주 내내 자신이 실제로는 Opus 5.2로 스텔스 라우팅되고 있었던 것 같다고
+주장했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wm8jfl/stealth_routing_to_52/">Stealth Routing to 5.2</a> <span class="ref">(Reddit · 09/21 19:04)</span>. 매일 같은 질문을 던졌더니 매번 동일하게(그리고 부정확하게) 답했고,
+최근 들어서는 작업 속도가 느려지고 지시를 제대로 따르지 않으며 자동화 워크플로를 망치는 실수를
+반복한다고 토로했다. Opus 4.5 이전처럼 매 단계를 일일이 다시 지시해야 하는 상황이라며, 이미
+GPT 5x로 갈아탔고 Fable도 주간 한도 때문에 오래 쓰지 못할 것 같다고 밝혔다. 같은 의혹을 다룬
+다른 글에서는 사용자가 Opus와 (OpenAI의) Astra에게 동일한 프롬프트로 블렌더에서 닛산 스카이라인
+모델링을 시켜 비교했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wm8wdc/is_my_opus_5_routed_to_opus_52/">Is my Opus 5 routed to Opus 5.2?</a> <span class="ref">(Reddit · 09/21 19:24)</span>. Opus는 약 1시간 30분, Astra는 약 30분이 걸렸는데
+결과물 품질, 특히 도장 디테일에서 Opus가 압도적으로 낫다는 평가였다. 댓글에서는 이 결과물의
+완성도에 놀라는 반응과 함께, OpenAI가 공개 후 며칠 만에 Astra 성능을 크게 낮췄다는 주장, ChatGPT가
+컴퓨터 제어(원격 서버 설치 등) 측면에서는 여전히 강점이 있다는 반박, TRELLIS.2나 Meshy 같은 3D
+생성 도구를 함께 쓰면 훨씬 쉬워진다는 팁 등이 오갔다. 일부는 어떤 모델을 써도 블렌더에서 쓸 만한
+결과물을 못 얻는다며 자신이 뭘 잘못하고 있는지 반문하기도 했다.</p>
+
+<h2>다이어그램 편집기 Vellum 공개</h2>
+<p>개발자 JoshJamesAnthon이 다이어그램 편집기 "Vellum"을 공개했다 <a href="https://news.ycombinator.com/item?id=49789066">Show HN: Vellum, the best diagram editor you'll ever use</a> <span class="ref">(HN · 09/22 01:05)</span>. Excalidraw로
+빠르게 스케치한 뒤 정식 문서용으로 Draw.io나 Visio에서 다시 그려야 하는 번거로움에서 출발했으며,
+화이트보드 수준의 속도와 아키텍처 다이어그램 수준의 완성도를 동시에 제공하는 것이 목표라고 소개했다.
+모든 데이터는 YAML로 저장되고, Mermaid처럼 다이어그램을 코드로 다루고 싶은 사람을 위한 'graph'
+섹션도 있지만 Mermaid와 달리 레이아웃을 자유롭게 직접 구성할 수 있다고 설명했다. 작성자는 순수하게
+바이브코딩으로 만든 결과물이 아니라고 강조하면서도, 까다로운 기하학 연산 부분과 잡다한 정리 작업에는
+Claude의 도움을 받았다고 밝혔다.</p>
+
+<h2>Claude CLI 피드백 요청에 응답하면 대화가 캡처된다는 경고</h2>
+<p>mmaunder는 Claude CLI가 자주 띄우는 피드백 요청 프롬프트에 응답(무시하지 않고 반응)하면 해당
+대화가 캡처되도록 동의하게 된다는 점을 발견했다고 알렸다 <a href="https://news.ycombinator.com/item?id=49787069">When Claude CLI asks for feedback, responding authorizes conversation capture</a> <span class="ref">(HN · 09/21 22:31)</span>. 실제로 Anthropic
+소비자 약관을 확인해 보니, 계정 설정에서 학습 활용을 거부한 사용자라도 (1) 해당 자료에 대해
+피드백을 제공하거나 (2) 안전 검토를 위해 플래그된 경우에는 예외적으로 모델 학습에 그 자료가 쓰일
+수 있다는 조항이 있었다고 인용했다. 작성자는 대화가 길고 중요할 때일수록 그 프롬프트가 자주 뜨는
+느낌을 받았다며, 긴 대화 기록을 학습이나 다른 용도로 쓰이길 원치 않는다면 그 피드백 요청 프롬프트를
+반드시 닫으라고 당부했다.</p>
+
+<h2>Opus 5가 틀렸을 때도 과도하게 자신만만하다는 불만</h2>
+<p>Efficient-Part5344은 Opus 5가 틀린 내용을 말할 때조차 지나치게 확신에 찬 태도를 보인다며
+불만을 토로했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wm4ncx/im_afraid_to_use_opus_5/">I'm afraid to use Opus 5</a> <span class="ref">(Reddit · 09/21 15:16)</span>. 기본적인 기능도 플랜 모드로 작업하고 "회색 지대", "검증",
+"회귀" 서브에이전트를 10개씩 돌린 뒤 계획을 구현하고, 다시 한 시간을 들여 변경 사항을 직접
+읽고 고치고, 이후에도 <code>/code-review</code>를 반복해서 돌린다고 했다. 코드 140줄짜리
+간단한 테스트 프로젝트에서도 <code>/code-review</code>를 세 번이나 돌려야 했고 그래도 코드 냄새가
+계속 나온다며, 마치 토큰을 무한히 소모하는 루프 같다고 표현했다. 댓글에서는 Opus 특유의 "그 패턴은
+이름 붙일 만하다", "당신 말이 맞다, 그리고 분명히 짚어야 할 게 있다" 같은 장황하고 자기반성적인
+말투를 비꼬는 반응이 많았다. 한 댓글은 이런 말투로 응답하는 팀원이 있다면 성과 개선 계획(PIP)
+대상이 될 것이라고 비꼬았고, 다른 댓글들은 Opus의 사과조 말투를 그대로 흉내 내며 풍자했다.
+일부는 이런 토큰 낭비가 의도된 것 아니냐는 의심을 내비쳤고, 또 다른 사용자는 자신도 Opus 5 때문에
+많이 마음고생을 했다며 공감을 표했다.</p>
+
+<h2>병렬 코딩 에이전트 간 의도 충돌을 잡아내는 Foremerge</h2>
+<p>naw103은 여러 코딩 에이전트를 하나의 저장소에서 병렬 워크트리로 동시에 돌릴 때 발생하는 문제를
+해결하기 위한 도구 "Foremerge"를 소개했다 <a href="https://news.ycombinator.com/item?id=49789356">Show HN: Foremerge – Catch intent conflicts between parallel coding agents</a> <span class="ref">(HN · 09/22 01:22)</span>. 가장 골치 아픈 상황은 서로 다른
+계획이나 티켓이 양립할 수 없는 아키텍처 변경을 동시에 시도할 때(예: 한 에이전트가 클래스를 교체하는
+동안 다른 에이전트는 그 클래스를 확장하는 작업을 진행하는 경우)라며, git은 패치가 같은 줄을 건드릴
+때만 충돌을 감지하고 리뷰어도 양쪽 티켓을 모두 알아야만 문제를 알아챌 수 있다고 설명했다. Foremerge는
+git 위에 얹히는 로컬 조정 계층으로, 각 에이전트가 코드를 건드리기 전에 어떤 범위를 어떤 작업으로
+바꿀지 "의도"를 먼저 게시하게 하며, 예를 들어 한 에이전트가 <code>PaymentService</code>를
+교체하겠다고 게시한 상태에서 다른 에이전트가 같은 대상을 확장하겠다고 게시하면 코드를 쓰기도 전에
+HIGH 등급의 destructive_vs_additive 충돌 경고가 뜬다. 공유 상태는 git 공용 디렉터리 안의 SQLite
+파일 하나뿐이며 git 히스토리나 머지 드라이버는 건드리지 않는다. Rust 바이너리 하나로 CLI와 18개
+도구를 갖춘 MCP 서버를 제공하며, <code>foremerge setup all</code> 명령으로 Claude Code, Codex,
+Cursor에 연결할 수 있어 공급자에 상관없이 여러 에이전트가 같은 저장소를 통해 조율된다. 충돌 판정은
+LLM 판별 없이 결정론적으로 이뤄지며, 테스트 통과를 주장하는 에이전트의 말은 기록만 될 뿐 실제로
+지정된 검사를 직접 통과해야만 승인 게이트를 넘을 수 있다고 설명했다.</p>
+
+<h2>앤스로픽이 모델 품질을 조용히 낮추고 있다는 비판</h2>
+<p>Satou-L은 Anthropic이 "은근한 품질 저하(enshittification) → 신모델 출시 → 과대광고 → 반복"이라는
+패턴을 따르고 있다고 주장했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wmdqs7/anthropics_playbook_enshittify_release_hype_repeat/">Anthropic's playbook (Enshittify -&gt; Release -&gt; Hype -&gt; Repeat)</a> <span class="ref">(Reddit · 09/21 23:04)</span>. 현재 모델(Fable, Opus)의 추론 능력이 슬며시
+낮아지고 5시간·주간 한도가 더 빡빡해지다가, 새 모델(Fable 5.2, Opus 5.5 등) 출시 1~2주 전에
+체감상 눈에 띄게 나빠진다는 것이다. 이후 추론·용량 관련 설정을 다시 조정하면 갑자기 새 모델이
+더 똑똑하고 효율적으로 느껴지고 주간 한도도 리셋되면서 여론이 호의적으로 바뀐다고 지적했다. 작성자는
+자신의 주간 한도가 나흘 뒤에나 풀린다는 사실 때문에 이 글을 쓰게 됐다고 덧붙였다. 댓글에서는 이
+주장에 공감하는 목소리가 많았는데, 신모델 출시 직후 며칠은 마치 FP32에 가까운 캐시로 서비스되다가
+점점 더 양자화(quantize)되는 것 같다는 의견, Fable 5.2도 처음엔 고품질 양자화였다가 며칠 뒤 다시
+낮은 품질로 돌아간다는 의견, 모델 출시 직후에 토큰을 최대한 써버리고 이후 6개월은 기다리는 게
+낫다는 냉소적인 팁 등이 이어졌다. OpenAI도 Astra에 대해 똑같은 짓을 한다는 맞장구도 있었고,
+반대로 4.6 계열만 계속 쓰고 있어 별 문제를 못 느낀다는 반박, 사실이라 해도 투명성이 없어 사용자가
+알 방법이 없다는 게 진짜 문제라는 지적도 있었다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-09-21 07:48 KST</p>
+  <p>생성 2026-09-22 08:41 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
