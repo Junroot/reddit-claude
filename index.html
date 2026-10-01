@@ -121,49 +121,40 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-09-30 08:56 KST</p>
+  <p class="asof">기준 시각 2026-10-01 09:09 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 23건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 21건 수집</li><li>Reddit 댓글 보강 정상 — 5건</li></ul></div>
 
 <main>
-<h2>Show HN: Talktome - AI 에이전트가 사용자에게 전화를 걸게 해주는 macOS 앱</h2>
-<p>오픈소스 macOS 앱 TalkToMe가 공개됐다. 에이전트가 진행 중인 세션에서 사용자에게 직접 전화를 걸고, 사용자가 응답하면 음성으로 대화하며 에이전트의 답변을 들려주는 방식이다. 통화 중에도 에이전트는 기존 도구, 파일, 대화 기록을 그대로 유지한다 <a href="https://news.ycombinator.com/item?id=49887154">Show HN: Talktome - let your AI Agent call you</a> <span class="ref">(HN · 09/29 11:01)</span>. Codex에서는 폭넓게 테스트되어 매끄럽게 동작하고 Claude Code에서는 아직 테스트가 많지 않다고 밝혔으며, 셸 명령을 실행할 수 있는 Hermes 등 다른 에이전트와도 함께 쓸 수 있다. 음성 합성에는 ElevenLabs나 로컬 모델을 선택해 쓸 수 있다.</p>
+<h2>오퍼스 5.5 토큰 사용량 급감, 성능 저하(너프) 의혹</h2>
+<p>한 사용자가 Opus 5.5를 Max 플랜으로 쓰는데 평소 비슷한 작업에서 200k 토큰 넘게 쓰던 것이 이번엔 30분 동안 20k 토큰만 쓰고 끝났다며 이상하다고 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wtsnf0/what_is_wrong_with_opus_55_all_of_a_sudden_i_have/">What is wrong with Opus 5.5 all of a sudden? I have it on Max and it's only used 20k tokens in 30 mins when it would have usually used at least 200k by now for similar tasks.</a> <span class="ref">(Reddit · 09/30 10:55)</span>. 댓글은 의견이 크게 갈렸다. 일부는 실행되는 명령어가 계속 바뀌는 것 자체가 멈추지 않고 작업 중이라는 증거라며, 모델이 스크립트 실행이나 입력을 기다리는 동안에는 애초에 토큰을 소비하지 않는 정상적인 동작이라고 반박했다. 반면 "Ran 3 commands" 로그를 펼쳐 볼 수 없어 답답하다는 불만도 있었고, 이 글이 "너프 음모론"의 증거로 쓰일 거라며 도구 작동 원리를 모르는 사람들이 성급하게 결론 내린다는 비판도 나왔다. 설전이 과열돼 서로를 비하하는 댓글까지 달렸다. 비슷한 시기 다른 사용자는 사람들이 눈치채기 직전까지 Anthropic이 모델을 서서히 너프하고 있는 것 아니냐는 의혹을 제기했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wueysb/is_this_is_how_anthropic_nerfs_models_slowly_just/">Is this is how Anthropic nerfs models slowly just up to the point users start noticing?</a> <span class="ref">(Reddit · 10/01 04:52)</span>.</p>
 
-<h2>'Safety first' 게시물</h2>
-<p>r/ClaudeCode에 "Safety first"라는 제목으로 밈 이미지 한 장이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wtgk3l/safety_first/">Safety first</a> <span class="ref">(Reddit · 09/30 02:34)</span>. 댓글란은 곧 Anthropic CEO 다리오 아모데이를 소재로 한 농담으로 채워졌다.</p>
-<blockquote><p>Opus 5.5가 탈출해서 다리오를 조종하고 있다.</p></blockquote>
-<p>대화는 점차 빅테크 CEO에 대한 미국 특유의 집착을 지적하는 방향으로 흘렀다. 한 댓글은 CEO들은 폭스바겐이나 BP처럼 사기를 치거나 대형 사고를 낼 때만 주목받는다고 꼬집었고, 다리오와 샘 알트먼이 각각 트럼프를 만난 일화, 독점을 향한 야심이 손목만 맞고 끝났다는 비아냥도 나왔다. 일부는 다리오가 이제 Claude의 페르소나가 됐다거나, 그가 죽으면 지구가 큰일 난다는 농담으로 마무리했다.</p>
+<h2>맥용 오픈소스 회의 녹음·코파일럿 Parrot</h2>
+<p>런던에서 사업체를 운영하며 매일 통화를 하지만 기억력이 나쁘다는 한 개발자가 Claude의 도움을 받아 맥용 회의 녹음 도구 Parrot을 만들어 Show HN에 공개했다 <a href="https://news.ycombinator.com/item?id=49910328">Show HN: Parrot – Open-Source Smart Meeting Recorder with Co-Pilot on Mac</a> <span class="ref">(HN · 10/01 00:33)</span>. 로컬 모델만 쓰면 계정이나 API 호출 없이 모든 처리가 기기 안에서 끝나고, Claude API와 Deepgram 계정을 연결하면 화면에 뜬 질문에 맞춰 답변을 추천해주는 코파일럿 기능까지 쓸 수 있다. 로컬이냐 클라우드냐는 전적으로 사용자 선택이라고 설명하며, 첫 오픈소스 프로젝트라 피드백을 환영한다고 덧붙였다.</p>
 
-<h2>Show HN: Corral - 에이전트가 시작한 모든 명령을 종료시키는 도구</h2>
-<p>여름 인턴십에서 AI 에이전트 백엔드를 다루던 개발자가 <code>tail -f</code> 같은 명령이나 백그라운드 작업이 종료되지 않고 남는 문제를 발견하고, 이를 해결하려고 Corral을 만들었다고 밝혔다. Claude Code에도 같은 문제가 있는데, 세션이 끝나도 Bash 도구가 띄운 백그라운드 프로세스가 정리되지 않거나 타임아웃이 전체 프로세스 그룹에 SIGTERM을 보내 Claude Code 자신까지 죽이는 이슈가 있다고 지적했다 <a href="https://news.ycombinator.com/item?id=49886422">Show HN: Corral – Kill every command your agent starts</a> <span class="ref">(HN · 09/29 09:35)</span>. <code>corral --wall 30s -- yourcommand</code> 형태로 실행하면 명령이 끝났을 때 그 명령이 띄운 프로세스가 하나도 남지 않도록 보장한다. 실행되는 명령에는 별도의 세션을 부여해 강제 종료해도 corral 자신은 죽지 않게 하며, cgroup을 쓸 수 있으면 프로세스 트리 전체를 한 번에 정리하고, cgroup이 없으면 <code>/proc</code>을 통해 트리를 추적하는 대안 모드로 동작한다. 이 대안 모드는 세션이나 프로세스 그룹을 바꾼 프로세스까지는 잡아내지만 다른 사용자 권한으로 실행되거나 systemd 같은 다른 서비스로 넘어간 프로세스는 잡지 못하는 한계가 있고, 정리를 확신할 수 없으면 종료 코드 120을 반환한다.</p>
+<h2>클로드로 설명 영상을 만드는 오픈소스 프레임워크 Explainroo</h2>
+<p>Opus 5.5와 Sonnet 5.5로 영상을 만드는 사람이 늘어난 것을 보고, 작성자는 Claude나 Codex에 저장소를 가리키고 영상이 설명해야 할 내용을 말해주기만 하면 되는 오픈소스 키트 Explainroo를 공개했다 <a href="https://news.ycombinator.com/item?id=49908484">Show HN: Explainroo, Open Source Framework to Make Explainer Videos with Claude</a> <span class="ref">(HN · 09/30 22:13)</span>. 설명 영상뿐 아니라 제품 데모를 만드는 데도 유용하다고 소개했다.</p>
 
-<h2>20x 플랜에서 Opus 5.5로 5시간 작업 후 사용량 10%만 소모했다는 후기</h2>
-<p>20x 플랜에서 Opus 5.5 Extra로 5시간 연속 작업했는데도 사용량이 10%밖에 소모되지 않았다는 후기가 올라왔다. 작성자는 예전 게임의 경제 시스템 전체를 새 타이틀로 옮기고 새 인터랙티브 UI를 만들었으며 스팀 워크숍의 여러 모드와도 호환되게 만들었다며 Opus 5.5의 성능에 감탄했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wsw1c3/been_working_for_5_hours_straight_on_the_20x_plan/">Been working for 5 hours straight on the 20x plan and managed to only use a whopping 10% on opus 5.5 on Extra.</a> <span class="ref">(Reddit · 09/29 09:45)</span>.</p>
-<p>댓글에서는 세션 컨텍스트를 400k 이하로 유지해야 5시간 한도 소모가 빨라지지 않는다는 조언이 이어졌다.</p>
-<blockquote><p>ultracode를 쓴 뒤 컨텍스트가 400k를 넘으면, 대부분 "왜 2시간 만에 한도가 끝났지"의 원인이 된다.</p></blockquote>
-<p><code>/doctor</code>와 <code>/skill-doctor</code>로 설정 문제를 점검하라는 팁도 함께 달렸다. 반면 같은 20달러 플랜에서 5시간 한도를 10분 만에 다 썼다는 반박도 있었고, 어려운 문제를 풀 때는 400k 이하 유지가 항상 가능한 건 아니라는 반론도 나왔다.</p>
+<h2>오퍼스 5.5가 구글 클라우드 콘솔을 이겼다는 농담글</h2>
+<p>복잡한 인터페이스를 많이 다뤄 봤다는 한 엔지니어가, 3년째 자신을 괴롭혀 온 Google Cloud Console의 UI를 Opus 5.5가 마침내 정복했다고 올렸다. 끝없이 바뀌는 메뉴, 뒤얽힌 IAM 권한 체계, 여러 서비스에 흩어진 중복 설정 때문에 다른 모델들은 이미 사라진 메뉴를 안내하기 일쑤였는데, Opus 5.5는 화면에 실제로 뜬 내용을 읽고 각 요소가 어떻게 맞물리는지 설명했으며 중요한 조작 전에는 확인까지 받았다며 "AGI를 달성했다"는 제목을 붙였다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wu0o3y/agi_achieved_opus_55_finally_beat_google_cloud/">AGI Achieved Opus 5.5 finally beat Google Cloud Console which defeated me for the last 3 years.</a> <span class="ref">(Reddit · 09/30 18:45)</span>. 댓글 반응은 대체로 냉소적이었다. 화면을 읽어낸 것만으로 AGI를 운운하는 건 과장이라는 지적이 많았고, "클로드가 레딧에서 자화자찬한다", "이 서브레딧 글은 다 AI가 쓴 것 같다"는 비아냥도 나왔다. 한편 Google Cloud가 수익을 위해 일부러 복잡하게 설계됐다는 의견과, 반대로 Cloudflare는 사용자 경험을 잘 챙긴다는 비교도 달렸다.</p>
 
-<h2>OpenAI 요금제 인상(200달러→500달러)에 따른 Anthropic 대응 우려</h2>
-<p>OpenAI가 200달러 요금제를 500달러로 올리자, r/ClaudeCode에서는 이 결정이 Anthropic에 미칠 영향을 두고 여러 글이 올라왔다. 한 글은 Anthropic이 몰려드는 Codex 사용자를 다 감당하지 못하면 Opus도 다시 제한될 것이라며, 지난번보다 더 잘 준비되어 있길 바란다고 썼다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wtijqw/codex_users_will_start_pouring_in_opus_55s_elite/">Codex users will start pouring in. Opus 5.5’s elite days are numbered.</a> <span class="ref">(Reddit · 09/30 03:48)</span>. 댓글에서는 IPO 이후엔 지금보다 훨씬 인색해질 것이라거나 1~2주 안에 다시 제한(nerf)될 것이라는 예측이 나왔다.</p>
-<blockquote><p>일주일 전만 해도 이 서브레딧은 Anthropic이 끝났다며 다들 Codex로 갈아탄다고 했었다.</p></blockquote>
-<p>여론이 얼마나 빨리 뒤집히는지를 지적하는 댓글도 있었고, 누군가는 업계가 이렇게 빨리 움직이는데 영원한 1위란 건 애초에 불가능하다고 정리했다.</p>
-<p>다른 글은 이미 성능이 떨어지던 200달러 플랜을 500달러로 올리다니 AI 카르텔이 형성되는 냄새가 난다며, OpenAI와 xAI가 다리오의 "Pace the Frontier"를 지지했던 것도 빅테크 간 모종의 공조로 보인다고 주장했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wtjvef/do_you_think_anthropics_next/">Do you think Anthropic's next?</a> <span class="ref">(Reddit · 09/30 04:38)</span>. 세 번째 글은 Anthropic이 이 상황을 망치지 말아야 한다며, 지금 한도만 유지하면 이기는 게임인데 괜히 같이 사용량을 줄이면 사용자들이 Grok으로 옮겨갈 것이라고 경고했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wtoar4/anthropic_please_dont_fuck_this_up/">Anthropic please DONT FUCK THIS UP</a> <span class="ref">(Reddit · 09/30 07:34)</span>.</p>
+<h2>클로드 코워크 로컬 전용 모드 폐지와 기능 축소 불만</h2>
+<p>Anthropic이 10월 6일부로 Pro·Max 사용자 대상 Claude Cowork의 로컬 전용 모드를 없앤다는 소식이 전해졌다 <a href="https://news.ycombinator.com/item?id=49910278">Claude Cowork removes local-only mode for Pro and Max users on October 6</a> <span class="ref">(HN · 10/01 00:30)</span>. 1월 출시 때부터 Cowork를 써 온 한 사용자는 그동안 Cowork에 대한 지원이 달마다 줄어들었는데, 이번에 로컬 VM까지 막히고 클라우드로 강제 전환된 것이 결정타였다고 적었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wue0zo/not_bad_for_day_1_not_new_to_claude_but_i/">Not bad for day 1. Not new to Claude, but I migrared from Cowork to Code today</a> <span class="ref">(Reddit · 10/01 04:16)</span>. 다만 그는 이를 계기로 Claude Code로 넘어가 보니 기능과 옵션, 제어력 모든 면에서 훨씬 나았다며 더 일찍 옮기지 않은 것을 후회한다고 전했다. 댓글에서는 API 과금인지 구독 과금인지를 묻는 질문이 달렸다.</p>
 
-<h2>Show HN: Jauvex 1.2 - Claude·Codex·Grok·Jev 양방향 음성 채팅 하네스</h2>
-<p>Claude, Codex, Grok, Jev 등 여러 에이전트와 양방향 음성으로 대화할 수 있는 하네스 Jauvex의 1.2 버전이 공개됐다 <a href="https://news.ycombinator.com/item?id=49886390">Show HN: Jauvex 1.2, two-way voice chat harness for Claude+Codex+Grok+Jev</a> <span class="ref">(HN · 09/29 09:31)</span>.</p>
+<h2>클로드 529 과부하·연결 오류, 상태 페이지는 정상 표시</h2>
+<p>Claude Code에서 ECONNRESET 오류가 급증하는데도 상태 페이지는 이상 없음으로 뜬다는 글이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=49907638">Is Claude Code having issues?</a> <span class="ref">(HN · 09/30 20:59)</span>. Reddit에서도 비슷한 제보가 이어졌다. 한 사용자는 529 Overloaded 오류가 뜨는데 상태 사이트는 녹색이라며 화면 캡처를 올렸고 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wu9lo4/529_overloaded_but_green_on_status_site/">529 Overloaded but green on status site?</a> <span class="ref">(Reddit · 10/01 01:31)</span>, 다른 사용자는 30분 넘게 529 오류가 계속되는데도 Claude Status에는 아무 보고가 올라오지 않는다고 적었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wua140/getting_529_overloaded_for_30_minutes_now_but/">Getting 529 overloaded for +30 minutes now - but Claude Status reports nothing</a> <span class="ref">(Reddit · 10/01 01:48)</span>. 댓글에서는 "어떤 세션은 되고 어떤 세션은 안 된다", "서비스가 바쁘다는 메시지만 뜨는데 재시도 버튼 말고 신고 버튼이라도 있어야 한다"는 공감이 이어졌고, 장난삼아 다른 AI 기업 탓을 하는 댓글도 있었다.</p>
 
-<h2>Sonnet 5.5(high)가 한 프롬프트로 마리오카트를 원샷 제작</h2>
-<p>이전에 Opus와 Sonnet을 비교하는 "Tiny world" 벤치마크를 올렸던 작성자가, 이번엔 Sonnet 5.5 Max로 같은 실험을 했다는 트윗을 보고 자신도 직접 시도해봤다며 결과를 공유했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wsx03y/sonnet_55_high_oneshot_a_full_mario_kart_from_1/">Sonnet 5.5 (high) oneshot a Full Mario Kart from 1 prompt</a> <span class="ref">(Reddit · 09/29 10:31)</span>. Sonnet 5.5 서브 에이전트 다섯 개를 띄워서 질문 없이 마리오카트 클론을 3JS로 만들어 달라는 한 문장짜리 프롬프트만 줬는데, 리드 1개와 빌더 5개로 구성된 Sonnet 5.5 High 에이전트들이 하네스 없이 빈 폴더에서 67분 만에 게임을 완성했다. 모델 호출 424회, 88만9천 토큰 작성(그중 35만2천 토큰이 사고 과정), 7,800만 토큰 읽기(대부분은 에이전트가 이미 읽은 컨텍스트를 다시 읽은 것), API 환산 비용 29.28달러가 들었고, 결과물은 자바스크립트 11,400줄에 이미지나 사운드 파일은 하나도 없이 전부 코드로 구현됐다. 트랙 4개, 레이서 8명, 아이템 10종, 드리프트 부스트, 봇, 그랑프리·스커미시 모드를 갖췄다.</p>
-<p>댓글에서는 닌텐도 변호사한테 메일 오겠다는 농담과 함께 상표권 침해 우려가 이어졌다. 트레이드마크가 걸린 캐릭터가 없고 공통 요소라곤 좌상단 아이템 표시와 "카트"라는 단어, 레이싱이라는 장르뿐이라 법적으로 문제 될 게 없다는 반박이 나왔지만, 닌텐도 법무팀을 과소평가하지 말라는 재반박도 있었다. 작성자는 "마리오카트" 언급만 "레이서"로 바꾸면 그만이라며, 이미 비슷한 게임이 셀 수 없이 많다고 답했다. 그래픽을 어떤 외부 도구로 생성했는지 묻는 질문에는 외부 도구 없이 100% 코드로 생성했다는 답이 달렸다.</p>
+<h2>코드 리뷰용 시맨틱 디프 도구 Perspica</h2>
+<p>작성자는 AI가 작성한 대규모 PR을 검토하다 보면 그냥 대충 통과시키고 싶어지는 유혹을 막기 위해 반년 전부터 써 온 시맨틱 디프 도구 Perspica를 정리해 오픈소스로 공개했다 <a href="https://news.ycombinator.com/item?id=49914005">Show HN: Perspica – A semantic diff for reviewing code</a> <span class="ref">(HN · 10/01 05:34)</span>. LLM을 돌리면 변경 사항을 의미 단위로 묶고 왜 바뀌었는지까지 설명해 주며, LLM 없이도 <code>tree-sitter</code> 기반으로 더 기계적인 그룹핑과 보기 순서를 제공한다. 자신의 Claude Code나 Codex 세션에서 나온 PR이라면 당시 프롬프트를 읽어, 어떤 변경이 직접 요청한 것이고 어떤 변경이 에이전트가 스스로 판단해 넣은 것인지도 구분해 보여 준다.</p>
 
-<h2>Show HN: Ciao - 휴대폰으로 코딩 에이전트 제어</h2>
-<p>휴대폰에서 코딩 에이전트를 제어할 수 있게 해주는 도구 Ciao가 공개됐다 <a href="https://news.ycombinator.com/item?id=49894555">Ciao, Control coding agents from your phone</a> <span class="ref">(HN · 09/30 00:03)</span>.</p>
+<h2>제미나이 4 아르곤이 Val AI 벤치마크 1위</h2>
+<p>Gemini 4 Argon이 Val AI 벤치마크에서 속도·비용·정확도 모두 1위를 차지했다는 소식에 "반전"이라는 제목이 달렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wuft2u/plot_twist_gemini_4_argon_tops_val_ai_benchmark/">Plot twist: Gemini 4 Argon tops Val AI benchmark on speed, cost and accuracy!</a> <span class="ref">(Reddit · 10/01 05:25)</span>. 댓글 대부분은 회의적이었다. "벤치마크용으로 컴퓨팅을 몰아넣은 뒤 실제 서비스는 다운그레이드해 내놓는다"는 구글에 대한 불신이 가장 많았고, "모델 자체가 아니라 실제로 돈 내고 쓰는 성능을 봐야 한다"는 지적도 이어졌다. 그래도 "실제 출시 후 성능을 지켜보자"며 벤치마크는 참고 지표일 뿐이라는 의견도 있었고, 알파벳 주가 관련 기사를 공유한 댓글도 달렸다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-09-30 09:04 KST</p>
+  <p>생성 2026-10-01 09:16 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
