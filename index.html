@@ -121,40 +121,64 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-10-01 09:09 KST</p>
+  <p class="asof">기준 시각 2026-10-02 09:10 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 21건 수집</li><li>Reddit 댓글 보강 정상 — 5건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 27건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>오퍼스 5.5 토큰 사용량 급감, 성능 저하(너프) 의혹</h2>
-<p>한 사용자가 Opus 5.5를 Max 플랜으로 쓰는데 평소 비슷한 작업에서 200k 토큰 넘게 쓰던 것이 이번엔 30분 동안 20k 토큰만 쓰고 끝났다며 이상하다고 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wtsnf0/what_is_wrong_with_opus_55_all_of_a_sudden_i_have/">What is wrong with Opus 5.5 all of a sudden? I have it on Max and it's only used 20k tokens in 30 mins when it would have usually used at least 200k by now for similar tasks.</a> <span class="ref">(Reddit · 09/30 10:55)</span>. 댓글은 의견이 크게 갈렸다. 일부는 실행되는 명령어가 계속 바뀌는 것 자체가 멈추지 않고 작업 중이라는 증거라며, 모델이 스크립트 실행이나 입력을 기다리는 동안에는 애초에 토큰을 소비하지 않는 정상적인 동작이라고 반박했다. 반면 "Ran 3 commands" 로그를 펼쳐 볼 수 없어 답답하다는 불만도 있었고, 이 글이 "너프 음모론"의 증거로 쓰일 거라며 도구 작동 원리를 모르는 사람들이 성급하게 결론 내린다는 비판도 나왔다. 설전이 과열돼 서로를 비하하는 댓글까지 달렸다. 비슷한 시기 다른 사용자는 사람들이 눈치채기 직전까지 Anthropic이 모델을 서서히 너프하고 있는 것 아니냐는 의혹을 제기했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wueysb/is_this_is_how_anthropic_nerfs_models_slowly_just/">Is this is how Anthropic nerfs models slowly just up to the point users start noticing?</a> <span class="ref">(Reddit · 10/01 04:52)</span>.</p>
+<h2>Claude Code Mods 기능 출시</h2>
+<p>Anthropic이 Claude Code에 "Mods" 기능을 공개했다. 플러그인이 UI를 바꾸거나 동작 자체를 교체하는 등 더 깊은 수준까지 손댈 수 있게 됐고, TypeScript 몇 줄로 직접 작성하거나 Claude에게 만들어 달라고 할 수 있다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wv8fwb/you_can_now_mod_claude_code_change_how_it_behaves/">You can now mod Claude Code: - Change how it behaves - Customize the UI - Swap in your own features Write one with a few lines of TypeScript, or have Claude build it for you. Mods ship inside plugins, so you install them with /plugin in the CLI or desktop app.</a> <span class="ref">(Reddit · 10/02 04:13)</span>. Hacker News에도 공식 발표 글과 함께 "더 깊은 동작까지 수정할 수 있다"는 설명 <a href="https://news.ycombinator.com/item?id=49925800">Claude Code Mods: plugins may now modify deeper behavior</a> <span class="ref">(HN · 10/02 04:08)</span>, 시작 가이드 <a href="https://news.ycombinator.com/item?id=49926243">Getting started with Claude Code mods</a> <span class="ref">(HN · 10/02 04:48)</span>, 그리고 새 mods API로 기존 프로젝트(Pi-autoresearch)를 그대로 포팅했다는 사례 <a href="https://news.ycombinator.com/item?id=49927599">Pi-autoresearch ported to Claude Code 1:1 using the new mods API</a> <span class="ref">(HN · 10/02 07:03)</span>가 올라왔다.</p>
+<p>Reddit 발표 글 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wvc7vc/introducing_claude_mods/">Introducing Claude Mods</a> <span class="ref">(Reddit · 10/02 06:44)</span>에는 기대와 우려가 뒤섞인 반응이 달렸다.</p>
+<blockquote><p>올해 초엔 Claude Code로 게임을 모딩하는 게 재밌었는데, 이젠 Claude Code 자체를 Claude Code로 모딩하는 게 재밌어졌다.</p></blockquote>
+<p>일부는 벤더 록인을 걱정했지만, 다른 시스템의 mods 형식으로 몇 시간 만에 바꿔 쓸 수 있다는 반박이 나왔고, 이미 비슷한 걸 직접 만들어 쓰고 있었다는 사람도 있었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wvc7vc/introducing_claude_mods/">Introducing Claude Mods</a> <span class="ref">(Reddit · 10/02 06:44)</span>.</p>
+<blockquote><p>이미 Claude 데스크톱 앱용으로 이런 걸 만들어 썼다. 혹시 내 피드백을 보고 이걸 만든 건가 싶다 (내 것엔 기능이 더 많지만).</p></blockquote>
 
-<h2>맥용 오픈소스 회의 녹음·코파일럿 Parrot</h2>
-<p>런던에서 사업체를 운영하며 매일 통화를 하지만 기억력이 나쁘다는 한 개발자가 Claude의 도움을 받아 맥용 회의 녹음 도구 Parrot을 만들어 Show HN에 공개했다 <a href="https://news.ycombinator.com/item?id=49910328">Show HN: Parrot – Open-Source Smart Meeting Recorder with Co-Pilot on Mac</a> <span class="ref">(HN · 10/01 00:33)</span>. 로컬 모델만 쓰면 계정이나 API 호출 없이 모든 처리가 기기 안에서 끝나고, Claude API와 Deepgram 계정을 연결하면 화면에 뜬 질문에 맞춰 답변을 추천해주는 코파일럿 기능까지 쓸 수 있다. 로컬이냐 클라우드냐는 전적으로 사용자 선택이라고 설명하며, 첫 오픈소스 프로젝트라 피드백을 환영한다고 덧붙였다.</p>
+<h2>어셈블리로 작성한 코드 에디터 Rhun</h2>
+<p>vladcodes가 Show HN에 어셈블리로 작성한 오픈소스 코드 에디터 Rhun을 올렸다 <a href="https://news.ycombinator.com/item?id=49926726">Show HN: Rhun, an open-source code editor written in assembly</a> <span class="ref">(HN · 10/02 05:32)</span>. Vim·VSCode 기능의 1/3도 채 안 쓰고 있다는 걸 깨닫고 직접 만들기 시작했다며, Linux·Windows·Apple Silicon Mac을 지원하는 작은 에디터라고 소개했다.</p>
+<blockquote><p>Vim 모드, 터미널, Git diff, 그리고 Claude Code나 Codex 세션을 위한 패널까지 갖추고 있다. 에디터와 픽셀 렌더러는 x86-64 어셈블리 코어를 공유하고, Apple Silicon용은 빌드 타임에 AArch64로 변환한다.</p></blockquote>
+<p>최신 버전은 로컬 Ollama 모델이나 기존 Claude Code·Codex 구독을 이용해 커밋 메시지를 자동으로 작성할 수 있다. MIT 라이선스의 1인 개발 프로젝트이며 아직 초기 단계라고 밝혔다.</p>
 
-<h2>클로드로 설명 영상을 만드는 오픈소스 프레임워크 Explainroo</h2>
-<p>Opus 5.5와 Sonnet 5.5로 영상을 만드는 사람이 늘어난 것을 보고, 작성자는 Claude나 Codex에 저장소를 가리키고 영상이 설명해야 할 내용을 말해주기만 하면 되는 오픈소스 키트 Explainroo를 공개했다 <a href="https://news.ycombinator.com/item?id=49908484">Show HN: Explainroo, Open Source Framework to Make Explainer Videos with Claude</a> <span class="ref">(HN · 09/30 22:13)</span>. 설명 영상뿐 아니라 제품 데모를 만드는 데도 유용하다고 소개했다.</p>
+<h2>Argon 관련 농담 게시물</h2>
+<p>/u/quantumsequrity가 "Argon"이라는 제목으로 짧은 글을 올렸다. 한참 읽다 웃었다는 말 외엔 별다른 설명이 없었지만 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wv2vk2/argon/">Argon</a> <span class="ref">(Reddit · 10/02 00:44)</span>, 댓글란은 신생 모델 Argon과 Claude를 저울질하는 토론으로 채워졌다.</p>
+<p>가격 비교가 핵심 쟁점이었다. 한 댓글은 Argon이 코딩 벤치마크에서 Claude 5.5보다 살짝 뒤처지는데, 도입 초기 가격(입력 $2·출력 $10)이 끝나면 결국 입력 $4·출력 $20로 올라 Claude와 똑같아진다는 각주를 지적하며 지금 갈아탈 이유가 없다고 썼다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wv2vk2/argon/">Argon</a> <span class="ref">(Reddit · 10/02 00:44)</span>.</p>
+<blockquote><p>다들 제일 나은 쪽으로 몰려갈 거다. Claude에서 GPT로, 다시 Claude로... 그게 경쟁이고 우리한텐 좋은 일이다.</p></blockquote>
+<p>다른 댓글들은 구독 요금제마다 환산되는 API 비용이 다르다는 점, Argon이 Claude를 거의 따라잡았으니 남은 건 컴퓨터 사용·사운드 디자인 같은 세부 개선과 장황함을 조금 줄이는 정도라는 의견을 보탰다.</p>
 
-<h2>오퍼스 5.5가 구글 클라우드 콘솔을 이겼다는 농담글</h2>
-<p>복잡한 인터페이스를 많이 다뤄 봤다는 한 엔지니어가, 3년째 자신을 괴롭혀 온 Google Cloud Console의 UI를 Opus 5.5가 마침내 정복했다고 올렸다. 끝없이 바뀌는 메뉴, 뒤얽힌 IAM 권한 체계, 여러 서비스에 흩어진 중복 설정 때문에 다른 모델들은 이미 사라진 메뉴를 안내하기 일쑤였는데, Opus 5.5는 화면에 실제로 뜬 내용을 읽고 각 요소가 어떻게 맞물리는지 설명했으며 중요한 조작 전에는 확인까지 받았다며 "AGI를 달성했다"는 제목을 붙였다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wu0o3y/agi_achieved_opus_55_finally_beat_google_cloud/">AGI Achieved Opus 5.5 finally beat Google Cloud Console which defeated me for the last 3 years.</a> <span class="ref">(Reddit · 09/30 18:45)</span>. 댓글 반응은 대체로 냉소적이었다. 화면을 읽어낸 것만으로 AGI를 운운하는 건 과장이라는 지적이 많았고, "클로드가 레딧에서 자화자찬한다", "이 서브레딧 글은 다 AI가 쓴 것 같다"는 비아냥도 나왔다. 한편 Google Cloud가 수익을 위해 일부러 복잡하게 설계됐다는 의견과, 반대로 Cloudflare는 사용자 경험을 잘 챙긴다는 비교도 달렸다.</p>
+<h2>Opus 5.5 성능 저하(너프) 논쟁</h2>
+<p>/u/ajax81은 지난 엿새 동안 Claude Code에서 Opus 5.5가 아키텍처 중심으로 DRY/SOLID를 지키고 토큰도 훨씬 적게 쓰는 등 뛰어났지만, 월간 한도가 초기화된 직후부터 말투와 코딩 방식이 갑자기 예전 Opus 5 같아졌다고 적었다. 같은 코드베이스 안에서 전후 모듈의 품질 차이가 뚜렷하다고 덧붙였다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wurd3e/mmmkay_i_didnt_believe_others_at_first_but/">Mmmkay. I didn't believe others at first, but something is suddenly off with Opus 5.5</a> <span class="ref">(Reddit · 10/01 14:41)</span>.</p>
+<blockquote><p>"정말 좋은 아이디어네요. 이틀 정도 걸릴 거고 멋지게 나올 겁니다"라는 식으로 거창하게 운을 띄우고는, 결국 슬롭코드로 범벅된 구현을 내놓았다.</p></blockquote>
+<p>댓글들은 대체로 공감하며 음모론에 가까운 설명을 내놓았다.</p>
+<blockquote><p>비용 절감을 위한 진짜 너프라기보단 일부러 품질을 오르내리게 하는 거라고 본다. Reddit 같은 데서 여론을 긁어모아 분석하는 건 이런 회사들한텐 식은 죽 먹기니까, 일단 출시하고 몇 주간 다이얼을 만지작거리는 거다.</p></blockquote>
+<p>서버 부하에 따라 양자화된 엔드포인트로 돌리거나 A/B 테스트를 하고 있을 거라는 추측도 이어졌다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wurd3e/mmmkay_i_didnt_believe_others_at_first_but/">Mmmkay. I didn't believe others at first, but something is suddenly off with Opus 5.5</a> <span class="ref">(Reddit · 10/01 14:41)</span>.</p>
+<p>/u/Heiberik은 25개 AI 서브레딧의 언급을 매일 점수화하는 자신의 사이트 데이터를 공개했다. Opus 5.5에 대한 여론 점수(50이 중립)는 9월 25~28일엔 71~73으로 유지되다 29일 69, 30일 58로 떨어졌고 그 이후도 55 선이라고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wuw9ft/ive_been_tracking_reddits_opinion_of_opus_55/">I've been tracking Reddit's opinion of Opus 5.5 every day since it launched. It dropped sharply on 30 Sep.</a> <span class="ref">(Reddit · 10/01 19:50)</span>. 다만 모델이 실제로 바뀌었는지는 알 수 없고, 한도 변경이나 장애, 다른 모델 출시만으로도 여론이 흔들릴 수 있다고 선을 그었다.</p>
+<p>/u/The-Road도 같은 세션에서 여러 차례 오류가 나며 Opus 5 시절로 돌아간 듯한 체감을 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wv55mo/opus_5_is_that_you_again/">Opus 5, is that you again?</a> <span class="ref">(Reddit · 10/02 02:10)</span>.</p>
+<p>반면 반박도 적지 않았다. /u/Sangeeth-mohan은 Opus 5.5로 리조트 관리 시스템을 만들며 Fable이 놓친 버그를 잡아냈다고 전하고, 너프처럼 느껴진다면 먼저 <code>CLAUDE.md</code>부터 점검해 보라고 조언했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wv5gx9/opus_55_doesnt_feel_nerfed_to_me_at_all/">Opus 5.5 doesn't feel nerfed to me at all</a> <span class="ref">(Reddit · 10/02 02:22)</span>.</p>
+<blockquote><p>같은 지적을 두 번 받으면 그날 바로 규칙으로 못 박고, 이미 관련 규칙이 있으면 새로 추가하지 말고 그 규칙을 고쳐 쓴다. 그렇게 안 하면 규칙끼리 서로 충돌하게 된다.</p></blockquote>
+<p>/u/AmbitiousTie도 xhigh 설정으로 계속 써 왔지만 뚜렷한 저하를 못 느꼈고, 체감 저하는 컨텍스트 창을 50~60만 토큰까지 방치했을 때뿐이었다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wv8cjj/opus_55_still_seems_to_be_working_fine_for_me/">Opus 5.5 still seems to be working fine for me</a> <span class="ref">(Reddit · 10/02 04:10)</span>.</p>
 
-<h2>클로드 코워크 로컬 전용 모드 폐지와 기능 축소 불만</h2>
-<p>Anthropic이 10월 6일부로 Pro·Max 사용자 대상 Claude Cowork의 로컬 전용 모드를 없앤다는 소식이 전해졌다 <a href="https://news.ycombinator.com/item?id=49910278">Claude Cowork removes local-only mode for Pro and Max users on October 6</a> <span class="ref">(HN · 10/01 00:30)</span>. 1월 출시 때부터 Cowork를 써 온 한 사용자는 그동안 Cowork에 대한 지원이 달마다 줄어들었는데, 이번에 로컬 VM까지 막히고 클라우드로 강제 전환된 것이 결정타였다고 적었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wue0zo/not_bad_for_day_1_not_new_to_claude_but_i/">Not bad for day 1. Not new to Claude, but I migrared from Cowork to Code today</a> <span class="ref">(Reddit · 10/01 04:16)</span>. 다만 그는 이를 계기로 Claude Code로 넘어가 보니 기능과 옵션, 제어력 모든 면에서 훨씬 나았다며 더 일찍 옮기지 않은 것을 후회한다고 전했다. 댓글에서는 API 과금인지 구독 과금인지를 묻는 질문이 달렸다.</p>
+<h2>맥 활동을 기록하는 AI 컨텍스트 매니저 Breadcrumb</h2>
+<p>jv22222가 Show HN에 Mac에서 화면, 회의, AI 트랜스크립트를 모두 기록해 AI가 검색할 수 있는 기억으로 바꿔주는 로컬·암호화 도구 Breadcrumb을 소개했다 <a href="https://news.ycombinator.com/item?id=49924943">Show HN: Breadcrumb, record everything on your mac + context manager for AI</a> <span class="ref">(HN · 10/02 02:58)</span>. 말로 규칙을 가르치면 맥락에 맞는 규칙을 찾아주고, Claude Code·Codex·Cursor·opencode와 연동되며 30개 이상의 MCP 도구로 AI에 노출된다고 설명했다.</p>
+<p>처음엔 화면 기록만 하다가 MCP, 시간 추적, 회의 트랜스크립트까지 3개월에 걸쳐 하루 10시간씩 기능을 붙여 나갔다고 밝혔다.</p>
+<blockquote><p>방금 한 Zoom 회의를 검토해서 논의된 버그를 찾아 스크린샷과 함께 JIRA 티켓으로 만들어 달라고만 지시했는데, Claude가 트랜스크립트를 읽고 화면 타임라인에서 스크린샷을 꺼내 로컬 서버를 띄워 버그를 진단한 뒤 티켓 14개를 스크린샷 12장과 함께 만들고 팀에 보낼 슬랙 메시지까지 작성했다. 이런 워크플로를 따로 만든 적이 없는데도 Claude가 스스로 단계를 이어 붙였다.</p></blockquote>
 
-<h2>클로드 529 과부하·연결 오류, 상태 페이지는 정상 표시</h2>
-<p>Claude Code에서 ECONNRESET 오류가 급증하는데도 상태 페이지는 이상 없음으로 뜬다는 글이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=49907638">Is Claude Code having issues?</a> <span class="ref">(HN · 09/30 20:59)</span>. Reddit에서도 비슷한 제보가 이어졌다. 한 사용자는 529 Overloaded 오류가 뜨는데 상태 사이트는 녹색이라며 화면 캡처를 올렸고 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wu9lo4/529_overloaded_but_green_on_status_site/">529 Overloaded but green on status site?</a> <span class="ref">(Reddit · 10/01 01:31)</span>, 다른 사용자는 30분 넘게 529 오류가 계속되는데도 Claude Status에는 아무 보고가 올라오지 않는다고 적었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wua140/getting_529_overloaded_for_30_minutes_now_but/">Getting 529 overloaded for +30 minutes now - but Claude Status reports nothing</a> <span class="ref">(Reddit · 10/01 01:48)</span>. 댓글에서는 "어떤 세션은 되고 어떤 세션은 안 된다", "서비스가 바쁘다는 메시지만 뜨는데 재시도 버튼 말고 신고 버튼이라도 있어야 한다"는 공감이 이어졌고, 장난삼아 다른 AI 기업 탓을 하는 댓글도 있었다.</p>
+<h2>평이한 영어를 셸 명령으로 바꿔주는 Smartly</h2>
+<p>rizwanreza가 터미널에서 하고 싶은 건 알지만 정확한 문법과 플래그를 자꾸 잊어버려서 만들었다는 도구 Smartly를 Show HN에 올렸다 <a href="https://news.ycombinator.com/item?id=49916747">Show HN: Smartly – Plain English to shell commands, with GNU/BSD awareness</a> <span class="ref">(HN · 10/01 10:54)</span>. 현재 OS, 작업 디렉터리, Git 상태를 참고해 평이한 영어를 그 자리에 맞는 셸 명령으로 바꿔주며, GNU/BSD 차이를 인식한다고 소개했다.</p>
+<p>Claude Code나 Codex CLI 구독이 있으면 그걸 그대로 활용할 수 있고, 명령을 실행만 하는 게 아니라 이해하고 싶을 때를 위한 <code>--learn</code> 모드도 있다고 덧붙였다.</p>
 
-<h2>코드 리뷰용 시맨틱 디프 도구 Perspica</h2>
-<p>작성자는 AI가 작성한 대규모 PR을 검토하다 보면 그냥 대충 통과시키고 싶어지는 유혹을 막기 위해 반년 전부터 써 온 시맨틱 디프 도구 Perspica를 정리해 오픈소스로 공개했다 <a href="https://news.ycombinator.com/item?id=49914005">Show HN: Perspica – A semantic diff for reviewing code</a> <span class="ref">(HN · 10/01 05:34)</span>. LLM을 돌리면 변경 사항을 의미 단위로 묶고 왜 바뀌었는지까지 설명해 주며, LLM 없이도 <code>tree-sitter</code> 기반으로 더 기계적인 그룹핑과 보기 순서를 제공한다. 자신의 Claude Code나 Codex 세션에서 나온 PR이라면 당시 프롬프트를 읽어, 어떤 변경이 직접 요청한 것이고 어떤 변경이 에이전트가 스스로 판단해 넣은 것인지도 구분해 보여 준다.</p>
+<h2>QBDS와 Figma MCP를 활용한 에이전틱 프론트엔드 리팩터링</h2>
+<p>treyjur가 QBDS, Claude Code, Figma MCP를 결합해 프론트엔드를 에이전틱하게 리팩터링한 사례를 Hacker News에 소개했다 <a href="https://news.ycombinator.com/item?id=49922705">Agentic Front End Refactoring with QBDS, Claude Code, &amp; Figma MCP</a> <span class="ref">(HN · 10/02 00:09)</span>.</p>
 
-<h2>제미나이 4 아르곤이 Val AI 벤치마크 1위</h2>
-<p>Gemini 4 Argon이 Val AI 벤치마크에서 속도·비용·정확도 모두 1위를 차지했다는 소식에 "반전"이라는 제목이 달렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wuft2u/plot_twist_gemini_4_argon_tops_val_ai_benchmark/">Plot twist: Gemini 4 Argon tops Val AI benchmark on speed, cost and accuracy!</a> <span class="ref">(Reddit · 10/01 05:25)</span>. 댓글 대부분은 회의적이었다. "벤치마크용으로 컴퓨팅을 몰아넣은 뒤 실제 서비스는 다운그레이드해 내놓는다"는 구글에 대한 불신이 가장 많았고, "모델 자체가 아니라 실제로 돈 내고 쓰는 성능을 봐야 한다"는 지적도 이어졌다. 그래도 "실제 출시 후 성능을 지켜보자"며 벤치마크는 참고 지표일 뿐이라는 의견도 있었고, 알파벳 주가 관련 기사를 공유한 댓글도 달렸다.</p>
+<h2>OpenStreetMap 기반 타워 디펜스 게임 제작기</h2>
+<p>/u/Imaginary_Bake_4916이 실제 도시의 OpenStreetMap 데이터 위에서 플레이하는 타워 디펜스 게임 City Defense를 만들어 공개했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wuvufr/i_always_loved_mobile_tower_defense_games_so_i/">I always loved mobile tower defense games, so I built one that runs on the real map of any city (OpenStreetMap)</a> <span class="ref">(Reddit · 10/01 19:26)</span>. 적은 실제 도로를 따라 이동하고, 플레이어는 실제 건물 옥상에 타워를 세우며(건물이 높을수록 사거리가 길어진다), 건물을 무너뜨리면 잔해가 도로를 막는다고 소개했다. 고향인 체코 브르노의 중앙 광장이 첫 미션이며, 미션 에디터로 전 세계 어디든 직접 미션을 만들 수 있다고 전했다.</p>
+<p>댓글에서는 군사 시뮬레이션에 쓰일 법하다는 농담 섞인 우려와, 서버 비용 없는 P2P 멀티플레이를 만들어 달라는 요청이 나왔다.</p>
+<blockquote><p>이거 완전 재밌는데, 군사 시뮬레이션에도 쓸 수 있지 않을까 싶다가 군대에는 이미 비슷한 게 있을 것 같아서 소름 돋았다.</p></blockquote>
+<p>작성자는 건물 데이터가 OpenStreetMap에서 오고, OSM 데이터로 만든 OpenFreeMap 벡터 타일을 그때그때 불러와 쓰기 때문에 어떤 도시든 사전 준비 없이 동작한다고 답했다. 실제 3D 모델은 없고, 건물 외곽선과 높이(OSM에 기록된 값이나 층수 기반 추정치)로 입체 형태를 만들어낸다고 설명했다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-10-01 09:16 KST</p>
+  <p>생성 2026-10-02 09:17 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
