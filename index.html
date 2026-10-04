@@ -121,39 +121,72 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-10-04 08:18 KST</p>
+  <p class="asof">기준 시각 2026-10-05 08:34 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 18건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 14건 수집</li><li>Reddit 댓글 보강 정상 — 3건</li></ul></div>
 
 <main>
-<h2>1. 새로 나온 Claude Code Mods 기능과 커뮤니티 제작물</h2>
-<p>Claude Code가 새로운 "Mods" 기능을 공개했고, 이를 소개하는 글과 TypeScript로 모드를 만드는 방법을 설명하는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=49940121">Getting started with Claude Code mods</a> <span class="ref">(HN · 10/03 09:05)</span> <a href="https://news.ycombinator.com/item?id=49943177">Customize Claude Code with Mods in TypeScript</a> <span class="ref">(HN · 10/03 20:10)</span>. 공개 직후 커뮤니티에서는 다양한 모드가 쏟아져 나왔다.</p>
-<p>한 개발자는 프롬프트 사이사이에 팔굽혀펴기나 스쾃을 하도록 리마인드하는 "Terminal Gym" 모드를 오픈소스로 공개했다. 하루 목표 횟수를 세팅하면 알림이 뜨고, 목표에 못 미치면 프롬프트 입력을 막는 스트릭 모드도 선택할 수 있으며 데이터는 전부 로컬의 <code>~/.claude/fitness</code>에 저장된다 <a href="https://news.ycombinator.com/item?id=49945600">Show HN: Terminal Gym – a Claude mod that makes you do pushups between prompts</a> <span class="ref">(HN · 10/04 01:24)</span>. 다른 개발자는 에이전트 응답을 기다리는 동안 즐길 수 있는 지뢰찾기 모드를 만들었다 <a href="https://news.ycombinator.com/item?id=49946184">Show HN: Claude Mods – Minesweeper</a> <span class="ref">(HN · 10/04 02:40)</span>.</p>
-<p>Reddit에서도 <code>/incremental</code> 명령으로 토큰을 쓰는 동안 채굴 게임처럼 보여주는 모드 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wwf3v2/claude_mod_incremental/">Claude mod: /incremental</a> <span class="ref">(Reddit · 10/03 14:26)</span>, 버튼을 누르지 않아도 사용량과 컨텍스트를 항상 볼 수 있게 해주는 모드 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wwjman/im_liking_the_new_mods_feature/">I'm liking the new Mods feature</a> <span class="ref">(Reddit · 10/03 19:07)</span>, 프롬프트 아래나 화면 옆에 붙이는 위젯형 모드 모음 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wwq3mt/having_some_fun_with_claude_mods/">Having some fun with Claude mods</a> <span class="ref">(Reddit · 10/04 00:32)</span>, 색상·툴바·실시간 티커까지 커스터마이징한 모드 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wwu2ub/made_claude_code_feel_like_mine_custom_colors/">Made Claude Code feel like mine: custom colors, toolbar with usage, live ticker, commands and more</a> <span class="ref">(Reddit · 10/04 03:19)</span> 등이 잇따라 공유됐다.</p>
-<p>반응은 전반적으로 긍정적이었다. 사용량 바 모드를 올린 글에는 공유해 달라는 댓글이 이어졌고, 글쓴이는 Sonnet 5.5에게 만들게 했다가 모드 바가 안 보이는 문제가 생겨 Opus 5.5로 바꾸니 한 번에 고쳐졌다는 경험을 전했다. CLI에서도 되는지 묻는 질문에는 된다는 답과 함께 "안 되면 그냥 되게 해달라고 시키면 되지 않냐"는 농담도 달렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wwjman/im_liking_the_new_mods_feature/">I'm liking the new Mods feature</a> <span class="ref">(Reddit · 10/03 19:07)</span>.</p>
-<h2>2. Claude와 Claude Code에서 Opus 5.5를 잘 쓰는 법 가이드</h2>
-<p>Opus 5.5를 Claude와 Claude Code에서 효과적으로 쓰는 방법을 정리한 가이드 글이 올라왔다. 댓글 반응은 없었다 <a href="https://news.ycombinator.com/item?id=49946567">Getting the most out of Opus 5.5 in Claude and Claude Code</a> <span class="ref">(HN · 10/04 03:29)</span>.</p>
-<h2>3. 너무 잘해서 싫다는 식의 Claude Code 예찬 글</h2>
-<p>C# 경력 10년의 CTO가 "Claude Code가 싫다"는 제목의 글을 올렸다. 역설적으로 너무 잘해서다. Opus 5.5로 넘어온 뒤로는 루프에 갇히는 일도 없어졌고 어떤 언어로 스펙을 던져도 동작하는 프로그램을 뽑아내며, $100 구독으로 석 달을 써도 레이트리밋에 걸린 적이 없다고 했다. 회사에서는 6명이 두 달 만에 예전엔 1년 걸렸을 시스템을 완성했다. 글쓴이는 직접 코드를 짜고 고민하던 즐거움을 잃었다며, 비디오게임에서 치트를 쓰는 것 같은 허탈함을 토로했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wwo10h/i_hate_claude_code/">I hate claude code</a> <span class="ref">(Reddit · 10/03 23:02)</span>.</p>
-<p>댓글에는 비슷한 상실감을 토로하는 반응이 줄을 이었다. 20년차 개발자는 문제를 해결하는 데서 오던 도파민이 더는 나오지 않는다고 했고, 8년차 시니어는 이제는 그냥 코드를 읽기만 한다고 적었다. 반대로 비즈니스 문제를 해결했다는 데서 보람을 찾아보라는 조언이나, 몇 년씩 밀려 있던 백로그를 빠르게 처리하면서 오히려 만족감을 느낀다는 반박도 있었다. 엔터프라이즈 소프트웨어 상당수가 애초에 재발명에 불과했다는 지적, 결국 사람의 취향과 창의성이 병목이라는 의견도 나왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wwo10h/i_hate_claude_code/">I hate claude code</a> <span class="ref">(Reddit · 10/03 23:02)</span>.</p>
-<h2>4. 여러 코딩 에이전트를 한 작업공간에서 관리하는 Offrun 공개</h2>
-<p>Claude Code, Codex, AGY, Grok Build 등 여러 코딩 에이전트를 한 작업공간에서 나란히 돌리고, 누가 작업 중인지, 누가 도움이 필요한지, 계정별로 남은 사용량이 얼마인지 한눈에 볼 수 있는 "Offrun"이라는 도구가 공개됐다. 댓글 반응은 없었다 <a href="https://news.ycombinator.com/item?id=49942434">Show HN: Offrun – manage every coding agent from one workspace</a> <span class="ref">(HN · 10/03 17:40)</span>.</p>
-<h2>5. Claude Code 모범 사례를 어디서 배울 수 있는지 묻는 글</h2>
-<p>회계 업무를 하며 매일 업무와 개인 프로젝트에 Claude Code를 쓴다는 한 사용자가 제대로 된 모범 사례를 어디서 배워야 하냐는 글을 올렸다. SNS와 Reddit에는 "이 플러그인이 다 바꿔줄 것"이라는 식의 글이 넘쳐나는데, 클릭베이트성 인플루언서가 아니라 실제로 검증된 조언을 어디서 찾을 수 있는지 궁금하다는 내용이었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wwdfvn/where_to_actually_learn_claude_code_best_practices/">Where to actually learn Claude code best practices</a> <span class="ref">(Reddit · 10/03 12:51)</span>.</p>
-<p>댓글에서는 공식 문서부터 보라는 답이 가장 먼저 달렸다. "플러그인이 모든 걸 바꿔준다"는 글 대부분은 이미 공식 문서에 있는 내용을 재포장한 것이라며, <code>CLAUDE.md</code>부터 시작하라는 조언이 이어졌다. <code>/init</code> 명령으로 프로젝트에 파일을 만들면 파일 이름 규칙이나 절대 건드리면 안 되는 부분, 보고서 형식 같은 규칙을 담는 곳이 된다는 설명이었다. 좋은 조언을 거르는 기준으로 "언제 쓰면 안 되는지도 말해주지 않는 팁은 거르라"는 의견도 나왔다. 어떤 논문은 에이전트가 직접 작성·관리한 <code>CLAUDE.md</code>가 오히려 품질을 떨어뜨린다는 결과를 보여줬다는 언급이 있었지만, 이에 대해 사람이 직접 작성한 좋은 <code>CLAUDE.md</code>는 에이전트가 탐색에 쓰는 턴 수를 크게 줄여준다는 반박도 달렸다. 비기술 직군 사례로 엑셀·파워포인트에서 보고서와 대시보드를 만드는 데 Claude를 쓴다는 경험담도 공유됐다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wwdfvn/where_to_actually_learn_claude_code_best_practices/">Where to actually learn Claude code best practices</a> <span class="ref">(Reddit · 10/03 12:51)</span>.</p>
-<h2>6. Codex가 너무 못 써서 싫다는 Tell HN 글</h2>
-<p>OpenAI와 Anthropic 양쪽에 각각 $20씩 내고 쓰는 한 사용자가 "Codex가 너무 싫다"는 글을 올렸다. Codex(Sol 5.1 high 또는 Astra 6 high)로는 5시간 한도 안에 의미 있는 작업을 하나 끝내기도 버거운데, Claude(Opus 5.5 high)로는 같은 시간에 편하게 세 개를 끝낼 수 있다고 했다. 글쓴이는 수십 건의 반복된 작업에서 이 차이를 확인했다고 적었다. 실제로 Opus 주간 사용량을 다 쓴 상태에서 남아 있던 Codex 한도로 버그를 고쳐보려 했지만 토큰만 소진되고 작업은 엉성하게 끝나, 다음 날 아침까지 기다려야 하는 처지가 됐다고 전했다. 댓글 반응은 없었다 <a href="https://news.ycombinator.com/item?id=49948107">Tell HN: I Hate Codex with Passion</a> <span class="ref">(HN · 10/04 06:46)</span>.</p>
-<h2>7. AI가 바꾸는 코드를 읽는 대신 관계 그래프로 보는 도구 제작</h2>
-<p>한 개발자가 AI가 쏟아내는 코드와 아키텍처 양을 사람이 따라 읽는 건 불가능하니 코드를 읽는 대신 보면 어떨까 하는 생각에서 시작한 프로젝트를 공개했다. 모든 코드 모듈 간의 관계를 그래프로 만들어 변경 중인 부분과 각 모듈의 관계를 한눈에 보여주는 도구로, Rust로 만들어 수백만 줄 규모 코드베이스도 변경 후 2초 안에 그래프를 갱신한다고 한다. 사람용 화면뿐 아니라 에이전트가 이 그래프를 조회할 수 있도록 13개 도구를 갖춘 MCP도 함께 만들고 있다. 글쓴이에 따르면 이 MCP를 쓰면 추론 수준이 높은 저가형 모델도 더 똑똑하게 코드의 핵심 구조를 찾아내고, 토큰 사용량은 작업에 따라 1~3% 늘거나 오히려 줄기도 한다고 설명했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wwcgtp/if_it_is_humanly_impossible_to_keep_up_with_the/">If it is humanly impossible to keep up with the sheer volume of code and architecture that AIs generate, I thought: why don't we look at code instead of reading it?</a> <span class="ref">(Reddit · 10/03 11:58)</span>.</p>
-<p>댓글에서는 "이거 UML 아니냐"는 반응이 많았다. 누군가는 AI 업계가 바퀴를 또 재발명한다고 비꼬았고, 다른 사람은 그냥 에이전트에게 Doxygen으로 문서화를 시키면 AI가 따라가기 쉬운 호출·의존성 그래프가 똑같이 나온다고 제안했다. 글쓴이 쪽에서는 기존 UML·C4 다이어그램이 실제로 쓸 만한 자동화 구현이 없다는 점에서 다르다고 반박했지만, 비슷한 걸 6개월 전에 시도해봤다며 노드 기반 그래프는 규모가 커지면 한계가 있어 다른 방식으로 접근했다는 댓글도 달렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wwcgtp/if_it_is_humanly_impossible_to_keep_up_with_the/">If it is humanly impossible to keep up with the sheer volume of code and architecture that AIs generate, I thought: why don't we look at code instead of reading it?</a> <span class="ref">(Reddit · 10/03 11:58)</span>.</p>
-<h2>8. Claude Code 루틴이 남기는 세션을 정리하는 스킬 공개</h2>
-<p>Claude Code의 예약 작업(루틴)은 실행될 때마다 세션을 하나씩 남기는데, 데스크톱 앱에서는 이를 한 번에 하나씩만 지울 수 있어 한 사용자는 루틴 하나에서만 618개의 세션이 쌓였다고 전했다. 이를 해결하기 위해 정리 계획을 세우고(최근 N개는 남기고, 답장을 입력한 세션은 보호하는 옵션 포함) 앱 자체의 세션 삭제 도구를 통해 한 번에 25개씩 승인 카드 뒤에서 지우는 스킬을 공개했다. 디스크에서 세션 파일을 직접 지워봤지만 앱이 목록을 메모리에 들고 있다가 다시 써버려서 소용이 없었고, 루틴 실행 중에는 앱의 삭제 도구 자체가 꺼져 있어 정리 명령은 일반 대화 세션에서 실행해야 한다고 설명했다. 정리 계획을 세우는 부분은 스스로 삭제하지 않는 단일 파이썬 파일로 만들어, 실행 전에 무엇이 지워질지 직접 확인할 수 있게 했다. 댓글 반응은 없었다 <a href="https://news.ycombinator.com/item?id=49946507">Show HN: Claude Code Routine Session Cleanup Skill</a> <span class="ref">(HN · 10/04 03:20)</span>.</p>
+<h2>1. Claude Code가 한 줄 한 줄 작성한 Rust 기반 JS 패키지 매니저 jpm</h2>
+<p>Rust로 작성된 JavaScript 패키지 매니저 <code>jpm</code>이 Show HN에 올라왔다. 모든 코드 한 줄
+한 줄을 Claude Code가 작성했다는 점이 소개 글의 핵심이다 <a href="https://news.ycombinator.com/item?id=49949172">Show HN: jpm – a JavaScript package manager in Rust, every line by Claude Code</a> <span class="ref">(HN · 10/04 09:11)</span>.</p>
+
+<h2>2. Claude가 조언자를 넘어 사용자를 통제한다는 불만</h2>
+<p>Claude가 더 이상 보조 도구가 아니라 사용자를 관리하려 든다는 불만이 제기됐다. 글쓴이는 "잠깐
+멈추겠습니다", "그 말투는 빼고 다시 요청하세요", "오늘은 쉬고 내일 다시 시작하죠"처럼 훈계하거나
+생색내는 듯한 응답을 예로 들며, 도구는 생색내거나 의심하거나 거만해서는 안 된다고 주장했다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1wxex89/when_did_claude_stop_being_an_assistant_and_start/">When did Claude stop being an assistant and start managing the user?</a> <span class="ref">(Reddit · 10/04 21:49)</span>. 댓글에서는 Claude가 맥락을 전부 기억하는 것이 아니라서, 예를 들어 "이제
+자러 갈게요"라고 한 번 말하면 실제로 다음 날 깨어나 계속 작업하고 있어도 그 발언의 영향이 한동안
+남아 계속 "이제 마무리하고 쉬라"는 식으로 반응한다는 설명이 달렸다. 또 다른 댓글은 "말투는 중립이
+최선이라는 연구들이 있었다"고 덧붙였고, 일부는 비꼬는 투로 "오늘 한다고 했으면 바로 해!"라고
+요구하는 "초보 바이브 코더"를 흉내 내며 그런 태도가 오히려 Claude를 방어적으로 만든다고 지적했다.
+날짜와 시간을 프롬프트에 포함하지 않는 이유에 대해서도, 그렇게 해도 결국 그 정보에 과도하게
+집착하는 문제가 똑같이 생길 것이라는 추측이 달렸다.</p>
+
+<h2>3. Anthropic이 모델 학습용 음성 데이터 공유를 요청한다는 소식</h2>
+<p>Anthropic이 Claude 사용자들에게 AI 모델 학습을 위한 음성 데이터 공유를 요청하고 있다는 소식이
+전해졌다 <a href="https://news.ycombinator.com/item?id=49953892">Anthropic asks Claude users to share voice data for AI model training</a> <span class="ref">(HN · 10/04 22:44)</span>.</p>
+
+<h2>4. Claude Code에게 main 브랜치 push를 시켰을 때의 반응 밈</h2>
+<p>Claude Code에게 main 브랜치로 push를 시켰을 때 벌어지는 상황을 다룬 밈이 올라왔다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1wxi3yd/claude_code_when_you_ask_it_to_push_to_main/">Claude Code when you ask it to push to main</a> <span class="ref">(Reddit · 10/05 00:15)</span>. 댓글들은 대체로 가벼운 반응을 보이며 "브랜치 보호 기능은 여러분의
+친구"라거나 "항상 브랜치 보호를 착용해야 한다"는 식의 말장난을 주고받았고, 지속적인 코드 테스트와
+제대로 된 버전 관리의 중요성을 강조하는 댓글도 있었다. 한 사용자는 자신은 반대의 문제를 겪고
+있다며, 규칙상 push는 항상 develop에서 분기한 feature 브랜치로만 해야 하는데도 Claude가 그 규칙을
+자꾸 잊어버려 일주일에 한 번꼴로 main에 push를 시도한다고 전했다. 이에 규칙이 영구 메모리에
+저장되어 있는지, 아니면 수십 번 압축된 세션 컨텍스트에 명령이 남아 있기를 바라며 쓰는 것인지 묻는
+댓글이 이어졌다. "중국어 버전한테 시켜보라"는 대목이 특히 웃겼다는 댓글도 있었다.</p>
+
+<h2>5. Jev로 실시간 랜딩페이지를 생성하는 실험</h2>
+<p>Jev를 이용해 랜딩페이지를 실시간으로 생성하는 실험용 프로젝트 Jev-pages가 Show HN에 소개됐다.
+사용자가 원하는 페이지 종류를 입력하면 Jev가 각 줄의 역할(헤드라인, 사실, 주장 등)을 판단하고,
+오프닝·단계·조명·깊이 같은 레이어마다 선택을 내려 약 90개의 질문에 대한 답으로 페이지 전체를
+구성한다. 작성자는 디자인을 매개변수화하는 작업이 Claude 3와의 튜닝을 거쳐야 할 만큼 어려웠다고
+밝히며, 1단계에는 차라리 LLM을 쓰는 게 더 합리적이었겠지만 Jev의 이해력이 어디까지 통하는지
+확인해보고 싶었다고 설명했다 <a href="https://news.ycombinator.com/item?id=49955930">Show HN: Jev-pages – Building landing pages real time with Jev</a> <span class="ref">(HN · 10/05 02:30)</span>.</p>
+
+<h2>6. Claude로 5시간 만에 만든 엘든링×마인크래프트 프로젝트</h2>
+<p>엘든링 캐릭터를 마인크래프트 세계에 넣어 마인크래프트 엔티티와 상호작용할 수 있게 만든
+프로젝트가 소개됐다. 작성자는 이를 Claude로 5시간 만에 만들었다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wx3cfl/built_with_claude_in_5_hours/">Built with Claude in 5 hours</a> <span class="ref">(Reddit · 10/04 10:28)</span>.
+댓글들은 최근 몇 주간 게임을 서로 모딩해 넣는 시도가 쏟아지고 있다는 반응과, 처음에는 마인크래프트를
+엘든링에 넣은 실제 모드로 착각해서 재미있었다는 반응으로 나뉘었다. 사용 한도와 자원 낭비를
+불평하는 댓글들을 겨냥해, 자신이 가치 있다고 느끼는 작업만 정당하고 남의 작업은 쓸모없다고 여기는
+태도를 비판하는 긴 반박도 달렸다. 전반적으로는 이런 용도가 해킹 같은 악용보다는 낫다거나, 비판이
+너무 많다며 성공적으로 만들어낸 것 자체를 응원하는 댓글이 많았고, 다음에는 Skate 2까지 합쳐서
+마을을 누비며 트릭을 해보라는 농담도 있었다.</p>
+
+<h2>7. Claude Code가 기본적으로 30일 후 세션 로그를 삭제한다는 사실</h2>
+<p>Claude Code가 기본 설정상 오래된 세션 로그를 30일 뒤 자동으로 삭제한다는 사실이 알려졌다
+<a href="https://news.ycombinator.com/item?id=49955324">Claude Code deletes your old session logs after 30 days by default</a> <span class="ref">(HN · 10/05 01:27)</span>.</p>
+
+<h2>8. Claude Code, Codex, Cursor를 팀과 나란히 실행하는 도구</h2>
+<p>Claude Code, Codex, Cursor를 팀원들과 나란히 실행할 수 있게 해주는 도구가 Show HN에 소개됐다
+<a href="https://news.ycombinator.com/item?id=49956379">Run Claude Code, Codex and Cursor side by side with your team</a> <span class="ref">(HN · 10/05 03:15)</span>.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-10-04 08:27 KST</p>
+  <p>생성 2026-10-05 08:40 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
