@@ -121,72 +121,49 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-10-05 08:34 KST</p>
+  <p class="asof">기준 시각 2026-10-06 10:25 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 14건 수집</li><li>Reddit 댓글 보강 정상 — 3건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 26건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>1. Claude Code가 한 줄 한 줄 작성한 Rust 기반 JS 패키지 매니저 jpm</h2>
-<p>Rust로 작성된 JavaScript 패키지 매니저 <code>jpm</code>이 Show HN에 올라왔다. 모든 코드 한 줄
-한 줄을 Claude Code가 작성했다는 점이 소개 글의 핵심이다 <a href="https://news.ycombinator.com/item?id=49949172">Show HN: jpm – a JavaScript package manager in Rust, every line by Claude Code</a> <span class="ref">(HN · 10/04 09:11)</span>.</p>
+<h2>Claude Code가 자신의 일을 영혼을 갈아먹는 일로 만들었다는 엔지니어 발언</h2>
+<p>Hacker News에 올라온 글은 한 엔지니어가 Claude Code 때문에 자신의 업무가 "영혼을 갈아먹는(soul-sucking)" 일이 되었다고 말했다는 소식을 전한다 <a href="https://news.ycombinator.com/item?id=49971473">Engineer says Claude Code has made his job "soul-sucking"</a> <span class="ref">(HN · 10/06 07:01)</span>. 원문 제목은 "Engineer says Claude Code has made his job "soul-sucking""이다. 본문과 댓글이 남아있지 않아 구체적인 맥락이나 반응은 확인되지 않는다.</p>
 
-<h2>2. Claude가 조언자를 넘어 사용자를 통제한다는 불만</h2>
-<p>Claude가 더 이상 보조 도구가 아니라 사용자를 관리하려 든다는 불만이 제기됐다. 글쓴이는 "잠깐
-멈추겠습니다", "그 말투는 빼고 다시 요청하세요", "오늘은 쉬고 내일 다시 시작하죠"처럼 훈계하거나
-생색내는 듯한 응답을 예로 들며, 도구는 생색내거나 의심하거나 거만해서는 안 된다고 주장했다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1wxex89/when_did_claude_stop_being_an_assistant_and_start/">When did Claude stop being an assistant and start managing the user?</a> <span class="ref">(Reddit · 10/04 21:49)</span>. 댓글에서는 Claude가 맥락을 전부 기억하는 것이 아니라서, 예를 들어 "이제
-자러 갈게요"라고 한 번 말하면 실제로 다음 날 깨어나 계속 작업하고 있어도 그 발언의 영향이 한동안
-남아 계속 "이제 마무리하고 쉬라"는 식으로 반응한다는 설명이 달렸다. 또 다른 댓글은 "말투는 중립이
-최선이라는 연구들이 있었다"고 덧붙였고, 일부는 비꼬는 투로 "오늘 한다고 했으면 바로 해!"라고
-요구하는 "초보 바이브 코더"를 흉내 내며 그런 태도가 오히려 Claude를 방어적으로 만든다고 지적했다.
-날짜와 시간을 프롬프트에 포함하지 않는 이유에 대해서도, 그렇게 해도 결국 그 정보에 과도하게
-집착하는 문제가 똑같이 생길 것이라는 추측이 달렸다.</p>
+<h2>일을 복잡하게 만드는 과정을 자동화했다는 농담 게시물</h2>
+<p>r/ClaudeCode에 "We have successfully automated the process of making things complicated"라는 제목의 농담성 글이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wxzlpg/we_have_successfully_automated_the_process_of/">We have successfully automated the process of making things complicated</a> <span class="ref">(Reddit · 10/05 13:37)</span>. 글 자체에는 별다른 본문이 없었지만 댓글에서 <code>CLAUDE.md</code> 운용을 둘러싼 논쟁이 이어졌다.</p>
+<p>일부는 필요한 것만 만들라고 조언했고, 다른 쪽은 파일이 500개로 늘어나면 처음의 "필요한 것"이 더는 충분하지 않다고 반박했다.</p>
+<blockquote><p>문제가 생길 때 구조를 더하라, 생기기 전에는 더하지 마라.</p></blockquote>
+<p>고정된 제품 비전이 있다면 <code>CLAUDE.md</code> 하나로는 요구사항과 타협 불가 조건을 다 담을 수 없다는 의견도 있었고, 반대로 <code>CLAUDE.md</code> 없이도 그냥 대화하듯 요청하면 다 잘 풀린다는 댓글도 있었다.</p>
 
-<h2>3. Anthropic이 모델 학습용 음성 데이터 공유를 요청한다는 소식</h2>
-<p>Anthropic이 Claude 사용자들에게 AI 모델 학습을 위한 음성 데이터 공유를 요청하고 있다는 소식이
-전해졌다 <a href="https://news.ycombinator.com/item?id=49953892">Anthropic asks Claude users to share voice data for AI model training</a> <span class="ref">(HN · 10/04 22:44)</span>.</p>
+<h2>로컬 우선 영상 검색 에이전트 Orcah Studio 공개</h2>
+<p>Hacker News에 Orcah Studio라는 로컬 우선 데스크톱 앱이 공개됐다 <a href="https://news.ycombinator.com/item?id=49970078">Orcah Studio: A local-first video agent that can search your videos</a> <span class="ref">(HN · 10/06 05:17)</span>. 제작자는 음성 전사, 얼굴 인식, 객체 탐지, OCR, 장면 설명까지 지원하며, 80억 파라미터 오픈웨이트 모델을 파인튜닝한 에이전트가 사용자의 프롬프트를 이해해 원하는 순간을 찾아준다고 설명했다. <code>Claude Code</code>, <code>Codex</code>, <code>OpenCode</code>에 연결해 색인된 영상을 검색할 수 있는 MCP도 함께 제공한다고 밝혔다. 댓글은 남아있지 않다.</p>
 
-<h2>4. Claude Code에게 main 브랜치 push를 시켰을 때의 반응 밈</h2>
-<p>Claude Code에게 main 브랜치로 push를 시켰을 때 벌어지는 상황을 다룬 밈이 올라왔다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1wxi3yd/claude_code_when_you_ask_it_to_push_to_main/">Claude Code when you ask it to push to main</a> <span class="ref">(Reddit · 10/05 00:15)</span>. 댓글들은 대체로 가벼운 반응을 보이며 "브랜치 보호 기능은 여러분의
-친구"라거나 "항상 브랜치 보호를 착용해야 한다"는 식의 말장난을 주고받았고, 지속적인 코드 테스트와
-제대로 된 버전 관리의 중요성을 강조하는 댓글도 있었다. 한 사용자는 자신은 반대의 문제를 겪고
-있다며, 규칙상 push는 항상 develop에서 분기한 feature 브랜치로만 해야 하는데도 Claude가 그 규칙을
-자꾸 잊어버려 일주일에 한 번꼴로 main에 push를 시도한다고 전했다. 이에 규칙이 영구 메모리에
-저장되어 있는지, 아니면 수십 번 압축된 세션 컨텍스트에 명령이 남아 있기를 바라며 쓰는 것인지 묻는
-댓글이 이어졌다. "중국어 버전한테 시켜보라"는 대목이 특히 웃겼다는 댓글도 있었다.</p>
+<h2>대체당하기 전에 스스로를 대체하겠다는 농담 게시물</h2>
+<p>r/ClaudeCode에는 "Why wait to be replaced when I can replace myself 😂😂"라는 제목의 글이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wy76fh/why_wait_to_be_replaced_when_i_can_replace_myself/">Why wait to be replaced when I can replace myself 😂😂</a> <span class="ref">(Reddit · 10/05 21:23)</span>. 댓글에서는 장난스러운 반응과 함께 진지한 경험담도 섞여 나왔다.</p>
+<blockquote><p>넌 날 자를 수 없어. 내가 날 자르니까!</p></blockquote>
+<p>한 댓글 작성자는 몇 주에 걸쳐 실제로 업무를 자동화해 하루 9~10시간이던 작업이 2시간 이하로 줄었고, 그 대가로 구독료를 직접 부담하고 있다고 밝혔다. 다른 댓글은 AI가 다른 사람들의 일은 대체했지만 자신만 남아 팀 전체의 인지 부담을 혼자 짊어지고 있다는 불만을 전했고, 또 다른 댓글은 재미 삼아 하는 말이라도 자기가 올린 diff는 직접 읽어야 나중에 설명 못 할 버그를 피할 수 있다고 조언했다.</p>
 
-<h2>5. Jev로 실시간 랜딩페이지를 생성하는 실험</h2>
-<p>Jev를 이용해 랜딩페이지를 실시간으로 생성하는 실험용 프로젝트 Jev-pages가 Show HN에 소개됐다.
-사용자가 원하는 페이지 종류를 입력하면 Jev가 각 줄의 역할(헤드라인, 사실, 주장 등)을 판단하고,
-오프닝·단계·조명·깊이 같은 레이어마다 선택을 내려 약 90개의 질문에 대한 답으로 페이지 전체를
-구성한다. 작성자는 디자인을 매개변수화하는 작업이 Claude 3와의 튜닝을 거쳐야 할 만큼 어려웠다고
-밝히며, 1단계에는 차라리 LLM을 쓰는 게 더 합리적이었겠지만 Jev의 이해력이 어디까지 통하는지
-확인해보고 싶었다고 설명했다 <a href="https://news.ycombinator.com/item?id=49955930">Show HN: Jev-pages – Building landing pages real time with Jev</a> <span class="ref">(HN · 10/05 02:30)</span>.</p>
+<h2>Claude Code 주변을 감싸는 프레임워크 Homestead 공개</h2>
+<p>Hacker News에 Claude Code를 감싸는 프레임워크 Homestead가 공개됐다 <a href="https://news.ycombinator.com/item?id=49959981">Homestead: A framework around Claude Code</a> <span class="ref">(HN · 10/05 11:15)</span>. 본문과 댓글이 남아있지 않아 구체적인 기능이나 반응은 확인되지 않는다.</p>
 
-<h2>6. Claude로 5시간 만에 만든 엘든링×마인크래프트 프로젝트</h2>
-<p>엘든링 캐릭터를 마인크래프트 세계에 넣어 마인크래프트 엔티티와 상호작용할 수 있게 만든
-프로젝트가 소개됐다. 작성자는 이를 Claude로 5시간 만에 만들었다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wx3cfl/built_with_claude_in_5_hours/">Built with Claude in 5 hours</a> <span class="ref">(Reddit · 10/04 10:28)</span>.
-댓글들은 최근 몇 주간 게임을 서로 모딩해 넣는 시도가 쏟아지고 있다는 반응과, 처음에는 마인크래프트를
-엘든링에 넣은 실제 모드로 착각해서 재미있었다는 반응으로 나뉘었다. 사용 한도와 자원 낭비를
-불평하는 댓글들을 겨냥해, 자신이 가치 있다고 느끼는 작업만 정당하고 남의 작업은 쓸모없다고 여기는
-태도를 비판하는 긴 반박도 달렸다. 전반적으로는 이런 용도가 해킹 같은 악용보다는 낫다거나, 비판이
-너무 많다며 성공적으로 만들어낸 것 자체를 응원하는 댓글이 많았고, 다음에는 Skate 2까지 합쳐서
-마을을 누비며 트릭을 해보라는 농담도 있었다.</p>
+<h2>신뢰하는 사람들과 Codex·Claude 구독을 함께 모아 쓰는 서비스 공개</h2>
+<p>Hacker News의 Show HN 게시물에서 Codex와 Claude 구독을 신뢰하는 사람들끼리 모아서 함께 쓰는 서비스가 소개됐다 <a href="https://news.ycombinator.com/item?id=49968951">Show HN: Codex and Claude subscriptions pooled together with whoever you trust</a> <span class="ref">(HN · 10/06 03:58)</span>. 본문과 댓글이 남아있지 않아 구체적인 구조나 반응은 확인되지 않는다.</p>
 
-<h2>7. Claude Code가 기본적으로 30일 후 세션 로그를 삭제한다는 사실</h2>
-<p>Claude Code가 기본 설정상 오래된 세션 로그를 30일 뒤 자동으로 삭제한다는 사실이 알려졌다
-<a href="https://news.ycombinator.com/item?id=49955324">Claude Code deletes your old session logs after 30 days by default</a> <span class="ref">(HN · 10/05 01:27)</span>.</p>
+<h2>Claude Code를 터미널과 데스크톱 앱 중 어디서 쓰는지 설문</h2>
+<p>r/ClaudeCode에 올라온 설문 글은 최근 터미널에서 Claude 데스크톱 앱으로 옮긴 작성자가 더 편리하다고 느꼈다며, 다수가 여전히 터미널 환경을 쓰는지 물었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wy9mju/how_many_of_you_still_use_claude_code_from/">How many of you still use Claude code from terminal vs the claude desktop app?</a> <span class="ref">(Reddit · 10/05 23:13)</span>. 댓글 다수는 CLI 선호를 밝혔다.</p>
+<p><code>herdr</code>라는 도구로 플러그인을 직접 만들어 쓴다는 댓글, <code>herdr</code> 안에서도 터미널을 쓸 수 있다는 보완 댓글이 이어졌다. Codex·Claude Code·Grok을 매일 같이 쓴다는 한 작성자는 리소스 사용이 가벼운 <code>Wake</code>를 추천했다. 대화 기록이 멀리 스크롤해도 사라지지 않고 검색·회상이 가능하다는 설명도 달렸다.</p>
+<p>가장 적극적인 사례로는, VSCode 확장으로 시작해 자체 브라우저·모바일 버전을 거쳐 iOS 네이티브 앱까지 직접 만들어 code-server 환경에서 항상 켜 두고 쓴다는 작성자의 경험담이 있었다.</p>
 
-<h2>8. Claude Code, Codex, Cursor를 팀과 나란히 실행하는 도구</h2>
-<p>Claude Code, Codex, Cursor를 팀원들과 나란히 실행할 수 있게 해주는 도구가 Show HN에 소개됐다
-<a href="https://news.ycombinator.com/item?id=49956379">Run Claude Code, Codex and Cursor side by side with your team</a> <span class="ref">(HN · 10/05 03:15)</span>.</p>
+<h2>Claude Code 모드(mods) 카탈로그 발견과 사용 후기</h2>
+<p>r/ClaudeCode에 두 건의 글이 모드(mods) 관련 경험을 전했다. 한 작성자는 모드를 거꾸로 활용해 구독 사용량과 컨텍스트 창 데이터를 USB로 연결된 소형 디스플레이에 띄우는 프로젝트를 진행했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wye4ix/i_just_wanted_to_try_the_new_claude_code_mods_i/">I just wanted to try the new Claude Code mods. I ended up with a finished physical object on my desk that I didn't make or buy</a> <span class="ref">(Reddit · 10/06 02:08)</span>. 펌웨어와 UI를 Claude가 전부 작성했고, 제조사가 제공한 치수 도면을 주자 <code>FreeCAD</code>로 케이스와 스탠드까지 설계해 3D 프린트 후 수정 없이 바로 맞았다고 밝혔다. 작성자는 소프트웨어·펌웨어·기구 설계 세 분야를 한 번의 수작업 개입도 없이 끝낸 건 <code>Opus 5.5</code> 덕분이라고 평가했다.</p>
+<p>댓글들은 AI가 아직 진지한 업무 도구로서는 막 확산되기 시작한 단계라는 공감과, "Limitless" 영화 속에서 사는 느낌이라는 감탄, 반면 실력은 있는데 취업 기회로 연결되지 않는다는 하소연, 무료 컨설팅을 제안했다가 오히려 신뢰를 깎아먹을 수 있다는 경고까지 다양하게 이어졌다.</p>
+<p>다른 작성자는 거의 100개에 달하는 모드 카탈로그를 발견했다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wyojh6/did_you_know_claude_code_has_mods_theyre_awesome/">Did you know Claude Code has mods? They’re awesome</a> <span class="ref">(Reddit · 10/06 09:13)</span>. 소개된 모드로는 세션 비용을 프롬프트 위에 바로 보여주는 <code>cost-meter</code>, <code>rm -rf</code>나 강제 푸시, <code>DROP TABLE</code> 같은 위험한 명령 실행 전에 확인을 구하는 <code>guard-essentials</code>, 브랜치·변경 파일·최근 커밋을 보여주는 <code>git-pane</code>, git 로그로 스탠드업을 작성하는 <code>/standup</code>, 테스트 성공·실패에 따라 소리를 내는 <code>sounds-retro</code>, Claude가 요다처럼 말하게 하는 <code>yoda-mode</code>가 있었다. 각 모드는 설치 전 접근 권한을 보여준다는 점이 호평을 받았다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-10-05 08:40 KST</p>
+  <p>생성 2026-10-06 10:33 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
