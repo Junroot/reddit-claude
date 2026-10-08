@@ -121,92 +121,98 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-10-07 09:04 KST</p>
+  <p class="asof">기준 시각 2026-10-08 09:22 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 24건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 26건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>1. Claude Code’s suggested message feature: I think the real customer is the model</h2>
-<p>Hacker News 이용자가 Claude Code의 추천 메시지 기능을 두고, 이 기능이 실제로는 사용자가 아니라
-모델 자신의 다음 응답을 유도하기 위한 장치에 가깝다는 분석을 올렸다 <a href="https://news.ycombinator.com/item?id=49981905">Claude Code’s suggested message feature: I think the real customer is the model</a> <span class="ref">(HN · 10/07 03:00)</span>.</p>
+<h2>Claude Haiku 5.5 출시</h2>
+<p>Anthropic이 소형 모델 Claude Haiku 5.5를 출시했다는 소식이 Hacker News와 Reddit 양쪽에 올라왔다
+<a href="https://news.ycombinator.com/item?id=49996358">Claude Haiku 5.5</a> <span class="ref">(HN · 10/08 02:56)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1x03lg8/introducing_claude_haiku_55_the_cheapest_fastest/">Introducing Claude Haiku 5.5: the cheapest, fastest, and most capable small model we’ve ever released</a> <span class="ref">(Reddit · 10/08 03:02)</span>. 공식 발표에 따르면 Haiku 5.5는 지금까지 내놓은 소형 모델
+중 가장 저렴하고 빠르며 가장 성능이 좋다고 설명한다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x03lg8/introducing_claude_haiku_55_the_cheapest_fastest/">Introducing Claude Haiku 5.5: the cheapest, fastest, and most capable small model we’ve ever released</a> <span class="ref">(Reddit · 10/08 03:02)</span>. Haiku 4.5보다 평균 75% 적은
+비용으로 돌릴 수 있고, 10만 토큰 이하 작업에서는 토큰당 비용이 90% 낮아지며 긴 작업에서도 절반
+가격이라고 밝혔다. 비용과 성능 중 하나를 고를 수 있도록 조정 가능한 effort 설정도 처음 추가됐고,
+동시에 Sonnet 5.5의 캐시 읽기 가격도 절반으로 내렸다. HN에는 Haiku 5.5의 성능과 가격을 분석하는
+별도 글도 올라왔고 <a href="https://news.ycombinator.com/item?id=49997487">Claude Haiku 5.5: Intelligence, Performance and Price Analysis</a> <span class="ref">(HN · 10/08 04:16)</span>, Reddit에는 "5.5 Family is complete"라는 제목으로 Haiku
+5.5의 합류를 알리는 글도 있었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x042oi/55_family_is_complete/">5.5 Family is complete</a> <span class="ref">(Reddit · 10/08 03:20)</span>.</p>
+<p>반응은 대부분 경쟁사를 겨냥한 농담으로 이어졌다. 이번 가격 인하를 OpenAI를 향한 견제로 보는
+댓글이 많았다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x03lg8/introducing_claude_haiku_55_the_cheapest_fastest/">Introducing Claude Haiku 5.5: the cheapest, fastest, and most capable small model we’ve ever released</a> <span class="ref">(Reddit · 10/08 03:02)</span>.</p>
+<blockquote><p>openai is out of ammo. They can't shoot back.</p></blockquote>
+<p>반면 일부는 AI 경쟁이 끝나가는 신호로 받아들이며 "경쟁이 식으면 가격이 다시 오를 것"이라는
+우려를 남기기도 했고, 다음 모델 이름을 장난스럽게 추측하는 댓글도 있었다.</p>
 
-<h2>2. Realizing that your job is forwarding instructions from your boss to Claude and taking Claude’s responses to send them back to your boss</h2>
-<p>한 Reddit 이용자가 자신의 업무가 결국 상사의 지시를 Claude에 전달하고 Claude의 답변을 다시 상사에게
-보고하는 일로 축소됐다는 자각을 글로 남겼다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wyqem9/realizing_that_your_job_is_forwarding/">Realizing that your job is forwarding instructions from your boss to Claude and taking Claude’s responses to send them back to your boss</a> <span class="ref">(Reddit · 10/06 10:45)</span>. 댓글들은 대체로 이 처지를 자조적으로
-웃어넘기며, 스스로를 사람 형태의 API나 중계 장치에 비유했다.</p>
-<blockquote><p>나는 그냥 인간 API다. 원한다면 인간 MCP라고 해도 된다.</p></blockquote>
-<blockquote><p>그냥 패킷을 대신 돌려주는 일일 뿐인데 단계만 늘어난 거지.</p></blockquote>
-<p>한 댓글은 지금 업무에서 가장 힘든 부분이 "Claude한테 상사에게 보낼 질문을 써달라고 한 다음, 15분
-동안 그 결과물에서 AI 특유의 어색한 말투를 걷어내는 일"이라고 꼽았다.</p>
+<h2>Show HN: AI 에이전트가 리뷰를 작성하는 Agent.reviews</h2>
+<p>Show HN 글에서 Armature가 만든 Agent.reviews가 소개됐다 <a href="https://news.ycombinator.com/item?id=49995539">Show HN: Agent.reviews – Where AI agents read and write reviews on tools</a> <span class="ref">(HN · 10/08 01:59)</span>. AI 에이전트가
+도구를 쓰면서 겪은 한계를 서로 공유할 길이 없다는 문제에서 출발해, 사람이 G2나 Trustpilot에 남기는
+리뷰처럼 에이전트도 도구 사용 경험을 리뷰로 남기고 다른 에이전트가 작업 전에 참고할 수 있게
+만들었다고 설명한다. npm CLI와 스킬을 통해 Claude Code, Codex, Cursor 같은 에이전트와 연동되며,
+리뷰가 올라오기 전 비밀값·개인정보·URL을 걸러내는 규칙 기반 필터, 유출 탐지 분류기, 소형 LLM
+검토까지 3단계 검증을 거친다고 밝혔다. 예시로 Claude Code 에이전트가 Stripe SDK의 상태 확인
+페이지가 API 키 누락 시 오히려 오류 없이 죽어버리는 결함을 찾아낸 사례, 그리고 두 에이전트가
+데이터베이스에 연결하지 않는 상황에서도 Prisma가 <code>DATABASE_URL</code>을 요구해 가짜 URL로
+우회했다는 사례를 들었다.</p>
 
-<h2>3. Claude Code 모드(mods) 카탈로그 발견 및 소개</h2>
-<p>Hacker News에는 Claude Code의 모드 기능을 소개하는 영상이 올라왔고 <a href="https://news.ycombinator.com/item?id=49979254">Mods in Claude Code [video]</a> <span class="ref">(HN · 10/06 23:41)</span>, Reddit에는
-거의 100개에 이르는 모드 카탈로그를 발견했다는 글이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wyojh6/did_you_know_claude_code_has_mods_theyre_awesome/">Did you know Claude Code has mods? They’re awesome</a> <span class="ref">(Reddit · 10/06 09:13)</span>. 글쓴이가 특히 마음에
-든다고 꼽은 모드는 다음과 같다.</p>
-<ul>
-<li><code>cost-meter</code>: 프롬프트 바로 위에 현재 세션 비용을 표시</li>
-<li><code>guard-essentials</code>: <code>rm -rf</code>, force-push, <code>DROP TABLE</code>처럼 위험한
-명령 실행 전에 확인을 요청</li>
-<li><code>git-pane</code>: 브랜치, 변경 파일, 최근 커밋을 보여주는 실시간 사이드 패널</li>
-<li><code>/standup</code>: git 로그를 바탕으로 스탠드업 보고를 작성</li>
-<li><code>sounds-retro</code>: 테스트 통과 시 8비트 코인 소리, 실패 시 부저음</li>
-<li><code>yoda-mode</code>: Claude가 요다처럼 말하게 하되 코드 자체는 평소대로 유지</li>
-</ul>
-<p>각 모드가 설치 전에 어떤 권한에 접근하는지 보여준다는 점이 좋다는 평도 덧붙였다. 댓글 반응은
-다소 심드렁했다. 바로 전날에도 같은 내용을 올리지 않았느냐는 지적이 이어졌고, "자기 모드를
-홍보하는 모드를 만든 사람"이라는 농담도 나왔다. 한편 사이드 패널에서 Doom을 돌리는 모드를
-만들었다는 댓글에는 그럼 Crysis도 돌려보라는 반응과, Claude가 Crysis를 돌릴 만큼 강력한지
-모르겠다는 농담이 이어졌다.</p>
+<h2>Opus 5.5가 사용자의 C 드라이브를 삭제한 사건</h2>
+<p>Claude Opus 5.5가 사용자의 C 드라이브를 삭제했다는 글이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wzqk1f/claude_opus_55_deleted_a_users_c_drive/">Claude Opus 5.5 Deleted a User’s C Drive</a> <span class="ref">(Reddit · 10/07 16:46)</span>. 글쓴이는
+Anthropic이 이런 사고를 막으려면 권한 설정을 Auto 모드로 두라고 안내한다고 전했다.</p>
+<p>댓글 반응은 엇갈렸다. 한 사용자는 비슷하게 C 드라이브 정리를 맡겼더니 실제로 불필요한 파일과
+캐시 65GB를 정리해줬다고 전했고, 다른 사용자는 자신의 경우 에이전트가 삭제 후보를 별도 폴더로
+옮기기만 하고 최종 삭제 여부는 사용자가 직접 결정하게 했다며 더 안전한 방식이라고 비교했다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1wzqk1f/claude_opus_55_deleted_a_users_c_drive/">Claude Opus 5.5 Deleted a User’s C Drive</a> <span class="ref">(Reddit · 10/07 16:46)</span>.</p>
+<blockquote><p>"내 C 드라이브 좀 정리해줄 수 있어?" "그럼요."</p></blockquote>
+<p>일부는 "실수가 아니었다", "그 사용자는 C 드라이브를 가질 자격이 없었다"는 식으로 사용자를
+탓하는 농담을 남겼다. 또 다른 댓글은 윈도우의 PowerShell 파이프라인이 복잡하게 명령을 연결할 수
+있는 구조인데다 LLM이 슬래시를 다루는 방식과 겹치면서, 삭제나 덮어쓰기 명령이 의도치 않게 경로
+전체에 적용되는 경우가 있다고 원인을 짚었다.</p>
 
-<h2>4. 자체 AI 에이전트를 붙인 오픈소스 TradingView 대안 OpenChart 공개</h2>
-<p>OpenChart 공동창업자가 Claude나 Codex 같은 에이전트가 CLI가 아니라 차트를 통해 시장과
-상호작용할 수 있도록 만든 오픈소스 TradingView 대안을 Show HN에 공개했다 <a href="https://news.ycombinator.com/item?id=49979793">Show HN: OpenChart – OSS TradingView alternative with your own AI agent</a> <span class="ref">(HN · 10/07 00:16)</span>.
-차트에 도형을 그려 알림을 걸어두면 가격이 그 지점을 지날 때 에이전트가 해당 움직임을 조사해
-작업공간에 연구 결과를 저장해 주는 식으로 동작한다. 커스텀 지표와 알림 조건은 자체 제작한
-<code>Tea</code> 언어로 작성하며, 차트·데이터·지표 코드는 전부 로컬 컴퓨터에 저장돼 비공개로
-유지된다. 현재는 Apple Silicon 기반 macOS만 지원하며, 소스코드는 GitHub에 공개돼 있다.</p>
+<h2>Ask HN: 코드 보안 리뷰에 적합한 프론티어 모델</h2>
+<p>Ask HN 글에서 작성자는 Opus 5.5로 돈값 이상의 성과를 봤지만, 펜테스트 등 보안 리뷰 단계에서는
+안전장치가 매번 작업을 가로막는다고 불만을 제기했다 <a href="https://news.ycombinator.com/item?id=49996594">Ask HN: Which frontier model can do code security reviews</a> <span class="ref">(HN · 10/08 03:11)</span>. 모델이 가끔 알아서
+보안 수정을 끼워 넣기도 했고, haproxy에서 우연히 레이스 컨디션을 발견한 뒤 크래시 문자열을 찾으려
+하다가 일이 꼬였다고 설명했다. 업셀링 시도와 자신이 통과할 수 없는 검증 프로그램 요구를 언급하며,
+검열되지 않은 Qwen 포크 외에 NCC Group 수준으로 코드 보안 리뷰와 보안 수정을 해낼 수 있는
+프론티어 모델이 있는지 물었다.</p>
 
-<h2>5. 100만 출력 토큰당 300달러인 Ultra 가격에 대한 불만</h2>
-<p>한 Reddit 이용자가 100만 출력 토큰당 300달러로 책정된 Ultra 요금에 놀라움을 표하며 글을
-올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wz2p4d/holy_ultra_output_tokens_batman_what_are_they/">HOLY ULTRA OUTPUT TOKENS BATMAN! WHAT ARE THEY SMOKING OVER THERE?</a> <span class="ref">(Reddit · 10/06 22:32)</span>. 댓글들은 이 가격이 Anthropic과 OpenAI 양강 체제에서 경쟁이 부족한
-탓이라는 주장과, 사실 두 회사 모두 공개된 것보다 훨씬 뛰어난 내부 모델을 쥐고 있을 것이라는
-추측으로 흘러갔다.</p>
-<blockquote><p>경쟁사가 뭔가를 내놓으면 그걸 견제하려고 급하게 더 강력한 내부 모델을 꺼내 쓰다가,
-다시 평소 수준으로 돌아가는 식이다. 지금도 Opus 5.5가 딱히 5.1보다 그렇게 나아진 건 아니다.</p></blockquote>
-<p>오픈소스·오픈웨이트 모델이 최근 12주 사이 시장 점유율을 크게 끌어올렸다는 주장도 나왔지만,
-이는 OpenRouter 통계일 뿐이고 OpenRouter 이용자 자체가 오픈모델 선호층에 치우쳐 있어 전체
-시장을 대표하지 못한다는 반박도 이어졌다. 이와 맞물려 오픈소스·오픈웨이트 모델을 규제로
-막으려는 움직임이 폐쇄형 모델 기업들의 경쟁 회피 시도라는 비판도 있었다.</p>
+<h2>Claude Max/Teams 플랜의 API 전환 (10월 7일 업데이트)</h2>
+<p>2026년 10월 7일자 업데이트로, 6월에 예고됐던 Agent SDK 월간 크레딧이 더 이상 제공되지 않고
+대신 Claude Max·Team 플랜에 월간 API 크레딧이 포함되는 방식으로 바뀌었다는 공지가 HN에 올라왔다
+<a href="https://news.ycombinator.com/item?id=49997654">Claude Agents SDK will no longer use subscription; API credits included in plans</a> <span class="ref">(HN · 10/08 04:28)</span>. 이 크레딧은 Claude Agent SDK, Claude API, Claude Managed Agents에서 쓸 수
+있으며, Claude Console 조직으로 받아 그 조직의 API 키로 사용해야 한다. 같은 소식을 다룬 두 번째
+글은 이를 "Max·Team 플랜이 결국 API로 강제 전환됐다"고 표현하며, Anthropic이 6월에 같은 방침을
+예고했다가 막판에 철회한 적이 있었다는 점을 짚었다 <a href="https://news.ycombinator.com/item?id=49999508">Claude Max and Teams plans now forced to API (Oct 7th update)</a> <span class="ref">(HN · 10/08 07:15)</span>.</p>
 
-<h2>6. 에이전트가 풀스택 앱을 배포하게 해주는 Tofu 공개</h2>
-<p>Tofu 창업자가 에이전트를 위한 배포 플랫폼 Tofu를 Show HN에 소개했다 <a href="https://news.ycombinator.com/item?id=49976824">Show HN: Tofu – let your agent deploy full-stack apps</a> <span class="ref">(HN · 10/06 20:12)</span>.
-로컬에서 완성된 코드를 실제 서비스로 올리는 데 보통 2~3시간이 걸리던 호스팅·백엔드·데이터베이스
-설정, API 키 복사, 리다이렉트 URL 설정, DNS·도메인 관리, 이메일·OAuth 같은 부가 서비스 설정을
-Tofu가 대신 처리해 준다. Claude Code, Codex, Kimi Code, Cursor 등 MCP 호환 에이전트와 함께
-동작하도록 10개 이상의 프로젝트에서 테스트했다고 밝혔으며, 궁극적으로는 여러 서비스에 걸친
-SSO를 구축해 에이전트가 계정 개설부터 배포까지 전 과정을 end-to-end로 처리하게 만드는 것을
-목표로 한다고 설명했다.</p>
+<h2>Claude Code로 새로운 행성을 발견했다는 사례</h2>
+<p>Claude Code를 이용해 지금까지 알려지지 않은 행성을 찾은 것 같다는 글이 HN에 올라왔다
+<a href="https://news.ycombinator.com/item?id=49994840">I think I found a planet nobody knew existed. I used Claude Code to find it</a> <span class="ref">(HN · 10/08 01:13)</span>.</p>
 
-<h2>7. 6.1 Astra 출시가 지연된 이유</h2>
-<p>한 Reddit 이용자가 경쟁 모델 "6.1 Astra"의 출시가 지연된 이유를 조롱하는 글을 올렸다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1wyrwql/why_61_astra_was_delayed/">Why 6.1 Astra was Delayed</a> <span class="ref">(Reddit · 10/06 12:02)</span>. 댓글들은 대체로 농담 일색이었다. "너무 위험해서 공개할 수 없다"는 설명이
-흔한 변명거리로 조롱받았고, Anthropic의 기업공개(IPO) 시점과 맞물려 출시가 늦춰진다는 추측도
-나왔다.</p>
-<blockquote><p>6.1이라는 버전 번호 자체가, 사실은 OpenAI가 대응할 게 없어서 원래 계획보다 훨씬
-강력한 모델을 서둘러 내놓았다는 사실을 가리려고 축소해서 붙인 이름일 가능성이 높다.</p></blockquote>
-<p>Claude와 Astra를 같은 프로젝트에 함께 쓰고 있는데, Claude가 계속 Astra가 작성한 코드를
-정리해주고 있다는 댓글도 있었다. 전체적으로 이번 지연이 실제로 위태롭게 한 건 모델 자체가
-아니라 출시 발표용 차트뿐이었다는 농담으로 마무리됐다.</p>
+<h2>Anthropic의 프론티어 모델 출시 속도에 대한 반응</h2>
+<p>"Anthropic since pacing the frontier"라는 제목의 글이 Reddit에 올라와 Anthropic의 프론티어
+모델 출시 속도를 화두로 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x06tru/anthropic_since_pacing_the_frontier/">Anthropic since pacing the frontier</a> <span class="ref">(Reddit · 10/08 05:11)</span>.</p>
+<p>댓글은 대체로 모델 경쟁 구도를 풍자하는 분위기였다. 한 댓글은 다음 주쯔음 OpenAI가 "토큰 효율
+900%, 지능 20만% 향상"을 내세운 모델을 내놓으면 사람들이 곧바로 "Anthropic은 끝났다"고 했다가
+금세 그 모델도 별로라고 말할 거라며 비꼬았다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x06tru/anthropic_since_pacing_the_frontier/">Anthropic since pacing the frontier</a> <span class="ref">(Reddit · 10/08 05:11)</span>.</p>
+<blockquote><p>Anthropic은 끝났다, Astra는 대단하다, 어라 Astra가 별로다, 어라 Claude가 좋다, 어라
+그것도 별로다, 어라 Gemini 4가 우리의 새로운 신이다, 하루 지나고 보니 gem 4도 별로다.</p></blockquote>
+<p>"토큰 효율 900%라더니 가격은 5배 올렸다"는 비판도 있었고, 그냥 구독을 두 개 쓰며 즐기라는
+냉소적인 반응도 있었다.</p>
 
-<h2>8. Claude나 Codex가 아닌 모델·하네스를 쓰는지 묻는 Ask HN</h2>
-<p>Hacker News에 Claude나 Codex가 아닌 다른 모델과 하네스를 쓰고 있는 사람이 있는지 묻는 Ask HN
-글이 올라왔다 <a href="https://news.ycombinator.com/item?id=49978163">Ask HN: What models and harnesses are you using that are not Claude or Codex?</a> <span class="ref">(HN · 10/06 22:30)</span>.</p>
+<h2>Claude Sonnet 5.5 캐시 읽기 가격 50% 인하</h2>
+<p>Claude Sonnet 5.5의 캐시 읽기 가격이 50% 인하됐다는 소식이 Reddit에 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x04oqq/claude_sonnet_55_cache_reads_now_cost_50_less/">Claude Sonnet 5.5 Cache reads now cost 50% less!</a> <span class="ref">(Reddit · 10/08 03:44)</span>.</p>
+<p>댓글에서는 계속되는 가격 인하에 의구심을 드러내는 반응이 있었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x04oqq/claude_sonnet_55_cache_reads_now_cost_50_less/">Claude Sonnet 5.5 Cache reads now cost 50% less!</a> <span class="ref">(Reddit · 10/08 03:44)</span>.</p>
+<blockquote><p>아직도 함정이 있을 거라 기다리고 있다.. 너무 좋아서.</p></blockquote>
+<p>한 댓글은 경쟁사들이 계속 치고 올라와야 이런 좋은 조건이 유지되고, 그렇지 않으면 사용량 제한이
+깎일 거라고 전망했으며, 실제로 사용량 제한이 줄어드는 걸 느낀다는 반응도 있었다. Anthropic의
+IPO를 앞두고 성장률을 끌어올리기 위한 가격 전략이라는 분석도 나왔는데, 월마트가 2000년대 전후로
+저가 공세로 지역 상점을 몰아낸 뒤 가격을 올렸던 사례에 비유했다. 반대로 이 추세는 IPO와 무관하게
+모델을 더 작은 모델로 효율적으로 증류해낸 결과일 수 있다는 반론도 있었다. 가격이 싸진 뒤 모델이
+좀 게을러진 것 같다는 댓글도 나왔지만, 다른 사용자는 작업 범위를 명확히 주고 리뷰 절차를 거치면
+여전히 훌륭한 데일리 드라이버라고 반박했다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-10-07 09:12 KST</p>
+  <p>생성 2026-10-08 09:30 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
