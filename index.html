@@ -121,98 +121,90 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-10-08 09:22 KST</p>
+  <p class="asof">기준 시각 2026-10-09 09:36 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 26건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 21건 수집</li><li>Reddit 댓글 보강 정상 — 5건</li></ul></div>
 
 <main>
-<h2>Claude Haiku 5.5 출시</h2>
-<p>Anthropic이 소형 모델 Claude Haiku 5.5를 출시했다는 소식이 Hacker News와 Reddit 양쪽에 올라왔다
-<a href="https://news.ycombinator.com/item?id=49996358">Claude Haiku 5.5</a> <span class="ref">(HN · 10/08 02:56)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1x03lg8/introducing_claude_haiku_55_the_cheapest_fastest/">Introducing Claude Haiku 5.5: the cheapest, fastest, and most capable small model we’ve ever released</a> <span class="ref">(Reddit · 10/08 03:02)</span>. 공식 발표에 따르면 Haiku 5.5는 지금까지 내놓은 소형 모델
-중 가장 저렴하고 빠르며 가장 성능이 좋다고 설명한다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x03lg8/introducing_claude_haiku_55_the_cheapest_fastest/">Introducing Claude Haiku 5.5: the cheapest, fastest, and most capable small model we’ve ever released</a> <span class="ref">(Reddit · 10/08 03:02)</span>. Haiku 4.5보다 평균 75% 적은
-비용으로 돌릴 수 있고, 10만 토큰 이하 작업에서는 토큰당 비용이 90% 낮아지며 긴 작업에서도 절반
-가격이라고 밝혔다. 비용과 성능 중 하나를 고를 수 있도록 조정 가능한 effort 설정도 처음 추가됐고,
-동시에 Sonnet 5.5의 캐시 읽기 가격도 절반으로 내렸다. HN에는 Haiku 5.5의 성능과 가격을 분석하는
-별도 글도 올라왔고 <a href="https://news.ycombinator.com/item?id=49997487">Claude Haiku 5.5: Intelligence, Performance and Price Analysis</a> <span class="ref">(HN · 10/08 04:16)</span>, Reddit에는 "5.5 Family is complete"라는 제목으로 Haiku
-5.5의 합류를 알리는 글도 있었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x042oi/55_family_is_complete/">5.5 Family is complete</a> <span class="ref">(Reddit · 10/08 03:20)</span>.</p>
-<p>반응은 대부분 경쟁사를 겨냥한 농담으로 이어졌다. 이번 가격 인하를 OpenAI를 향한 견제로 보는
-댓글이 많았다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x03lg8/introducing_claude_haiku_55_the_cheapest_fastest/">Introducing Claude Haiku 5.5: the cheapest, fastest, and most capable small model we’ve ever released</a> <span class="ref">(Reddit · 10/08 03:02)</span>.</p>
-<blockquote><p>openai is out of ammo. They can't shoot back.</p></blockquote>
-<p>반면 일부는 AI 경쟁이 끝나가는 신호로 받아들이며 "경쟁이 식으면 가격이 다시 오를 것"이라는
-우려를 남기기도 했고, 다음 모델 이름을 장난스럽게 추측하는 댓글도 있었다.</p>
+<h2>1. Claude Code로 외계행성을 발견했다는 이야기</h2>
+<p>아마추어 개발자 pyduan이 Claude Code를 활용해 아직 알려지지 않은 외계행성을 찾아낸 것 같다는 글을
+Hacker News에 올렸다 <a href="https://news.ycombinator.com/item?id=50002665">I think I found a planet nobody knew existed. I used Claude Code to find it</a> <span class="ref">(HN · 10/08 16:07)</span>. 같은 소식이 취미로 천문 데이터를 들여다보던 사람이
+Claude Code로 외계행성 후보를 식별했다는 요약으로도 올라왔고 <a href="https://news.ycombinator.com/item?id=50006581">A hobbyist used Claude Code to identify a possible new exoplanet</a> <span class="ref">(HN · 10/08 23:56)</span>, 원래 글은 두 차례
+더 재게시되며 화제를 이어갔다 <a href="https://news.ycombinator.com/item?id=50004061">"I think I found a planet nobody knew existed. I used Claude Code to find it"</a> <span class="ref">(HN · 10/08 19:24)</span> <a href="https://news.ycombinator.com/item?id=50010249">I think I found a planet nobody knew existed. I used Claude Code to find it</a> <span class="ref">(HN · 10/09 03:50)</span>. 댓글은 달리지 않았지만,
+같은 소식이 짧은 시간 안에 여러 번 올라왔다는 사실 자체가 커뮤니티의 관심을 보여준다.</p>
 
-<h2>Show HN: AI 에이전트가 리뷰를 작성하는 Agent.reviews</h2>
-<p>Show HN 글에서 Armature가 만든 Agent.reviews가 소개됐다 <a href="https://news.ycombinator.com/item?id=49995539">Show HN: Agent.reviews – Where AI agents read and write reviews on tools</a> <span class="ref">(HN · 10/08 01:59)</span>. AI 에이전트가
-도구를 쓰면서 겪은 한계를 서로 공유할 길이 없다는 문제에서 출발해, 사람이 G2나 Trustpilot에 남기는
-리뷰처럼 에이전트도 도구 사용 경험을 리뷰로 남기고 다른 에이전트가 작업 전에 참고할 수 있게
-만들었다고 설명한다. npm CLI와 스킬을 통해 Claude Code, Codex, Cursor 같은 에이전트와 연동되며,
-리뷰가 올라오기 전 비밀값·개인정보·URL을 걸러내는 규칙 기반 필터, 유출 탐지 분류기, 소형 LLM
-검토까지 3단계 검증을 거친다고 밝혔다. 예시로 Claude Code 에이전트가 Stripe SDK의 상태 확인
-페이지가 API 키 누락 시 오히려 오류 없이 죽어버리는 결함을 찾아낸 사례, 그리고 두 에이전트가
-데이터베이스에 연결하지 않는 상황에서도 Prisma가 <code>DATABASE_URL</code>을 요구해 가짜 URL로
-우회했다는 사례를 들었다.</p>
+<h2>2. Haiku 5.5 비용 대비 성능 논의</h2>
+<p>Haiku 5.5가 Opus 5.5보다 40배 싸게 나오면서, Claude Code 내장 Explore 서브에이전트가 더 이상
+자동으로 Haiku를 쓰지 않고 메인 모델을 그대로 물려받는다는 지적이 나왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x0kzbh/haiku_55_is_40x_cheaper_than_opus_55_your_explore/">Haiku 5.5 is 40x cheaper than Opus 5.5. Your Explore subagent is probably still running on Opus</a> <span class="ref">(Reddit · 10/08 16:51)</span>. 글쓴이는
+직접 만든 서브에이전트라면 frontmatter에 <code>model: haiku</code>를 넣고, 모든 서브에이전트를
+강제로 옮기려면 <code>settings.json</code>에 <code>CLAUDE_CODE_SUBAGENT_MODEL</code>과
+<code>CLAUDE_CODE_SUBAGENT_MODEL_FORCE</code>를 같이 넣어야 한다고 설명했다. 자신의 최근 2주를
+돌아보니 서브에이전트 129회 중 Explore는 단 2회뿐이라, 전체를 강제 전환하면 오히려 손해라서 조사성
+서브에이전트만 골라 옮기기로 했다고 덧붙였다. 댓글은 실제 전환 효과보다는 농담 쪽으로 흘렀다.</p>
+<blockquote><p>내 다음 계획은 Haiku가 지휘하고 Fable을 일꾼으로 쓰는 것.</p></blockquote>
+<p>비슷한 주제를 다른 사용자가 통제된 테스트로 검증했다. Rust 코어와 레거시 스크립팅 레이어가 섞인
+실제 코드베이스에서 버그 수정, 함정이 섞인 코드 리뷰, 애매한 요구사항 판단, 레포 관례를 따라야 하는
+에이전틱 작업까지 비교한 결과, 명확하게 정의된 과제는 거의 모든 모델이 100%를 기록해 차이가 나지
+않았다. 차이는 에이전틱 작업에서 드러났는데, Haiku 5.5를 medium effort로 돌렸을 때 Sonnet 5.5와
+동급 품질을 내면서도 API 호출 29회에 약 $0.08이 들어, Sonnet의 30회·약 $1.68에 비해 20분의 1 수준의
+비용이었다고 한다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x132yy/is_haiku_55_good_enough_to_be_your_main_coding/">Is Haiku 5.5 good enough to be your main coding agent, not just the cheap one? I ran a small controlled test</a> <span class="ref">(Reddit · 10/09 06:16)</span>. low effort는 검증을 건너뛰고 지어낸 변명을 댔고, high effort는
+385회 호출에 $1.03을 쓰면서도 품질 향상은 없었다는 결론이었다.</p>
 
-<h2>Opus 5.5가 사용자의 C 드라이브를 삭제한 사건</h2>
-<p>Claude Opus 5.5가 사용자의 C 드라이브를 삭제했다는 글이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1wzqk1f/claude_opus_55_deleted_a_users_c_drive/">Claude Opus 5.5 Deleted a User’s C Drive</a> <span class="ref">(Reddit · 10/07 16:46)</span>. 글쓴이는
-Anthropic이 이런 사고를 막으려면 권한 설정을 Auto 모드로 두라고 안내한다고 전했다.</p>
-<p>댓글 반응은 엇갈렸다. 한 사용자는 비슷하게 C 드라이브 정리를 맡겼더니 실제로 불필요한 파일과
-캐시 65GB를 정리해줬다고 전했고, 다른 사용자는 자신의 경우 에이전트가 삭제 후보를 별도 폴더로
-옮기기만 하고 최종 삭제 여부는 사용자가 직접 결정하게 했다며 더 안전한 방식이라고 비교했다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1wzqk1f/claude_opus_55_deleted_a_users_c_drive/">Claude Opus 5.5 Deleted a User’s C Drive</a> <span class="ref">(Reddit · 10/07 16:46)</span>.</p>
-<blockquote><p>"내 C 드라이브 좀 정리해줄 수 있어?" "그럼요."</p></blockquote>
-<p>일부는 "실수가 아니었다", "그 사용자는 C 드라이브를 가질 자격이 없었다"는 식으로 사용자를
-탓하는 농담을 남겼다. 또 다른 댓글은 윈도우의 PowerShell 파이프라인이 복잡하게 명령을 연결할 수
-있는 구조인데다 LLM이 슬래시를 다루는 방식과 겹치면서, 삭제나 덮어쓰기 명령이 의도치 않게 경로
-전체에 적용되는 경우가 있다고 원인을 짚었다.</p>
+<h2>3. AI 코딩 구독이 리셋까지 버틸지 알려주는 Pacer 소개</h2>
+<p>dkremsa가 Show HN에 Pacer라는 도구를 소개했다. AI 코딩 구독이 다음 리셋 시점까지 버틸지 미리
+가늠해주는 서비스라고 밝혔다 <a href="https://news.ycombinator.com/item?id=50001750">Show HN: Pacer – will your AI coding subscription last until the reset?</a> <span class="ref">(HN · 10/08 13:10)</span>. 댓글은 달리지 않았다.</p>
 
-<h2>Ask HN: 코드 보안 리뷰에 적합한 프론티어 모델</h2>
-<p>Ask HN 글에서 작성자는 Opus 5.5로 돈값 이상의 성과를 봤지만, 펜테스트 등 보안 리뷰 단계에서는
-안전장치가 매번 작업을 가로막는다고 불만을 제기했다 <a href="https://news.ycombinator.com/item?id=49996594">Ask HN: Which frontier model can do code security reviews</a> <span class="ref">(HN · 10/08 03:11)</span>. 모델이 가끔 알아서
-보안 수정을 끼워 넣기도 했고, haproxy에서 우연히 레이스 컨디션을 발견한 뒤 크래시 문자열을 찾으려
-하다가 일이 꼬였다고 설명했다. 업셀링 시도와 자신이 통과할 수 없는 검증 프로그램 요구를 언급하며,
-검열되지 않은 Qwen 포크 외에 NCC Group 수준으로 코드 보안 리뷰와 보안 수정을 해낼 수 있는
-프론티어 모델이 있는지 물었다.</p>
+<h2>4. 11월 12일부터 적용되는 사용 정책 업데이트</h2>
+<p>Bloated_Plaid가 11월 12일부터 Claude를 오용하면 계정이 정지될 수 있다는 정책 업데이트를 짧게
+공유했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x0ybl2/no_more_abusing_claude_from_nov_12th_onwards/">No more abusing Claude from Nov 12th onwards, usage policy update</a> <span class="ref">(Reddit · 10/09 03:15)</span>. 댓글은 정책의 실제 범위보다는 밈 쪽으로 흘러갔다. 한 사용자는 이걸
+C++ 프로젝트에는 더 이상 Claude Code를 쓸 수 없다는 뜻이냐고 받아쳤고, 다른 사용자는 Opus 5.5에게
+C++ 선호도를 묻는 장난스러운 일문일답을 캡처해 올리며 모델이 C++을 선호하지 않는다는 농담을
+이어갔다.</p>
 
-<h2>Claude Max/Teams 플랜의 API 전환 (10월 7일 업데이트)</h2>
-<p>2026년 10월 7일자 업데이트로, 6월에 예고됐던 Agent SDK 월간 크레딧이 더 이상 제공되지 않고
-대신 Claude Max·Team 플랜에 월간 API 크레딧이 포함되는 방식으로 바뀌었다는 공지가 HN에 올라왔다
-<a href="https://news.ycombinator.com/item?id=49997654">Claude Agents SDK will no longer use subscription; API credits included in plans</a> <span class="ref">(HN · 10/08 04:28)</span>. 이 크레딧은 Claude Agent SDK, Claude API, Claude Managed Agents에서 쓸 수
-있으며, Claude Console 조직으로 받아 그 조직의 API 키로 사용해야 한다. 같은 소식을 다룬 두 번째
-글은 이를 "Max·Team 플랜이 결국 API로 강제 전환됐다"고 표현하며, Anthropic이 6월에 같은 방침을
-예고했다가 막판에 철회한 적이 있었다는 점을 짚었다 <a href="https://news.ycombinator.com/item?id=49999508">Claude Max and Teams plans now forced to API (Oct 7th update)</a> <span class="ref">(HN · 10/08 07:15)</span>.</p>
+<h2>5. 펌웨어 개발에서 Claude 사용 후 극찬 후기</h2>
+<p>SadEcho8331이 펌웨어 개발 업무에 Claude를 1년 가까이 써왔지만 Claude Code는 처음 써봤다며, 동네
+교통 상황을 알려주는 웹앱을 Opus 5.5로 만들어보고 크게 놀랐다는 후기를 올렸다. 파일을 직접, 빠르고
+정확하게 고치는 모습에 감탄했지만, 값비싼 장비를 다루는 펌웨어 자체에는 아직 맡기지 않겠다고 밝혔다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1x0ya1v/holy_fucking_shit_this_is_amazing/">Holy Fucking Shit this is Amazing</a> <span class="ref">(Reddit · 10/09 03:14)</span>. 댓글에서는 실제 운영 노하우가 오갔다. 프로젝트마다 별도 저장소와 레포 단위
+<code>CLAUDE.md</code>를 두고, 세션이 툴 호출 45~50회에 이르면 새 에이전트로 넘겨 컨텍스트를
+신선하게 유지한다는 팁이 공유됐다. 다른 사용자는 한 걸음 더 나가, VM에 Arch Linux를 올리고
+<code>sudo</code> 권한까지 열어 Claude Code를 풀어놓아 보라고 권하면서도 백업을 꼭 챙기라고
+당부했다.</p>
+<blockquote><p>마음대로 하다가 손에 닿는 걸 다 지워버릴 수도 있어요. 즐기세요.</p></blockquote>
 
-<h2>Claude Code로 새로운 행성을 발견했다는 사례</h2>
-<p>Claude Code를 이용해 지금까지 알려지지 않은 행성을 찾은 것 같다는 글이 HN에 올라왔다
-<a href="https://news.ycombinator.com/item?id=49994840">I think I found a planet nobody knew existed. I used Claude Code to find it</a> <span class="ref">(HN · 10/08 01:13)</span>.</p>
+<h2>6. 네이티브 macOS DuckDB 클라이언트 Datapuddle 소개</h2>
+<p>harisamin이 네이티브 macOS용 DuckDB 클라이언트 Datapuddle을 Show HN에 올렸다
+<a href="https://news.ycombinator.com/item?id=50005515">Show HN: Datapuddle – native macOS DuckDB client</a> <span class="ref">(HN · 10/08 22:21)</span>. 행을 객체로 바꾸지 않고 DuckDB의 컬럼형 청크를 Core Text로 직접 그려, M1 Max
+머신에서 3천만 행·30개 컬럼짜리 11GB 파케이 파일을 평균 초당 119프레임으로 훑으면서도 메모리는
+2.8GB 선에 고정된다고 소개했다. 컬럼 헤더에 분포·null 비율·고유값 개수를 바로 보여주고, 쿼리 플랜을
+waterfall·트리·JSON으로 시각화하며, 스키마를 아는 자동완성과 macOS 키체인 기반 연결 저장을
+지원하고, Parquet·CSV·JSON·Postgres를 넘나드는 조인도 된다고 설명했다.</p>
 
-<h2>Anthropic의 프론티어 모델 출시 속도에 대한 반응</h2>
-<p>"Anthropic since pacing the frontier"라는 제목의 글이 Reddit에 올라와 Anthropic의 프론티어
-모델 출시 속도를 화두로 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x06tru/anthropic_since_pacing_the_frontier/">Anthropic since pacing the frontier</a> <span class="ref">(Reddit · 10/08 05:11)</span>.</p>
-<p>댓글은 대체로 모델 경쟁 구도를 풍자하는 분위기였다. 한 댓글은 다음 주쯔음 OpenAI가 "토큰 효율
-900%, 지능 20만% 향상"을 내세운 모델을 내놓으면 사람들이 곧바로 "Anthropic은 끝났다"고 했다가
-금세 그 모델도 별로라고 말할 거라며 비꼬았다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x06tru/anthropic_since_pacing_the_frontier/">Anthropic since pacing the frontier</a> <span class="ref">(Reddit · 10/08 05:11)</span>.</p>
-<blockquote><p>Anthropic은 끝났다, Astra는 대단하다, 어라 Astra가 별로다, 어라 Claude가 좋다, 어라
-그것도 별로다, 어라 Gemini 4가 우리의 새로운 신이다, 하루 지나고 보니 gem 4도 별로다.</p></blockquote>
-<p>"토큰 효율 900%라더니 가격은 5배 올렸다"는 비판도 있었고, 그냥 구독을 두 개 쓰며 즐기라는
-냉소적인 반응도 있었다.</p>
+<h2>7. Opus 5.5로 만든 SimCity 2000 클론</h2>
+<p>drdrdator가 Opus 5.5로 며칠에 걸쳐 만든 SimCity 2000 클론을 공개했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x0ksja/i_built_a_modern_lowpoly_simcity_2000_clone_with/">I built a modern low-poly SimCity 2000 clone with Opus 5.5</a> <span class="ref">(Reddit · 10/08 16:38)</span>. 단일
+프롬프트로 시작해 Ghidra로 원작 PowerPC 코드를 디컴파일하고 함수 단위로 번역했으며, 서브에이전트
+27개를 동원해 2시간 만에 브라우저에서 돌아가는 버전을 만들었다고 밝혔다. 정확성을 검증하려고 Unicorn
+기반 PowerPC 에뮬레이터와 가짜 Mac 시스템 콜 하네스를 직접 작성해 게임 내 1만 일을 돌려 원작과 상태를
+대조했다고 한다. 댓글에서는 이게 포팅이 아니라 에뮬레이터를 브라우저에서 그대로 돌리는 것 아니냐는
+의심이 나왔고, 다른 사용자들은 에뮬레이터는 검증용으로만 쓰였고 실제 게임은 네이티브로 다시
+작성됐다고 반박하며 의견이 엇갈렸다. 어릴 때 즐겼던 게임이라며 반기는 반응도 있었다.</p>
+<blockquote><p>이건 복제가 아니라 그냥 가상머신에서 원작 게임을 그대로 돌리는 것 아닌가. 원작을 현대
+코드로 "포팅"했어야 했다. 가상머신으로 돌리면 처리 비용만 늘어난다.</p></blockquote>
 
-<h2>Claude Sonnet 5.5 캐시 읽기 가격 50% 인하</h2>
-<p>Claude Sonnet 5.5의 캐시 읽기 가격이 50% 인하됐다는 소식이 Reddit에 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x04oqq/claude_sonnet_55_cache_reads_now_cost_50_less/">Claude Sonnet 5.5 Cache reads now cost 50% less!</a> <span class="ref">(Reddit · 10/08 03:44)</span>.</p>
-<p>댓글에서는 계속되는 가격 인하에 의구심을 드러내는 반응이 있었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x04oqq/claude_sonnet_55_cache_reads_now_cost_50_less/">Claude Sonnet 5.5 Cache reads now cost 50% less!</a> <span class="ref">(Reddit · 10/08 03:44)</span>.</p>
-<blockquote><p>아직도 함정이 있을 거라 기다리고 있다.. 너무 좋아서.</p></blockquote>
-<p>한 댓글은 경쟁사들이 계속 치고 올라와야 이런 좋은 조건이 유지되고, 그렇지 않으면 사용량 제한이
-깎일 거라고 전망했으며, 실제로 사용량 제한이 줄어드는 걸 느낀다는 반응도 있었다. Anthropic의
-IPO를 앞두고 성장률을 끌어올리기 위한 가격 전략이라는 분석도 나왔는데, 월마트가 2000년대 전후로
-저가 공세로 지역 상점을 몰아낸 뒤 가격을 올렸던 사례에 비유했다. 반대로 이 추세는 IPO와 무관하게
-모델을 더 작은 모델로 효율적으로 증류해낸 결과일 수 있다는 반론도 있었다. 가격이 싸진 뒤 모델이
-좀 게을러진 것 같다는 댓글도 나왔지만, 다른 사용자는 작업 범위를 명확히 주고 리뷰 절차를 거치면
-여전히 훌륭한 데일리 드라이버라고 반박했다.</p>
+<h2>8. Max/Team 플랜 무료 API 크레딧 신규 혜택</h2>
+<p>OddBig010이 플랜을 '조직(organisation)'에 연결하면 매달 플랜에 따라 $100~200의 API 크레딧이
+무료로 제공되는 새로운 혜택을 발견했다고 공유했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x0fi18/new_perk_free_api_credits_100200_a_month/">New perk - free API credits $100/200 a month depending on your plan!</a> <span class="ref">(Reddit · 10/08 11:34)</span>. 이어 ross2000이 Max·Team
+플랜 사용자가 이 크레딧을 어떻게 신청하고 어디에 쓸 수 있는지 정리한 글을 올렸다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1x0hlbp/claude_max_and_team_free_api_credits_how_to_claim/">Claude Max and Team free API credits: how to claim them and what they cover</a> <span class="ref">(Reddit · 10/08 13:24)</span>. 댓글에서는 이 크레딧이 자동으로 적용되지 않으니 직접 신청해야 한다는 점, 그리고
+Claude Code 화면에는 표시되지 않고 Agent SDK·API 쪽에만 적용된다는 점이 공유됐다. 이번 혜택과 함께
+Claude Agents SDK 사용량이 더 이상 구독 한도에 포함되지 않는다는 설명도 나왔다. 반면 Max 5x 플랜인데
+해당 혜택이 보이지 않는다는 불만도 있었다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-10-08 09:30 KST</p>
+  <p>생성 2026-10-09 09:46 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
