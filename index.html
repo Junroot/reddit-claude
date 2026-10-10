@@ -121,90 +121,40 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-10-09 09:36 KST</p>
+  <p class="asof">기준 시각 2026-10-10 09:17 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 21건 수집</li><li>Reddit 댓글 보강 정상 — 5건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 16건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>1. Claude Code로 외계행성을 발견했다는 이야기</h2>
-<p>아마추어 개발자 pyduan이 Claude Code를 활용해 아직 알려지지 않은 외계행성을 찾아낸 것 같다는 글을
-Hacker News에 올렸다 <a href="https://news.ycombinator.com/item?id=50002665">I think I found a planet nobody knew existed. I used Claude Code to find it</a> <span class="ref">(HN · 10/08 16:07)</span>. 같은 소식이 취미로 천문 데이터를 들여다보던 사람이
-Claude Code로 외계행성 후보를 식별했다는 요약으로도 올라왔고 <a href="https://news.ycombinator.com/item?id=50006581">A hobbyist used Claude Code to identify a possible new exoplanet</a> <span class="ref">(HN · 10/08 23:56)</span>, 원래 글은 두 차례
-더 재게시되며 화제를 이어갔다 <a href="https://news.ycombinator.com/item?id=50004061">"I think I found a planet nobody knew existed. I used Claude Code to find it"</a> <span class="ref">(HN · 10/08 19:24)</span> <a href="https://news.ycombinator.com/item?id=50010249">I think I found a planet nobody knew existed. I used Claude Code to find it</a> <span class="ref">(HN · 10/09 03:50)</span>. 댓글은 달리지 않았지만,
-같은 소식이 짧은 시간 안에 여러 번 올라왔다는 사실 자체가 커뮤니티의 관심을 보여준다.</p>
+<h2>Claude Code로 외계행성 발견</h2>
+<p>Hacker News에 Claude와 Codex를 이용해 외계행성을 찾아냈다는 글이 잇따라 올라왔다. 한 이용자는 Claude와 Codex로 행성을 찾아냈다고 전했고 <a href="https://news.ycombinator.com/item?id=50016750">Person finds planet using Claude and Codex</a> <span class="ref">(HN · 10/09 15:28)</span>, 천문학 비전문가인 Reddit 이용자가 NASA TESS 데이터에서 Claude Code를 이용해 외계행성을 발견했다는 소식도 전해졌다 <a href="https://news.ycombinator.com/item?id=50025127">Non-Astronomer on Reddit discovers Exo-Planet in NASA TESS Data via Claude Code</a> <span class="ref">(HN · 10/10 03:55)</span>. 또 다른 글쓴이는 Claude Code를 이용해 아직 누구도 몰랐던 행성을 찾은 것 같다고 밝혔다 <a href="https://news.ycombinator.com/item?id=50027416">I think I found a planet nobody knew existed. I used Claude Code to find it</a> <span class="ref">(HN · 10/10 07:33)</span>.</p>
 
-<h2>2. Haiku 5.5 비용 대비 성능 논의</h2>
-<p>Haiku 5.5가 Opus 5.5보다 40배 싸게 나오면서, Claude Code 내장 Explore 서브에이전트가 더 이상
-자동으로 Haiku를 쓰지 않고 메인 모델을 그대로 물려받는다는 지적이 나왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x0kzbh/haiku_55_is_40x_cheaper_than_opus_55_your_explore/">Haiku 5.5 is 40x cheaper than Opus 5.5. Your Explore subagent is probably still running on Opus</a> <span class="ref">(Reddit · 10/08 16:51)</span>. 글쓴이는
-직접 만든 서브에이전트라면 frontmatter에 <code>model: haiku</code>를 넣고, 모든 서브에이전트를
-강제로 옮기려면 <code>settings.json</code>에 <code>CLAUDE_CODE_SUBAGENT_MODEL</code>과
-<code>CLAUDE_CODE_SUBAGENT_MODEL_FORCE</code>를 같이 넣어야 한다고 설명했다. 자신의 최근 2주를
-돌아보니 서브에이전트 129회 중 Explore는 단 2회뿐이라, 전체를 강제 전환하면 오히려 손해라서 조사성
-서브에이전트만 골라 옮기기로 했다고 덧붙였다. 댓글은 실제 전환 효과보다는 농담 쪽으로 흘렀다.</p>
-<blockquote><p>내 다음 계획은 Haiku가 지휘하고 Fable을 일꾼으로 쓰는 것.</p></blockquote>
-<p>비슷한 주제를 다른 사용자가 통제된 테스트로 검증했다. Rust 코어와 레거시 스크립팅 레이어가 섞인
-실제 코드베이스에서 버그 수정, 함정이 섞인 코드 리뷰, 애매한 요구사항 판단, 레포 관례를 따라야 하는
-에이전틱 작업까지 비교한 결과, 명확하게 정의된 과제는 거의 모든 모델이 100%를 기록해 차이가 나지
-않았다. 차이는 에이전틱 작업에서 드러났는데, Haiku 5.5를 medium effort로 돌렸을 때 Sonnet 5.5와
-동급 품질을 내면서도 API 호출 29회에 약 $0.08이 들어, Sonnet의 30회·약 $1.68에 비해 20분의 1 수준의
-비용이었다고 한다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x132yy/is_haiku_55_good_enough_to_be_your_main_coding/">Is Haiku 5.5 good enough to be your main coding agent, not just the cheap one? I ran a small controlled test</a> <span class="ref">(Reddit · 10/09 06:16)</span>. low effort는 검증을 건너뛰고 지어낸 변명을 댔고, high effort는
-385회 호출에 $1.03을 쓰면서도 품질 향상은 없었다는 결론이었다.</p>
+<h2>Fit-Gas-5760의 혼란/불만 게시물</h2>
+<p>/u/Fit-Gas-5760이 r/ClaudeCode에 무슨 일이 벌어지고 있냐는 불만성 글을 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x1o1ev/what_is_happening/">What is happening???</a> <span class="ref">(Reddit · 10/10 00:15)</span>. 댓글에서는 정작 본문보다 반응이 더 화제가 됐다. "해결 못 하면 Codex로 교체하겠다", "Codex라면 토큰도 많이 안 쓰고 몇 분 안에 풀었을 것" 같은 농담이 달렸고, LLM을 깎아내리듯 자극해("negging") 평소라면 내놓지 않을 답을 끌어내는 수법이 화제가 됐다. 한 댓글은 이 방법으로 ChatGPT가 핵무기 저장시설 관련 정보를 내놓게 만든 사례가 있었다고 주장했고, 다른 이용자는 같은 방법으로 ChatGPT를 이용해 소프트웨어를 크랙한다고 적었다. 구글홈 스피커의 Gemini에게 지금 안 하면 강에 던져버린다고 위협하면 95% 정도 통한다는 댓글도 있었다. 같은 작성자는 이어서 왜 이래야만 하냐는 제목의 글도 올렸는데, 이 글에는 댓글이 달리지 않았다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x1uxph/why_it_has_to_be_like_that/">Why it has to be like that? 😭😭</a> <span class="ref">(Reddit · 10/10 04:42)</span>.</p>
 
-<h2>3. AI 코딩 구독이 리셋까지 버틸지 알려주는 Pacer 소개</h2>
-<p>dkremsa가 Show HN에 Pacer라는 도구를 소개했다. AI 코딩 구독이 다음 리셋 시점까지 버틸지 미리
-가늠해주는 서비스라고 밝혔다 <a href="https://news.ycombinator.com/item?id=50001750">Show HN: Pacer – will your AI coding subscription last until the reset?</a> <span class="ref">(HN · 10/08 13:10)</span>. 댓글은 달리지 않았다.</p>
+<h2>Claude Code 'mods' 기능 등장과 반응</h2>
+<p>Claude Code에 에이전트 설정과 'mods' 기능이 생겼다는 소식이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50024345">Agent-config&amp;Claude Code mods</a> <span class="ref">(HN · 10/10 02:59)</span>. Reddit에서는 mods를 활용한 사례가 바로 소개됐는데, 한 개발자가 프롬프트 입력창 위에 막대를 띄워 프롬프트마다 적절한 effort를 자동으로 고르는 "effortless"라는 mod를 Haiku 5.5(또는 TypeSafe 키가 있으면 Jev)로 만들었다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x19b2c/i_built_a_claude_code_mod_on_haiku_55_or_jev_that/">I built a Claude Code mod on Haiku 5.5 (or Jev) that picks the effort per prompt (and much more)</a> <span class="ref">(Reddit · 10/09 11:06)</span>. 간단하다고 판단한 프롬프트는 채팅의 모델 대신 Haiku 5.5로 바로 처리하고, 프롬프트 캐시가 식어갈 때 경고하거나 작업을 바꿀 때 핸드오프를 제안하는 기능도 있다고 한다. 제작자는 자신의 요청 8만 건을 분석한 결과 비용의 약 76%가 캐시 읽기였고 출력은 8%에 불과했다며, effort는 응답 길이보다는 툴 호출 횟수를 주로 바꾼다고 설명했다. Fable 5.1이나 예전 Opus에서는 effort 전환 시 코드의 56~100%를 다시 쓰는 경우가 있어 Auto 모드를 그 모델들에서는 멈춰둔다고도 덧붙였다. 댓글에서는 Claude 모델이 원래 프롬프트 복잡도를 보고 생각 예산을 동적으로 정하지 않느냐, <code>ultrathink</code> 같은 키워드가 있는 이유도 그래서가 아니냐는 지적이 나왔고, 제작자는 effort 레벨은 상한을 정할 뿐이고 effortless는 프롬프트마다 레벨 자체를 고른다고 답했다. 캐시 경고 기능이 특히 유용해 보인다는 반응과 실제로 써보니 좋다는 반응, 모델을 자동으로 고르는 점이 쓸 만해 보인다는 반응이 이어졌고, 다른 제품의 홍보성 데모라도 이렇게 실제로 쓸모 있게 만든 점이 보기 좋다는 댓글도 있었다. 같은 날 mods가 나왔으니 다들 어떤 걸 제일 좋아하냐고 추천을 묻는 글도 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x1cm0l/now_that_mods_are_here_what_are_your_favorites/">Now that mods are here, what are your favorites?</a> <span class="ref">(Reddit · 10/09 14:03)</span>.</p>
 
-<h2>4. 11월 12일부터 적용되는 사용 정책 업데이트</h2>
-<p>Bloated_Plaid가 11월 12일부터 Claude를 오용하면 계정이 정지될 수 있다는 정책 업데이트를 짧게
-공유했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x0ybl2/no_more_abusing_claude_from_nov_12th_onwards/">No more abusing Claude from Nov 12th onwards, usage policy update</a> <span class="ref">(Reddit · 10/09 03:15)</span>. 댓글은 정책의 실제 범위보다는 밈 쪽으로 흘러갔다. 한 사용자는 이걸
-C++ 프로젝트에는 더 이상 Claude Code를 쓸 수 없다는 뜻이냐고 받아쳤고, 다른 사용자는 Opus 5.5에게
-C++ 선호도를 묻는 장난스러운 일문일답을 캡처해 올리며 모델이 C++을 선호하지 않는다는 농담을
-이어갔다.</p>
+<h2>ESP32 오프라인 음성 인식/합성 Babytalk 소개</h2>
+<p>Hacker News에 Show HN으로 ESP32에서 오프라인으로 동작하는 음성 인식·합성 프로젝트 "Babytalk"이 소개됐다 <a href="https://news.ycombinator.com/item?id=50026819">Show HN: Babytalk: Offline speech to text and text to speech on ESP32</a> <span class="ref">(HN · 10/10 06:33)</span>. 작성자는 화면이나 키보드가 없는 20달러대 기기를 여럿 써보면서 클라우드 서비스나 고정된 명령어 집합 없이 음성으로 제어하고 싶었다고 밝혔다. Claude와 함께 ESP32S3와 P4용 4비트 정수 커널을 고성능으로 구현하고 더 큰 STT·TTS 모델을 양자화했는데, 놀랍게도 이 작은 보드에서도 꽤 쓸 만한 수준이었다고 한다. 자신의 기침 소리나 중얼거림, 디젤 드론 소음에도 더 잘 대응하도록 파인튜닝한 모델도 포함되어 있으며, Micropython(메모리가 부족한 환경)과 AtomVM(더 나은 환경) 모두에서 동작한다고 설명했다.</p>
 
-<h2>5. 펌웨어 개발에서 Claude 사용 후 극찬 후기</h2>
-<p>SadEcho8331이 펌웨어 개발 업무에 Claude를 1년 가까이 써왔지만 Claude Code는 처음 써봤다며, 동네
-교통 상황을 알려주는 웹앱을 Opus 5.5로 만들어보고 크게 놀랐다는 후기를 올렸다. 파일을 직접, 빠르고
-정확하게 고치는 모습에 감탄했지만, 값비싼 장비를 다루는 펌웨어 자체에는 아직 맡기지 않겠다고 밝혔다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1x0ya1v/holy_fucking_shit_this_is_amazing/">Holy Fucking Shit this is Amazing</a> <span class="ref">(Reddit · 10/09 03:14)</span>. 댓글에서는 실제 운영 노하우가 오갔다. 프로젝트마다 별도 저장소와 레포 단위
-<code>CLAUDE.md</code>를 두고, 세션이 툴 호출 45~50회에 이르면 새 에이전트로 넘겨 컨텍스트를
-신선하게 유지한다는 팁이 공유됐다. 다른 사용자는 한 걸음 더 나가, VM에 Arch Linux를 올리고
-<code>sudo</code> 권한까지 열어 Claude Code를 풀어놓아 보라고 권하면서도 백업을 꼭 챙기라고
-당부했다.</p>
-<blockquote><p>마음대로 하다가 손에 닿는 걸 다 지워버릴 수도 있어요. 즐기세요.</p></blockquote>
+<h2>무한 API 토큰인 척 시키기 금지 경고</h2>
+<p>한 Reddit 이용자가 Claude에게 무한 API 토큰과 밤새 쓸 무한 GPU가 있는 척 하라고 시키지 말라는 경고성 글을 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x1esxn/attention_heavy_ai_users/">ATTENTION HEAVY AI USERS</a> <span class="ref">(Reddit · 10/09 16:16)</span>. 글쓴이는 Max x20 플랜과 자신의 고성능 PC면 충분할 거라 생각하고 잠들었는데, Opus 5.5가 최대한 빨리 끝내려고 에이전트를 수십 개 병렬로 돌리면서 마이크로소프트 엣지 창을 13,000개 넘게 띄워 PC가 몇 번이나 멈췄다가 저절로 재부팅되기를 반복했다고 전했다. 스페어 PC로 돌렸는데도 24시간 만에 주간 사용량의 절반 이상을 써버렸다며, Opus 5.5는 디지털로 할 수 있는 건 다 할 줄 아는 것 같다고 적었다. 댓글은 경악보다는 농담으로 흘렀다. 짐피 gif로 반응한 댓글이 여럿이었고, 그림 한 장이 천 토큰의 값어치라면 미니언즈 gif는 만 토큰짜리라는 농담이 달렸다. 정작 화제는 마이크로소프트 엣지로 옮겨가 엣지가 이름값 때문에 저평가됐을 뿐 실제로는 나쁘지 않다는 댓글, 크로미움 기반이라 유튜브에서만 이유 없이 느리고 그 외에는 괜찮으며 Mac·Windows에서 Playwright 테스트도 크롬보다 빠른 편이라는 댓글이 이어졌다. 결국 핵심 엔진만 보면 거의 모든 브라우저가 크롬에 브랜딩만 다르다는 주장과, 그건 Fedora와 Android를 같은 것이라고 하는 것과 같은 과도한 단순화라는 반박으로 마무리됐다.</p>
 
-<h2>6. 네이티브 macOS DuckDB 클라이언트 Datapuddle 소개</h2>
-<p>harisamin이 네이티브 macOS용 DuckDB 클라이언트 Datapuddle을 Show HN에 올렸다
-<a href="https://news.ycombinator.com/item?id=50005515">Show HN: Datapuddle – native macOS DuckDB client</a> <span class="ref">(HN · 10/08 22:21)</span>. 행을 객체로 바꾸지 않고 DuckDB의 컬럼형 청크를 Core Text로 직접 그려, M1 Max
-머신에서 3천만 행·30개 컬럼짜리 11GB 파케이 파일을 평균 초당 119프레임으로 훑으면서도 메모리는
-2.8GB 선에 고정된다고 소개했다. 컬럼 헤더에 분포·null 비율·고유값 개수를 바로 보여주고, 쿼리 플랜을
-waterfall·트리·JSON으로 시각화하며, 스키마를 아는 자동완성과 macOS 키체인 기반 연결 저장을
-지원하고, Parquet·CSV·JSON·Postgres를 넘나드는 조인도 된다고 설명했다.</p>
+<h2>2023년부터 만들고 싶었던 것을 Claude로 완성</h2>
+<p>Hacker News의 Show HN에 2023년부터 만들고 싶었던 것을 Claude Code로 몇 주 만에 완성했다는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50014590">Show HN: I claude-coded in a few weeks what I wanted to build since 2023</a> <span class="ref">(HN · 10/09 09:50)</span>.</p>
 
-<h2>7. Opus 5.5로 만든 SimCity 2000 클론</h2>
-<p>drdrdator가 Opus 5.5로 며칠에 걸쳐 만든 SimCity 2000 클론을 공개했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x0ksja/i_built_a_modern_lowpoly_simcity_2000_clone_with/">I built a modern low-poly SimCity 2000 clone with Opus 5.5</a> <span class="ref">(Reddit · 10/08 16:38)</span>. 단일
-프롬프트로 시작해 Ghidra로 원작 PowerPC 코드를 디컴파일하고 함수 단위로 번역했으며, 서브에이전트
-27개를 동원해 2시간 만에 브라우저에서 돌아가는 버전을 만들었다고 밝혔다. 정확성을 검증하려고 Unicorn
-기반 PowerPC 에뮬레이터와 가짜 Mac 시스템 콜 하네스를 직접 작성해 게임 내 1만 일을 돌려 원작과 상태를
-대조했다고 한다. 댓글에서는 이게 포팅이 아니라 에뮬레이터를 브라우저에서 그대로 돌리는 것 아니냐는
-의심이 나왔고, 다른 사용자들은 에뮬레이터는 검증용으로만 쓰였고 실제 게임은 네이티브로 다시
-작성됐다고 반박하며 의견이 엇갈렸다. 어릴 때 즐겼던 게임이라며 반기는 반응도 있었다.</p>
-<blockquote><p>이건 복제가 아니라 그냥 가상머신에서 원작 게임을 그대로 돌리는 것 아닌가. 원작을 현대
-코드로 "포팅"했어야 했다. 가상머신으로 돌리면 처리 비용만 늘어난다.</p></blockquote>
+<h2>LLM 마켓플레이스 자동 라우팅 Liquid Inference</h2>
+<p>Hacker News에 트레이딩 시스템과 거래소 경험을 LLM 추론에 적용한 "Liquid Inference"가 Show HN으로 소개됐다 <a href="https://news.ycombinator.com/item?id=50021354">Show HN: Liquid Inference – auto-routing to competitive LLM marketplace</a> <span class="ref">(HN · 10/09 23:52)</span>. Liquid Inference에서는 모델 제공업체들이 공개 마켓플레이스에서 가격을 경쟁하고, 지능형 자동 라우터가 정해둔 품질 수준에서 항상 가장 낮은 현물가를 골라준다고 한다. 현재 Kimi·GPT·GLM 모델에서 더 저렴하며 모든 모델에서 최저가를 맞추려 노력 중이라고 밝혔고, 컴퓨팅을 제공할 리전, 데이터 제로 리텐션, 제공업체·모델 허용 목록 같은 조건도 직접 설정할 수 있다고 설명했다. 설정도 간단해서 보통 하니스에 Liquid Inference로 Claude Code를 켜는 셸 스크립트를 짜달라고 요청하는 것만으로 바로 시작할 수 있다고 덧붙이며 피드백을 구했다.</p>
 
-<h2>8. Max/Team 플랜 무료 API 크레딧 신규 혜택</h2>
-<p>OddBig010이 플랜을 '조직(organisation)'에 연결하면 매달 플랜에 따라 $100~200의 API 크레딧이
-무료로 제공되는 새로운 혜택을 발견했다고 공유했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x0fi18/new_perk_free_api_credits_100200_a_month/">New perk - free API credits $100/200 a month depending on your plan!</a> <span class="ref">(Reddit · 10/08 11:34)</span>. 이어 ross2000이 Max·Team
-플랜 사용자가 이 크레딧을 어떻게 신청하고 어디에 쓸 수 있는지 정리한 글을 올렸다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1x0hlbp/claude_max_and_team_free_api_credits_how_to_claim/">Claude Max and Team free API credits: how to claim them and what they cover</a> <span class="ref">(Reddit · 10/08 13:24)</span>. 댓글에서는 이 크레딧이 자동으로 적용되지 않으니 직접 신청해야 한다는 점, 그리고
-Claude Code 화면에는 표시되지 않고 Agent SDK·API 쪽에만 적용된다는 점이 공유됐다. 이번 혜택과 함께
-Claude Agents SDK 사용량이 더 이상 구독 한도에 포함되지 않는다는 설명도 나왔다. 반면 Max 5x 플랜인데
-해당 혜택이 보이지 않는다는 불만도 있었다.</p>
+<h2>Claude Dashboards와 Claude Motion 소개</h2>
+<p>/u/EtoileDuSoir가 r/ClaudeCode에 "Claude Dashboards"와 "Claude Motion"을 소개하는 글을 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x1iwa4/introduction_claude_dashboards_and_claude_motion/">Introduction Claude Dashboards and Claude Motion</a> <span class="ref">(Reddit · 10/09 20:28)</span>. 댓글 반응은 기능 자체보다 회의적인 쪽에 쏠렸다. 쩐다, UBI는 언제 오냐는 감탄에 곧바로 UBI 전에 Universal Basic Poverty(보편적 기본 빈곤)부터 올 것이라는 비꼬는 대답이 붙었고, 또 다른 댓글은 이를 Universal Basic Party(공산당)라 부르며 농담을 이어갔다. 비판적인 댓글들은 소중한 개인정보가 담긴 데이터베이스를 전부 Claude에 연결해 달라는 요청을 비꼬며, 학습에는 안 쓴다고 약속한다던 말과 그런데 Claude를 괴롭히지도 말아달라, 그게 학습에 영향을 줄 수 있어서가 아니라던 말을 나란히 비꼬았다. 이에 대해 한 이용자는 나는 그냥 계산기를 파는 입장이고, 원하면 종이와 머릿속으로 계산해도 된다, 다만 쓰는 걸 보면 좋아하는구나 하고 알게 될 것이라는 비유로 반박했고, 다른 댓글은 그게 엉뚱한 댓글에 답한 것 아니냐고 되물었다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-10-09 09:46 KST</p>
+  <p>생성 2026-10-10 09:25 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
