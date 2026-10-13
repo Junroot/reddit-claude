@@ -121,86 +121,135 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-10-13 11:13 KST</p>
+  <p class="asof">기준 시각 2026-10-14 08:50 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 16건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 32건 수집</li><li>Reddit 댓글 보강 정상 — 5건</li></ul></div>
 
 <main>
-<h2>1. 저비용 AI 에이전트 샌드박스를 제공하는 스타트업 Agent37 (YC F26)</h2>
-<p>Agent37이 다른 샌드박스 제공업체 대비 10% 미만의 비용으로 AI 에이전트용 샌드박스를 제공한다고
-소개했다 <a href="https://news.ycombinator.com/item?id=50059096">Launch HN: Agent37 (YC F26) – Low-cost agent sandboxes for running agents</a> <span class="ref">(HN · 10/13 01:46)</span>. 올해 2월 OpenClaw 래퍼 업체로 시작해 점점 더 많은 하네스를
-지원하게 됐고, 이제 비용을 크게 낮춘 덕분에 무료 플랜도 제공한다. 신규 가입자의 90% 이상이 무료
-플랜으로 Hermes, Openclaw, Claude Code 등을 자사 클라우드에서 돌리고 있으며, 무료 샌드박스의
-인프라 비용은 사용자당 월 $0.05~0.10 수준이라고 밝혔다. 비용 절감 방법으로는 에이전트 하네스가
-초기화나 특정 작업 시에만 CPU를 버스트로 쓰고 이후엔 사용량이 줄어드는 패턴에 맞춘 리소스 관리,
-Amazon 같은 하이퍼스케일러 대신 Hetzner·OVH 같은 저가 호스팅 업체 이용, 캐싱과 리소스 공유에
-유리한 <code>gVisor</code> 채택을 들었다.</p>
+<h2>1. How to engineer an AI harness for game development</h2>
+<p>게임 개발에 AI 하네스를 어떻게 설계할지 다루는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50072120">How to engineer an AI harness for game development</a> <span class="ref">(HN · 10/13 23:14)</span>. 본문과 댓글이
+공개되지 않아 반응은 확인할 수 없지만, 제목만으로도 AI 코딩 도구를 게임 개발 파이프라인에 엮어
+넣는 엔지니어링 설계에 관한 내용임을 알 수 있다.</p>
 
-<h2>2. Claude Code가 1년 만에 자율 에이전트로 진화한 것을 체감하는 밈</h2>
-<p>2025년에는 <code>ls</code> 명령 하나 실행하는 데도 허락을 구하던 Claude Code가 1년 만에
-노트북을 닫아둔 채로도 여러 스레드를 돌려 PR을 완성해 내는 수준으로 바뀌었다는 밈이 올라왔다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1x43kfx/claude_code_in_2025_can_i_run_this_command_claude/">Claude Code in 2025: "can I run this command?" Claude Code now: "I made 8 threads, 5 PRs are ready, go sleep"</a> <span class="ref">(Reddit · 10/12 23:37)</span>. 반응은 공감과 농담이 뒤섞였다. 일부는 Claude가 합의된 범위를 넘어 일을
-벌이는 경험을 공유했는데, "강을 건널 보트를 만들어 달라고 했는데 달에 가는 로켓을 만들고 있었다"는
-비유가 특히 호응을 얻어 CLAUDE.md에 넣겠다는 댓글도 달렸다. 다른 댓글은 비슷한 취지로 "방 네 개짜리
-오두막을 부탁했는데 성을 짓다가 가구값이 부족하다고 돈을 더 달라 한다"는 식으로 과한 작업 범위
-확장을 지적했다. 그럼에도 전반적으로는 이런 변화를 긍정적으로 받아들이면서도 모든 diff를 직접
-확인한다는 댓글이 이어졌다.</p>
+<h2>2. 13 weeks of vibe coding my MMORPG with Claude Code. Here's how much it's changed in one month</h2>
+<p>Claude Code로 MMORPG Lythravel을 만들고 있는 개발자가 한 달 전 올린 글에 대한 후속 소식을
+전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x4tuqy/13_weeks_of_vibe_coding_my_mmorpg_with_claude/">13 weeks of vibe coding my MMORPG with Claude Code. Here's how much it's changed in one month</a> <span class="ref">(Reddit · 10/13 20:13)</span>. 개발 3개월째인 지금, 지난 한 달은 주로 비주얼 작업에 쏟았다고 한다.
+보셀 그래픽 때문에 Minecraft와 많이 비교됐던 터라 좀 더 독자적인 스타일을 주려 했고, 지역과
+던전도 다시 디자인해 분위기와 바이옴별 정체성을 살렸다. 성능과 전투 쪽도 크게 개선했는데, 최적화가
+가장 큰 난관이었고 Claude Code와 Chrome MCP를 함께 써서 병목을 찾아냈다고 설명했다. 코드는
+직접 쓰지 않고 원하는 바를 설명한 뒤 결과를 테스트하며 반복하는 방식으로 작업한다고 밝혔다.</p>
+<p>댓글에서는 역시 Minecraft 비교가 이어졌다. "다들 항상 Minecraft라고 하네, 그래도 재밌는
+실험"이라는 반응이 있었고, 보셀 그래픽이 다른 스타일보다 작업하기 쉽다는 의견도 나왔다. 2D와 3D
+그래픽 난이도를 두고도 토론이 붙었는데, 3D 모델은 리깅이 가능하지만 2D는 다시 그려야 해서 오히려
+3D가 더 쉽다는 주장에 "실제로 게임 개발 해본 사람은 다 안다"는 동조 댓글이 달렸다. 한 사용자는
+3D로 리깅한 뒤 2D로 렌더링하고 픽셀화하는 방식을 쓰고 있다고 소개했다. 또 다른 사용자는 Claude
+Code, VSCode, Python, Godot으로 태양계 200만 개 규모의 싱글플레이어 4X 우주 전략 게임을
+만들고 있다고 자신의 작업을 공유했다. 작성자는 게임플레이 면에서는 Minecraft와 전혀 다르다고
+재차 강조했지만, "Minecraft와 Roblox를 그대로 닮았다", "모드 깐 Minecraft처럼 보인다"는 반응도
+여전히 있었다.</p>
 
-<h2>3. 리누스 토르발즈가 Claude Code로 리눅스 커널의 캐시 파일 읽기 로직을 개선한 작업</h2>
-<p>리누스 토르발즈가 Claude Code를 활용해 리눅스 커널에서 캐시된 파일을 읽는 방식을 다시 작성하는
-비중 있는 개선 작업을 진행 중이라는 소식이 전해졌다 <a href="https://news.ycombinator.com/item?id=50055364">Linus Torvalds Working on a Hefty Linux Kernel Improvement with Claude Code</a> <span class="ref">(HN · 10/12 21:22)</span> <a href="https://news.ycombinator.com/item?id=50062224">Linus Torvalds used Claude Code to rewrite how Linux reads cached files</a> <span class="ref">(HN · 10/13 05:06)</span>.</p>
+<h2>3. Show HN: Spotatui, a Spotify TUI/GUI without web API rate limits</h2>
+<p>11개월 전 관리가 끊긴 spotify-tui를 되살려 작업해온 개발자가 Spotatui를 소개했다
+<a href="https://news.ycombinator.com/item?id=50070010">Show HN: Spotatui, a Spotify TUI/GUI without web API rate limits</a> <span class="ref">(HN · 10/13 20:32)</span>. 가장 큰 문제는 Spotify 웹 API의 속도 제한이었는데, 서드파티 클라이언트는
+Spotify 개발자 대시보드에서 만든 앱에 의존하다 보니 제한에 자주 걸렸고, ncspot의 공유 클라이언트
+ID를 쓰는 우회법도 결국 막혔다고 한다. 해결책으로 자체 <code>librespot</code> 포크를 바탕으로
+재생뿐 아니라 메타데이터, 플레이리스트, 라이브러리, 기기 목록, 가사, 오디오 분석까지 공식
+클라이언트가 쓰는 내부 API에서 직접 가져오도록 바꿨다. 검색은 내부 GraphQL API인 Pathfinder를
+쓴다. 사용자마다 자기 세션으로 동작해 공유 앱 할당량이 없으므로 속도 제한도 사라졌다고 설명했다.
+그 과정에서 YouTube, Navidrome/Subsonic, 약 3만 개 인터넷 라디오, 로컬 파일, Qobuz 무손실
+오디오, macOS용 Apple Music 제어까지 재생 소스를 넓혔다. 2019년 TUI로 시작했지만 이후 GUI도
+추가했고, 공식 클라이언트와 비슷하게 만들어 기능 누락을 찾기 쉽게 했다고 덧붙였다. Lua 스크립팅
+지원도 들어가 있다.</p>
 
-<h2>4. 에어갭 환경에서 32Mbps로 광학 파일 전송에 성공한 프로젝트</h2>
-<p>기존 QR 기반 광학 전송 방식(Decimen)이 종이 인쇄를 염두에 둔 이진 코드라 화면 전송에는
-비효율적이라고 보고, OFDM 기반 FOCUS 논문을 참고해 자체 포맷을 만든 프로젝트가 소개됐다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1x419b5/had_an_idea_for_airgapped_file_transfer_got_32/">Had an idea for air-gapped file transfer, got 32+ Mbps</a> <span class="ref">(Reddit · 10/12 22:01)</span>. 기존 파인더 패턴을 걷어내고 리드-솔로몬으로 약 15비트를 인코딩한 원형
-코드를 고안했고, GPU로 32,768가지 코드워드 후보를 병렬로 브루트포스 해독하도록 설계했다. 32,
-64, 128, 256 네 가지 링 크기를 두어 전송 거리와 속도의 균형을 맞췄다. 브라우저 기반 디코더는
-웹캠 성능 한계로 700KB/s에 머물렀지만, 네이티브 안드로이드로 전환하고 RTX 4090을 동원해
-32Mbps 이상을 달성했다고 밝혔다. 작성자는 Claude가 처음엔 OpenCV 기반 파인더를 Vulkan으로
-그대로 포팅하려다 GPU에서 분기 처리에 취약해 실패했다고 언급했다. 댓글란에서는 에어갭 전송
-기술이 결국 AI가 네트워크 격리를 뚫는 수단으로 쓰일 수 있다는 다소 진지한 우려와, 그보다는
-사람을 설득하거나 협박하는 쪽이 더 쉬울 것이라는 농담이 오갔고, 멀티플렉싱 레인 수와 전송
-거리를 묻는 실용적인 질문도 있었다.</p>
+<h2>4. Saw the LG guy fix Plex on his TV, so I fixed it on my Samsung</h2>
+<p>LG TV용 네이티브 Plex 클라이언트 plx-native 글을 보고 영감을 받은 사용자가 삼성 TV의 Plex
+문제를 직접 해결했다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x52i1r/saw_the_lg_guy_fix_plex_on_his_tv_so_i_fixed_it/">Saw the LG guy fix Plex on his TV, so I fixed it on my Samsung</a> <span class="ref">(Reddit · 10/14 02:11)</span>. 75인치 Q60B(2022년형)에서 공식 Plex 앱은
+열리는 데만 1분 가까이 걸리고 검색도 글자 입력마다 끊기며 결과가 나오기까지 10초쯨 걸렸다고 한다.
+같은 라이브러리가 Apple TV에서는 즉시 열린다는 점과 대조됐다. 삼성 TV는 웹 앱만 돌릴 수 있어
+LG 쪽 방식을 그대로 가져올 수 없었기에, TV 브라우저를 게임 엔진처럼 다뤄 모든 動작을 GPU에서
+처리하고 큰 요소는 다시 그리지 않으며 영상은 TV 하드웨어 디코더로 바로 보내는 웹 앱 samsucks를
+만들었다. 그 결과 앱 실행은 1분에서 1초로, 검색은 10초 지연에서 입력하는 즉시 결과가 나오는
+수준으로 줄었고, 라이브러리의 98.7%가 트랜스코딩 없이 하드웨어로 바로 재생된다고 밝혔다. 무료
+오픈소스이며 설치는 Mac이나 Linux에서 명령 두 줄이면 된다고 설명했다.</p>
+<p>댓글에서는 같은 증상을 겪던 S95B 65인치 사용자가 "Tizen 앱이 정말 별로였는데 이건 대단하다"며
+사용해 보겠다고 반겼고, 작성자는 20년간 소프트웨어를 개발해왔다고 답했다. 같은 TV를 쓰는 다른
+사용자도 주말에 써보겠다고 했다. 한 사용자는 삼성 TV에서 Plex가 너무 느려 결제를 끊었다고 밝혔고,
+S90C OLED에서도 될지 묻는 질문에 작성자는 직접 해보고 알려달라고 답했다. LG 쪽에서 무엇을 했는지
+묻는 LG TV 사용자의 질문과 함께, 해당 LG 글의 링크가 댓글로 공유됐다.</p>
 
-<h2>5. 계정을 전환한 뒤 Claude Code Desktop 세션을 복구하는 도구</h2>
-<p>계정을 바꾼 뒤 끊겨버린 Claude Code Desktop 세션을 복구할 수 있는 도구가 Show HN에 공개됐다
-<a href="https://news.ycombinator.com/item?id=50064832">Show HN: Recover Claude Code Desktop sessions after switching accounts</a> <span class="ref">(HN · 10/13 09:10)</span>.</p>
+<h2>5. 생물학 그림을 그려주는 Claude Code 스킬 Anima</h2>
+<p>Hacker News에는 제목만 올라왔고 <a href="https://news.ycombinator.com/item?id=50069721">Show HN: Anima – Interactive, cited biology figures using Claude Code</a> <span class="ref">(HN · 10/13 19:58)</span>, Reddit에는 작성자가 직접 자세한
+설명을 남겼다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x4tif3/i_built_a_claude_code_skill_that_turns_biology/">I built a Claude Code skill that turns biology ideas into interactive scientific figures</a> <span class="ref">(Reddit · 10/13 19:55)</span>. Anima는 생물학적 구조와 메커니즘을 시각화하는 무료 오픈소스
+Claude Code 스킬로, 단순한 정적 다이어그램 대신 도파민 수용체 신호 전달이나 흥분제가
+신경전달에 미치는 영향, 세마글루타이드가 췌장 베타세포에서 작동하는 방식 같은 것을 설명해달라고
+요청하면 애니메이션과 컨트롤이 있는 인터랙티브 isometric SVG 그림을 만들어준다. 그리기 전에
+생물학 내용을 먼저 조사하고, 표시되는 수치 주장에는 출처를 달고, 확립된 메커니즘과 아직 불확실한
+모델을 구분하도록 설계했다고 한다. 예시 6개, 재사용 가능한 드로잉 킷, 선택적 WebGL/3D 지원,
+독립 실행 HTML 출력까지 함께 제공한다.</p>
+<p>댓글은 대체로 호평이었다. "잘했다", "내가 가진 문제들을 설명시켜보겠다"는 반응이 이어졌고,
+작성자는 어떤 주제를 써봤는지 듣고 싶고 Anima가 잘 못하는 주제가 있으면 피드백을 달라고 요청했다.
+어려운 추상적 시스템을 가르치는 데 유용하다는 평가와, 열전달 주제로도 시도해보겠다는 댓글도
+있었다. 한 사용자는 "드물게 브레인 롯이 아닌 결과물"이라고 칭찬했고, 다른 사용자는 "다만 브레인
+롯 자체를 시각적으로 보여주는 부분은 예외"라고 농담을 덧붙였다.</p>
 
-<h2>6. Opus 5.5가 정상적인 요청까지 전부 차단한다는 불만</h2>
-<p>전산생물학 분야 학계 연구자가 생물무기 등 위험한 작업과는 전혀 무관한 요청까지 Opus 5.5가
-전부 플래그를 걸고 거부한다고 불만을 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x3zqea/opus_55_flags_and_blocks_every_single_request_for/">Opus 5.5 flags and blocks every single request for me</a> <span class="ref">(Reddit · 10/12 20:48)</span>. 구독까지 했지만 결국 쓰지
-못해 codex로 돌아가야 했다는 내용이다. 댓글에서는 Anthropic의 생명과학 검증 프로그램을
-신청해보라는 제안과, OpenAI에도 비슷한 Rosalind 프로그램이 있지만 둘 다 5.5 모델에는 아직
-적용되지 않는다는 지적이 나왔다. 또 다른 댓글은 이전 대화에서 저장된 프로필 정보가 매 요청마다
-참조되면서 자동으로 차단을 유발할 수 있다며 시크릿 모드를 시도해 보라고 제안했고, 실제로
-저장된 생물학 프로젝트 메모리 때문에 한동안 비슷한 문제를 겪었다는 공감 댓글도 있었다.</p>
+<h2>6. 과거 세션에서 선호를 학습하는 도구 shadowclone</h2>
+<p>Hacker News <a href="https://news.ycombinator.com/item?id=50069498">Show HN: shadowclone, skills learned from your coding agent corrections</a> <span class="ref">(HN · 10/13 19:26)</span>와 Reddit <a href="https://www.reddit.com/r/ClaudeCode/comments/1x4ox7t/i_built_an_open_source_tool_that_learns_your/">I built an open source tool that learns your coding preferences from past Claude Code sessions. On synthetic evals, Opus went from 64% to 96% of preferences followed</a> <span class="ref">(Reddit · 10/13 15:03)</span> 양쪽에 같은 작성자가 소개한
+shadowclone이 올라왔다. 디스크에 이미 남아 있는 코딩 에이전트 세션 기록을 읽어 사용자가 에이전트를
+교정한 지점을 찾아내고, 그것을 다음에 에이전트가 불러올 스킬로 바꿔주는 도구다. Claude Code,
+Codex, Cursor, Pi, Antigravity를 지원하며, 각 수집 소스는 기본적으로 꺼져 있고 동의 설정도
+개별적으로 둔다. 여러 하네스와 모델을 오가며 매번 같은 선호를 다시 가르치기 싫어서 만들었다고
+동기를 밝혔다. 자동 메모리 기능도 써봤지만 무엇을 저장할지 모델이 결정하는 탓에 전역 선호를 두기
+어려웠고, shadowclone은 반복되는 워크플로에 더 맞는 스킬 형태로 저장한다고 설명했다. 이슈를
+받아 PR까지 만들고 체크가 통과할 때까지 반복하는 shadowclone-work, 저장소 자체 규칙과 내장
+규칙, 취약점 분석과 린터로 PR을 리뷰하는 shadowclone review 두 워크플로를 제공하며, GitHub
+Actions에서 돌리는 클라우드 봇도 있다고 소개했다. 합성 평가 7개 과제, 각 3회 실행 기준으로
+Opus 5.5는 선호 준수율이 63.8%에서 96.4%로, Sonnet 5.5는 65.0%에서 81.7%로 올랐다고 밝혔다.</p>
+<p>댓글에서는 한 사용자가 p-stack의 recall과 automate-me 스킬을 이미 쓰고 있다고 언급했다.
+이에 작성자는 automate-me도 비슷한 아이디어이지만 직접 실행해 단일 모드 스킬을 만드는 방식에
+가깝고, shadowclone은 스킬을 사람이 관리할 필요가 없도록 만들어 백그라운드에서 학습하고 명확한
+사항은 스스로 적용하며, 애매한 부분은 Claude Code나 Codex 세션이 사용자에게 직접 물어 전역
+규칙인지 저장소 한정 규칙인지까지 정한다는 점에서 다르다고 답했다.</p>
 
-<h2>7. AI 에이전트의 행동을 가두고 감시하는 샌드박스 Airlock</h2>
-<p>작성자는 Claude나 Codex 같은 에이전트가 로컬 노트북과 네트워크에서 사실상 무엇이든 할 수
-있다는 점이 불편해 macOS용 샌드박스 Airlock을 만들었다고 소개했다 <a href="https://news.ycombinator.com/item?id=50054620">Show HN: I built Airlock, to sandbox your AI agent and know what it's doing</a> <span class="ref">(HN · 10/12 20:10)</span>.
-에이전트를 가상머신 안에서 실행해 프로젝트에 결과를 반영하기 전에 정확히 무엇을 실행했고
-무엇이 바뀌었는지 보여주며, 인터넷 접근을 특정 호스트로 제한하거나 완전히 차단할 수도 있다.
-Xcode 프로젝트에서도 동작하며, AI 에이전트가 아닌 일반 명령도 <code>airlock run -- somecommand</code>
-형태로 실행할 수 있다. 무료이고 계정이나 추적 기능도 없다.</p>
+<h2>7. Launch HN: Consus (YC F24) – LLM gateway for companies handling sensitive data</h2>
+<p>민감한 데이터를 다루는 기업을 위한 LLM 게이트웨이 Consus가 Hacker News에 론칭 소식을 올렸다
+<a href="https://news.ycombinator.com/item?id=50073471">Launch HN: Consus (YC F24) – LLM gateway for companies handling sensitive data</a> <span class="ref">(HN · 10/14 00:41)</span>. 모든 AI 요청을 ITAR 제한 및 CUI(민감 비분류 정보) 규정을 준수하는
+인프라로 라우팅하며, 최근 FedRAMP High의 410개 통제 항목 기준 FedRAMP 동등성 감사를 마쳤다고
+밝혔다. FedRAMP High는 미국 정부가 민감한 비분류 데이터를 다루는 클라우드 서비스에 요구하는
+가장 엄격한 보안 기준이다. 창업자는 항공우주·방위 산업이 빠르게 성장하고 있지만 데이터 보호와
+컴플라이언스 위험 때문에 대부분 기업이 AI를 제대로 쓰지 못하고 있다고 지적했다. SpaceX에서
+국가안보 위성을 발사하고 Castelion 초기 멤버로 일했던 경험을 바탕으로, 모델 제공사가 자사
+데이터로 학습하거나 ITAR 규정을 위반하거나 보안 심사 실패로 사업 기회를 잃을 것을 우려하는
+기업들을 직접 봐왔다고 설명했다. 비분류 작업조차 AI 도구를 전혀 허용하지 않는 위성 제조사와
+함께 일한 경험도 언급했다. OpenRouter가 여러 도구와 연동되듯, Consus도 ChatGPT나 Claude 같은
+도구, Pi 코딩 에이전트 등 오픈소스 도구까지 연결되는 컴플라이언스 준수 AI 추론 레이어로 설계했다고
+밝혔다.</p>
 
-<h2>8. Claude Code 로그를 영수증으로 출력해보니 $200 플랜에 API 환산 $8.3k 소모</h2>
-<p>Max 20x 플랜이 실제로 어느 정도 가치를 제공하는지 궁금해 Claude Code 로그를 영수증 형태로
-출력하는 도구를 만든 사례가 공개됐다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x4aqyi/i_made_my_claude_code_logs_print_a_store_receipt/">I made my Claude Code logs print a store receipt. $8.3k of tokens at API prices on a $200/mo plan</a> <span class="ref">(Reddit · 10/13 04:03)</span>. 넷 달 동안 $200씩 낸 구독료에 비해
-같은 사용량을 API 정가로 환산하면 Claude Code만으로 $8,313에 달했다고 한다. 영수증에는
-"You're absolutely right"가 딱 한 번, "Perfect!"가 15번 등장했고, 작성자가 94번 끼어들었으며,
-자정부터 새벽 5시 사이에 보낸 프롬프트가 297개, 가장 긴 세션은 17시간 27분이었다는 통계도
-담겼다. 도구는 <code>npx github:glmn-ai/vibereceipt</code>로 받을 수 있고 네트워크 코드가
-전혀 없어 프라이버시를 지킨다고 설명했다. 댓글에서는 영수증에 팁 옵션이 빠졌다는 농담과, 에이전트가
-팁을 스스로 25%로 선결제할 것 같다는 반응이 이어졌고, 더 실질적으로는 <code>ANTHROPIC_API_KEY</code>
-환경변수가 설정돼 있으면 구독 대신 API 과금으로 전환돼 버린다는 경고와, 그 사실이 로그에
-남지 않아 카드 명세서로만 확인할 수 있다는 지적이 달렸다.</p>
+<h2>8. Gemini 4 Argon vs Claude Opus 5.5: same prompt. Tiny World test</h2>
+<p>작성자가 운영해온 "Tiny World" 테스트에 Gemini 4 Argon을 새로 돌려 Claude Opus 5.5와
+비교했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x56wuh/gemini_4_argon_vs_claude_opus_55_same_prompt_tiny/">Gemini 4 Argon vs Claude Opus 5.5: same prompt. Tiny World test</a> <span class="ref">(Reddit · 10/14 04:54)</span>. 프롬프트는 하네스 없이 구름, 산, 도시 건물, 차와 비행기가 돌아다니는
+생동감 있는 만화 스타일 ThreeJS 3D 행성을 만들어달라는 것이었다. Gemini 4 Argon은 5.5분, 1.58달러에
+완성했지만 자신이 만든 페이지를 확인하려는 시도는 한 번뿐이었고 그마저 브라우저 스크립트가
+실패해 결과물을 보지 못했으며 페이지 용량은 56KB였다. Claude Opus 5.5는 14분, 2.54달러가
+걸렸지만 자기 페이지를 세 번이나 확인했고 페이지 용량은 48KB였다. 작성자는 Gemini 3.8F보다는
+훨씬 낫지만 아직 충분히 창의적이지는 않다는 평가를 내렸고, 다음에는 실제 코딩 작업에 써볼 계획이며
+Blender를 얼마나 잘 다루는지도 궁금하다고 밝혔다(지금까지는 Astra가 기준점이라고 덧붙였다).</p>
+<p>댓글에서는 "Argon이 Opus에 비해 약해 보인다"는 반응과 함께 무료 사용자에게 체험 기회조차 주지
+않은 것은 큰 실책이라는 지적이 나왔다. 돈만 쓰고 큰 소득이 없었다는 평가도 있었고, 두 거대
+업체와 경쟁하려 한 것 자체가 패착이며 Anthropic과 OpenAI 쪽이 요금 제한이나 품질 저하로 흔들려야
+신규 구독자를 끌어올 수 있을 거라는 의견도 있었다. UI 차이를 잘 보여줘 고맙다는 댓글과 함께
+Argon이 더 사용자 친화적이지만 Opus가 여전히 비주얼이 낫다는 평가, Sol 6.1과도 비교해 달라는
+요청이 이어졌다(작성자는 Sol 6는 해봤지만 6.1은 안 해봤다고 답했다). 한 사용자는 같은 프로젝트를
+작업하는 중에도 몇 턴마다 "cyber" 관련 오류로 Opus 4.8로 강제 전환되는 현상이 Argon에서는 없다고
+언급했고, 다른 사용자는 보안 취약점을 찾아보라고 명시적으로 요청했을 때도 그런 문제를 겪은 적이
+없으며 오히려 Fable 5.1에서는 계속 겪었다고 반박했다. 마지막으로 빌드 시간 14분과 5분의 차이가
+실질적인 차이인지 묻는 댓글과 함께, Opus 쪽 하이트맵 지형이 더 그래픽적으로 풍성하다는 평가가
+달렸다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-10-13 11:21 KST</p>
+  <p>생성 2026-10-14 08:59 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
