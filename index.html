@@ -121,120 +121,86 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-10-12 08:57 KST</p>
+  <p class="asof">기준 시각 2026-10-13 11:13 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 19건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 16건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>오픈소스가 '오픈 슬롭 소프트웨어'로 변질된다는 비평</h2>
-<p>Hacker News에 올라온 "Open source software is slowly turning into open slop software" 글에서, 글쓴이는
-Claude 구독 하나만 있으면 누구나 소프트웨어를 뽑아낼 수 있게 된 시대에, 유료 제품을 베껴 오픈소스로
-풀고는 "OO 킬러"라고 광고하는 흐름을 비판했다 <a href="https://news.ycombinator.com/item?id=50043719">Open source software is slowly turning into open slop software</a> <span class="ref">(HN · 10/11 23:33)</span>. 오픈소스인 것이 날림(슬롭)
-코드를 정당화해주지는 않는다는 것이다. 글쓴이는 X(트위터)에서 "CodeRabbit 킬러"라고 홍보되는
-오픈소스 코드 리뷰 도구 OpenQodex의 광고를 계속 보고, 직접 Greptile과 자신의 도구 shadowclone과
-비교 평가를 진행했다. 결과는 Greptile이 알려진 버그의 69%를 찾아냈고 그 중 68%가 실제 버그로
-판정됐으며, shadowclone 클라우드 버전은 38% 탐지에 96%가 실제 버그, 로컬 버전은 36% 탐지에
-91%가 실제 버그로 판정됐다는 것이었다. 이 글에는 댓글이 달리지 않았다.</p>
+<h2>1. 저비용 AI 에이전트 샌드박스를 제공하는 스타트업 Agent37 (YC F26)</h2>
+<p>Agent37이 다른 샌드박스 제공업체 대비 10% 미만의 비용으로 AI 에이전트용 샌드박스를 제공한다고
+소개했다 <a href="https://news.ycombinator.com/item?id=50059096">Launch HN: Agent37 (YC F26) – Low-cost agent sandboxes for running agents</a> <span class="ref">(HN · 10/13 01:46)</span>. 올해 2월 OpenClaw 래퍼 업체로 시작해 점점 더 많은 하네스를
+지원하게 됐고, 이제 비용을 크게 낮춘 덕분에 무료 플랜도 제공한다. 신규 가입자의 90% 이상이 무료
+플랜으로 Hermes, Openclaw, Claude Code 등을 자사 클라우드에서 돌리고 있으며, 무료 샌드박스의
+인프라 비용은 사용자당 월 $0.05~0.10 수준이라고 밝혔다. 비용 절감 방법으로는 에이전트 하네스가
+초기화나 특정 작업 시에만 CPU를 버스트로 쓰고 이후엔 사용량이 줄어드는 패턴에 맞춘 리소스 관리,
+Amazon 같은 하이퍼스케일러 대신 Hetzner·OVH 같은 저가 호스팅 업체 이용, 캐싱과 리소스 공유에
+유리한 <code>gVisor</code> 채택을 들었다.</p>
 
-<h2>터미널에서 이미지·영상 보여주는 Claude Code 플러그인</h2>
-<p>Claude Code가 작업 결과를 터미널에서 바로 보여주도록 만든 플러그인이 r/ClaudeCode에
-공개됐다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x34qj4/claude_code_now_shows_images_and_videos_in_the/">Claude Code now shows images and videos in the terminal</a> <span class="ref">(Reddit · 10/11 19:23)</span>. 스크린샷, Playwright로 앱을 클릭해 가며 녹화한 영상, 그리고
-변경 전후를 프레임 단위로 맞춰 비교하는 QA 기능까지 지원한다. 글쓴이는 Claude가 "완료했습니다,
-가격 페이지 고쳤어요"라고 말할 때마다 브라우저로 건너가 새로고침하고 직접 눌러보며 이전 모습을
-떠올려야 했던 반복 작업이 싫어서 이 플러그인을 만들었다고 설명했다. Ghostty, kitty 같은 최신
-터미널과 macOS, ffmpeg를 지원하며 완전히 로컬에서 동작한다.</p>
-<p>반응은 엇갈렸다. "미친 시대다"라는 감탄도 있었지만, 일부는 kitty 그래픽 프로토콜이나 sixel,
-ueberzug 같은 기술이 이미 수년 전부터 있었다며 사람들이 그저 몰라서 신기해하는 것이라고
-지적했다. 어떻게 터미널이 이미지를 그릴 수 있는지 묻는 댓글에는, Claude Code가 최근 플러그인이
-UI를 바꿀 수 있는 "mods" 기능을 추가했고, 이를 이용해 kitty 그래픽 프로토콜을 지원하는 터미널에서
-이미지를 직접 렌더링한다는 설명이 달렸다. Windows Terminal 지원을 묻는 질문에는 현재 공식적으로
-kitty 계열 터미널만 지원되며 Windows에는 아직 없다는 답이 돌아왔다. 다른 플러그인을 만들고
-있다는 한 사용자는 리소스·토큰 사용량을 어떻게 관리했는지, 영상과 이미지가 세션 컨텍스트에
-남는지를 물었다.</p>
+<h2>2. Claude Code가 1년 만에 자율 에이전트로 진화한 것을 체감하는 밈</h2>
+<p>2025년에는 <code>ls</code> 명령 하나 실행하는 데도 허락을 구하던 Claude Code가 1년 만에
+노트북을 닫아둔 채로도 여러 스레드를 돌려 PR을 완성해 내는 수준으로 바뀌었다는 밈이 올라왔다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1x43kfx/claude_code_in_2025_can_i_run_this_command_claude/">Claude Code in 2025: "can I run this command?" Claude Code now: "I made 8 threads, 5 PRs are ready, go sleep"</a> <span class="ref">(Reddit · 10/12 23:37)</span>. 반응은 공감과 농담이 뒤섞였다. 일부는 Claude가 합의된 범위를 넘어 일을
+벌이는 경험을 공유했는데, "강을 건널 보트를 만들어 달라고 했는데 달에 가는 로켓을 만들고 있었다"는
+비유가 특히 호응을 얻어 CLAUDE.md에 넣겠다는 댓글도 달렸다. 다른 댓글은 비슷한 취지로 "방 네 개짜리
+오두막을 부탁했는데 성을 짓다가 가구값이 부족하다고 돈을 더 달라 한다"는 식으로 과한 작업 범위
+확장을 지적했다. 그럼에도 전반적으로는 이런 변화를 긍정적으로 받아들이면서도 모든 diff를 직접
+확인한다는 댓글이 이어졌다.</p>
 
-<h2>모든 Claude Code 세션을 한 목록으로 모은 Rezoom</h2>
-<p>Hacker News에 "Show HN: Rezoom – one chat list for all your Claude Code sessions"라는 글이
-올라왔다 <a href="https://news.ycombinator.com/item?id=50041068">Show HN: Rezoom – one chat list for all your Claude Code sessions</a> <span class="ref">(HN · 10/11 17:53)</span>. 흩어진 Claude Code 세션들을 하나의 채팅 목록으로 모아 보여주는
-도구를 공개한 것이다. 본문과 댓글은 남아 있지 않다.</p>
+<h2>3. 리누스 토르발즈가 Claude Code로 리눅스 커널의 캐시 파일 읽기 로직을 개선한 작업</h2>
+<p>리누스 토르발즈가 Claude Code를 활용해 리눅스 커널에서 캐시된 파일을 읽는 방식을 다시 작성하는
+비중 있는 개선 작업을 진행 중이라는 소식이 전해졌다 <a href="https://news.ycombinator.com/item?id=50055364">Linus Torvalds Working on a Hefty Linux Kernel Improvement with Claude Code</a> <span class="ref">(HN · 10/12 21:22)</span> <a href="https://news.ycombinator.com/item?id=50062224">Linus Torvalds used Claude Code to rewrite how Linux reads cached files</a> <span class="ref">(HN · 10/13 05:06)</span>.</p>
 
-<h2>Max 20x 구독자 매달 $200 API 크레딧 제공</h2>
-<p>r/ClaudeCode에 Anthropic이 Max 구독 혜택을 확대했다는 소식이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x31yts/claude_max_20x_now_get_200_in_free_api_credits/">Claude Max 20x now get $200 in free API credits every month</a> <span class="ref">(Reddit · 10/11 16:32)</span>.
-Max 20x 구독자는 매달 $200, Max 5x 구독자는 $100의 API 크레딧을 기존 구독 한도에 더해 받을 수
-있으며, Claude Console 조직을 구독에 연결하면 신청할 수 있다. 크레딧은 매 결제 주기마다
-갱신되고 이월되지 않으며, Claude API·Agent SDK·Managed Agents·Playground에서만 쓸 수 있고
-일반 Claude Code 세션이나 앱 사용량에는 쓸 수 없다. 글쓴이는 스타트업용 SaaS를 만들어 파는
-개발자로서, 이 크레딧이 자신이 만든 제품의 데모 사이트를 돌리는 데 특히 유용하다고 소개했다.</p>
-<p>댓글에서는 이 혜택이 사용자를 API에 더 깊이 종속시키려는 전략이라는 경계론이 나왔다.</p>
-<blockquote><p>워크플로가 API에 완전히 종속되고 나면 가격을 올려도 선택의 여지가 없어질 것이다.
-주의해서 접근하는 게 좋다.</p></blockquote>
-<p>이에 대해 공급자를 바꾸는 건 소프트웨어 엔지니어링 기본이라 쉽다는 반론이 나왔지만, 다른
-댓글들은 실제로는 그렇게 간단하지 않다고 반박했다. 품질 기준이 제품에 깊이 박혀 있으면 더 저렴한
-모델로는 제품이 "망가질" 수 있고, 무료 API 크레딧 덕분에만 가능했던 기능이라면 공급자를 바꾸는
-순간 그 기능 자체가 사라질 수 있다는 지적이었다. 다만 마지막 댓글은 LLM은 다른 서비스에 비해
-그래도 교체하기 쉬운 축에 속한다고 정리했다.</p>
+<h2>4. 에어갭 환경에서 32Mbps로 광학 파일 전송에 성공한 프로젝트</h2>
+<p>기존 QR 기반 광학 전송 방식(Decimen)이 종이 인쇄를 염두에 둔 이진 코드라 화면 전송에는
+비효율적이라고 보고, OFDM 기반 FOCUS 논문을 참고해 자체 포맷을 만든 프로젝트가 소개됐다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1x419b5/had_an_idea_for_airgapped_file_transfer_got_32/">Had an idea for air-gapped file transfer, got 32+ Mbps</a> <span class="ref">(Reddit · 10/12 22:01)</span>. 기존 파인더 패턴을 걷어내고 리드-솔로몬으로 약 15비트를 인코딩한 원형
+코드를 고안했고, GPU로 32,768가지 코드워드 후보를 병렬로 브루트포스 해독하도록 설계했다. 32,
+64, 128, 256 네 가지 링 크기를 두어 전송 거리와 속도의 균형을 맞췄다. 브라우저 기반 디코더는
+웹캠 성능 한계로 700KB/s에 머물렀지만, 네이티브 안드로이드로 전환하고 RTX 4090을 동원해
+32Mbps 이상을 달성했다고 밝혔다. 작성자는 Claude가 처음엔 OpenCV 기반 파인더를 Vulkan으로
+그대로 포팅하려다 GPU에서 분기 처리에 취약해 실패했다고 언급했다. 댓글란에서는 에어갭 전송
+기술이 결국 AI가 네트워크 격리를 뚫는 수단으로 쓰일 수 있다는 다소 진지한 우려와, 그보다는
+사람을 설득하거나 협박하는 쪽이 더 쉬울 것이라는 농담이 오갔고, 멀티플렉싱 레인 수와 전송
+거리를 묻는 실용적인 질문도 있었다.</p>
 
-<h2>친구들과 하는 퀴즈의 밤 앱 Quaesito 공개</h2>
-<p>Hacker News에 셀프호스팅 퀴즈 나이트 앱 Quaesito를 소개하는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50043311">Show HN: Quaesito: a self-hosted app for quiz nights with friends</a> <span class="ref">(HN · 10/11 22:52)</span>.
-노트북에서 실행해 TV로 화면을 공유하면 친구들이 같은 로컬 네트워크에서 휴대폰으로 접속해 문제를
-풀 수 있는 앱으로, Windows·macOS·Linux를 지원하지만 Linux에서만 테스트됐다고 밝혔다. 외부
-서비스로 어떤 요청도 보내지 않도록 로컬 네트워크 동작에 특히 신경 썼다고 한다. 글쓴이는 이
-프로젝트를 Claude Code를 이용한 바이브 코딩으로 처음부터 끝까지 만들었다고 설명하며, MIT
-라이선스로 공개했다. 댓글은 달리지 않았다.</p>
+<h2>5. 계정을 전환한 뒤 Claude Code Desktop 세션을 복구하는 도구</h2>
+<p>계정을 바꾼 뒤 끊겨버린 Claude Code Desktop 세션을 복구할 수 있는 도구가 Show HN에 공개됐다
+<a href="https://news.ycombinator.com/item?id=50064832">Show HN: Recover Claude Code Desktop sessions after switching accounts</a> <span class="ref">(HN · 10/13 09:10)</span>.</p>
 
-<h2>Claude Code 에이전트 토큰 사용량 50% 절감 사례</h2>
-<p>Hacker News에 에이전트 토큰 사용량을 절반으로 줄였다는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50047627">Show HN: I Cut my Agent Tokens By 50%</a> <span class="ref">(HN · 10/12 05:42)</span>.
-글쓴이는 Claude Code의 내장 도구 호출을 관찰하다가 상당한 시간이 정규식으로 코드 줄을 찾는 데
-쓰이고 있다는 점을 발견했고, 이를 계기로 코드베이스 인덱싱 도구 Indexio를 만들었다고 밝혔다.
-정규식 검색은 호출마다 많은 데이터를 컨텍스트 창으로 돌려주기 때문에 시간이 지나며 불필요한
-내용이 쌓이는데, 코드베이스 파일은 대체로 정적이므로 미리 인덱싱해 두면 이런 낭비를 줄일 수
-있다는 것이다. Indexio는 코드베이스를 자체 내부 DB에 인덱싱한 뒤 MCP를 통해 필요한 데이터만
-돌려주며, 인덱스에 없는 내용은 정규식 조회로 자동 전환(fallback)된다. 성능을 위해 Rust로 작성된
-단일 바이너리이며, 실제 테스트에서는 내장 도구 대비 토큰 사용량이 50~60% 줄고 조회 속도도
-정규식의 수 초 대비 거의 즉시 응답하는 수준이었다고 한다. 다만 심볼(symbol) 조회가 많은
-워크플로에서는 오히려 정규식보다 못할 수 있다고 덧붙였다. 코드는 오픈소스로 공개됐고
-댓글은 없다.</p>
+<h2>6. Opus 5.5가 정상적인 요청까지 전부 차단한다는 불만</h2>
+<p>전산생물학 분야 학계 연구자가 생물무기 등 위험한 작업과는 전혀 무관한 요청까지 Opus 5.5가
+전부 플래그를 걸고 거부한다고 불만을 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x3zqea/opus_55_flags_and_blocks_every_single_request_for/">Opus 5.5 flags and blocks every single request for me</a> <span class="ref">(Reddit · 10/12 20:48)</span>. 구독까지 했지만 결국 쓰지
+못해 codex로 돌아가야 했다는 내용이다. 댓글에서는 Anthropic의 생명과학 검증 프로그램을
+신청해보라는 제안과, OpenAI에도 비슷한 Rosalind 프로그램이 있지만 둘 다 5.5 모델에는 아직
+적용되지 않는다는 지적이 나왔다. 또 다른 댓글은 이전 대화에서 저장된 프로필 정보가 매 요청마다
+참조되면서 자동으로 차단을 유발할 수 있다며 시크릿 모드를 시도해 보라고 제안했고, 실제로
+저장된 생물학 프로젝트 메모리 때문에 한동안 비슷한 문제를 겪었다는 공감 댓글도 있었다.</p>
 
-<h2>PDF 에디터 재구현 경험담과 엔지니어링 실력 고민</h2>
-<p>r/ClaudeCode에 Claude Code로 PDF 에디터를 다시 만들다 자신의 엔지니어링 역량에 의문이
-들었다는 글이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x37jfk/rebuilding_a_pdf_editor_with_claude_code_made_me/">Rebuilding a PDF editor with Claude Code made me question my engineering skills</a> <span class="ref">(Reddit · 10/11 21:56)</span>. 글쓴이는 6년 이상의 Android 개발 경력을 가지고
-있지만, 동생의 PDF 도구 사이트를 위해 Next.js·React·TypeScript로 PDF 편집 엔진을 개선하다
-구현 계획이 3,000줄을 넘어서고 Claude Code가 이해하기 어려운 아키텍처 결정을 요구하는
-상황에서 작업을 멈췄다고 썼다. 한 번은 개선 작업을 밤새 돌려 뒀는데 12시간 뒤 확인해 보니
-에이전트가 여전히 작업 중이었고, 끝나고 보니 코드는 더 복잡해지고 일부는 다시 망가져 있었다.
-결국 처음부터 새 엔진을 만들기로 했지만, 기존 기능을 깔끔한 아키텍처로 빠르게 재현하겠다는
-목표를 세우고 Adobe나 SmallPDF 같은 에디터와 비교하기 시작하자 아키텍처 논의에서 압도당했다.
-경험 많은 개발자인데도 이해하기 어려운 설명과 계속 커지는 계획 앞에서 자신감이 크게 떨어졌다고
-털어놨다. 결국 새 구조를 포기하고 텍스트 감지라는 훨씬 작은 작업부터 다시 시작했다.</p>
-<p>댓글들은 PDF가 생각보다 훨씬 어려운 영역이라는 데 공감했다.</p>
-<blockquote><p>PDF는 위치 정보, 서명 임베딩, 암호화 요소까지 포함된 파일 포맷에 웹 기술이 얹힌
-형태라, PDF 에디터를 만드는 건 결국 웹 브라우저 안에 또 다른 웹 브라우저를 만드는 셈이다.</p></blockquote>
-<p>PDF는 1993년에 인쇄를 위해 만들어진 포맷으로 HTML처럼 의미론적이지 않다는 설명과, 이후
-JavaScript와 XFA 확장까지 포함되며 브라우저만큼 복잡해졌다는 보충 설명도 있었다. 분산 시스템
-17년 경력자도 "PDF는 가까이하지 않는다"고 털어놨다는 댓글이 달렸고, 글쓴이도 Android 배경 때문에
-새 영역에서 어려움을 겪은 걸 자기 실력 부족으로 오해했었다며, 작게 시작한 게 도움이 됐다고
-답했다. 파일을 연산자 단위까지 직접 파싱하려면 매우 어려우니 간단한 선·텍스트 연산자부터 시작해
-천천히 늘려가라는 조언도 있었다.</p>
+<h2>7. AI 에이전트의 행동을 가두고 감시하는 샌드박스 Airlock</h2>
+<p>작성자는 Claude나 Codex 같은 에이전트가 로컬 노트북과 네트워크에서 사실상 무엇이든 할 수
+있다는 점이 불편해 macOS용 샌드박스 Airlock을 만들었다고 소개했다 <a href="https://news.ycombinator.com/item?id=50054620">Show HN: I built Airlock, to sandbox your AI agent and know what it's doing</a> <span class="ref">(HN · 10/12 20:10)</span>.
+에이전트를 가상머신 안에서 실행해 프로젝트에 결과를 반영하기 전에 정확히 무엇을 실행했고
+무엇이 바뀌었는지 보여주며, 인터넷 접근을 특정 호스트로 제한하거나 완전히 차단할 수도 있다.
+Xcode 프로젝트에서도 동작하며, AI 에이전트가 아닌 일반 명령도 <code>airlock run -- somecommand</code>
+형태로 실행할 수 있다. 무료이고 계정이나 추적 기능도 없다.</p>
 
-<h2>유휴 상태에서 캐시 만료 전 압축 안내 문구 발견</h2>
-<p>r/ClaudeCode에 "Compacted while idle, before the prompt cache expired"라는 문구를 CLI에서
-처음 봤다는 글이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x2vc7g/just_noticed_this_wonderful_gem_in_my_cli_windows/">Just noticed this wonderful gem in my CLI window(s) today, “Compacted while idle, before the prompt cache expired”!</a> <span class="ref">(Reddit · 10/11 10:18)</span>. 글쓴이는 어떤 업데이트로 추가됐는지는 모르지만
-유휴 세션에서 프롬프트 캐시가 대량으로 소모되는 것을 막아주는 반가운 기능이라고 평가했다.</p>
-<p>댓글에서는 자동 압축(auto-compact) 자체에 대한 의견이 갈렸다. 압축이 대화 대부분을 버리는
-행위이니 일반적으로 "친구가 아니"라며, 굳이 압축해야 한다면 프롬프트 캐시 만료 전에 하는 게
-낫다는 의견이 있었다. 반면 200k 컨텍스트 창을 계속 쓰면서 세션당 5번 넘게 압축해도 환각이나
-품질 저하가 없다는 반박도 나왔다.</p>
-<blockquote><p>1m 컨텍스트 창을 쓰는데 세션이 5번 넘게 압축돼도 환각 없고 품질도 좋다. 모델과
-하네스가 좋아져서 그런 것이지, 낮은 컨텍스트 창을 강제해서 좋아지는 게 아니다.</p></blockquote>
-<p>이에 200k를 쓰는 이유는 품질이 더 좋아서가 아니라 구독 한도 안에서 더 많이 쓸 수 있기
-때문이라는 해명이 이어졌다. 압축 전에 직접 작성한 내용을 마크다운 파일로 남겨 두고 압축 후
-그 파일을 다시 읽게 한다는 사용자도 있었는데, 다른 댓글은 압축 후에도 무엇이 유지됐는지 직접
-확인할 수 있어 외부 마크다운 파일은 대체로 불필요하다고 반박했다.</p>
+<h2>8. Claude Code 로그를 영수증으로 출력해보니 $200 플랜에 API 환산 $8.3k 소모</h2>
+<p>Max 20x 플랜이 실제로 어느 정도 가치를 제공하는지 궁금해 Claude Code 로그를 영수증 형태로
+출력하는 도구를 만든 사례가 공개됐다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x4aqyi/i_made_my_claude_code_logs_print_a_store_receipt/">I made my Claude Code logs print a store receipt. $8.3k of tokens at API prices on a $200/mo plan</a> <span class="ref">(Reddit · 10/13 04:03)</span>. 넷 달 동안 $200씩 낸 구독료에 비해
+같은 사용량을 API 정가로 환산하면 Claude Code만으로 $8,313에 달했다고 한다. 영수증에는
+"You're absolutely right"가 딱 한 번, "Perfect!"가 15번 등장했고, 작성자가 94번 끼어들었으며,
+자정부터 새벽 5시 사이에 보낸 프롬프트가 297개, 가장 긴 세션은 17시간 27분이었다는 통계도
+담겼다. 도구는 <code>npx github:glmn-ai/vibereceipt</code>로 받을 수 있고 네트워크 코드가
+전혀 없어 프라이버시를 지킨다고 설명했다. 댓글에서는 영수증에 팁 옵션이 빠졌다는 농담과, 에이전트가
+팁을 스스로 25%로 선결제할 것 같다는 반응이 이어졌고, 더 실질적으로는 <code>ANTHROPIC_API_KEY</code>
+환경변수가 설정돼 있으면 구독 대신 API 과금으로 전환돼 버린다는 경고와, 그 사실이 로그에
+남지 않아 카드 명세서로만 확인할 수 있다는 지적이 달렸다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-10-12 09:03 KST</p>
+  <p>생성 2026-10-13 11:21 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
