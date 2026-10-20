@@ -121,53 +121,104 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-10-20 08:54 KST</p>
+  <p class="asof">기준 시각 2026-10-21 08:22 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 21건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 33건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>Tmux와 클로드 코드: 세션, Send-Keys, 그리고 한계</h2>
-<p>Tmux와 클로드 코드를 연결해 세션을 관리하고 <code>send-keys</code>로 명령을 보내는 방법을 다루는 글이 올라왔다. 글은 이 방식이 어디까지 통하고 어디서 한계에 부딪히는지를 짚는다 <a href="https://news.ycombinator.com/item?id=50148855">Tmux and Claude Code: Sessions, Send-Keys, and the Ceiling</a> <span class="ref">(HN · 10/19 14:55)</span>.</p>
+<h2>Death Plan Switch: 1인 개발자용 데드맨 스위치 서비스 출시</h2>
+<p>그래픽·웹 분야에서 25년 넘게 일한 개발자 Peter Bishop이 1인 개발자를 위한 셀프호스팅형
+데드맨 스위치 서비스 "Death Plan Switch"를 공개했다 <a href="https://news.ycombinator.com/item?id=50161408">Show HN: Death Plan Switch, a self-hosted dead man's switch for solo devs</a> <span class="ref">(HN · 10/20 13:37)</span>. 본인이 2012년
+입원했을 때 기술 담당자에게 데이터를 제때 넘기지 못해 사업을 잃었던 경험이 출발점이었다고
+밝혔다. 작성자가 자신이 갑자기 연락이 끊기거나 사망할 경우 적절한 사람에게 알림이 가고
+고객사 업무가 계속될 수 있도록 설계했으며, 상세한 설계 문서를 작성한 뒤 <code>Claude
+Code</code>의 도움으로 구현해 42개의 단위 테스트를 통과시켰다고 설명한다. MIT 라이선스로
+무료 공개했고, 실제 고객 상담에서도 이 기능이 신뢰를 얻는 데 도움이 된다고 전했다.</p>
 
-<h2>클로드 코드가 이제 기본값이 되었다는 반응</h2>
-<p>r/ClaudeCode에 "이제 거의 기본값이 됐다"는 글이 올라오자, 자동 모드(auto mode)를 쓸지 말지를 둘러싼 논쟁이 댓글에서 벌어졌다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xa3har/its_basically_default_at_this_point/">It's basically default at this point</a> <span class="ref">(Reddit · 10/20 02:39)</span>. 자동 모드가 꽤 괜찮다는 의견도 있었지만, 많은 댓글은 <code>rm -rf</code>처럼 되돌릴 수 없는 명령을 클로드에게 맡기는 데 대한 불안을 드러냈다.</p>
-<blockquote><p>클로드가 어떤 변수를 <code>rm -rf</code>하려 하는데, 그 변수가 재귀적으로 우리를 파괴하지 않을 거라고 믿는 거죠.</p></blockquote>
-<p>일부는 AI 보안 연구를 하는 입장에서 "일하면서는 전문적으로 무책임하다"고 농담했고, 반대로 언리얼 엔진 프로젝트에서는 권한을 일일이 수동으로 관리한다는 댓글도 있었다. 자동 승인 분류기(classifier)에 대한 불만도 컸다. 브랜치를 삭제하는 것 같은 안전한 작업까지 "파괴적 행동"으로 걸려 막힌다는 지적과, 클로드가 실수로 C 드라이브 루트에 더미 파일을 여러 개 만들어 놓고 분류기 때문에 정리도 못 했다는 사례가 공유됐다.</p>
-<blockquote><p>자동 승인 분류기가 실제로는 꽤 잘 만들어졌다고 생각하지만, 거짓 양성을 뒤집는 데 너무 많은 턴이 들어가서 전체 경험을 망쳐 놓는다.</p></blockquote>
+<h2>1100만 건 뉴스 기사 파이프라인으로 패턴 발견</h2>
+<p>한 개발자가 야간과 주말에 혼자 만든 뉴스 클러스터링 파이프라인 결과를 공유했다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1xaxzqv/i_handed_claude_code_a_database_of_11_million/">I handed Claude Code a database of 11 million news articles, it found some weird patterns</a> <span class="ref">(Reddit · 10/21 02:12)</span>. 하루 약 10만 건, 4만여 매체·40개 언어의 기사를 모아 같은 사건을 하나의
+항목으로 묶는 구조로, 164일간 누적 1100만 건 이상을 모았다고 한다. 이 데이터 전체를
+<code>Claude Code</code>에 넘기고 질문 목록을 준 뒤 분석을 맡겼는데, 실제 사건 1건당 기사
+12건이 작성되고, 사건의 40%는 둘째 날 보도조차 없으며, 특정 세계 지도자 한 명이 다른 상위
+5명을 합친 것보다 더 많은 새 사건에 매일 등장한다는 식의 패턴을 찾아냈다. 작성자는 Claude가
+가설을 먼저 세우고 쿼리를 작성해 실제 API로 검증한 뒤 차트와 페이지까지 만들었고, 자신은
+숫자를 검토해 재검증에 실패한 결과나 너무 프로젝트 특화된 발견을 걸러내는 역할만 했다고
+설명한다. 반응은 엇갈렸다. 언어모델이 세상의 숨은 패턴을 밝히는 데 유용하다는 긍정적 반응과
+함께, 정보 조작·데이터 오염 가능성을 지적하는 댓글도 이어졌다.</p>
+<blockquote><p>대규모 데이터 프로젝트를 다뤄본 사람으로서, Claude가 1100만 건을 실제로 다
+살펴봤을 것 같지 않다. 비용을 감당할 수 없을 테니, 아마 쓸모없는 휴리스틱으로 처리하는
+코드를 짠 것일 뿐일 것이다.</p></blockquote>
 
-<h2>잡무를 대신 처리해주는 태스크 시스템, 3 &amp; Done</h2>
-<p>소프트웨어 엔지니어 경력 44년차인 글쓴이가 "3 &amp; Done"이라는 태스크 관리 시스템을 Show HN에 올렸다 <a href="https://news.ycombinator.com/item?id=50151980">Show HN: I built a task system to handle the drudgery so I could focus on tasks</a> <span class="ref">(HN · 10/19 22:07)</span>. 음성으로 할 일을 빠르게 입력할 수 있고(음성은 로컬에 저장돼 나중에 다시 들을 수 있다), 마감일·긴급도·방치된 기간 등을 바탕으로 매일 아침 가장 중요한 세 가지 일을 이메일로 보내준다.</p>
-<p>글쓴이는 Moleskine 노트와 Getting Things Done, Evernote, 버그 트래커, Todoist, Asana, Google Keep 등 25개가 넘는 시스템을 거쳐 왔다고 밝혔다. Facebook 뉴스피드 팀을 관리할 때는 간트 차트와 스프레드시트, OmniPlan까지 동원했지만, 결국 그 모든 정리·분류·리뷰 작업 자체가 너무 큰 부담이었다는 것이 이 프로젝트를 만든 이유라고 설명한다.</p>
+<h2>Jev 비전 모델로 만든 사진 퀴즈 게임</h2>
+<p>개발자 totisjosema가 TypeSafe의 신규 비전 모델 "Jev"를 활용한 사진 퀴즈 게임을 공개했다
+<a href="https://news.ycombinator.com/item?id=50167617">Show HN: Jev Cards, Can you beat a vision model at a picture quiz?</a> <span class="ref">(HN · 10/21 00:11)</span>. Jev는 사진과 질문을 보고 약 0.25초 만에 답을 고르거나 화면의 지점을
+짚어낸다. 카드는 전부 직접 제작했고, 혼자 Jev와 대결하거나(모드별 리더보드 제공) 실시간
+매치를 열어 친구와 함께 Jev를 상대로 겨룰 수도 있다. 코드는 오픈소스로 공개되어 있으며,
+작성자는 TypeSafe와 Opper 양쪽에서 Jev를 구동해봤고 카드 제작에는 Opper의 비전 모델과
+<code>Claude Code</code>를 활용했다고 밝혔다. 본인이 Opper 소속이라는 점도 밝혔다.</p>
 
-<h2>러스트로 만든 더 빠른 레디스 호환 메모리 DB, KiviDB</h2>
-<p>2026년 2월부터 개발됐다는 러스트 기반 레디스 호환 인메모리 DB 겸 벡터 캐시 KiviDB가 Show HN에 공개됐다 <a href="https://news.ycombinator.com/item?id=50152541">Show HN: KiviDB, a faster Redis-compatible memory database and vector cache</a> <span class="ref">(HN · 10/19 22:53)</span>. 글쓴이는 Dragonfly를 쓰다가 GC 멈춤과 스냅샷 후 메모리 급증, 파드 OOM 문제를 겪은 것이 계기였다고 밝혔고, Garnet과 Dragonfly의 장점을 가져오면서 러스트의 이점을 살리려 했다고 설명한다.</p>
-<p>설계 결정은 본인이 직접 내렸지만, 클로드에게 과거 트러블슈팅 기록에서 테스트 케이스를 뽑아내는 등 개발 속도를 높이는 데 AI를 많이 활용했다고 밝혔다. KiviDB는 RESP2·RESP3 프로토콜을 지원하고, 스레드별로 키스페이스를 샤딩하며, 리눅스에서는 <code>tokio_uring</code>으로 io_uring을 활용해 성능을 끌어올렸다(다른 OS에서는 tokio로 대체). 코어 엔진은 AGPLv3로 공개했고, c7gn.metal 서버 두 대로 측정한 벤치마크에서 레디스 8.10 명령의 약 98~99%를 지원한다고 설명했다.</p>
+<h2>커밋 공동저자로 드러난 Fable 5.5 떡밥</h2>
+<p>한 레딧 이용자가 4일 전 머지된 커밋의 공동저자가 "Fable 5.5"로 표시되어 있는 것을 발견해
+공유했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xato0b/fable_55_imminent/">Fable 5.5 imminent!</a> <span class="ref">(Reddit · 10/20 23:29)</span>. 커밋을 머지한 사람도 처음엔 이를 눈치채지 못했다고 하며,
+작성자는 이것이 Claude Code에서 이미 Fable 5.5에 대한 A/B 테스트가 진행 중이고 자신도 모르게
+해당 모델로 라우팅될 수 있다는 뜻이라고 해석했다. 댓글란은 진지한 검증보다는 농담으로
+흘러갔는데, 저마다 가상의 차세대 모델명을 지어내며 놀리는 분위기가 이어졌다.</p>
+<blockquote><p>Haiku 12는 코드를 더 잘 짜고 에어팟 위에서도 돌아간다.</p></blockquote>
+<blockquote><p>커밋마다 모델 버전을 하나씩 올려서 적고 있다.</p></blockquote>
 
-<h2>Opus 5.5가 PS2 게임을 역컴파일해 브라우저에서 실행</h2>
-<p>클로드 Opus 5.5가 밤새 PS2 시대 게임을 역컴파일했고, 그 결과 수백 개의 게임이 브라우저 탭에서 돌아가게 됐다는 글이 r/ClaudeCode에 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xa79hb/claude_opus_55_decompiles_a_ps2era_game_overnight/">Claude Opus 5.5 decompiles a PS2-era game overnight, and hundreds of them now run in browser tabs</a> <span class="ref">(Reddit · 10/20 04:57)</span>. 하지만 댓글란은 이 표현 자체에 의문을 제기하는 반응으로 채워졌다.</p>
-<blockquote><p>이건 디컴파일이 아니라 리컴파일 아닌가요? 둘을 자꾸 헷갈리기 시작한 것 같은데요.</p></blockquote>
-<p>한 댓글은 실제로 일어난 일은 "게임 하나에 맞춘 에뮬레이션 레이어를 짜서 .exe로 감싼 것"이며, 이는 네이티브로 돌아가는 리메이크와는 거리가 멀고 Opus조차 그 수준까지 가려면 몇 주가 더 걸릴 거라고 지적했다. 다른 댓글들은 사람도 20년 넘게 PS2 게임을 한 시간 안에 역컴파일해 왔다며, 이번 사례를 "흔한 AI 과장 홍보"로 깎아내렸다. 소개된 웹사이트에 팝업 광고와 악성코드가 많다는 경고도 있었다.</p>
+<h2>Respan: 플러그인 기반 오픈소스 Rust AI 게이트웨이 런칭</h2>
+<p>YC W24 출신 Respan의 Andy가 Rust로 만든 오픈소스 AI 게이트웨이를 소개했다
+<a href="https://news.ycombinator.com/item?id=50167583">Launch HN: Respan (YC W24) – Open-source Rust AI gateway built around plugins</a> <span class="ref">(HN · 10/21 00:09)</span>. 프로바이더, <code>MCP</code>·음성 같은 프로토콜, 이미지·영상 같은
+모달리티, 폴백·개인정보 마스킹·스마트 라우팅 같은 기능까지 전부 플러그인으로 다루는 구조로,
+Nginx에서 영감을 받아 핵심은 이벤트 디스패치만 담당하는 작은 코어로 유지했다고 설명한다.
+배경으로는, 2024년부터 LiteLLM 기반으로 게이트웨이를 운영하며 조직별 API 키·라우트·한도를
+지원하려고 래퍼 코드를 계속 덧붙이다 보니 코드량이 10만 줄을 넘었고, 올해 1월 LiteLLM 정기
+업그레이드 중 원인 불명의 간헐적 연결 오류가 발생해 롤백한 뒤로는 업스트림 패치를 직접
+백포트하며 버텨왔다고 밝혔다. 이 경험이 게이트웨이를 처음부터 다시 설계하게 된 계기였다고
+전했다.</p>
 
-<h2>Opus 5.5가 712달러·39시간 들여 발더스 게이트 3 단독 클리어</h2>
-<p>글쓴이는 퇴근 후 집에서도 클로드에게 "노는 것"까지 맡겨 보기로 하고, Opus 5.5가 아무 조작 없이 발더스 게이트 3을 깨도록 돌렸다. 9일과 712달러를 들여 열두 번째 시도에서 네더브레인을 쓰러뜨리고 엔딩을 봤다고 한다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x9ue4y/after_712_and_39_hours_opus_55_beat_baldurs_gate/">After $712 and 39 hours, Opus 5.5 beat Baldur's Gate 3 all by itself</a> <span class="ref">(Reddit · 10/19 20:31)</span>. 구성은 기본 내장 툴을 모두 끈 <code>claude -p</code>로, 자신이 직접 짠 Python MCP 서버가 Lua 모드와 TCP로 통신하며 화면 인식과 클릭을 처리했다. 세션마다 시간 제한을 두고 핸드오프 문서로 기억을 이어갔으며, 11번의 크래시를 사람 개입 없이 복구했고 메모리 저장소에는 157번의 커밋과 67개 규칙의 교훈 파일이 쌓였다고 설명한다.</p>
-<p>댓글은 이 방식을 벤치마크로 발전시키자는 쪽으로 흘렀다.</p>
-<blockquote><p>지금까지 본 벤치마크 아이디어 중 최고예요. 꼭 계속 발전시켜서 다른 모델들과도 비교해 볼 수 있으면 좋겠네요.</p></blockquote>
-<p>다른 댓글은 BG3는 학습 데이터에 공략이 이미 많아서 의미가 떨어지니, 모델이 직접 풀어야 하는 독자적인 RPG가 더 나은 벤치마크가 될 거라고 제안했다. 또 다른 사람들은 Sonnet으로 FTL에 배와 퀘스트를 추가해 봤는데 디자인 자체는 쉬웠지만 화면의 정확한 위치를 클릭하는 테스트에는 시간이 훨씬 더 걸렸다는 경험을 나눴고, 블렌더 CLI를 쓰면 더 재현 가능한 결과를 얻을 수 있다는 팁도 이어졌다.</p>
+<h2>트럭 HVAC 해킹까지 넘나드는 Claude의 양면성 후기</h2>
+<p>한 이용자가 Claude Code를 쓰며 느낀 극단적인 양면성을 공유했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xae2nw/the_duality_of_claude/">The duality of Claude.</a> <span class="ref">(Reddit · 10/20 09:40)</span>. 자신의
+트럭 헤드유닛 소프트웨어를 adb로 디컴파일해 HVAC를 직접 제어할 수 있게 만들고, 업무용 폼
+빌더를 몇 시간 만에 프로토타입으로 만들고, 조카를 위한 고질라 게임까지 순식간에 만들어내는
+모습에 "내 일이 이제 필요 없는 건 아닐까" 하는 생각이 들 정도였다고 한다. 그런데 바로 다음
+순간, Claude가 "숨겨진 항목 1,000개를 세려면 객체 한도에 걸리니 그 객체들을 다 만들어야 한다"는
+제안을 내놓자, 작성자가 "그냥 메모리에 리스트로 들고 있으면 안 되냐"고 되묻으니 Claude가
+"그게 훨씬 깔끔한 설계네요"라고 답했다는 일화를 전하며, 어떻게 이렇게 똑똑하면서도 이렇게
+어이없을 수 있는지 모르겠다고 적었다. 댓글들도 같은 경험을 공유하며 이 양면성에 공감했다.</p>
+<blockquote><p>Opus는 새 신발을 멋지게 디자인해줄 수 있지만, 그 끈을 구멍에 어떻게 꿰는지는
+잊어버린다.</p></blockquote>
+<blockquote><p>완료된 작업을 체크 표시로 보여주는 기능을 추가했는데, Claude는 페이지를 불러올
+때마다 시스템 전체를 조회해서 뭐가 끝났는지 계산하려는 엔드포인트를 설계하기 시작했다.
+그냥 완료된 단계를 담은 테이블 하나면 되는 거 아닌가.</p></blockquote>
 
-<h2>코드와 하드웨어 사이에 있는 새로운 모델, Maxwell</h2>
-<p>doubleAI의 Gal이 Show HN에 "Maxwell"을 소개했다. 코드와 하드웨어 사이에 자리하는 새로운 종류의 프론티어 모델로, 코드 한 줄도 바꾸지 않으면서 실행 중인 프로그램을 더 빠르게 만든다는 "코드 실행 모델(Code Execution Model)"이라고 설명한다 <a href="https://news.ycombinator.com/item?id=50152466">Maxwell: A new kind of model that sits between code and hardware</a> <span class="ref">(HN · 10/19 22:47)</span>. Maxwell은 트레이스와 프로파일링 정보, 데이터 흐름을 내부에서 들여다보고 하드웨어와 동시 실행 환경, 입력 형태에 맞춰 동적으로 적응한다.</p>
-<p>글쓴이는 클로드나 Codex, 그리고 사람이 매번 다른 하드웨어와 데이터 흐름에 맞춰 코드를 다시 최적화하는 지금 방식이 불필요하고 확장성이 없다고 보며, 코드를 "살아서 생각하는 것"으로 만드는 쪽이 맞는 답이라고 주장한다. heymaxwell.ai에서 얼리 액세스를 받고 있다.</p>
+<h2>같은 작업량에도 토큰 소모가 전보다 빨라�졌다는 불만</h2>
+<p>작업량은 줄었는데 사용량 한도에 더 빨리 도달한다는 불만이 레딧에서 잇따랐다. 한 이용자는
+전에 하던 작업의 4분의 1만 했는데도 한도를 채운 적이 없다가, 최근엔 이틀 만에 한도에 도달했다며
+계정을 두 개 더 써야 하는 건지 토로했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xadv35/something_most_be_done_with_this_fast_consuming/">something most be done with this fast consuming rates ,on some Fast &amp; Furious sht</a> <span class="ref">(Reddit · 10/20 09:30)</span>. Roblox 게임을 만들어 생계를 잇는
+또 다른 이용자는 Pro 요금제로 <code>Opus 5.5 High</code>를 쓰는데, 예전보다 훨씬 빨리 주간
+한도를 다 써 3일 만에 소진했고 단순한 작업도 전보다 오래 걸린다고 적었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xaoa8h/is_anyone_else_noticing_that_claude_is_consuming/">Is anyone else noticing that Claude is consuming so many tokens now than before?</a> <span class="ref">(Reddit · 10/20 19:14)</span>.
+댓글란에는 비슷한 경험이 쏟아졌다. 최근 1~2주 사이에 뭔가 바뀐 것 같다는 공감대가 형성됐고,
+구체적인 체감 수치를 제시하는 댓글도 많았다. Anthropic이 용량을 줄였다는 추측과 함께, 다음
+모델 출시로 다시 정상화되길 바란다는 기대도 섞여 있었다.</p>
+<blockquote><p>큰 작업 한 번에 5시간 세션을 돌리면 주간 한도의 25%가 날아간다. 그런데 더
+슬픈 건, Max x5에서 x20으로 올렸는데 주간 한도는 100%에서 겨우 77%로만 늘었다는 거다. 즉
+가격은 두 배인데 주간 한도는 30%밖에 더 안 늘어난 셈이다. 완전 날강도다.</p></blockquote>
+<blockquote><p>Opus 5.5가 처음 나왔을 때는 시간당 한도를 다 써도 주간 할당량의 10% 정도만
+쓰는 수준이었는데, 지금은 25%를 태운다. 체감상 용량을 2배 이상 줄인 게 확실하다.</p></blockquote>
 
-<h2>온도 모니터 앱 제작 중 맥에서 크립토마이너를 잡아낸 클로드</h2>
-<p>맥용 온도 모니터링 앱을 만들다가 클로드가 "당신의 맥에서 제가 설치하지 않은 크립토마이너가 돌고 있다"고 알려줬다는 글이 r/ClaudeCode에 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1x9sn67/claude_caught_a_cryptominer_on_my_mac_whilst/">Claude caught a cryptominer on my Mac whilst building me a temperature monitor app</a> <span class="ref">(Reddit · 10/19 18:52)</span>. 이어진 댓글들은 "클로드가 자기 책임을 떠넘긴다"는 농담으로 흘러갔다.</p>
-<blockquote><p>클로드가 CPU 과부하는 자기 책임이라면서, 디스크랑 메모리를 많이 쓰는 건 코덱스 탓이라고 하더라고요. 룸메이트한테는 좀 친절하게 대해줘요, 클로드.</p></blockquote>
-<p>다른 댓글은 "원래 있던 마이너의 자원을 가져다 쓰는 거니 제거하겠다"는 식의 응답을 패러디했고, 일부는 일부러 철자를 틀리게 쓰는 농담을 주고받았다. 같은 글이 과거에도 올라온 적 있다는 "리포스트" 지적도 있었다.</p>
+<h2>Claude Code 기반 "불 꺼진" 소프트웨어 팩토리 보일러플레이트 공개</h2>
+<p>개발자 gojkoa가 Claude Code로 "불 꺼진(lights-on)" 소프트웨어 팩토리를 운영하기 위한
+시작점이 되는 보일러플레이트를 공개했다 <a href="https://news.ycombinator.com/item?id=50160198">Show HN: Lights-on software factory boilerplate for Claude Code</a> <span class="ref">(HN · 10/20 10:22)</span>. Votito 프로젝트를 운영하며
+구축한 설정을 기반으로 하며, 오케스트레이터를 둔 덕분에 Claude를 그대로 쓰는 워크플로보다
+토큰 비용을 약 80% 줄였다고 밝혔다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-10-20 09:03 KST</p>
+  <p>생성 2026-10-21 08:30 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
