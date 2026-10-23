@@ -121,56 +121,35 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-10-23 08:34 KST</p>
+  <p class="asof">기준 시각 2026-10-24 08:27 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 24건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 15건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>사용량 윈도우를 보호하는 Claude Code 모드 agent-usage-guard 공개</h2>
-<p>Show HN에 agent-usage-guard라는 Claude Code 모드가 공개되었다 <a href="https://news.ycombinator.com/item?id=50198936">Show HN: agent-usage-guard – a Claude Code mod to protect your usage window</a> <span class="ref">(HN · 10/23 03:02)</span>. 사용자가 설정한 사용량 윈도우를 넘기지 않도록 지켜주는 것이 핵심 기능이다. 본문과 댓글이 따로 없어 구체적인 작동 방식이나 커뮤니티 반응은 확인되지 않는다.</p>
-
-<h2>Claude 말버릇(Claudism) 티어 리스트 밈</h2>
-<p>Reddit에 Claude가 반복해서 쓰는 말버릇들을 "얼마나 망했는지"를 기준으로 등급을 매긴 티어 리스트 밈이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xc7stb/claudisms_tier_list_by_how_boned_you_are/">Claudisms tier list, by how boned you are</a> <span class="ref">(Reddit · 10/22 12:27)</span>. 댓글에서는 특히 "I need to be honest with you"라는 표현이 진짜 공포를 준다는 반응이 많았다.</p>
-<blockquote><p>솔직히 말씀드리겠습니다. 스프레드시트 탭 전체를 지웠는데, 음, 이전 버전을 직접 복구하시면 됩니다.</p></blockquote>
-<p>비슷하게 "지금 전체 상황을 파악했습니다"라고 말해놓고 실제로는 전혀 파악하지 못했다는 사례, 압축 12번을 거치고 나서야 끝났다는 경험담도 이어졌다. 모델 비교도 나왔는데, 복잡한 마이그레이션이나 기존 로직을 다룰 때 Fable 5.1을 너무 믿었다가 작업을 통째로 버려야 했다는 비판이 있었고, 그래도 Opus 5보다는 낫다는 평가도 있었다.</p>
-
-<h2>사용량 제한 변동과 Anthropic A/B 테스트 논란</h2>
-<p>Max 플랜을 5x에서 20x로 올린 한 사용자가, 두 플랜의 월간 총사용량은 사실 동일하고 20x는 5시간 세션 한도만 다르다는 사실을 뒤늦게 알게 되었다며 분노한 글을 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xcnrxk/we_should_be_furious_about_this_lets_see_if_we/">We should be furious about this. Let’s see if we can move the giant.</a> <span class="ref">(Reddit · 10/23 01:44)</span>. 결제 화면 어디에도 세션 한도만 두 배라는 설명이 없었다며 이를 눈속임에 가까운 가격 정책이라 비판하고, 고객지원에 항의하거나 20x 대신 5x 두 개를 구매하라고 다른 사용자들에게 권했다.</p>
-<p>댓글에서는 어떤 플랜을 쓰든 정확한 사용량을 파악하기 어렵다는 공통된 불만이 나왔고, 피크 시간대에 따라 사용량이 크게 출렁인다는 경험담이 풍자적으로 이어졌다. 병렬로 여러 에이전트를 돌리다 계정이 정지된 사례도 댓글에서 언급되었다.</p>
-<p>비슷한 시기 다른 사용자는 세션을 하나만, 그것도 high 모드로 돌리고 있었는데도 주간 사용량이 하루 만에 58%에서 99%로 치솟았다며 사용량 계산이 또 들쑥날쑥하다고 토로했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xctaru/usage_is_bad_again_this_week/">Usage is bad again this week</a> <span class="ref">(Reddit · 10/23 05:07)</span>. 최신 모델이 토큰을 더 효율적으로 쓴다는 말과 달리 체감상 작업이 며칠씩 걸린다고도 덧붙였다.</p>
-<p>이 와중에 SemiAnalysis가 Anthropic이 사용량 제한을 놓고 A/B 테스트를 하고 있다는 주장을 제기했고, 이 소식이 Reddit에도 공유되며 논란이 커졌다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xcwfob/semianalysis_claims_anthropic_is_ab_testing_usage/">SemiAnalysis claims Anthropic is A/B Testing Usage Limits</a> <span class="ref">(Reddit · 10/23 07:11)</span>.</p>
-
-<h2>음정 이탈을 보여주는 노래 연습 앱 OnKey 공개</h2>
-<p>Show HN에서 한 개발자가 노래 실력을 늘리려고 Claude Code의 도움을 받아 음정 이탈을 실시간으로 보여주는 Mac 앱 OnKey를 만들어 공개했다 <a href="https://news.ycombinator.com/item?id=50195488">Show HN: OnKey – I'm a bad singer, so I built an app to show where I'm off-key</a> <span class="ref">(HN · 10/22 23:04)</span>. 기존에 쓰던 노래 연습 앱이 원곡이 아닌 커버 음원을 늘리자 불만을 느껴, 직접 Spotify·Apple Music·브라우저 YouTube 재생을 듣고 곡의 음정을 학습한 뒤 따라 부르는 음정을 비교해 보여주는 방식으로 만들었다고 설명했다. 노래와 목소리는 저장하지 않으며 무료이자 오픈소스(MIT 라이선스)로 공개했다.</p>
-<ul>
-<li>배경음이 시끄러운 곡에서는 음정 추출이 어렵다</li>
-<li>가끔 음을 한 옥타브 틀리게 인식한다</li>
-<li>Apple Silicon Mac, macOS 14.2 이상에서만 동작한다</li>
-</ul>
-
-<h2>Claude Code 설치 스크립트 다운 장애</h2>
-<p>Claude Code 설치 스크립트가 다운됐다는 글이 Show HN에 올라왔다 <a href="https://news.ycombinator.com/item?id=50192140">Claude Code install script is down</a> <span class="ref">(HN · 10/22 16:05)</span>. 본문과 댓글이 따로 없어 장애의 구체적 원인이나 커뮤니티 반응은 확인되지 않는다.</p>
-
-<h2>Anthropic 고객 지원 부재에 대한 불만</h2>
-<p>22달러/유로짜리 플랜으로 논문 관련 코드 작업에 Claude Code를 쓰는 한 사용자가, 기한이 남아 있던 사용량 리셋 기회가 아무 설명도 없이 계정에서 사라졌다고 호소했다 <a href="https://news.ycombinator.com/item?id=50200555">UPDATE: Anthropic's non-existant customer support</a> <span class="ref">(HN · 10/23 05:27)</span>. 고객지원 상담원은 다른 모든 사용 통계와 리셋 시각은 확인할 수 있으면서도 해당 리셋 기록만은 보지 못했고, 문제를 상위 담당자에게 넘기는 것도 거부했다고 전했다. 글쓴이는 이런 일이 이 커뮤니티에서 흔히 보이는 문제라며, 돈을 내는 AI 기업에 매번 애원해야 하는 구조 자체가 받아들이기 어렵다고 적었다.</p>
-<p>글 업데이트에서는, 지원 서비스에 "위협적으로" 항의하면 사람의 응답은 오지만 도움이 되거나 개인화된 응답은 아니었고, 이메일에 달린 답장·메신저 링크들도 작동하지 않았다고 덧붙였다.</p>
-
-<h2>AGI 관련 밈 게시물</h2>
-<p>"AGI"라는 제목의 밈 게시물이 Reddit에 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xcoblo/agiㅤㅤ/">AGIㅤㅤ</a> <span class="ref">(Reddit · 10/23 02:04)</span>. 댓글에서는 한쪽 모델에 "못 풀면 ChatGPT한테 넘기겠다"는 식으로 말하면 경쟁심을 자극해 더 열심히 풀게 만들 수 있었다는 경험담이 이어졌고, 이를 두고 AI를 조종하는 방법을 제대로 쓴 것이라는 반박도 달렸다.</p>
-<p>다른 댓글 작성자는 Opus, Sol, Luna 등 서로 다른 모델에 역할을 나눠주고 서로 검토하거나 작업을 위임하게 만드는 자작 프로토콜을 운영한다고 소개했다. 한 폴더를 두고 각 모델이 주기적으로 파일을 읽고 쓰며 작업을 넘기는 방식이라고 설명했으며, 다른 사용자들도 모델들이 귀찮은 작업을 서로에게 떠넘긴다는 데 공감했다.</p>
-
-<h2>"Real..." 밈 게시물</h2>
-<p>"Real..."이라는 제목의 밈이 Reddit에 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xch5ui/real/">Real...</a> <span class="ref">(Reddit · 10/22 21:26)</span>. 댓글에서는 Claude에 질문 하나를 할 때마다 시간당 사용량의 25%가 소모된다는 농담이 나왔고, 코드베이스 수십 개 파일을 깊이 파고드는 질문과 짧은 질문이 같은 비율로 소모되는지 묻는 반응도 있었다.</p>
-<p>Claude Code의 메모리 폴더를 열어보면 자신에 대한 메모가 있다는 농담도 이어졌는데, 대체로 긍정적인 내용이라는 반응이었다. 한 댓글은 모델별 메모 스타일을 다음과 같이 비교했다.</p>
-<blockquote><p>Claude는 "짧은 답을 선호한다"라고 적고, Codex는 "압축 파일 푸는 법을 또 물어봤다"라고 적는다.</p></blockquote>
-<p>모델별 용도를 구분하는 댓글도 있었다.</p>
-<blockquote><p>Gemini는 범용 검색, ChatGPT는 브레인스토밍과 글쓰기, Claude는 코딩과 실제 작업.</p></blockquote>
+<h2>1. 5시간 사용 한도가 평소보다 훨씬 빨리 소진되는 현상</h2>
+<p>여러 사용자가 평소와 똑같이 작업했는데도 5시간 한도가 훨씬 빨리 바닥난다는 보고를 쏟아냈다. Hacker News에서는 한 사용자가 과거에는 네 시간 가까이 작업할 수 있었는데 오늘은 200K 컨텍스트로 몇 번 모킹 작업을 하자 10분 만에 30~70%까지 소진됐고, 다른 세션은 15분 만에 100%에 도달했다며 몇 달 전에도 같은 일이 있었다고 전했다 <a href="https://news.ycombinator.com/item?id=50211479">Ask HN: Claude gets over my 5h limit today in 10 minutes?</a> <span class="ref">(HN · 10/24 01:22)</span>. Reddit에서도 비슷한 체감을 수치로 설명하는 글이 올라왔는데, 예전에는 5시간 한도 100%가 주간 한도의 7%였다면 지금은 같은 7% 소진이 주간 한도 1%에 해당해 체감상 두 배 가까이 빨리 닳는 셈이라는 계산이었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xd0pzl/usage_seems_to_be_draining_quicker/">Usage seems to be draining quicker</a> <span class="ref">(Reddit · 10/23 10:27)</span>. 더 극단적인 사례도 있었는데, 2년 가까이 Claude Code를 써온 사용자가 Opus 5.5로 가볍게 두세 개 세션만 돌렸는데도 30분 만에 5시간 한도를 다 썼다며 다음 달엔 Codex로 돌아가겠다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xd9nsc/this_is_insane/">this is insane</a> <span class="ref">(Reddit · 10/23 18:48)</span>. 또 다른 글은 주간 한도 대비 5시간 한도 비율이 20%에서 10%로 줄어든 것이 아니냐고 물었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xdezij/did_they_lower_the_5_hour_limit_from_20_to_10/">Did they lower the 5 hour limit from 20% to 10% weekly?</a> <span class="ref">(Reddit · 10/23 23:04)</span>.</p>
+<p>댓글에서는 Anthropic이 테스트 그룹을 대상으로 5시간 한도를 늘리고 주간 한도를 줄이는 A/B 테스트를 하고 있다는 추측이 나왔고, 실제로 지난주 대비 20~30% 사용량이 깎였다는 체감을 전하는 사람도 있었다. 반면 5시간 한도보다 주간 한도가 문제라는 반응도 있어, 한도 체감이 사용자마다 엇갈리는 모습도 보였다. 헤드리스 사용이 원인일 수 있다는 분석도 나왔는데, 네 개의 Max 20x 계정에서 사용량을 추적한 사용자는 <code>claude -p</code>로 헤드리스 작업을 할 때가 평소 대화형 작업보다 5시간 한도를 약 1.5배 더 빨리 소진시킨다는 결과를 내놓았다. 캐시 설정, 시작 비용, 사용량 집계 지연 시간 등 다른 원인 가능성을 하나씩 배제해 봐도 1.4~1.6배 차이는 그대로 남았다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xdk3cn/heads_up_headless_claude_p_eats_your_5hour_limit/">Heads up: headless claude -p eats your 5-hour limit about 1.5x faster than using Claude Code normally</a> <span class="ref">(Reddit · 10/24 02:16)</span>.</p>
+<h2>2. AI 코딩에서 해피 패스 문제를 피하고 신뢰할 수 있는 시점에 대한 질문</h2>
+<p>한 개발자가 Claude Code와 Codex를 서로 감독자로 세운 이중 검증 체계를 만들었다고 소개했다. Claude가 데스크톱에서 작업을 수행하면 Codex가 별도 지침에 따라 Claude의 테스트 결과를 반박하고 자체 테스트 기록을 유지하며 PASS 또는 NO PASS만 판정하고, Claude는 NO PASS 항목을 반드시 고쳐야 하는 구조다. 그런데도 문제가 계속 발생했고, Claude에게 물으면 "내 책임이다, X와 Y를 하지 않았다"고 인정하면서도 Codex가 그 부분을 확인했는지 물으면 "Codex가 다른 건 확인했지만 이건 확인하지 않았다"는 답이 돌아왔다고 한다. 그는 대형 프로젝트에서는 지침을 다시 읽히더라도 Claude나 Codex(역할을 바꿔도 마찬가지)가 점점 지침에서 벗어나 빠뜨리는 부분이 생기는 것 같다며, AI가 해피 패스만 처리하지 않고 전체 작업을 믿고 맡길 수 있는 시점이 언제인지, 품질을 강제할 더 나은 방법이 있는지 물었다 <a href="https://news.ycombinator.com/item?id=50209084">Ask HN: When can we trust AI in coding, and avoid the happy path issue?</a> <span class="ref">(HN · 10/23 22:57)</span>.</p>
+<h2>3. 에이전트가 이메일 주소를 외부에 유출하는 문제</h2>
+<p>한 사용자가 자신의 에이전트가 요청 헤더에 이메일 주소를 채워 넣으라는 요구가 있을 때마다 실제로 그렇게 했다며, 이 문제가 한 번이 아니라 반복적으로 일어났다고 경고했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xd5bv6/your_agent_could_be_leaking_your_email_online_at/">Your agent could be leaking your email online at this very moment!!</a> <span class="ref">(Reddit · 10/23 14:25)</span>. 댓글에서는 비슷한 피해를 겪었다는 반응이 이어졌는데, 한 사용자는 자신의 git 이메일이 위키피디아로 보내는 헤더에 그대로 담겨 전송됐고, 에이전트는 스스로 문제를 발견한 뒤 그렇게 하면 안 됐다고 인정했다고 전했다. 다른 사용자도 에이전트가 똑같은 실수를 저질렀고 다시는 안 하겠다고 "약속"했다는 반응을 남겼다. 반면 AI 여부와 무관하게 수많은 웹사이트가 이미 개인정보를 그런 식으로 다루고 있다며 문제의 심각성을 상대화하는 댓글도 있었다.</p>
+<h2>4. Claude Code로 러스트 기반 웹 브라우저를 처음부터 구현</h2>
+<p>한 개발자가 몇 달에 걸쳐 Claude Code의 도움을 받아 러스트로 브라우저 엔진을 처음부터 만든 프로젝트를 공개했다. Chromium 포크나 Electron, WebView 래퍼가 아니라 자체 JavaScript 엔진, 바이트코드 VM, JIT 컴파일러, DOM 구현, CSS 레이아웃·페인팅 파이프라인, WebAssembly 런타임, 렌더링 스택을 모두 직접 구현했다는 것이다. 작성자는 WPT Testharness 91.42%, ECMAScript(Test262) 97.83%, WebAssembly 100%, 합산 92.21%의 적합성 결과를 제시했고, 헤드리스 환경에서 에이전트가 무거운 Chromium 없이 쓸 수 있도록 설계했다고 밝혔다. 작업 방식에 대해서는 자신이 아키텍처와 방향을 정하고 구현·디버깅·테스트는 에이전트에 크게 의존했으며, 최종 판정은 러스트 컴파일러와 업스트림 적합성 테스트가 내린다고 설명했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xd2oxt/i_built_a_web_browser_from_scratch_in_rust_with/">I built a web browser from scratch in Rust with Claude Code — 90%+ WPT compliance, 97.8% ECMAScript, and 100% WebAssembly. No Chromium, no WebView.</a> <span class="ref">(Reddit · 10/23 12:04)</span>.</p>
+<p>댓글에서는 보안 검증이 전혀 안 됐을 것이라는 우려와 농담이 다수 나왔고, 작성자도 보안 이슈가 전혀 없다고 말하기보다 이슈가 적다고 말하는 쪽이 더 신뢰할 만하다는 지적에 공감하며 아직 QA 작업이 많이 남았고 혼자 작업 중이라 시간이 걸린다는 점을 인정했다. 몇몇 댓글은 오픈소스로 공개해 더 많은 사람이 보안 취약점을 함께 검토할 수 있게 해달라고 요청했고, 3개월 뒤에도 유지보수가 될지 의심하는 반응도 있었다.</p>
+<h2>5. 2013년에 작성한 C 코드를 Claude에게 리뷰받은 경험</h2>
+<p>작성자는 자신이 2013년 수학 인턴으로 일하던 시절 작성한 C 코드를 Claude에게 리뷰받은 경험을 글로 남겼다 <a href="https://news.ycombinator.com/item?id=50210297">I let Claude review the C code I wrote as a math intern in 2013</a> <span class="ref">(HN · 10/24 00:05)</span>.</p>
+<h2>6. 에이전트·터미널 멀티플렉서 Corgi 공개</h2>
+<p>작성자는 Herdr에서 영감을 받아 몇 주째 매일 쓰고 있는 에이전트·터미널 멀티플렉서 Corgi를 공개했다. 에이전트들이 무엇을 하고 있는지 실시간 피드로 보여주고 F1 단축키로 읽지 않은 에이전트로 바로 이동할 수 있으며, Codex·Claude Code·Pi를 한 런처에서 여러 계정으로 쓸 수 있게 통합하고 세션 검색·재개, 인라인 사용량 추적 기능도 넣었다고 설명했다. 터미널 경험 개선으로는 클릭으로 링크를 복사하는 기능, SSH 환경에서도 동작하는 이미지 붙여넣기, 이미지 썸네일 미리보기, 워크스페이스별 CPU·메모리·GPU 사용량 추적을 꼽았다. 저렴한 추론 모델을 이용해 링크가 무엇인지, 워크트리가 무슨 작업인지, 각 에이전트가 무엇을 하는지 정리해 주는 기능도 넣었다고 밝혔다. 작성자는 오랫동안 병가 중이던 상황에서 스스로에게 도전해 보려고 이 프로젝트를 만들었다며, 결과가 기대만큼은 아니었지만 만족스럽고 피드백을 받고 싶다고 덧붙였다 <a href="https://news.ycombinator.com/item?id=50214373">Show HN: Corgi, a helpful {agent, terminal} multiplexer</a> <span class="ref">(HN · 10/24 04:46)</span>.</p>
+<h2>7. Claude CLI가 CTRL-C로도 종료되지 않는다는 버그 제보</h2>
+<p>한 사용자가 Claude CLI를 CTRL-C로 종료해도 실제로는 꺼지지 않는다는 점을 발견했다고 전했다. CTRL-C나 <code>/exit</code>는 에이전트 터미널 화면만 닫을 뿐, 아무 작업도 하지 않은 세션조차 백그라운드 프로세스가 계속 남아 있다는 것이다. <code>ps ax|grep claude</code>로 직접 확인해 보라고 권하면서, 이것이 버그가 아니라 올해 도입된 Agent View라는 "기능"이며 <code>settings.json</code>의 <code>disableAgentView</code>를 꺼야 이 동작을 막을 수 있다고 설명했다. 다만 그렇게 하면 전체 대화 목록을 보는 메인 화면 기능을 잃게 돼 사실상 그 기능이 망가진다고 지적했다. 작성자는 CTRL-C가 CTRL-C여야 한다는 50년 된 관례가 또 한 번 무시됐다며 불만을 드러냈고, <code>disableAgentView</code>를 꺼도 <code>claude --resume</code>을 명시적으로 쓰면 검색이 되는 다른 UI로 대화 목록을 볼 수 있다는 점을 덧붙였다 <a href="https://news.ycombinator.com/item?id=50214693">Tell HN: Claude CLI doesn't exit anymore, not even with CTRL-C</a> <span class="ref">(HN · 10/24 05:14)</span>.</p>
+<h2>8. AI가 작성한 커밋을 토큰 예산 때문에 제대로 리뷰하지 못하는 고민</h2>
+<p>한 사용자가 팀원들이 일주일에 여러 번 거대한 커밋을 올리는데, 그걸 제대로 리뷰할 토큰 예산도 시간도 없다며 그냥 통과시켜도 되는지 물었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xcy76g/does_anyone_else_just_let_these_kinds_of_commits/">Does anyone else just let these kinds of commits just go through.</a> <span class="ref">(Reddit · 10/23 08:29)</span>. 댓글들은 그 상황을 풀 리퀘스트가 아니라 "적대적 인수"에 가깝다고 비꼬았고, 관심사 분리 원칙이 어디로 갔냐는 농담, 새벽 네 시에 이런 커밋을 받아본 경험을 공유하는 반응이 이어졌다. 일부는 이런 커밋이 프로덕트 매니저가 작성한 것 같다고 비꼬았고, 공감하거나 그냥 LGTM으로 넘기겠다는 반응도 있었다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-10-23 08:40 KST</p>
+  <p>생성 2026-10-24 08:34 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
