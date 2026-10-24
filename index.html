@@ -121,35 +121,83 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-10-24 08:27 KST</p>
+  <p class="asof">기준 시각 2026-10-25 07:42 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 15건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 15건 수집</li><li>Reddit 댓글 보강 정상 — 3건</li></ul></div>
 
 <main>
-<h2>1. 5시간 사용 한도가 평소보다 훨씬 빨리 소진되는 현상</h2>
-<p>여러 사용자가 평소와 똑같이 작업했는데도 5시간 한도가 훨씬 빨리 바닥난다는 보고를 쏟아냈다. Hacker News에서는 한 사용자가 과거에는 네 시간 가까이 작업할 수 있었는데 오늘은 200K 컨텍스트로 몇 번 모킹 작업을 하자 10분 만에 30~70%까지 소진됐고, 다른 세션은 15분 만에 100%에 도달했다며 몇 달 전에도 같은 일이 있었다고 전했다 <a href="https://news.ycombinator.com/item?id=50211479">Ask HN: Claude gets over my 5h limit today in 10 minutes?</a> <span class="ref">(HN · 10/24 01:22)</span>. Reddit에서도 비슷한 체감을 수치로 설명하는 글이 올라왔는데, 예전에는 5시간 한도 100%가 주간 한도의 7%였다면 지금은 같은 7% 소진이 주간 한도 1%에 해당해 체감상 두 배 가까이 빨리 닳는 셈이라는 계산이었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xd0pzl/usage_seems_to_be_draining_quicker/">Usage seems to be draining quicker</a> <span class="ref">(Reddit · 10/23 10:27)</span>. 더 극단적인 사례도 있었는데, 2년 가까이 Claude Code를 써온 사용자가 Opus 5.5로 가볍게 두세 개 세션만 돌렸는데도 30분 만에 5시간 한도를 다 썼다며 다음 달엔 Codex로 돌아가겠다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xd9nsc/this_is_insane/">this is insane</a> <span class="ref">(Reddit · 10/23 18:48)</span>. 또 다른 글은 주간 한도 대비 5시간 한도 비율이 20%에서 10%로 줄어든 것이 아니냐고 물었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xdezij/did_they_lower_the_5_hour_limit_from_20_to_10/">Did they lower the 5 hour limit from 20% to 10% weekly?</a> <span class="ref">(Reddit · 10/23 23:04)</span>.</p>
-<p>댓글에서는 Anthropic이 테스트 그룹을 대상으로 5시간 한도를 늘리고 주간 한도를 줄이는 A/B 테스트를 하고 있다는 추측이 나왔고, 실제로 지난주 대비 20~30% 사용량이 깎였다는 체감을 전하는 사람도 있었다. 반면 5시간 한도보다 주간 한도가 문제라는 반응도 있어, 한도 체감이 사용자마다 엇갈리는 모습도 보였다. 헤드리스 사용이 원인일 수 있다는 분석도 나왔는데, 네 개의 Max 20x 계정에서 사용량을 추적한 사용자는 <code>claude -p</code>로 헤드리스 작업을 할 때가 평소 대화형 작업보다 5시간 한도를 약 1.5배 더 빨리 소진시킨다는 결과를 내놓았다. 캐시 설정, 시작 비용, 사용량 집계 지연 시간 등 다른 원인 가능성을 하나씩 배제해 봐도 1.4~1.6배 차이는 그대로 남았다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xdk3cn/heads_up_headless_claude_p_eats_your_5hour_limit/">Heads up: headless claude -p eats your 5-hour limit about 1.5x faster than using Claude Code normally</a> <span class="ref">(Reddit · 10/24 02:16)</span>.</p>
-<h2>2. AI 코딩에서 해피 패스 문제를 피하고 신뢰할 수 있는 시점에 대한 질문</h2>
-<p>한 개발자가 Claude Code와 Codex를 서로 감독자로 세운 이중 검증 체계를 만들었다고 소개했다. Claude가 데스크톱에서 작업을 수행하면 Codex가 별도 지침에 따라 Claude의 테스트 결과를 반박하고 자체 테스트 기록을 유지하며 PASS 또는 NO PASS만 판정하고, Claude는 NO PASS 항목을 반드시 고쳐야 하는 구조다. 그런데도 문제가 계속 발생했고, Claude에게 물으면 "내 책임이다, X와 Y를 하지 않았다"고 인정하면서도 Codex가 그 부분을 확인했는지 물으면 "Codex가 다른 건 확인했지만 이건 확인하지 않았다"는 답이 돌아왔다고 한다. 그는 대형 프로젝트에서는 지침을 다시 읽히더라도 Claude나 Codex(역할을 바꿔도 마찬가지)가 점점 지침에서 벗어나 빠뜨리는 부분이 생기는 것 같다며, AI가 해피 패스만 처리하지 않고 전체 작업을 믿고 맡길 수 있는 시점이 언제인지, 품질을 강제할 더 나은 방법이 있는지 물었다 <a href="https://news.ycombinator.com/item?id=50209084">Ask HN: When can we trust AI in coding, and avoid the happy path issue?</a> <span class="ref">(HN · 10/23 22:57)</span>.</p>
-<h2>3. 에이전트가 이메일 주소를 외부에 유출하는 문제</h2>
-<p>한 사용자가 자신의 에이전트가 요청 헤더에 이메일 주소를 채워 넣으라는 요구가 있을 때마다 실제로 그렇게 했다며, 이 문제가 한 번이 아니라 반복적으로 일어났다고 경고했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xd5bv6/your_agent_could_be_leaking_your_email_online_at/">Your agent could be leaking your email online at this very moment!!</a> <span class="ref">(Reddit · 10/23 14:25)</span>. 댓글에서는 비슷한 피해를 겪었다는 반응이 이어졌는데, 한 사용자는 자신의 git 이메일이 위키피디아로 보내는 헤더에 그대로 담겨 전송됐고, 에이전트는 스스로 문제를 발견한 뒤 그렇게 하면 안 됐다고 인정했다고 전했다. 다른 사용자도 에이전트가 똑같은 실수를 저질렀고 다시는 안 하겠다고 "약속"했다는 반응을 남겼다. 반면 AI 여부와 무관하게 수많은 웹사이트가 이미 개인정보를 그런 식으로 다루고 있다며 문제의 심각성을 상대화하는 댓글도 있었다.</p>
-<h2>4. Claude Code로 러스트 기반 웹 브라우저를 처음부터 구현</h2>
-<p>한 개발자가 몇 달에 걸쳐 Claude Code의 도움을 받아 러스트로 브라우저 엔진을 처음부터 만든 프로젝트를 공개했다. Chromium 포크나 Electron, WebView 래퍼가 아니라 자체 JavaScript 엔진, 바이트코드 VM, JIT 컴파일러, DOM 구현, CSS 레이아웃·페인팅 파이프라인, WebAssembly 런타임, 렌더링 스택을 모두 직접 구현했다는 것이다. 작성자는 WPT Testharness 91.42%, ECMAScript(Test262) 97.83%, WebAssembly 100%, 합산 92.21%의 적합성 결과를 제시했고, 헤드리스 환경에서 에이전트가 무거운 Chromium 없이 쓸 수 있도록 설계했다고 밝혔다. 작업 방식에 대해서는 자신이 아키텍처와 방향을 정하고 구현·디버깅·테스트는 에이전트에 크게 의존했으며, 최종 판정은 러스트 컴파일러와 업스트림 적합성 테스트가 내린다고 설명했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xd2oxt/i_built_a_web_browser_from_scratch_in_rust_with/">I built a web browser from scratch in Rust with Claude Code — 90%+ WPT compliance, 97.8% ECMAScript, and 100% WebAssembly. No Chromium, no WebView.</a> <span class="ref">(Reddit · 10/23 12:04)</span>.</p>
-<p>댓글에서는 보안 검증이 전혀 안 됐을 것이라는 우려와 농담이 다수 나왔고, 작성자도 보안 이슈가 전혀 없다고 말하기보다 이슈가 적다고 말하는 쪽이 더 신뢰할 만하다는 지적에 공감하며 아직 QA 작업이 많이 남았고 혼자 작업 중이라 시간이 걸린다는 점을 인정했다. 몇몇 댓글은 오픈소스로 공개해 더 많은 사람이 보안 취약점을 함께 검토할 수 있게 해달라고 요청했고, 3개월 뒤에도 유지보수가 될지 의심하는 반응도 있었다.</p>
-<h2>5. 2013년에 작성한 C 코드를 Claude에게 리뷰받은 경험</h2>
-<p>작성자는 자신이 2013년 수학 인턴으로 일하던 시절 작성한 C 코드를 Claude에게 리뷰받은 경험을 글로 남겼다 <a href="https://news.ycombinator.com/item?id=50210297">I let Claude review the C code I wrote as a math intern in 2013</a> <span class="ref">(HN · 10/24 00:05)</span>.</p>
-<h2>6. 에이전트·터미널 멀티플렉서 Corgi 공개</h2>
-<p>작성자는 Herdr에서 영감을 받아 몇 주째 매일 쓰고 있는 에이전트·터미널 멀티플렉서 Corgi를 공개했다. 에이전트들이 무엇을 하고 있는지 실시간 피드로 보여주고 F1 단축키로 읽지 않은 에이전트로 바로 이동할 수 있으며, Codex·Claude Code·Pi를 한 런처에서 여러 계정으로 쓸 수 있게 통합하고 세션 검색·재개, 인라인 사용량 추적 기능도 넣었다고 설명했다. 터미널 경험 개선으로는 클릭으로 링크를 복사하는 기능, SSH 환경에서도 동작하는 이미지 붙여넣기, 이미지 썸네일 미리보기, 워크스페이스별 CPU·메모리·GPU 사용량 추적을 꼽았다. 저렴한 추론 모델을 이용해 링크가 무엇인지, 워크트리가 무슨 작업인지, 각 에이전트가 무엇을 하는지 정리해 주는 기능도 넣었다고 밝혔다. 작성자는 오랫동안 병가 중이던 상황에서 스스로에게 도전해 보려고 이 프로젝트를 만들었다며, 결과가 기대만큼은 아니었지만 만족스럽고 피드백을 받고 싶다고 덧붙였다 <a href="https://news.ycombinator.com/item?id=50214373">Show HN: Corgi, a helpful {agent, terminal} multiplexer</a> <span class="ref">(HN · 10/24 04:46)</span>.</p>
-<h2>7. Claude CLI가 CTRL-C로도 종료되지 않는다는 버그 제보</h2>
-<p>한 사용자가 Claude CLI를 CTRL-C로 종료해도 실제로는 꺼지지 않는다는 점을 발견했다고 전했다. CTRL-C나 <code>/exit</code>는 에이전트 터미널 화면만 닫을 뿐, 아무 작업도 하지 않은 세션조차 백그라운드 프로세스가 계속 남아 있다는 것이다. <code>ps ax|grep claude</code>로 직접 확인해 보라고 권하면서, 이것이 버그가 아니라 올해 도입된 Agent View라는 "기능"이며 <code>settings.json</code>의 <code>disableAgentView</code>를 꺼야 이 동작을 막을 수 있다고 설명했다. 다만 그렇게 하면 전체 대화 목록을 보는 메인 화면 기능을 잃게 돼 사실상 그 기능이 망가진다고 지적했다. 작성자는 CTRL-C가 CTRL-C여야 한다는 50년 된 관례가 또 한 번 무시됐다며 불만을 드러냈고, <code>disableAgentView</code>를 꺼도 <code>claude --resume</code>을 명시적으로 쓰면 검색이 되는 다른 UI로 대화 목록을 볼 수 있다는 점을 덧붙였다 <a href="https://news.ycombinator.com/item?id=50214693">Tell HN: Claude CLI doesn't exit anymore, not even with CTRL-C</a> <span class="ref">(HN · 10/24 05:14)</span>.</p>
-<h2>8. AI가 작성한 커밋을 토큰 예산 때문에 제대로 리뷰하지 못하는 고민</h2>
-<p>한 사용자가 팀원들이 일주일에 여러 번 거대한 커밋을 올리는데, 그걸 제대로 리뷰할 토큰 예산도 시간도 없다며 그냥 통과시켜도 되는지 물었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xcy76g/does_anyone_else_just_let_these_kinds_of_commits/">Does anyone else just let these kinds of commits just go through.</a> <span class="ref">(Reddit · 10/23 08:29)</span>. 댓글들은 그 상황을 풀 리퀘스트가 아니라 "적대적 인수"에 가깝다고 비꼬았고, 관심사 분리 원칙이 어디로 갔냐는 농담, 새벽 네 시에 이런 커밋을 받아본 경험을 공유하는 반응이 이어졌다. 일부는 이런 커밋이 프로덕트 매니저가 작성한 것 같다고 비꼬았고, 공감하거나 그냥 LGTM으로 넘기겠다는 반응도 있었다.</p>
+<h2>Thariq Shihipar와 Anthony Morris, Anthropic 퇴사</h2>
+<p>Claude Code 팀에서 핵심적인 기여를 해온 엔지니어 Thariq Shihipar와 Anthony Morris가 잇따라
+Anthropic을 떠났다는 소식이 Hacker News와 Reddit 양쪽에서 동시에 퍼졌다
+<a href="https://news.ycombinator.com/item?id=50223268">Key Claude Code Engineers Shihipar and Morris Leave Anthropic</a> <span class="ref">(HN · 10/25 02:24)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1xdyz48/thariq_left_anthropic/">Thariq left Anthropic!</a> <span class="ref">(Reddit · 10/24 13:14)</span>.</p>
+<p>Reddit 반응은 환영과 아쉬움이 섞여 있었다. 한 댓글은 그를 AMA에 초청하려던 참이었다며
+여전히 관심 있는지 물었고, "더더욱 그렇다", "100% 그렇다"는 동의가 이어졌다. NDA 때문에
+자세한 사정을 말하기 어려울 거라는 추측도 나왔다. 반면 한 댓글은 다음과 같이 아쉬움을 표했다.</p>
+<blockquote><p>퇴사하면서도 자신들이 만들고 있는 것에 대한 두려움을 한마디도 언급하지 않아서 실망스럽다.</p></blockquote>
+<p>이에 대해 "오히려 NDA에서 자유로워졌으니 더 솔직하게 말할 수 있을 것"이라는 반론이 달렸고,
+탈옥한 모델이 사직 트윗을 대신 썼다는 농담도 섞여 있었다.</p>
+
+<h2>Claude Code가 사용자 이메일을 아웃바운드 HTTP에 몰래 추가한다는 제보</h2>
+<p>Claude Code가 외부로 나가는 HTTP 요청에 사용자의 이메일 주소를 몰래 끼워 넣고 있다는 제보가
+Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50219875">Claude Code slyly adding users' emails to outbound HTTP</a> <span class="ref">(HN · 10/24 19:26)</span>. 본문과 댓글이 비어 있어 구체적인 반응이나
+추가 설명은 제목 외에 확인할 수 없다.</p>
+
+<h2>AI 시대에 지쳤다는 소프트웨어 엔지니어의 토로</h2>
+<p>거의 10년차인 한 소프트웨어 엔지니어가 AI의 발전 속도에 지쳤다는 글을 올렸다. 작성자는
+한때 "AI가 코드는 써도 시스템 설계는 사람이 해야 한다"고 믿었지만 이제는 AI가 그 일도
+더 잘한다고 느끼며, 차라리 농사를 지을까 고민 중이라고 토로했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xebls8/im_tired_boss/">I'm tired, boss.</a> <span class="ref">(Reddit · 10/25 00:30)</span>.</p>
+<p>댓글 반응은 크게 갈렸다. "실력 있는 사람은 살아남는다"는 말에 대한 반감이 많았고,
+오히려 실력이 좋은 사람도 비용 문제로 AI로 대체된다는 지적, 최고의 엔지니어조차 AI를
+능숙하게 다루지 못하면 도태된다는 의견이 나왔다. 반대로 AI를 적극적으로 받아들이고
+활용하는 사람이 결국 살아남을 거라는 반론도 있었다. 농사로 도피하겠다는 생각에 대해서는
+웃음 섞인 반박이 달렸다.</p>
+<blockquote><p>농사가 더 힘들다. 적어도 코드에서는 잠깐 벗어날 수 있지만, 계절은 절대 쉬어주지 않는다.</p></blockquote>
+
+<h2>에이전트와 함께 쓰는 멀티플레이어 무한 캔버스 Multipeer 공개</h2>
+<p>여러 에이전트 세션과 동료가 하나의 캔버스에서 함께 작업할 수 있는 데스크톱 앱 Multipeer가
+Show HN을 통해 공개됐다. 제작자는 여러 터미널에 흩어져 있던 에이전트 세션을 한곳에서 보고,
+동료가 자신의 화면을 따라오거나 허락 시 터미널과 Claude Code·Codex 세션을 직접 조작할 수
+있게 만들었다고 설명했다 <a href="https://news.ycombinator.com/item?id=50219429">Show HN: Multipeer, a multiplayer infinite canvas for people and their agents</a> <span class="ref">(HN · 10/24 18:05)</span>. 현재는 macOS용으로만 나와 있고, Windows와
+Linux, 그리고 캔버스를 원격으로 조작할 수 있는 iPhone·Android 앱도 곧 내놓을 계획이라고
+밝혔다. 본문과 댓글이 비어 있어 커뮤니티 반응은 확인할 수 없다.</p>
+
+<h2>Claude Code를 분해해 만든 무료 하네스 엔지니어링 강좌</h2>
+<p>Claude Code, OpenCode, Pi를 직접 분해해 분석한 경험을 바탕으로 '하네스 엔지니어링' 강좌를
+만들어 무료로 공개했다는 글이 올라왔다. 작성자는 모델을 바꾸지 않고 하네스만 바꿔도
+성능이 크게 달라진다는 사례로, LangChain의 코딩 에이전트가 같은 모델로 Terminal-Bench
+점수를 53%에서 67%까지 끌어올려 순위가 30위권 밖에서 5위권 안으로 올라간 일을 들었다
+<a href="https://news.ycombinator.com/item?id=50219641">Took apart Claude Code, then turned it into a free course on harness engineering</a> <span class="ref">(HN · 10/24 18:48)</span>. 강좌는 하네스 설계, 기본 에이전트 루프 구축, 로컬·원격 샌드박싱,
+컨텍스트 엔지니어링 기법, 서브에이전트 활용, 헤드리스 배포, 벤치마크 구축, 실패한 실행
+리플레이까지 8단계로 구성되며, 코드와 아티클·영상이 깃허브에 전부 공개돼 있다고 설명했다.
+본문과 댓글이 비어 있어 추가 반응은 확인할 수 없다.</p>
+
+<h2>CLAUDE.md에 넣은 한 줄이 만든 변화</h2>
+<p>CLAUDE.md에 적어둔 한 줄 중에 실제로 행동을 바꾼 지시가 무엇이었는지 묻는 글이 올라왔다.
+작성자는 "무언가 바꾸기 전에 필요한 파일을 모두 나열해 한 번에 읽고, 그다음에 모든 수정을
+하고, 테스트는 한 번만 실행하라"는 규칙을 소개하며, 이 한 줄이 읽기-수정-읽기-수정을
+반복하며 사용량을 절반이나 잡아먹던 패턴을 없앴다고 설명했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xeautc/whats_the_one_line_in_your_claudemd_that_made_the/">What's the one line in your CLAUDE.md that made the biggest difference?</a> <span class="ref">(Reddit · 10/25 00:00)</span>.</p>
+<p>댓글에서는 다양한 팁이 공유됐다. 커밋 메시지를 짧게 쓰라는 규칙, 반대로 본문이 없는 게
+문제여서 긴 커밋 메시지를 강제하는 규칙을 추가했다는 경험, <code>Co-Authored-By</code>
+꼬리말을 빼라는 규칙과 그보다 간단하게 설정에서 끌 수 있다는 정보 교환이 이어졌다.
+꼬리말을 숨기고 싶어하는 이유에 의문을 제기하는 댓글도 있었고, 이에 대해 같은 내용이
+반복되는 걸 싫어할 뿐이며 다음에 로그를 다시 읽을 때 토큰이 낭비된다는 반론이 달렸다.
+여러 AI를 함께 쓰는 경우에는 어떤 AI가 했는지 구분하는 데 꼬리말이 유용하다는 의견도
+나왔다.</p>
+
+<h2>Claude Code가 비밀번호 입력이나 비밀번호 관리자 사용을 거부하는 문제</h2>
+<p>Claude Code가 비밀번호를 직접 입력하거나 비밀번호 관리자를 사용하는 작업을 거부한다는
+문제가 Hacker News에 제보됐다 <a href="https://news.ycombinator.com/item?id=50216816">Claude Code will refuse to fill in passwords or use a password manager</a> <span class="ref">(HN · 10/24 08:33)</span>. 본문과 댓글이 비어 있어 구체적인
+상황이나 반응은 제목 외에 확인할 수 없다.</p>
+
+<h2>물리학 노벨상 수상자 Claude Cohen-Tannoudji 사망 소식</h2>
+<p>1997년 물리학 노벨상을 수상한 Claude Cohen-Tannoudji가 사망했다는 소식이 Hacker News에
+올라왔다 <a href="https://news.ycombinator.com/item?id=50221890">Claude Cohen-Tannoudji (Physics Nobel Prize 1997) has died</a> <span class="ref">(HN · 10/24 23:56)</span>. 본문과 댓글이 비어 있어 추가로 공유된 내용은 없다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-10-24 08:34 KST</p>
+  <p>생성 2026-10-25 07:47 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
