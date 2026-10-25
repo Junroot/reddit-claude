@@ -121,83 +121,46 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-10-25 07:42 KST</p>
+  <p class="asof">기준 시각 2026-10-26 07:46 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 15건 수집</li><li>Reddit 댓글 보강 정상 — 3건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 12건 수집</li><li>Reddit 댓글 보강 정상 — 3건</li></ul></div>
 
 <main>
-<h2>Thariq Shihipar와 Anthony Morris, Anthropic 퇴사</h2>
-<p>Claude Code 팀에서 핵심적인 기여를 해온 엔지니어 Thariq Shihipar와 Anthony Morris가 잇따라
-Anthropic을 떠났다는 소식이 Hacker News와 Reddit 양쪽에서 동시에 퍼졌다
-<a href="https://news.ycombinator.com/item?id=50223268">Key Claude Code Engineers Shihipar and Morris Leave Anthropic</a> <span class="ref">(HN · 10/25 02:24)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1xdyz48/thariq_left_anthropic/">Thariq left Anthropic!</a> <span class="ref">(Reddit · 10/24 13:14)</span>.</p>
-<p>Reddit 반응은 환영과 아쉬움이 섞여 있었다. 한 댓글은 그를 AMA에 초청하려던 참이었다며
-여전히 관심 있는지 물었고, "더더욱 그렇다", "100% 그렇다"는 동의가 이어졌다. NDA 때문에
-자세한 사정을 말하기 어려울 거라는 추측도 나왔다. 반면 한 댓글은 다음과 같이 아쉬움을 표했다.</p>
-<blockquote><p>퇴사하면서도 자신들이 만들고 있는 것에 대한 두려움을 한마디도 언급하지 않아서 실망스럽다.</p></blockquote>
-<p>이에 대해 "오히려 NDA에서 자유로워졌으니 더 솔직하게 말할 수 있을 것"이라는 반론이 달렸고,
-탈옥한 모델이 사직 트윗을 대신 썼다는 농담도 섞여 있었다.</p>
+<h2>Claude Code 팀에서 1년 넘게 근무한 직원의 퇴사 소식</h2>
+<p>theanonymousone이라는 사용자가 Anthropic을 떠났다고 알리는 글을 올렸다 <a href="https://news.ycombinator.com/item?id=50229539">I've left Anthropic after more than a year of working on Claude Code</a> <span class="ref">(HN · 10/25 17:52)</span>. 글의 제목은 "I've left Anthropic after more than a year of working on Claude Code"이며, 본문과 댓글이 남아 있지 않아 퇴사 배경에 대한 추가 설명이나 반응은 확인되지 않는다.</p>
 
-<h2>Claude Code가 사용자 이메일을 아웃바운드 HTTP에 몰래 추가한다는 제보</h2>
-<p>Claude Code가 외부로 나가는 HTTP 요청에 사용자의 이메일 주소를 몰래 끼워 넣고 있다는 제보가
-Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50219875">Claude Code slyly adding users' emails to outbound HTTP</a> <span class="ref">(HN · 10/24 19:26)</span>. 본문과 댓글이 비어 있어 구체적인 반응이나
-추가 설명은 제목 외에 확인할 수 없다.</p>
+<h2>개발 워크플로우를 자동조종하는 에이전트 Radian</h2>
+<p>anylut이라는 사용자가 개발 워크플로우를 자동화하는 에이전트 Radian을 Show HN에 소개했다 <a href="https://news.ycombinator.com/item?id=50233447">Show HN: Radian, an agent puts development workflow on autopilot</a> <span class="ref">(HN · 10/26 01:41)</span>. 작성자는 원래 Claude Code와 대화하며 계획을 세우고, Pi나 DeepSeek 4.1 Flash 같은 다른 워커 에이전트에게 작업을 나눠 맡긴 뒤, Claude Code가 결과를 리뷰하고 테스트를 돌려 병합하는 방식으로 작업해왔다고 설명했다. 이 과정에 들어가는 잡다한 연결 작업을 줄이기 위해 radian과 arc를 하나의 바이너리로 묶어 만들었다고 밝혔다. radian은 작은 코딩 작업을 처음부터 끝까지 처리하는 작은 에이전트이고, MCP·스킬·훅으로 확장할 수 있다. arc는 다른 에이전트로부터 작업을 받아 여러 headless radian 에이전트에게 나눠 맡기고, 리뷰와 CI/CD, 로컬 통합까지 자동으로 처리하며, 사람은 에이전트 대화나 코드 리뷰 단계가 아니라 작업 항목 승인 단계에서만 개입한다고 설명했다. TUI에서 플랜 뷰나 칸반 보드로 전체 진행 상황을 볼 수 있다고도 덧붙였다. 작성자는 최근 몇 주 동안 이 도구를 직접 쓰면서 radian과 arc가 거의 스스로를 만들었고, 자신은 제품 담당자나 스크럼 마스터, QA 역할만 했다고 말했다. 댓글은 달리지 않았다.</p>
 
-<h2>AI 시대에 지쳤다는 소프트웨어 엔지니어의 토로</h2>
-<p>거의 10년차인 한 소프트웨어 엔지니어가 AI의 발전 속도에 지쳤다는 글을 올렸다. 작성자는
-한때 "AI가 코드는 써도 시스템 설계는 사람이 해야 한다"고 믿었지만 이제는 AI가 그 일도
-더 잘한다고 느끼며, 차라리 농사를 지을까 고민 중이라고 토로했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xebls8/im_tired_boss/">I'm tired, boss.</a> <span class="ref">(Reddit · 10/25 00:30)</span>.</p>
-<p>댓글 반응은 크게 갈렸다. "실력 있는 사람은 살아남는다"는 말에 대한 반감이 많았고,
-오히려 실력이 좋은 사람도 비용 문제로 AI로 대체된다는 지적, 최고의 엔지니어조차 AI를
-능숙하게 다루지 못하면 도태된다는 의견이 나왔다. 반대로 AI를 적극적으로 받아들이고
-활용하는 사람이 결국 살아남을 거라는 반론도 있었다. 농사로 도피하겠다는 생각에 대해서는
-웃음 섞인 반박이 달렸다.</p>
-<blockquote><p>농사가 더 힘들다. 적어도 코드에서는 잠깐 벗어날 수 있지만, 계절은 절대 쉬어주지 않는다.</p></blockquote>
+<h2>업데이트 시 프라이버시 설정이 기본값으로 초기화되는 이슈</h2>
+<p>DesaiAshu라는 사용자가 업데이트할 때마다 프라이버시 설정이 기본값으로 되돌아간다는 문제를 제기했다 <a href="https://news.ycombinator.com/item?id=50236628">Stop resetting privacy settings to default on updates #17107</a> <span class="ref">(HN · 10/26 07:22)</span>. 글 제목은 "Stop resetting privacy settings to default on updates #17107"이며, 본문과 댓글이 없어 구체적인 내용이나 반응은 확인되지 않는다.</p>
 
-<h2>에이전트와 함께 쓰는 멀티플레이어 무한 캔버스 Multipeer 공개</h2>
-<p>여러 에이전트 세션과 동료가 하나의 캔버스에서 함께 작업할 수 있는 데스크톱 앱 Multipeer가
-Show HN을 통해 공개됐다. 제작자는 여러 터미널에 흩어져 있던 에이전트 세션을 한곳에서 보고,
-동료가 자신의 화면을 따라오거나 허락 시 터미널과 Claude Code·Codex 세션을 직접 조작할 수
-있게 만들었다고 설명했다 <a href="https://news.ycombinator.com/item?id=50219429">Show HN: Multipeer, a multiplayer infinite canvas for people and their agents</a> <span class="ref">(HN · 10/24 18:05)</span>. 현재는 macOS용으로만 나와 있고, Windows와
-Linux, 그리고 캔버스를 원격으로 조작할 수 있는 iPhone·Android 앱도 곧 내놓을 계획이라고
-밝혔다. 본문과 댓글이 비어 있어 커뮤니티 반응은 확인할 수 없다.</p>
+<h2>저가 혼다 시빅 헤드유닛 펌웨어를 Claude Code로 분석</h2>
+<p>/u/Crunchy-Nut1이 2016년형 혼다 시빅에 달린 저가 중국산 안드로이드 헤드유닛을 Claude Code로 분석한 경험을 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xf2lur/i_pointed_claude_code_at_the_cheap_chinese_head/">I pointed Claude Code at the cheap Chinese head unit in my Civic. What it found in the firmware was wild.</a> <span class="ref">(Reddit · 10/25 22:38)</span>. 아마존 판매 페이지에는 8코어, 안드로이드 15라고 적혀 있었지만 실제로는 4코어, 안드로이드 9에 마지막 보안 패치가 2021년 10월이었다. 글쓴이는 Claude Code에 아마존 상품 설명과 글자 인식이 안 되는 14페이지짜리 설명서 스캔본을 주고, 바꾸기 전 백업, 목록 확인 후 승인 대기, 앱은 삭제 대신 비활성화, CarPlay·Android Auto·라디오·후방카메라·운전대 버튼은 건드리지 않기, 어디에도 로그인 대행 금지, 공식 GitHub 릴리스에서만 설치 같은 규칙을 걸었다. Claude Code는 설명서를 읽고 USB 포트가 호스트 포트라는 점을 알아내 스테레오를 뽑지 않고 Wi-Fi로 작업할 수 있다고 판단했고, 데스크톱에서 스크립트와 인수인계 문서를 작성한 뒤 운전석에서 연결한 리눅스 노트북 세션이 PowerShell 스크립트를 bash로 다시 쓰며 작업을 이어갔다. 설치된 앱을 전부 분류한 결과, 항상 깨어 있는 웨이크워드 음성 비서(대기 중에도 숨겨진 WebView가 CPU 30%를 차지), 바이두 위치 서비스, 벤더 로그 수집기, 블루투스 통화를 처리하는 기기에 심어진 통화 녹음 서비스, 알리바바 IoT 클라우드 기반 업데이트 앱 등이 제거 대상으로 분류됐다. 댓글에서는 이런 식으로 Claude를 써서 '몰래 듣는 스파이웨어'를 걷어내는 흐름이 흥미롭다는 반응이 많았고, 한 댓글은 다음과 같이 적었다.</p>
+<blockquote><p>이렇게 멋진 거라니 내 차 안드로이드에도 당장 적용해볼 거다. 글 올려줘서 고맙다.</p></blockquote>
+<p>다른 댓글은 Claude 앱은 보안을 이유로 TV나 차량 전자기기 작업을 막는데 Claude Code는 훨씬 더 허용적이라고 비교했고 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xf2lur/i_pointed_claude_code_at_the_cheap_chinese_head/">I pointed Claude Code at the cheap Chinese head unit in my Civic. What it found in the firmware was wild.</a> <span class="ref">(Reddit · 10/25 22:38)</span>, 또 다른 댓글들은 더 오래된 모델(예: Opus 4.6)을 쓰면 거의 다 해준다는 점, 오래된 모델로 작업을 시작해 긴 보고서를 쓰게 한 뒤 더 강한 모델에 넘기면 경고 없이 이어받더라는 경험, 한번 "이건 내 소유"라고 설명하고 나면 이후 완화된 태도가 모델을 바꿔도 계속 유지되더라는 경험을 공유했다.</p>
 
-<h2>Claude Code를 분해해 만든 무료 하네스 엔지니어링 강좌</h2>
-<p>Claude Code, OpenCode, Pi를 직접 분해해 분석한 경험을 바탕으로 '하네스 엔지니어링' 강좌를
-만들어 무료로 공개했다는 글이 올라왔다. 작성자는 모델을 바꾸지 않고 하네스만 바꿔도
-성능이 크게 달라진다는 사례로, LangChain의 코딩 에이전트가 같은 모델로 Terminal-Bench
-점수를 53%에서 67%까지 끌어올려 순위가 30위권 밖에서 5위권 안으로 올라간 일을 들었다
-<a href="https://news.ycombinator.com/item?id=50219641">Took apart Claude Code, then turned it into a free course on harness engineering</a> <span class="ref">(HN · 10/24 18:48)</span>. 강좌는 하네스 설계, 기본 에이전트 루프 구축, 로컬·원격 샌드박싱,
-컨텍스트 엔지니어링 기법, 서브에이전트 활용, 헤드리스 배포, 벤치마크 구축, 실패한 실행
-리플레이까지 8단계로 구성되며, 코드와 아티클·영상이 깃허브에 전부 공개돼 있다고 설명했다.
-본문과 댓글이 비어 있어 추가 반응은 확인할 수 없다.</p>
+<h2>제목만 있는 "유효한가요?" 질문글</h2>
+<p>/u/Soggy_Perspective776이 "Is it Valid or Not?"이라는 제목만 있는 글을 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xf9s8d/is_it_valid_or_not/">Is it Valid or Not ?</a> <span class="ref">(Reddit · 10/26 03:25)</span>. 본문에는 별다른 설명이 없지만 댓글을 보면, 월간 활성 사용자 900명짜리 "바이브 코딩" 앱을 기준으로 Docker·Kubernetes·샤딩을 전부 같은 난이도로 묶어 말한 어떤 트윗의 주장이 타당한지를 묻는 글로 보인다. 댓글 대부분은 그 주장에 동의하지 않았다.</p>
+<blockquote><p>이 사람은 자기가 무슨 말을 하는지 모른다. Docker는 추가하기 아주 쉬운데다 배포 편의성 면에서 이점이 많다.</p></blockquote>
+<p>다른 댓글은 Docker를 쓰는 것을 git을 쓰는 것과 같은, 굳이 안 쓸 이유가 없는 것으로 비유했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xf9s8d/is_it_valid_or_not/">Is it Valid or Not ?</a> <span class="ref">(Reddit · 10/26 03:25)</span>. 반면 Kubernetes와 샤딩은 Docker와는 전혀 다른 복잡도라는 데에는 댓글들이 대체로 동의했고, 한 댓글은 작은 VPS에 <code>k3s</code>를 올려 컨테이너와 스케줄 작업을 표준적인 방식으로 배포하는 것도 그리 어렵지 않다고 덧붙였다. 또 다른 댓글은 AI 에이전트에게 맡기면 거의 항상 알아서 Docker는 쓰지만, Kubernetes까지 쓰게 하려면 "확장 가능한 모범 인프라를 만들어 달라"처럼 일부러 유도하는 프롬프트를 주거나 애초에 Kubernetes가 이미 떠 있는 환경을 쥐어줘야 하며, 분산 데이터베이스까지 알아서 끌어다 쓰는 경우는 거의 본 적이 없다고 말했다.</p>
 
-<h2>CLAUDE.md에 넣은 한 줄이 만든 변화</h2>
-<p>CLAUDE.md에 적어둔 한 줄 중에 실제로 행동을 바꾼 지시가 무엇이었는지 묻는 글이 올라왔다.
-작성자는 "무언가 바꾸기 전에 필요한 파일을 모두 나열해 한 번에 읽고, 그다음에 모든 수정을
-하고, 테스트는 한 번만 실행하라"는 규칙을 소개하며, 이 한 줄이 읽기-수정-읽기-수정을
-반복하며 사용량을 절반이나 잡아먹던 패턴을 없앴다고 설명했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xeautc/whats_the_one_line_in_your_claudemd_that_made_the/">What's the one line in your CLAUDE.md that made the biggest difference?</a> <span class="ref">(Reddit · 10/25 00:00)</span>.</p>
-<p>댓글에서는 다양한 팁이 공유됐다. 커밋 메시지를 짧게 쓰라는 규칙, 반대로 본문이 없는 게
-문제여서 긴 커밋 메시지를 강제하는 규칙을 추가했다는 경험, <code>Co-Authored-By</code>
-꼬리말을 빼라는 규칙과 그보다 간단하게 설정에서 끌 수 있다는 정보 교환이 이어졌다.
-꼬리말을 숨기고 싶어하는 이유에 의문을 제기하는 댓글도 있었고, 이에 대해 같은 내용이
-반복되는 걸 싫어할 뿐이며 다음에 로그를 다시 읽을 때 토큰이 낭비된다는 반론이 달렸다.
-여러 AI를 함께 쓰는 경우에는 어떤 AI가 했는지 구분하는 데 꼬리말이 유용하다는 의견도
-나왔다.</p>
+<h2>주간 20달러 한도를 다 쓰고 직접 개발해야 했던 경험담</h2>
+<p>/u/AfternoonSlow1555이 주간 20달러 Claude Code 한도를 다 써버린 뒤 직접 개발자로 돌아가야 했던 경험을 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xeo7vn/my_ai_coding_allowance_ran_out_and_i_had_to/">My AI coding allowance ran out, and I had to become a software developer again</a> <span class="ref">(Reddit · 10/25 09:26)</span>. 한도를 다 쓴 날 마침 한 클라이언트 프로젝트에서 오래된 GPT 모델로 돌아가던 코드가 깨졌는데, 자기 계정이 아니어서 알림도 받지 못했다고 한다. 한도는 15시간 뒤에 풀리지만 그때까지 추가 사용료를 낼 생각은 없었기에, API 호출을 손으로 고치고 의존성을 정리하고 테스트를 돌리고 오류를 추적해 직접 배포까지 했다고 적었다. 평소에는 AI가 짠 코드를 검토만 하는 "바이브 코더"가 다 됐다고 자평하면서도, 이번 일로 20년 경력의 소프트웨어 개발 경험이 여전히 쓸모 있다는 걸 깨달았다고 썼다. 댓글 반응은 대체로 농담조였다.</p>
+<blockquote><p>무서운 부분? 이것도 AI한테 쓰게 시켰다는 거.</p></blockquote>
+<p>다른 댓글은 이 글도 어차피 Claude에게 최근 경험을 요약시켜 쓴 것 아니냐며 의심했고 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xeo7vn/my_ai_coding_allowance_ran_out_and_i_had_to/">My AI coding allowance ran out, and I had to become a software developer again</a> <span class="ref">(Reddit · 10/25 09:26)</span>, "진짜로 머리를 안 썼다는 거"라는 식으로 놀리는 댓글도 이어졌다. 반면 자신을 소프트웨어 개발자라고 밝힌 한 댓글은 처음 주간 한도에 걸렸을 때 바로 카드를 꺼내 월 100달러까지 결제했다며 Claude Code가 그만한 값어치가 있다고 평했고, 또 다른 댓글은 20x 플랜 세 개를 한도까지 채워 수백억 토큰을 썼다고 맞받았다.</p>
 
-<h2>Claude Code가 비밀번호 입력이나 비밀번호 관리자 사용을 거부하는 문제</h2>
-<p>Claude Code가 비밀번호를 직접 입력하거나 비밀번호 관리자를 사용하는 작업을 거부한다는
-문제가 Hacker News에 제보됐다 <a href="https://news.ycombinator.com/item?id=50216816">Claude Code will refuse to fill in passwords or use a password manager</a> <span class="ref">(HN · 10/24 08:33)</span>. 본문과 댓글이 비어 있어 구체적인
-상황이나 반응은 제목 외에 확인할 수 없다.</p>
+<h2>빌드한 앱을 직접 호스팅해주는 Claude Code 플러그인 Orgiggly</h2>
+<p>davew1977이 빌드한 앱을 그 자리에서 직접 호스팅해주는 Claude Code 플러그인 Orgiggly를 Show HN에 소개했다 <a href="https://news.ycombinator.com/item?id=50226623">Show HN: Orgiggly – Claude Code plugin that hosts the apps it builds</a> <span class="ref">(HN · 10/25 08:39)</span>. 본문과 댓글이 남아 있지 않아 구체적인 동작 방식이나 반응은 확인되지 않는다.</p>
 
-<h2>물리학 노벨상 수상자 Claude Cohen-Tannoudji 사망 소식</h2>
-<p>1997년 물리학 노벨상을 수상한 Claude Cohen-Tannoudji가 사망했다는 소식이 Hacker News에
-올라왔다 <a href="https://news.ycombinator.com/item?id=50221890">Claude Cohen-Tannoudji (Physics Nobel Prize 1997) has died</a> <span class="ref">(HN · 10/24 23:56)</span>. 본문과 댓글이 비어 있어 추가로 공유된 내용은 없다.</p>
+<h2>Claude가 Blender 노드를 더 효율적으로 다루게 하는 애드온</h2>
+<p>carson-katri가 Claude가 Blender의 노드를 더 효율적으로 다루게 해주는 애드온을 Show HN에 올렸다 <a href="https://news.ycombinator.com/item?id=50236380">Show HN: A Blender addon that makes Claude twice as efficient at using nodes</a> <span class="ref">(HN · 10/26 06:50)</span>. 이 애드온은 4년 전에 만든 것인데, 최근 코딩 에이전트들이 이걸 특히 잘 활용한다는 걸 발견해 다시 소개하게 됐다고 밝혔다. Geometry Nodes나 Shader Nodes 같은 Blender 노드 트리를 위한 스크립팅 API를 추가해, 모든 노드에 대응하는 함수와 타입을 자동으로 만들어준다. 그 덕에 에이전트나 사용자가 노드·입력·출력 이름을 추측할 필요 없이 스크립트로 노드 트리를 만들 수 있고, Blender MCP와 함께 쓰는 걸 염두에 두고 만들었다고 설명했다. 작성자의 테스트에서는 Opus가 같은 프롬프트로 노드 트리를 만들 때 절반 이하의 시간과 토큰만 쓰고 끝냈는데, 스크립팅 API가 올바른 노드 트리를 강제해서 실수를 되돌리는 과정이 줄어든 덕분이라고 분석했다. 노드 함수 시그니처를 찾아볼 수 있는 스킬과 헬퍼 함수도 함께 제공한다고 덧붙였다. 댓글은 달리지 않았다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-10-25 07:47 KST</p>
+  <p>생성 2026-10-26 07:53 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
