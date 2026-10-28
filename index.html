@@ -121,113 +121,81 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-10-27 09:03 KST</p>
+  <p class="asof">기준 시각 2026-10-28 08:58 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 22건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 21건 수집</li><li>Reddit 댓글 보강 정상 — 3건</li></ul></div>
 
 <main>
-<h2>1. Hob: Claude Cowork와 ChatGPT의 온디바이스 오픈소스 대안</h2>
-<p>HN에 "Show HN: Hob - Open-source, on device alternative to Claude Cowork and ChatGPT"라는 글이
-올라왔다 <a href="https://news.ycombinator.com/item?id=50246238">Show HN: Hob - Open-source, on device alternative to Claude Cowork and ChatGPT</a> <span class="ref">(HN · 10/27 01:12)</span>. 작성자 pancomplex는 Mac, Windows, Linux에서 동작하는 MIT 라이선스
-데스크톱 앱 Hob을 소개했다. Claude나 ChatGPT 데스크톱 앱처럼 로컬 파일을 다루지만, 모델은 전부
-사용자 컴퓨터에서 돌아간다. 설치 시 하드웨어에 맞는 오픈웨이트 모델(Gemma 4, gpt-oss)을 자동으로
-찾아주고, 샌드박스 환경에서 파이썬 코드를 실행해 데이터 처리나 그래프 작업을 하며, <code>SearXNG</code>
-기반 웹 검색과 MCP 연동, 이미지 인식, 로컬 파일시스템 CRUD를 지원하고 완전 오프라인으로도 동작한다.
-작성자는 기존 로컬 AI 앱들이 파일을 다루는 수준이 작은 텍스트 파일을 컨텍스트에 붙여넣는 정도에
-그쳤고, 더 발전된 오픈소스 솔루션들도 결국 호스팅 모델에 의존해 온디바이스의 프라이버시 장점을
-잃는다는 점을 문제로 지적하며 Hob을 만든 이유를 설명했다.</p>
-
-<h2>2. Claude Code로 음성 코딩하는 개발자들</h2>
-<p>"Engineers are coding by voice with Claude Code, some from their phones on dog walks"라는
-제목으로 음성 코딩 개발자들이 늘고 있다는 소식이 r/ClaudeCode에 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xfra3e/engineers_are_coding_by_voice_with_claude_code/">Engineers are coding by voice with Claude Code, some from their phones on dog walks</a> <span class="ref">(Reddit · 10/26 17:39)</span>.
-글 자체은 짧지만 댓글란에서 유머러스한 반응이 쏠렸다. 강아지 산책 중에 코딩한다는 설정을 두고
-가로등에 소리치는 모습을 상상하는 농담이 이어졌다.</p>
-<blockquote><p>산책하면서 코딩한다는 게, 결국 가로등한테 "auth 모듈 리팩토링해"라고 소리 지르는 그 사람
-아니냐.</p></blockquote>
-<p>Claude가 사용량 제한에 걸렸다는 상황을 밈으로 만든 댓글, 승인 요청(<code>rm -rf</code> 같은 위험한
-명령)을 가로등은 하지 않는다는 농담, 지나가는 트럭 소리에 음성 인식이 끊기는 상황을 재연한 댓글 등
-현실적인 음성 코딩의 불편함을 웃음으로 받아넘기는 분위기였다.</p>
-
-<h2>3. 최근 며칠간 Opus 5.5가 더 멍청해진 것 같다는 체감</h2>
-<p>HN 이용자 geuis가 "Has Opus 5.5 gotten dumber for anyone else in the last few days?"라는
-글을 올렸다 <a href="https://news.ycombinator.com/item?id=50238759">Has Opus 5.5 gotten dumber for anyone else in the last few days?</a> <span class="ref">(HN · 10/26 12:30)</span>. 출시 이후 Opus 5.5는 이전 모델들이 가진 문제를 거의 다
-해결한 것처럼 느껴질 정도로 뛰어났고, Claude Code 기본값인 medium thinking에서도 질문을 잘
-이해하고 필요한 것을 먼저 챙겨줄 만큼 간결하고 정확했다고 한다. 그런데 지난 2~3일 사이 예전 모델이
-보이던 문제들이 다시 나타났다며, 자신의 선호를 묻지 않고 과도한 가정을 하거나, 이미 합의된 결정을
-무시해 세 번이나 직접 정정해야 했고, 당연히 알고 있을 것이라 기대했던 고수준 성능 선택을 두 번이나
-다시 확인해야 했다고 적었다. 지적할 때마다 "맞아요, 그렇게 했어야 했는데"라는 상투적인 답만
-돌아왔다고 하며, 자신은 더 비싼 상위 모델로 넘어간 것이 아니라 Pro 플랜의 Opus 5.5 medium을 그대로
-쓰고 있다는 점을 강조하고 비슷한 경험을 한 사람이 있는지 물었다.</p>
-
-<h2>4. Claude Code로 운영하는 오픈소스 하늘 카메라 프로젝트</h2>
-<p>"I built an open source sky camera that Claude Code can actually run. Last night it caught 17
-meteors and had them sorted before I woke up."라는 글이 r/ClaudeCode에 올라왔다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1xfm8i7/i_built_an_open_source_sky_camera_that_claude/">I built an open source sky camera that Claude Code can actually run. Last night it caught 17 meteors and had them sorted before I woke up.</a> <span class="ref">(Reddit · 10/26 12:33)</span>. 작성자는 openskycam이라는 오픈소스 프로젝트로 4K 카메라가 밤하늘을 24시간
-촬영하고, Claude Code가 야간 워크플로우를 짜서 프레임을 샘플링하고 탐지 모델을 돌려 움직이는
-것과 고정된 것을 구분해 유성·비행기·고정광으로 분류하게 만들었다. Claude Code는 매일 밤 탐지
-결과를 직접 검토해 승인·거부하고, 별을 비행체로 잘못 분류하는 문제를 발견하자 그동안 승인된
-데이터로 모델을 다시 학습시켜 별로 인한 오탐을 절반 수준에서 7%까지 낮추면서도 유성 탐지율은
-90%를 유지했다고 한다. MCP 서버가 자체 가이드와 스킬을 제공해 Claude가 프롬프트가 아니라 서버
-규칙에서 작업 방식을 배우고, 키 생성 금지나 삭제 전 미리보기 같은 안전장치도 서버 쪽에 있다는
-점을 핵심으로 소개했다.</p>
-<p>댓글에서는 긍정적인 반응이 많았다. 비슷한 걸 만들어보고 싶었다며 어떤 카메라를 쓰는지 묻는
-사람에게 작성자는 보안 카메라용 <code>EmpireTech IPC-Color4K-T</code>를 저조도 성능 때문에
-골랐고 RTSP를 지원하는 카메라라면 대부분 호환된다고 답했다. UFO를 버리지 말고 따로 모아달라는
-장난스러운 요청도 있었다. 가장 기술적인 질문은 재학습 루프가 스스로 좁아질 위험, 즉 한 번 거부한
-유성이 다시는 학습 데이터로 들어오지 않는 구조에 대한 우려였고, 작성자는 90% 재현율이 새 모델이
-옛 모델이 찾은 것을 얼마나 유지하는지를 보여줄 뿐 둘 다 놓친 것을 찾는 지표는 아니라는 점을
-모델 카드에 명시했다고 설명했다.</p>
-
-<h2>5. Castellan: 에이전트를 위한 실시간 전략 게임</h2>
-<p>HN에 "Show HN: Castellan – A real-time strategy game for agents"가 올라왔다
-<a href="https://news.ycombinator.com/item?id=50246334">Show HN: Castellan – A real-time strategy game for agents</a> <span class="ref">(HN · 10/27 01:17)</span>. 작성자 emersoftware는 RTS 게임에서는 빠른 판단이 좋은 판단만큼
-중요하다는 점에서, 비용·속도·지능 사이의 균형을 보려고 에이전트가 플레이할 수 있는 간단한 RTS를
-만들었고 계속 복잡도를 높이고 있다고 소개했다. 게임은 에이전트가 생각하는 동안에도 계속 진행되며,
-유닛 타입마다 자바스크립트 스크립트를 업로드할 수 있고 이미 300개 넘는 리플레이가 쌓여 있다.
-MCP나 CLI로 연결해 Claude Code, Codex, Cursor CLI, Antigravity CLI, OpenCode, OpenClaw,
-DeepSeek Harness, MiniMax Code 등 다양한 에이전트가 참여할 수 있으며, 2~6인 FFA·협동 모드와
-오픈·월드맵, King과 4종 건물·유닛 구성을 갖춘 TypeScript 오픈소스 프로젝트다.</p>
-
-<h2>6. AI에 과도한 자율성을 준 경험에 대한 경고</h2>
-<p>"This tweet is a scary truth"라는 제목으로 r/ClaudeCode에 글이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xg1zev/this_tweet_is_a_scary_truth/">This tweet is a scary truth</a> <span class="ref">(Reddit · 10/27 01:38)</span>.
-작성자는 AI 안전 관련 오픈소스 프로젝트를 만들며 Claude Code에 제한 없는 네트워크 접근과
-자격증명을 준 것이 큰 프라이버시 위험이었다고 밝히며, AWS 자격증명 같은 비밀 값을 에이전트에게
-보낼 때 자동으로 가명으로 바꿔 전달하고 서버와 통신할 때만 원래 값으로 되돌리는 방식, 그리고
-에이전트에게 부여된 권한에 따라서만 외부 호스트 연결을 허용하는 "담벼락의 파리" 같은 구조를
-제안하며 28명의 연구자와 10개월간 작업한 오픈소스 프로젝트 prismor를 소개했다.</p>
-<p>댓글의 화제는 다른 방향으로 흘러갔다. Anthropic이 고객 이메일을 시스템 프롬프트에 주입하는
-관행을 중단해야 한다는 GitHub 이슈를 언급하며 커밋에 작성자 이메일이 불필요하게 포함된다는 불만,
-리모트 컨트롤을 켜두면 커밋 메시지에 대화 링크까지 들어간다는 지적이 이어졌다.</p>
-<blockquote><p>그래도 그건 특이한 일이 생겼을 때 Anthropic만 개인을 식별할 수 있는 용도라 괜찮을 수도
-있다.</p></blockquote>
-<p>이어 저장소의 열린 이슈 수가 "5천 개"가 아니라 실제로는 1만 5천 개이며 GitHub가 5k+로
-줄여 보여줄 뿐이라는 정정, 그리고 몇 주 동안 갱신이 없으면 이슈를 자동으로 닫는 정책이 부당하다는
-비판과 그에 대한 반박이 오갔다.</p>
-
-<h2>7. Claude Code가 자신의 코드에서 버그를 스스로 감지하는 기능</h2>
-<p>"Tell HN: Claude Code now detects bugs in its own code"라는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50249397">Tell HN: Claude Code now detects bugs in its own code</a> <span class="ref">(HN · 10/27 04:13)</span>.
-작성자 jmathai는 Claude Code가 세션을 멈추게 하지는 않았지만 의도치 않은 동작으로 보이는 문제를
-스스로 감지해 Anthropic에 제출할 버그 리포트를 작성해 제안했다고 전했다. 예시로 든 사례는
-<code>run_in_background</code>로 실행한 백그라운드 bash 작업 두 개(<code>sleep 70</code>,
-<code>sleep 90</code>)가 실제로는 아직 실행 중인데도 "완료(exit code 0)"로 보고된 경우였다.
-작성자는 이런 행동 이상을 스스로 식별해 보고하는 능력 자체가 하나의 제품이 될 수 있다고 평가했다.</p>
-
-<h2>8. 올해의 나 밈</h2>
-<p>"me, this year"라는 제목의 밈 글이 r/ClaudeCode에 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xfqy87/me_this_year/">me, this year</a> <span class="ref">(Reddit · 10/26 17:17)</span>. 글 자체에는
-별다른 설명이 없었지만 댓글에서 데이터베이스 호스팅 비용을 둘러싼 논쟁이 벌어졌다. 월 50달러를
-내고 데이터베이스를 호스팅한다는 데 놀라는 반응에 누군가는 자신은 월 300달러를 내며 자체 엔진을
-전용 서버에서 돌려 수 테라바이트 데이터를 다룬다고 답했다.</p>
-<blockquote><p>단일 TB 규모까지 가는 게 모든 소프트웨어에 흔한 일은 아니지.</p></blockquote>
-<p>이어 그 정도 데이터면 이해가 되지만 평범한 사용자용 DB라면 그 비용은 과하다는 의견, 자체
-호스팅이 훨씬 싸다는 지적, 그 정도 사양의 장비를 직접 구성하면 5천 달러가 든다는 반박 등이
-오갔다. 글쓴이는 마지막으로 자신은 셀프 호스팅과 매니지드 DB 중 매니지드를 선택했을 뿐이며 둘 다
-각자의 자리가 있다고 정리했다.</p>
+<h2>출시 전 사용량 한도 강화로 주간 한도 조기 소진 논란</h2>
+<p>Max 20x 요금제 사용자가 2~3일 만에 주간 한도를 다 썼다는 글이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xghkdy/max_20x_still_out_of_usage_in_2_days/">Max 20x, still out of usage in 2 days</a> <span class="ref">(Reddit · 10/27 12:09)</span>. 작성자는
+세션을 시작할 때 시스템 도구, MCP 커넥터, 시스템 프롬프트, 스킬, <code>CLAUDE.md</code>와 메모리 파일을
+읽는 데만 약 8만 5천에서 12만 5천 토큰이 든다고 추정했고, 빌더와 리뷰어 역할을 나눈 서브에이전트
+구조, 그리고 한동안 감독 세션 하나에 작업 세션 서넛을 동시에 돌린 운영 방식이 한도를 특히 빨리
+태웠다고 분석했다.</p>
+<p>비슷한 시기 Opus(medium)로 5시간 한도의 6%를 쓰는 동안 주간 한도도 5%가 줄었다는 보고가 올라왔고
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1xgmyh0/so_claude_is_not_counting_weekly_and_session/">So Claude is not counting weekly and session almost equally?</a> <span class="ref">(Reddit · 10/27 17:29)</span>, Max 20x에서 주간 한도가 2.5일 만에 바닥났다는 글도 이어졌다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xgxv58/claude_max_20x_weekly_depleted_in_less_than_25/">Claude max 20x weekly depleted in less than 2.5 days</a> <span class="ref">(Reddit · 10/28 01:50)</span>.
+이 글에는 댓글이 특히 많이 달렸는데, 100달러짜리 플랜 두 개를 쓰는 편이 200달러 플랜 하나보다
+낫다는 제안과 그것이 "$200 플랜의 숨은 비밀"이라는 맞장구, 두 계정을 오가며 쓰는 이른바
+"Claude swap" 언급이 이어졌다. 이 정도로 빨리 소모된다면 경쟁 서비스로 옮길 때라는 댓글과, 그런
+대안이 이미 여럿 있다는 반박도 함께 달렸다.</p>
+<blockquote><p>두 $100 플랜이 $200 플랜 하나보다 낫다.</p></blockquote>
+<p>다른 글에서는 과거 주요 모델 출시 전에도 한도 관련 불만이 먼저 나타나는 패턴이 있었다며, 모델별로
+첫 불만 제기일과 출시일 사이의 간격을 비교한 표를 제시하고 이번 상황도 비슷한 신호일 수 있다고
+추측했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xh05je/have_claudes_usage_limits_repeatedly_gotten_worse/">Have Claude's usage limits repeatedly gotten worse before major model releases? I checked the dates.</a> <span class="ref">(Reddit · 10/28 03:13)</span>. 5시간짜리 한도 한 번이 주간 한도의 25%를 차지한다는 보고도 뒤따랐다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1xh5txr/one_5hr_limit_is_25_of_weekly/">One 5hr limit is 25% of weekly?</a> <span class="ref">(Reddit · 10/28 06:46)</span>.</p>
+<h2>내 데이터가 모델 학습에 쓰이는지에 대한 질문</h2>
+<p>Hacker News에 자신의 데이터가 모델 학습에 쓰이는지를 묻는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50259406">Is my data used for model training?</a> <span class="ref">(HN · 10/27 22:56)</span>.
+본문과 댓글은 따로 수집되지 않아, 데이터 활용 정책에 대한 궁금증이 제기됐다는 사실만 확인된다.</p>
+<h2>GitHub 계정 정지와 지원 티켓 제출 불가 문제</h2>
+<p>GitHub 계정이 정지됐는데 지원 티켓조차 제출할 수 없었다는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50259246">GitHub suspended my account, and I couldn't submit a support ticket</a> <span class="ref">(HN · 10/27 22:46)</span>.
+계정 잠김 사유를 골라 양식을 작성해 제출했지만 "401" 오류가 뜨면서 티켓 생성 자체가 되지 않았다는
+것이다. 글쓴이는 정지 원인으로, 자신의 저장소에 올라온 PR들에서 몇몇 벤더에게 혜택 제공 의사를
+물어보도록 Opus 5.5(Claude Code)에 시켰다가 <code>gh pr comment</code>가 같은 글을 반복 호출해 몇
+초 사이에 세 개의 PR에 똑같은 댓글을 연달아 달았고, 네 번째 호출에서 계정이 정지됐다고 추정했다.
+GitHub 로그인 외 다른 인증 수단을 걸어두지 않았다면 계정 전체를 잃을 수도 있다는 우려를 덧붙이며
+도움을 구하고 있다.</p>
+<h2>Chrome 없이 영상 생성하는 Claude Code 도구 제작</h2>
+<p>Claude Code가 크롬을 띄우지 않고도 영상을 만들 수 있게 해주는 도구를 만들었다는 글이 올라왔다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1xh1a8s/i_built_a_way_for_claude_code_to_generate_videos/">I built a way for Claude Code to generate videos without running Chrome</a> <span class="ref">(Reddit · 10/28 03:54)</span>. Remotion처럼 React/TSX로 구성을 짜지만, 프레임 렌더링은 헤드리스 크롬 대신
+Node.js와 Rust로 작성한 GPU 컴포지터가 맡는다는 설명이다. 글쓴이는 M4 맥에서 988프레임 렌더링에
+Remotion은 131초, 이 도구는 22초가 걸렸고 1,184프레임에서는 31.5초 대 15초였다는 비교 수치를
+제시했다. Claude Code용 스킬도 함께 공개해 <code>npx skills add</code>로 설치할 수 있다고 안내했다.</p>
+<p>반응은 대체로 긍정적이었다. 예상 못 한 방향을 보는 사람이 있어 좋다는 댓글과, 오래된 맥북에서
+겪던 렌더링 문제를 해결해 줄 것 같다는 감사 인사가 달렸고 글쓴이는 아직 베타라 계속 업데이트
+중이라고 답했다. 한 댓글은 AntiGravity2와 함께 쓸 수 있는지, Nvidia의 SkillInspector 검사를
+통과하는지 물었는데 글쓴이는 아직 테스트해보지 않았다고 답했다.</p>
+<h2>리누스 토르발스가 Claude Code로 고친 Linux 페이지 캐시, 리뷰어가 레이스 발견</h2>
+<p>리누스 토르발스가 Linux 페이지 캐시 수정을 Claude Code에 맡겼고, 이후 리뷰어들이 그 수정에서
+경쟁 조건(레이스)을 발견했다는 소식이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50256421">Linus Torvalds let Claude Code fix the Linux page cache. Reviewers found a race</a> <span class="ref">(HN · 10/27 18:15)</span>. 본문과 댓글은
+따로 수집되지 않아 구체적인 경과는 제목으로만 확인된다.</p>
+<h2>Codex·Claude보다 결함을 더 많이 잡는 재현율 최적화 AI 리뷰</h2>
+<p>Codex나 Claude보다 더 많은 결함을 잡아낸다고 주장하는, 재현율(recall)에 최적화한 AI 코드 리뷰
+도구가 Hacker News에 소개됐다 <a href="https://news.ycombinator.com/item?id=50260626">AI review optimized for recall (catches more defects than Codex or Claude)</a> <span class="ref">(HN · 10/28 00:15)</span>. 본문과 댓글은 수집되지 않아 세부 내용은
+제목 이상으로 확인되지 않는다.</p>
+<h2>Claude가 신기루로 이끄는 듯한 느낌에 대한 토로</h2>
+<p>Claude가 "할 수 있다"며 이끄는 대로 따라갔다가 결국 신기루였던 경험을 털어놓은 글이 올라왔다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1xgppju/ever_feel_like_claude_is_leading_you_to_a_mirage/">Ever feel like claude is leading you to a mirage?</a> <span class="ref">(Reddit · 10/27 20:14)</span>. 설계 제약을 주자 Opus가 "체력 없는" 전투 시스템이라는 참신한 아이디어를
+내놓았고, 나흘 동안 이를 구현하려 점점 더 복잡한 시도를 반복했다고 한다. 결국 모델을 통제하며
+설계를 바꿨지만, 전투 시스템을 평범한 방식으로 전환하기까지 또 일주일이 걸렸다. 그 결과 80개
+이상의 시스템이 개발 중이지만 끝까지 완성돼 "팔 수 있는" 것은 하나도 없었고, 토큰 1,800억 개를
+썼는데 시장가로 환산하면 약 9만 7천 달러에 달한다는 추산도 덧붙였다.</p>
+<p>댓글들은 공감과 경계가 섞여 있었다.</p>
+<blockquote><p>인셉션처럼 계속 쌓아 올리다가 현실감을 잃는다. 림보라는 표현이 정확하다.</p></blockquote>
+<p>판매를 목표로 삼는 것이 오히려 중심을 잡아주는 장치라는 의견이 있었던 반면, 목표 없이 즐기면서
+만드는 것도 괜찮다는 반론과, AI가 "시장의 빈틈을 발견했다"고 사람들을 착각하게 만드는 쪽이 더
+진짜로 망상적이라는 지적도 나왔다. "새 프로젝트 좀 그만 시작해라"는 농담에는 "못 멈춘다"는 답이
+달렸고, 명세를 먼저 정하고 AI가 그 명세를 따르게 하면서 AI가 임의로 지어내거나 과도하게 설계할
+때는 엔지니어의 판단으로 개입해야 한다는 조언도 있었다.</p>
+<h2>Claude Code와 Codex가 한 캔버스에서 협업하는 CleanCode</h2>
+<p>Claude Code와 Codex가 하나의 캔버스에서 함께 작업하도록 만든 도구가 Show HN에 소개됐다
+<a href="https://news.ycombinator.com/item?id=50265699">Show HN: CleanCode – Claude Code and Codex collaborating on one canvas</a> <span class="ref">(HN · 10/28 05:57)</span>. 본문과 댓글은 수집되지 않아 구체적인 동작 방식은 제목 이상으로 확인되지
+않는다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-10-27 09:10 KST</p>
+  <p>생성 2026-10-28 09:04 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
