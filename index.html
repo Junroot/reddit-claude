@@ -121,39 +121,48 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-11-01 08:40 KST</p>
+  <p class="asof">기준 시각 2026-11-02 08:51 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 10건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 23건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>1. 최근 며칠간 사용 한도가 평소보다 빠르게 소진된다는 신고</h2>
-<p>Claude Code 사용자들 사이에서 최근 며칠 동안 사용 한도가 유난히 빠르게 줄어든다는 신고가 잇따랐다. Hacker News에는 인프라 오류로 작업이 중간에 끊기는데도 한도는 그대로 소진되고, 재시도 버튼만 있어 다시 시작할 때마다 토큰이 추가로 깎인다는 불만이 올라왔다 <a href="https://news.ycombinator.com/item?id=50313539">Tell HN: Claude is using my limits even though it's infra is failing</a> <span class="ref">(HN · 10/31 14:52)</span>. 글쓴이는 재시도를 반복하다 한 세션에서 한도의 80%를 잃었다고 전했다.</p>
-<p>Reddit에서도 비슷한 경험이 공유됐다. 한 사용자는 Max 플랜 계정 다섯 개를 일주일도 안 돼 모두 소진해 다음 날까지 완전히 멈춰 섰다고 썼다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xjwr38/usage_is_gone_and_the_infinite_sadness/">Usage is gone and the infinite sadness</a> <span class="ref">(Reddit · 10/31 09:56)</span>. Ultra 플랜을 쓰는 다른 사용자는 쉬는 시간이 많았던 비교적 가벼운 세션임에도 주간 한도를 저번 주와 같은 시각에 다 썼고, 리셋 후 세 시간 만에 주간 한도의 절반을 또 썼다고 토로했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xkbj9q/limits_burning_too_fast/">Limits burning too fast</a> <span class="ref">(Reddit · 10/31 23:23)</span>.</p>
-<p>반응은 엇갈렸다. 어떻게 계정 다섯 개를 일주일 안에 다 쓰느냐는 물음과 함께, 여기 올라오는 작업 대부분이 실제로 가치 있는 결과물 없이 토큰만 태우는 "카지노" 같다는 냉소적인 댓글이 달렸다. 반대로 이런 몰입이 누군가에겐 실제 행복을 주는 취미라는 옹호도 있었고, 풀타임 근무 중 개인 프로젝트에 매주 한도를 다 쓴다는 공감 댓글도 이어졌다. 논쟁은 결과물을 공개해야 할 의무가 있는지로 번지며 날선 설전으로 흘렀다.</p>
-<h2>2. 사용량 유연성 마케팅 문구(20x 사용량, 주간 사용량 분배)에 대한 의구심</h2>
-<p>Anthropic이 내세운 사용량 관련 마케팅 문구를 둘러싸고 의구심이 번졌다. 한 사용자는 "주간 사용량을 원하는 대로 한 주에 걸쳐 분배할 수 있다"는 안내 문구를 인용하며 여기에 무슨 함정이 있는 것 아니냐고 물었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xjyvbl/you_can_use_however_you_want_seriously/">You can use however you want seriously ? 😏</a> <span class="ref">(Reddit · 10/31 11:40)</span>.</p>
-<p>더 날카로운 글은 결제 페이지에 적힌 "20배 사용량" 문구가 실제로는 1년 내내 10배 수준으로만 제공됐다고 주장했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xk4aoe/preached_20x_but_sold_10x_for_a_whole_year/">Preached 20x, but sold 10x for a whole year</a> <span class="ref">(Reddit · 10/31 16:54)</span>. 글쓴이는 이것이 구독을 유도하기 위한 기만적 관행 아니냐고 물었다.</p>
-<p>댓글은 격렬했다. 결제 페이지에 분명히 "20배 사용량"이라고 적혀 있었던 만큼 명백한 허위 광고이며 소송과 규제가 필요하다는 주장이 다수였고, 실제 집단 소송 가능성과 텍사스 등 일부 주의 강력한 기만적 거래행위 법이 거론됐다. 반면 20배는 원래 5시간 단위 한도에만 적용된 표현이었다는 반박도 있었고, 예전에는 주간 한도 자체가 없었는데 그게 생긴 날 서비스의 매력이 사라졌다는 장기 이용자의 회고도 눈에 띄었다. 일부는 이 모든 논란이 IPO를 앞두고 약관을 정비하려는 움직임과 관련 있다고 추측했다.</p>
-<h2>3. Anthropic Claude AI가 게임 클로닝과 리버스 엔지니어링을 차단한다는 뉴스</h2>
-<p>Anthropic의 Claude AI가 비디오 게임을 복제하거나 리버스 엔지니어링하는 요청을 차단한다는 소식이 Hacker News에 공유됐다 <a href="https://news.ycombinator.com/item?id=50315987">Anthropic's Claude AI blocks video game cloning and reverse-engineering</a> <span class="ref">(HN · 10/31 22:25)</span>. 본문이나 댓글 없이 제목만 게재되어 있어, 구체적으로 어떤 요청이 거부됐는지나 커뮤니티 반응은 아직 확인되지 않는다.</p>
-<h2>4. Claude Code/Codex 작업 중 멈추는 터미널 게임 Agent-arcade</h2>
-<p>Hacker News의 Show HN 게시글에서 Claude Code나 Codex 같은 코딩 에이전트가 작업을 하는 동안에는 멈춰 있다가, 에이전트가 끝나면 다시 이어서 즐길 수 있는 터미널 게임 모음 "Agent-arcade"가 소개됐다 <a href="https://news.ycombinator.com/item?id=50313989">Show HN: Agent-arcade – Terminal games that pause when Claude Code/Codex is done</a> <span class="ref">(HN · 10/31 16:37)</span>. 작업 대기 시간을 게임으로 채우려는 아이디어로, 현재까지는 본문과 댓글 없이 제목만 등록돼 있어 세부 동작 방식과 반응은 더 지켜봐야 한다.</p>
-<h2>5. Claude로 Claude를 38400 보드레이트 빈티지 터미널에서 구동</h2>
-<p>Atuin 사무실에 있는 ADDS 4000/260 구형 시리얼 터미널에 Claude를 직접 띄운 사례가 Reddit에 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xjyago/used_claude_to_run_claude_on_a_38400_baud_vintage/">Used Claude to Run Claude on a 38400 Baud Vintage Terminal</a> <span class="ref">(Reddit · 10/31 11:11)</span>. 이 터미널은 모니터가 아니라 시리얼로 받은 문자를 자체적으로 렌더링하는 작은 컴퓨터로, VT320 호환 모드로 동작한다. 글쓴이는 Raspberry Pi를 연결해 리눅스가 이 장치를 정식 시리얼 터미널로 인식하도록 구성한 뒤, UTF-8을 Latin-1로 변환해 Claude 화면을 그대로 띄우는 작업을 Claude에게 직접 시켰다.</p>
-<p>댓글에는 옛 DEC 터미널과 호박색 디스플레이를 쓰던 286 컴퓨터를 떠올리는 추억담이 많았다. 하드디스크 소음과 전화벨 소리까지 재현하면 완벽하겠다는 농담, 38400 보드레이트로 한 글자씩 출력되는 모습이 "가장 정직한 토큰 카운터"라는 평, 가구로서의 가치까지 있다는 유머 섞인 호평이 이어졌다. 오래된 터미널을 버리기 전에 집에 가져다 뒀었다는 회고와, 27년 전 받은 AS400 터미널들을 다 버린 걸 후회한다는 댓글도 있었다.</p>
-<h2>6. Ghostty 셰이더로 Claude Code 타이핑을 더 재미있게 만들기</h2>
-<p>Ghostty 터미널의 커스텀 셰이더 기능을 이용해 타이핑할 때마다 시각 효과가 나타나는 커서 확장 "cursor-fx"가 Reddit에 공개됐다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xkfvpr/made_typing_in_claude_code_a_lot_more_fun_with/">Made typing in Claude Code a lot more fun with Ghostty shaders</a> <span class="ref">(Reddit · 11/01 02:19)</span>. 키를 누르면 번개가 스파크를 튀기거나, 글자가 무작위 글리프를 거쳐 해독되듯 나타나거나, 커서가 조각나거나, 네온이 깜빡이며 켜지는 등 총 13가지 효과가 있다. Claude Code와는 두 가지로 연동되는데, 프롬프트를 보내면 입력창을 따라 효과가 흐르고 Claude가 작업을 마치면 창 바깥에서 안쪽으로 효과가 다시 재생된다. 모든 효과는 <code>cursor-fx edit</code> 명령으로 끄거나 미리볼 수 있고, 배터리 소모가 걱정되면 <code>cursor-fx off</code>로 전부 끌 수 있다.</p>
-<p>반응은 대체로 호의적이었다. 멋있다는 감탄과 함께, 이 정도면 사무실에서 자신이 얼마나 "하드코어"한지 보여줄 수 있겠다는 농담도 있었다. 다만 Windows 버전이 없다는 점이 반복적으로 지적됐다. 글쓴이는 Ghostty 자체가 아직 공식 Windows 버전을 지원하지 않아 현재는 macOS와 Linux에서만 동작한다고 답했고, 일부는 Windows용 비공식 Ghostty 구현인 noctty를 언급했다. 이런 종류의 터미널·에이전트 관련 도구들이 유독 macOS 위주로 나오는 현상 자체에 대한 의문도 제기됐다.</p>
-<h2>7. Gemini Code vs Claude Code, 12시간 만에 800달러를 쓴 경고성 후기</h2>
-<p>Gemini Code와 Claude Code를 비교하며 12시간 동안 800달러를 지출한 경험을 경고성 글로 정리한 포스트모템이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50316526">Gemini Code vs. Claude Code – A cautionary post-mortem ($800 in 12h)</a> <span class="ref">(HN · 10/31 23:28)</span>. 본문과 댓글이 아직 없어 어떤 작업에서 비용이 그렇게 불어났는지, 두 도구의 구체적인 비교 내용은 제목 수준에서만 확인된다.</p>
-<h2>8. 아이폰에서 코딩 에이전트를 제어하는 CodeConnect</h2>
-<p>여러 컴퓨터에서 돌고 있는 코딩 에이전트를 아이폰 하나로 제어할 수 있게 해주는 앱 "CodeConnect"가 Show HN에 소개됐다 <a href="https://news.ycombinator.com/item?id=50316806">Show HN: CodeConnect: Coding Agents on Your iPhone</a> <span class="ref">(HN · 11/01 00:03)</span>. Mac이나 Linux 머신에 데몬을 설치하고 <code>codeconnect claude</code> 또는 <code>codeconnect codex</code>를 실행하면 해당 세션이 앱으로 스트리밍된다. Tailscale 위에서 동작하며 전체 소스가 공개돼 있고, 글쓴이는 피드백을 요청했다.</p>
+<h2>Ben Eater 8비트 컴퓨터를 3D 브레드보드로 시뮬레이션</h2>
+<p>한 개발자가 Ben Eater의 8비트 컴퓨터를 실감나게 따라 만들 수 있는 가상 브레드보드 편집기 "BBRouter"를 공개했다 <a href="https://news.ycombinator.com/item?id=50321522">Show HN: BBRouter – Ben Eater's 8-bit computer, simulated on 3D breadboards</a> <span class="ref">(HN · 11/01 09:10)</span>. 나란히 비교(diff), 오실로스코프, 회로도 자동 동기화, 자동 라우팅 기능을 갖췄고, 실제 Arduino IDE에서 바로 업로드하거나 MCP로 Claude 같은 AI와 연결해 회로를 만들거나 문제를 짚어낼 수 있다고 소개했다. SAP-1 회로를 돌려보고 클럭을 늦추거나 홀을 스코프로 찍어 보는 데모 링크도 함께 올렸으며, 실물 브레드보드 빌드까지 단계별로 안내한다. 글쓴이는 모바일·트랙패드에서도 잘 되는 시뮬레이터가 드물어 직접 만들었다며 커뮤니티 형성이 목표라고 밝혔다.</p>
+
+<h2>Opus 5.6 임박 출시 루머</h2>
+<p>Reddit에 Anthropic 내부자를 인용했다는 Opus 5.6 임박 출시 소문이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xl72og/opus_56_imminently_about_to_release/">Opus 5.6 imminently about to release</a> <span class="ref">(Reddit · 11/02 01:15)</span>. AA 지수 61점, SWE 90%, RiemannBench 81%를 기록하면서 비용은 20% 더 낮아지고, 덜 딱딱하고 더 인간적인 성격으로 바뀌며 사용량 리셋과 한도 증가가 함께 온다는 주장이었다. Gemini 4 Carbon에 대응하는 모델이라는 설명과, Mythos 5.5라는 또 다른 모델도 곧 나올 거라는 언급이 덧붙었다.</p>
+<p>반응은 대체로 회의적이었다. 근거로 제시된 두 번째 트윗 링크가 죽었다는 지적이 나왔고, Opus 5.6과 Mythos 5.5를 혼동한 점을 비웃는 댓글도 있었다. 일부는 이번에도 사용량 리셋을 받았으면 좋겠다는 기대를 내비쳤지만, 다른 사용자는 Anthropic이 Google과의 경쟁 구도를 의식해 최고 성능 모델을 아껴 내놓는 전략을 쓰는 것 같다고 추측했다.</p>
+<blockquote><p>It's going to be reeaaalllllyyyy hard to top opus 5.5. Opus 5 was a disaster. They better not fuck up 5.6.</p></blockquote>
+
+<h2>Claude Code 2.1.316 릴리스와 변경 사항</h2>
+<p>Claude Code 2.1.316이 10월 31일 배포되며 버그 수정 34건과 함께 몇 가지 설정 변경이 포함됐다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xlgb5q/claude_code_21316_subagent_effort_is_now_its_own/">Claude Code 2.1.316: subagent effort is now its own setting, ultrathink gets a kill switch, Opus 4.8 fast mode goes away Nov 30</a> <span class="ref">(Reddit · 11/02 07:24)</span>. <code>CLAUDE_CODE_SUBAGENT_EFFORT</code>로 서브에이전트의 effort 레벨을 세션과 별도로 지정할 수 있게 됐고, <code>CLAUDE_CODE_DISABLE_ULTRATHINK</code>로 "ultrathink" 키워드를 꺼서 의도치 않게 effort가 xhigh로 튀는 일을 막을 수 있다. Opus 4.8의 fast mode는 10월 30일부터 지원 종료(deprecated) 상태이며 2026년 11월 30일에 완전히 제거되고, 이후에는 요청이 그냥 에러로 돌아온다. Team·Enterprise 로그인에서는 관리자가 설정을 적용하면 승인 프롬프트 없이 즉시 반영되고, <code>--restricted</code> 세션에서 Read 허용 규칙이 걸린 경로를 통해 작업 디렉터리 밖 파일이 업로드될 수 있었던 보안 문제도 고쳐졌다. macOS·Linux에서 Claude Code가 자체 종료할 때 쉘 명령이 계속 떠 있던 버그, VS Code에서 ultrathink가 터미널과 다르게 xhigh로 처리되지 않던 문제도 함께 수정됐다.</p>
+<p>같은 버전에서 Claude Pro의 기본 모델이 Haiku 5.5로 바뀐 점도 눈에 띄었다 <a href="https://news.ycombinator.com/item?id=50324343">Tell HN: Claude Code now defaults to Haiku 5.5</a> <span class="ref">(HN · 11/01 19:40)</span>.</p>
+<p>2.1.316에는 시스템 프롬프트에 "기존 게임을 이름만 바꿔 복제하지 말라"는 새 규칙도 들어갔는데, 한 사용자가 같은 9개 프롬프트를 2.1.312와 2.1.316에서 각각 Opus 5.5로 돌려 비교했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xkx3z7/ran_9_game_prompts_on_claude_code_21312_and_21316/">Ran 9 game prompts on Claude Code 2.1.312 and 2.1.316 to see what the new game rule actually blocks</a> <span class="ref">(Reddit · 11/01 16:39)</span>. 오리지널 게임, 장르물, 자기 디자인 파일 기반 게임, 버그 수정은 두 버전 모두 잘 작동했다. Mario 1-1을 요청했을 때 2.1.312는 마리오 캐릭터를 그대로 썼지만 2.1.316은 마리오·굼바라는 이름 없이 "Pip's Quest"라는 게임을 만들었다. 가장 뚜렷한 거부는 Tetris를 "오리지널"이라 부르며 요청했을 때로, 2.1.316은 테트리스 대신 다리 건설 퍼즐을 내놓았다. 18회 실행 중 완전한 거부는 한 번도 없었다.</p>
+<p>댓글에서는 이 규칙이 모딩이나 합법적인 리버스엔지니어링까지 과도하게 막을 수 있다는 우려가 많았다. 보드 워게임 저작권자를 위해 작업하던 사람이 몇 달간 잘 되던 세션이 갑자기 거부당했다는 GitHub 이슈가 언급됐지만, 글쓴이는 재현하지 못했다고 덧붙였다. 일부는 이 규칙이 인디 개발자 보호가 아니라 대형 게임사 보호용이라고 비판했다.</p>
+
+<h2>DeepSeek, Claude Code 경쟁 코딩 에이전트 출시</h2>
+<p>DeepSeek가 Claude Code에 맞서는 고급 코딩 에이전트를 출시했다는 소식이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50323814">DeepSeek launches advanced coding agent to rival Claude Code</a> <span class="ref">(HN · 11/01 18:07)</span>. 본문이나 댓글 없이 제목만 공유된 글이다.</p>
+
+<h2>그가 맞다는 점이 있다는 반응 글</h2>
+<p>r/ClaudeCode에 "he got a point tho"라는 제목의 이미지 밈이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xl8rlr/he_got_a_point_tho/">he got a point tho</a> <span class="ref">(Reddit · 11/02 02:21)</span>. 게시물 자체에는 별다른 설명 없이 이미지만 첨부됐다.</p>
+<p>댓글에서는 AI 코딩 도구가 순수하게 코드만 짜는 개발자의 자리를 이미 대체했다는 의견과, 소프트웨어 개발에는 코딩 말고도 할 일이 많다는 반박이 맞붙었다. 디지털 사진 시대에 비유한 댓글도 있었는데, 사진은 숙련자를 완전히 없애지는 않았지만 진입장벽을 낮춰 공급 과잉과 임금 하락을 불렀다는 지적이었다. 다른 댓글은 LLM이 아키텍처 제안이나 코드 설명까지 잘하게 됐지만, 결국 "무엇을 물어야 하는지 아는 사람"이 여전히 중요하다고 봤고, "놓친 질문이 뭔지 물어봐"라는 방법으로 학습 곡선이 빠르게 낮아지고 있다는 반응도 나왔다.</p>
+
+<h2>젤다 하이랄 디지털 디오라마 제작 공개</h2>
+<p>한 개발자가 Breath of the Wild의 하이랄을 탐험 가능한 3D 디오라마로 만들어 Show HN에 올렸다 <a href="https://news.ycombinator.com/item?id=50325595">Show HN: Breath of the Wild's Hyrule digital diorama</a> <span class="ref">(HN · 11/01 22:39)</span>. Three.js로 제작했고, 지형 데이터는 젤다 모딩 커뮤니티 자료를 다듬어 썼으며, 조명과 그림자는 페이지가 로드될 때 미리 계산(베이크)해 둔다고 설명했다. 이전에 올린 젤다 타임라인 프로젝트와 마찬가지로 Claude로 코드를 작성했고, 본인은 코드를 직접 쓰지 않고 아이디어와 결과물을 다듬는 역할만 했다며 그 경험이 테크리드 업무와 비슷했다고 밝혔다.</p>
+
+<h2>5시간 제한 해제 이후 주간 한도 소진 불만</h2>
+<p>5시간 사용 한도가 없어진 뒤 주간 한도를 하루 만에 다 써버렸다는 불만이 스크린샷과 함께 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xl5d55/how_it_feels_after_the_5_hour_limit_was_removed/">How it feels after the 5 hour limit was removed</a> <span class="ref">(Reddit · 11/02 00:07)</span>.</p>
+<p>반응은 갈렸다. 20X 플랜에서는 5시간 한도가 원래부터 문제가 아니었다는 댓글이 있었던 반면, 5시간 한도가 폭주하는 서브에이전트를 막아 주는 안전장치였다는 댓글도 있었다. 20X가 5시간 한도의 20배일 뿐 주간 한도의 20배는 아니었다는 점, Ultra 플랜이 처음으로 Pro 대비 "주간 한도 10배"를 명시했다는 점을 짚으며 요금제 구조가 불투명하다는 불만도 나왔다. 그럼에도 Opus 5.5의 성능 자체에는 만족한다는 댓글도 있었다.</p>
+<blockquote><p>the 5 hour limit was more of an indication to me that some set of agents had gone crazy. If I ever went past 40% I knew something was wrong</p></blockquote>
+
+<h2>Claude Code의 읽기·편집을 실시간 파일트리로 보기</h2>
+<p>Claude Code가 어떤 파일을 읽고 편집하는지 실시간 파일트리로 보여주는 도구가 Hacker News에 공개됐다 <a href="https://news.ycombinator.com/item?id=50324528">See what Claude Code reads and edits, live, in a file tree</a> <span class="ref">(HN · 11/01 20:16)</span>. 본문이나 댓글 없이 제목만 공유됐다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-11-01 08:48 KST</p>
+  <p>생성 2026-11-02 08:58 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
