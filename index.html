@@ -121,48 +121,49 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-11-02 08:51 KST</p>
+  <p class="asof">기준 시각 2026-11-03 11:37 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 23건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 23건 수집</li><li>Reddit 댓글 보강 정상 — 5건</li></ul></div>
 
 <main>
-<h2>Ben Eater 8비트 컴퓨터를 3D 브레드보드로 시뮬레이션</h2>
-<p>한 개발자가 Ben Eater의 8비트 컴퓨터를 실감나게 따라 만들 수 있는 가상 브레드보드 편집기 "BBRouter"를 공개했다 <a href="https://news.ycombinator.com/item?id=50321522">Show HN: BBRouter – Ben Eater's 8-bit computer, simulated on 3D breadboards</a> <span class="ref">(HN · 11/01 09:10)</span>. 나란히 비교(diff), 오실로스코프, 회로도 자동 동기화, 자동 라우팅 기능을 갖췄고, 실제 Arduino IDE에서 바로 업로드하거나 MCP로 Claude 같은 AI와 연결해 회로를 만들거나 문제를 짚어낼 수 있다고 소개했다. SAP-1 회로를 돌려보고 클럭을 늦추거나 홀을 스코프로 찍어 보는 데모 링크도 함께 올렸으며, 실물 브레드보드 빌드까지 단계별로 안내한다. 글쓴이는 모바일·트랙패드에서도 잘 되는 시뮬레이터가 드물어 직접 만들었다며 커뮤니티 형성이 목표라고 밝혔다.</p>
+<h2>앱을 직접 사용해 버그를 찾는 QA 에이전트 Momentic(YC W24) 출시</h2>
+<p>YC W24 출신 스타트업 Momentic이 웹·iOS·Android 앱을 직접 조작해 버그를 찾아내는 QA 에이전트 "Mo"를 공개했다 <a href="https://news.ycombinator.com/item?id=50339913">Launch HN: Momentic (YC W24) – Agents that catch bugs by using your app</a> <span class="ref">(HN · 11/03 02:05)</span>. 창업자들은 Playwright나 Selenium 같은 기존 E2E 테스트 프레임워크가 XPath나 텍스트, <code>aria-*</code> 속성 같은 구현 세부사항을 하드코딩해야 해서 유지보수가 어렵다고 지적하며, LLM이 코드 생성에는 뛰어나지만 자기 가정만 강화하는 테스트를 양산하고 시각적 이해에는 약하다고 설명했다. Mo는 탐색하며 자기 조직화된 에이전트 그래프(DAG)를 구성하는 방식으로 동작하며, 버그 재현율은 경쟁 제품보다 높지만 정밀도는 Codex가 86%로 Mo의 84%보다 근소하게 앞선다고 밝혔다. 다만 비용은 버그당 2.67달러로 Codex의 0.80달러보다 훨씬 높다고 전했다.</p>
 
-<h2>Opus 5.6 임박 출시 루머</h2>
-<p>Reddit에 Anthropic 내부자를 인용했다는 Opus 5.6 임박 출시 소문이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xl72og/opus_56_imminently_about_to_release/">Opus 5.6 imminently about to release</a> <span class="ref">(Reddit · 11/02 01:15)</span>. AA 지수 61점, SWE 90%, RiemannBench 81%를 기록하면서 비용은 20% 더 낮아지고, 덜 딱딱하고 더 인간적인 성격으로 바뀌며 사용량 리셋과 한도 증가가 함께 온다는 주장이었다. Gemini 4 Carbon에 대응하는 모델이라는 설명과, Mythos 5.5라는 또 다른 모델도 곧 나올 거라는 언급이 덧붙었다.</p>
-<p>반응은 대체로 회의적이었다. 근거로 제시된 두 번째 트윗 링크가 죽었다는 지적이 나왔고, Opus 5.6과 Mythos 5.5를 혼동한 점을 비웃는 댓글도 있었다. 일부는 이번에도 사용량 리셋을 받았으면 좋겠다는 기대를 내비쳤지만, 다른 사용자는 Anthropic이 Google과의 경쟁 구도를 의식해 최고 성능 모델을 아껴 내놓는 전략을 쓰는 것 같다고 추측했다.</p>
-<blockquote><p>It's going to be reeaaalllllyyyy hard to top opus 5.5. Opus 5 was a disaster. They better not fuck up 5.6.</p></blockquote>
+<h2>Foundry VTT 모듈 제작자, Claude Code 활용이 도용이라는 비난을 받음</h2>
+<p>r/cyberpunkred에 자신이 Claude Code로 처음부터 새로 만든 Foundry VTT 게임 시스템 스크린샷을 올렸다가, 기존 오픈소스 프로젝트에 기여하지 않았다는 이유로 "AI로 코드를 훔쳤다"는 비난을 받았다는 사연이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xloh1l/apparently_using_claude_code_to_build_something/">Apparently, using Claude Code to build something is now considered stealing.</a> <span class="ref">(Reddit · 11/02 14:05)</span>. 글쓴이는 프로그래머가 아니며 기존 시스템의 호환성 문제 때문에 캐릭터 시트와 차량 메커닉 등을 새로 만든 것일 뿐 아직 아무것도 공개하지 않았는데도 표절 취급을 받았다고 토로했다.</p>
+<p>댓글 반응은 엇갈렸다. 많은 사용자가 AI 이전에도 사람들이 코드를 훔치거나 나쁜 코드를 만들었다는 사실을 지금 와서 깨닫는 게 재미있다며 글쓴이를 옹호했고, 일부는 오픈소스 라이선스 위반은 AI 이전에도 늘 비판받아 왔으며 MIT 라이선스처럼 저작자 표시만 요구하는 경우에도 AI로 개선한 사람들이 표시를 남기지 않는 것이 진짜 문제라고 지적했다.</p>
+<blockquote><p>AI 이전에도 사람들이 코드를 훔치거나 나쁜 코드를 만들지 않았다고 생각하는 게 귀엽다. 그냥 무시해라. 몇 년 지나면 생각이 바뀌거나 뒤처질 것이다.</p></blockquote>
 
-<h2>Claude Code 2.1.316 릴리스와 변경 사항</h2>
-<p>Claude Code 2.1.316이 10월 31일 배포되며 버그 수정 34건과 함께 몇 가지 설정 변경이 포함됐다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xlgb5q/claude_code_21316_subagent_effort_is_now_its_own/">Claude Code 2.1.316: subagent effort is now its own setting, ultrathink gets a kill switch, Opus 4.8 fast mode goes away Nov 30</a> <span class="ref">(Reddit · 11/02 07:24)</span>. <code>CLAUDE_CODE_SUBAGENT_EFFORT</code>로 서브에이전트의 effort 레벨을 세션과 별도로 지정할 수 있게 됐고, <code>CLAUDE_CODE_DISABLE_ULTRATHINK</code>로 "ultrathink" 키워드를 꺼서 의도치 않게 effort가 xhigh로 튀는 일을 막을 수 있다. Opus 4.8의 fast mode는 10월 30일부터 지원 종료(deprecated) 상태이며 2026년 11월 30일에 완전히 제거되고, 이후에는 요청이 그냥 에러로 돌아온다. Team·Enterprise 로그인에서는 관리자가 설정을 적용하면 승인 프롬프트 없이 즉시 반영되고, <code>--restricted</code> 세션에서 Read 허용 규칙이 걸린 경로를 통해 작업 디렉터리 밖 파일이 업로드될 수 있었던 보안 문제도 고쳐졌다. macOS·Linux에서 Claude Code가 자체 종료할 때 쉘 명령이 계속 떠 있던 버그, VS Code에서 ultrathink가 터미널과 다르게 xhigh로 처리되지 않던 문제도 함께 수정됐다.</p>
-<p>같은 버전에서 Claude Pro의 기본 모델이 Haiku 5.5로 바뀐 점도 눈에 띄었다 <a href="https://news.ycombinator.com/item?id=50324343">Tell HN: Claude Code now defaults to Haiku 5.5</a> <span class="ref">(HN · 11/01 19:40)</span>.</p>
-<p>2.1.316에는 시스템 프롬프트에 "기존 게임을 이름만 바꿔 복제하지 말라"는 새 규칙도 들어갔는데, 한 사용자가 같은 9개 프롬프트를 2.1.312와 2.1.316에서 각각 Opus 5.5로 돌려 비교했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xkx3z7/ran_9_game_prompts_on_claude_code_21312_and_21316/">Ran 9 game prompts on Claude Code 2.1.312 and 2.1.316 to see what the new game rule actually blocks</a> <span class="ref">(Reddit · 11/01 16:39)</span>. 오리지널 게임, 장르물, 자기 디자인 파일 기반 게임, 버그 수정은 두 버전 모두 잘 작동했다. Mario 1-1을 요청했을 때 2.1.312는 마리오 캐릭터를 그대로 썼지만 2.1.316은 마리오·굼바라는 이름 없이 "Pip's Quest"라는 게임을 만들었다. 가장 뚜렷한 거부는 Tetris를 "오리지널"이라 부르며 요청했을 때로, 2.1.316은 테트리스 대신 다리 건설 퍼즐을 내놓았다. 18회 실행 중 완전한 거부는 한 번도 없었다.</p>
-<p>댓글에서는 이 규칙이 모딩이나 합법적인 리버스엔지니어링까지 과도하게 막을 수 있다는 우려가 많았다. 보드 워게임 저작권자를 위해 작업하던 사람이 몇 달간 잘 되던 세션이 갑자기 거부당했다는 GitHub 이슈가 언급됐지만, 글쓴이는 재현하지 못했다고 덧붙였다. 일부는 이 규칙이 인디 개발자 보호가 아니라 대형 게임사 보호용이라고 비판했다.</p>
+<h2>5시간 제한 폐지 이후 주간 사용량이 더 빨리 소진된다는 불만</h2>
+<p>Claude Code의 5시간 세션 제한이 사라진 뒤 오히려 주간 사용량이 훨씬 빨리 바닥난다는 불만이 여러 건 올라왔다. 한 사용자는 지난 2~3주간 세션·주간 한도가 평소보다 빠르게 소진된다고 했고 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xlrlj5/is_it_just_me_or_the_subscription_is_getting/">Is it just me or the subscription is getting tighter?</a> <span class="ref">(Reddit · 11/02 17:15)</span>, 다른 사용자는 수요일부터 쉬지 않고 게임을 만들었는데 일요일 리셋 기준 주간 사용량의 89%만 썼지만, 어느 순간 5시간 사용량이 32%에서 91%로 갑자기 튀었고 이후 계속 사용량이 빨리 닳는다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xlzrqs/usage_explosion/">Usage Explosion</a> <span class="ref">(Reddit · 11/03 00:11)</span>. Ultra(구 Max 20) 플랜 사용자는 지난주에는 이틀에 50%를 썼는데 이번에는 리셋 10시간 만에 50%에 도달했다며, Node.js 앱에 기능 몇 개를 추가하고 PDF를 편집하는 정도의 작업이었다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xm1378/10_hours_after_the_ultra_plan_reset_and_now_at_50/">10 hours after the Ultra plan reset, and now at 50% weekly</a> <span class="ref">(Reddit · 11/03 01:00)</span>. 또 다른 사용자는 5시간 제한이 폐지된 이후로 동일한 작업을 하는데도 이전에는 4일에 20%를 쓰던 것이 이제는 이틀에 59%를 쓴다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xm1bsp/usage_has_been_draining_so_much_faster_since_the/">Usage has been draining so much faster since the latest update.</a> <span class="ref">(Reddit · 11/03 01:09)</span>. 한편 주간 한도를 넘겼는데도 작업이 몇 시간째 계속 진행된다는 보고도 있었고 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xm3t5n/anyone_elses_claude_letting_them_work_after/">Anyone else's claude letting them work after weekly limit?(no i don't have usage credits on)</a> <span class="ref">(Reddit · 11/03 02:38)</span>, YC 스타트업 프로그램으로 받은 Teams 계정에 최근 들어서야 주간 한도가 생겼다는 보고도 나왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xm6orx/teams_accounts_from_startup_program_got_weekly/">Teams Accounts from Startup Program got Weekly Limits</a> <span class="ref">(Reddit · 11/03 04:20)</span>.</p>
+<p>댓글에서는 비슷한 경험을 공유하는 반응이 많았다. 한 사용자는 두 달 전에는 플랜이 거의 무제한처럼 느껴졌는데 지금은 세션을 여러 개 동시에 띄우면 토큰이 순식간에 사라진다고 했고, 다른 사용자는 같은 사용량으로 체감상 3~4배 적은 작업량밖에 못 한다고 지적했다. 일부는 최대 추론 모드를 쓰지 말고 서브에이전트를 과도하게 띄우지 말며 컨텍스트가 50%를 넘기면 새 오케스트레이터로 넘기라는 식의 대응법을 공유했다.</p>
+<blockquote><p>솔직히 저도 이 고통을 느낍니다. 별로 많은 걸 하지 않는데도 두 달 전보다 사용량이 확실히 더 빨리 줄어요. 세션을 여러 개 동시에 띄우면 비교적 단순한 세션이라도 토큰이 순식간에 날아갑니다.</p></blockquote>
 
-<h2>DeepSeek, Claude Code 경쟁 코딩 에이전트 출시</h2>
-<p>DeepSeek가 Claude Code에 맞서는 고급 코딩 에이전트를 출시했다는 소식이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50323814">DeepSeek launches advanced coding agent to rival Claude Code</a> <span class="ref">(HN · 11/01 18:07)</span>. 본문이나 댓글 없이 제목만 공유된 글이다.</p>
+<h2>Anthropic의 역공학 요청 차단 확인과 늘어나는 사용 제약에 대한 반발</h2>
+<p>Anthropic이 모델에 대한 역공학 요청을 차단하고 있다는 사실이 확인됐다는 소식이 HN에 올라왔다 <a href="https://news.ycombinator.com/item?id=50339956">Anthropic confirms blocking reverse engineering requests</a> <span class="ref">(HN · 11/03 02:07)</span>. 이와 맞물려 Reddit에서는 Anthropic이 게임사의 지적재산권 보호를 명분으로 사용 제약을 계속 늘려가는 데 대한 불만이 제기됐다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xmbe5p/enshitification_is_a_one_way_street/">Enshitification is a one way street.</a> <span class="ref">(Reddit · 11/03 07:18)</span>. 글쓴이는 안전과 합법성을 지키는 제약은 이해하지만, 최근에는 거의 매일 새로운 "스텔스 제약"이 추가되고 있으며 이는 결국 합법적이고 정당한 이중 용도 사용까지 막는 무딘 도구라고 비판했다. 그는 오늘의 Claude가 가장 좋은 상태이고 앞으로는 매일 더 나빠질 것이라고 주장했다.</p>
+<p>댓글에서는 싫으면 지갑으로 투표해야 한다는 의견과, 이 문제는 윤리적 쟁점이 아니라 샌드위치로도 폭행죄가 성립할 수 있는 것처럼 어떤 도구든 불법적으로 쓸 수 있다는 이유로 도구의 능력 자체를 깎는 건 비합리적이라는 반박이 엇갈렸다. 일부는 Anthropic이 최고 성능 모델을 보유한 한 이런 윤리적 제약과 성능이 결국 함께 갈 수밖에 없을 거라는 의견도 냈다.</p>
+<blockquote><p>당신 의견에는 동의하지만 현실은 이렇다. 사람들이 싫으면 지갑으로 투표해야 한다. 그게 유일한 방법이다. 다만 그들이 최고의 모델을 갖고 있어서 그런 일이 일어나긴 어려울 것 같다.</p></blockquote>
 
-<h2>그가 맞다는 점이 있다는 반응 글</h2>
-<p>r/ClaudeCode에 "he got a point tho"라는 제목의 이미지 밈이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xl8rlr/he_got_a_point_tho/">he got a point tho</a> <span class="ref">(Reddit · 11/02 02:21)</span>. 게시물 자체에는 별다른 설명 없이 이미지만 첨부됐다.</p>
-<p>댓글에서는 AI 코딩 도구가 순수하게 코드만 짜는 개발자의 자리를 이미 대체했다는 의견과, 소프트웨어 개발에는 코딩 말고도 할 일이 많다는 반박이 맞붙었다. 디지털 사진 시대에 비유한 댓글도 있었는데, 사진은 숙련자를 완전히 없애지는 않았지만 진입장벽을 낮춰 공급 과잉과 임금 하락을 불렀다는 지적이었다. 다른 댓글은 LLM이 아키텍처 제안이나 코드 설명까지 잘하게 됐지만, 결국 "무엇을 물어야 하는지 아는 사람"이 여전히 중요하다고 봤고, "놓친 질문이 뭔지 물어봐"라는 방법으로 학습 곡선이 빠르게 낮아지고 있다는 반응도 나왔다.</p>
+<h2>Claude Code Cursor 확장 해킹 사고 포스트모템</h2>
+<p>Claude Code의 Cursor 확장에서 발생한 해킹 사고에 대한 포스트모템 보고서가 공개됐다는 글이 HN에 올라왔다 <a href="https://news.ycombinator.com/item?id=50332497">Postmortem on Claude Code Cursor extension hack</a> <span class="ref">(HN · 11/02 11:41)</span>. 다만 게시물 본문과 댓글에는 세부 내용이 담기지 않아, 사고의 구체적 경위나 영향 범위는 원문을 통해 확인해야 한다.</p>
 
-<h2>젤다 하이랄 디지털 디오라마 제작 공개</h2>
-<p>한 개발자가 Breath of the Wild의 하이랄을 탐험 가능한 3D 디오라마로 만들어 Show HN에 올렸다 <a href="https://news.ycombinator.com/item?id=50325595">Show HN: Breath of the Wild's Hyrule digital diorama</a> <span class="ref">(HN · 11/01 22:39)</span>. Three.js로 제작했고, 지형 데이터는 젤다 모딩 커뮤니티 자료를 다듬어 썼으며, 조명과 그림자는 페이지가 로드될 때 미리 계산(베이크)해 둔다고 설명했다. 이전에 올린 젤다 타임라인 프로젝트와 마찬가지로 Claude로 코드를 작성했고, 본인은 코드를 직접 쓰지 않고 아이디어와 결과물을 다듬는 역할만 했다며 그 경험이 테크리드 업무와 비슷했다고 밝혔다.</p>
+<h2>AI만으로 3개월째 게임을 만들고 있다는 후기</h2>
+<p>3개월째 AI 도구만으로 낚시·탐험 게임을 만들고 있다는 사용자가 매주 올리는 진행 보고 중 최신 글을 공개했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xlr0ui/been_making_this_game_for_3_months_using_only_ai/">Been making this game for 3 months using only AI</a> <span class="ref">(Reddit · 11/02 16:38)</span>. 이번 주에 1구역을 완성해 데모가 전부 완성됐다고 밝혔으며, 보트를 캐릭터로 삼아 레벨업·탈란트·퀘스트가 있는 RPG식 진행과 dredge 스타일의 인벤토리 관리, 날씨와 밤에 출현하는 해적·상어 같은 위험 요소, 위험을 원치 않는 플레이어를 위한 "코지 모드"를 갖췄다고 설명했다. 블랙 마켓 구역과 골든게이트 브리지·자유의 여신상을 연상시키는 2구역 메인 항구도 제작 중이라고 전했다.</p>
+<p>댓글에서는 꾸준한 진행에 대한 응원이 많았고, 배·건물 같은 3D 모델을 TripoAI와 Blender에서 Claude로 만들었는지 묻는 질문에 글쓴이는 그렇다고 답했다. 또 다른 사용자는 목업을 그대로 복제하도록 시키면 결과가 거칠고 기본적인 수준에 그치지만, 반복 개선 루프를 적용하면 ChatGPT로 만든 목업 이미지와 점점 더 비슷해진다고 설명했다.</p>
+<blockquote><p>정말 대단한 프로젝트네요. 업데이트 읽는 게 정말 즐거워요.</p></blockquote>
 
-<h2>5시간 제한 해제 이후 주간 한도 소진 불만</h2>
-<p>5시간 사용 한도가 없어진 뒤 주간 한도를 하루 만에 다 써버렸다는 불만이 스크린샷과 함께 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xl5d55/how_it_feels_after_the_5_hour_limit_was_removed/">How it feels after the 5 hour limit was removed</a> <span class="ref">(Reddit · 11/02 00:07)</span>.</p>
-<p>반응은 갈렸다. 20X 플랜에서는 5시간 한도가 원래부터 문제가 아니었다는 댓글이 있었던 반면, 5시간 한도가 폭주하는 서브에이전트를 막아 주는 안전장치였다는 댓글도 있었다. 20X가 5시간 한도의 20배일 뿐 주간 한도의 20배는 아니었다는 점, Ultra 플랜이 처음으로 Pro 대비 "주간 한도 10배"를 명시했다는 점을 짚으며 요금제 구조가 불투명하다는 불만도 나왔다. 그럼에도 Opus 5.5의 성능 자체에는 만족한다는 댓글도 있었다.</p>
-<blockquote><p>the 5 hour limit was more of an indication to me that some set of agents had gone crazy. If I ever went past 40% I knew something was wrong</p></blockquote>
+<h2>AI 기업이 가격을 올리거나 모델을 깎을 때의 대안을 묻는 질문</h2>
+<p>HN에 Anthropic과 OpenAI가 결국 비용 절감을 위해 가격을 올리거나 모델 성능을 낮출 것이라는 전망 아래, Claude Code에 대응할 만한 경쟁력 있는 대안이 무엇인지 묻는 질문이 올라왔다 <a href="https://news.ycombinator.com/item?id=50336034">Ask HN: What is your backup plan when AI companies rug pull their prices?</a> <span class="ref">(HN · 11/02 21:39)</span>. 글쓴이는 M5 맥에서 돌릴 수 있는 좋은 코딩 모델이 있는지, 가장 뛰어난 에이전틱 코딩 하니스는 무엇인지도 함께 물었다.</p>
 
-<h2>Claude Code의 읽기·편집을 실시간 파일트리로 보기</h2>
-<p>Claude Code가 어떤 파일을 읽고 편집하는지 실시간 파일트리로 보여주는 도구가 Hacker News에 공개됐다 <a href="https://news.ycombinator.com/item?id=50324528">See what Claude Code reads and edits, live, in a file tree</a> <span class="ref">(HN · 11/01 20:16)</span>. 본문이나 댓글 없이 제목만 공유됐다.</p>
+<h2>AI 에이전트용 저비용 코드 검색 도구 sweet-search 공개</h2>
+<p>한 개발자가 Claude Code, Codex, opencode 등 AI 에이전트를 위한 로컬 코드 검색 도구 "sweet-search"를 공개했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xlyqvf/i_made_a_533_cheaper_code_search_tool_for_ai/">I made a 5-33% cheaper code search tool for AI agents (sweet-search)</a> <span class="ref">(Reddit · 11/02 23:31)</span>. 저장소 색인을 만들고 자동으로 유지하며 에이전트에게 6가지 코드 검색 도구를 제공한다고 소개했다. SWE-rebench 200개 과제 기준 벤치마크에서 Opus 5.5·Sonnet 6.1 등 5가지 하니스·모델 조합으로 테스트한 결과 해결한 과제 수는 동일(1000개 중 481개)하면서 실행 비용은 5~33% 더 저렴했다고 밝혔다. Rust로 작성된 네이티브 바이너리와 자체 MaxSim·ANN 검색, ripgrep보다 2.46배 빠르다는 <code>ss-grep</code> 도구, 임베딩·late-interaction 모델용 커스텀 어텐션 레이어를 갖췄고 완전히 로컬에서 동작한다고 설명했다.</p>
+<p>댓글에서는 스타일에 대한 호평과 함께, 경쟁 도구인 Graphify와의 차이를 묻는 질문이 나왔다. 제작자는 Graphify가 코드·문서·PDF로 지식 그래프를 만드는 반면 sweet-search는 BM25F와 임베딩을 결합한 하이브리드 검색, 더 나은 순위를 매기는 색인형 grep, 호출자·피호출자·영향 분석 도구, 파일 내 시맨틱 읽기 등 6가지 검색 도구로 구성된다고 답했고, 실제 비용과 해결률을 직접 측정하고 있다고 덧붙였다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-11-02 08:58 KST</p>
+  <p>생성 2026-11-03 11:46 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
