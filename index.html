@@ -121,58 +121,100 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-11-04 09:51 KST</p>
+  <p class="asof">기준 시각 2026-11-05 10:01 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 32건 수집</li><li>Reddit 댓글 보강 정상 — 5건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 26건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>OpenAI가 Codex 대화로 모델 학습을 조용히 재활성화했다는 의혹</h2>
-<p>한 개발자가 회사 차원에서 프런티어 모델에 코드가 새 나가지 않도록 Codex, Claude Code 등에서 데이터 공유를 꺼두었는데, 최근 Codex에서 그 설정이 아무도 모르게 다시 켜져 있었다고 보고했다 <a href="https://news.ycombinator.com/item?id=50352757">OpenAI seems to be silently re-enabling model training on Codex chats</a> <span class="ref">(HN · 11/03 23:53)</span>. 동료들도 동의 없이 설정이 복원된 것을 확인했다며, 데이터 설정 페이지에서 "모두를 위해 모델 개선" 항목을 확인해 보라고 적었다. 같은 문제가 과거에도 언급된 적이 있다는 점과, 별도의 개인정보 페이지에서도 데이터 공유를 끌 수 있다는 점을 덧붙였다.</p>
+<h2>1. Ask HN: What's your current AI agentic setup?</h2>
+<p>HN 이용자 eggbrain이 요즘 다들 AI를 어떻게 쓰고 있는지 궁금해서 설문 성격의 글을 올렸다
+<a href="https://news.ycombinator.com/item?id=50366117">Ask HN: What's your current AI agentic setup?</a> <span class="ref">(HN · 11/04 23:37)</span>. 어떤 AI 구독을 돈 내고 쓰는지, <code>Claude</code>나 <code>ChatGPT</code>/<code>Codex</code>,
+<code>Cursor</code> 같은 서비스에 여러 계정을 쓰는지, 구독 대신 API나 OpenRouter, 로컬 모델을 쓰는지,
+기본 CLI나 IDE 통합 대신 OpenCode, Pi, Aider 같은 대체 하네스로 옮겼는지, 에이전트 오케스트레이션이나
+스웜 툴을 쓰는지, 그리고 더 넓은 에이전트 플랫폼을 쓰고 있다면 주된 용도가 무엇인지를 물었다.
+1년 전과 비교해 자신의 작업 방식이 크게 달라졌다며, 지금 시점의 스냅샷을 모아보고 싶다는 취지였다.</p>
 
-<h2>샤워 중 권한 요청 받는 밈</h2>
-<p>샤워 중에 Claude가 권한을 요청하는 상황을 그린 밈이 r/ClaudeCode에 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xmtptd/when_youre_taking_a_shower_and_claude_asks_for/">When you're taking a shower and Claude asks for permission</a> <span class="ref">(Reddit · 11/03 23:01)</span>. 댓글은 대부분 공감과 농담으로 채워졌다.</p>
-<blockquote><p>농담이 아니라 진짜 내 얘기다.</p></blockquote>
-<blockquote><p>그만큼 쓰는 비용을 통장이 버텨주길 바란다.</p></blockquote>
-<blockquote><p>회사가 억지로 쓰게 하는 거라 내 돈은 안 든다.</p></blockquote>
-<blockquote><p>그럴 땐 <code>--dangerously-skip-permissions</code>가 필요한 순간이다.</p></blockquote>
-<blockquote><p>2026년인데 왜 아직 풀 오토 모드를 안 쓰냐.</p></blockquote>
+<h2>2. Asking Opus 5.5 to Build a Website</h2>
+<p>/u/YearLight가 Opus 5.5에게 웹사이트를 만들어 보라고 시킨 결과를 r/ClaudeCode에 올렸다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1xnjsig/asking_opus_55_to_build_a_website/">Asking Opus 5.5 to Build a Website</a> <span class="ref">(Reddit · 11/04 18:20)</span>. 댓글들은 작업 품질보다 폰트 라이선스 쪽으로 흘러갔다. 폰트 사용료가 조회수 단위로
+매겨진다는 점이 가장 짜증 난다는 반응이 나왔고, 그럴 거면 자기 폰트를 직접 만드는 게 더 싸다는 농담성
+댓글도 붙었다. 실제로 한 이용자는 자신의 서툰 손글씨로 두 시간도 안 걸려 직접 폰트를 만들었다며 Claude에게
+뭐가 필요한지만 물어보면 된다고 전했다.</p>
+<blockquote><p>폰트 라이선스 사이트를 대신해 웹을 크롤링하는 봇들이 있다. 라이선스 없는 폰트를 쓰는 사이트를
+특정해서 찾아내고, 법적 조치와 벌금으로 위협한다. 이런 일을 당하면 Claude가 미리 깨끗하게 처리해준 걸
+고마워하게 될 것이다.</p></blockquote>
+<p>이 경험담에 대해 웹 개발자라는 한 이용자가 실제로 겪은 사례라고 덧붙이며, 사소한 문제가 아니라 골치
+아픈 일을 막아줄 수 있는 부분이라고 설명했다. 반면 다른 이들은 폰트 재단을 과잉 소송을 거는 쪽으로
+비유하며, 그냥 오픈소스 폰트를 쓰면 되고 지금까지 유료 폰트가 아쉬웠던 적이 없다고 반박했다. Opus 5.5
+자체에 대해서는 지금까지 한계를 거의 못 느꼈고 생긴 문제는 대부분 자기 쪽 실수였다는 호평도 있었다.</p>
 
-<h2>레볼루트, Claude Code/Codex에서 자체 호스팅 GLM-5.3으로 전환</h2>
-<p>레볼루트가 약 2,000명 엔지니어가 쓰는 기본 코딩 어시스턴트를 Claude Code/Codex에서 Z.ai의 자체 호스팅 GLM-5.3으로 바꿨다는 소식이 HN에 두 건 올라왔다 <a href="https://news.ycombinator.com/item?id=50358078">Revolut swaps Claude for GLM open-weight model, cutting AI coding bill by 90%</a> <span class="ref">(HN · 11/04 05:57)</span> <a href="https://news.ycombinator.com/item?id=50358388">British fintech Revolut slashes AI coding costs 10x by going self-hosted</a> <span class="ref">(HN · 11/04 06:23)</span>. AI Engineer 컨퍼런스 발표에 따르면 전환 전에는 엔지니어 1인당 월 300달러 한도 안에서 Claude Code/Codex를 썼는데, 56대의 Nvidia B200으로 자체 호스팅한 GLM으로 옮기면서 블렌드 비용이 토큰당 약 0.30달러로 떨어져 기존보다 약 90% 비용을 줄였다고 한다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xn8owx/thoughts_on_revolut_switching_default_coding_ai/">Thoughts on Revolut switching default coding AI from Claude Code / Codex to self-hosted GLM-5.3?</a> <span class="ref">(Reddit · 11/04 08:29)</span>. 코딩 시간은 약 60%, 리드타임은 약 70% 개선됐다고 밝혔고, 토큰 제한이 사라지면서 Jira·Confluence·Slack 문서 작성 등 코딩 외 업무에도 AI를 쓰게 됐다고 한다.</p>
-<p>Reddit 댓글에서는 이 개선 수치에 의심이 많았다. 60~70% 개선이 모델 성능 차이가 아니라 토큰 예산을 풀어준 효과일 뿐이라는 지적이 이어졌다.</p>
-<blockquote><p>클로드 대비 60% 개선이라니 믿을 수 없다. 사전에 가설을 등록해 둔 게 아니라면 그 수치를 믿지 않겠다.</p></blockquote>
-<blockquote><p>전환 전엔 엔지니어 1인당 월 300달러 한도였으니 다들 가장 어려운 티켓에만 아껴 썼을 뿐이다. GLM 수치는 그 쪼들린 상태와 비교한 것이지 무제한 Opus와 비교한 게 아니다.</p></blockquote>
+<h2>3. Launch HN: Kino AI (YC S23) – AI media manager and video editor</h2>
+<p>Kino의 Luke가 AI 미디어 매니저 겸 비디오 에디터 Kino AI의 런칭 소식을 HN에 올렸다
+<a href="https://news.ycombinator.com/item?id=50368804">Launch HN: Kino AI (YC S23) – AI media manager and video editor</a> <span class="ref">(HN · 11/05 02:31)</span>. 영상 자산 저장, 풀 기능 비디오 에디터, 동료용 리뷰 링크를 한곳에 묶어 Codex나
+Claude Code와 동료가 같은 타임라인에서 리뷰 노트와 푸티지를 함께 다룰 수 있게 한다고 소개했다. Opus 5.5가
+이제 영상 편집과 모션 그래픽까지 다룰 수 있지만, 일반적인 에이전트 하네스로는 작은 편집을 말로 설명하거나
+임시 UI를 써야 하고, 기기 간 공유된 푸티지를 참조할 수 없으며, 동료 피드백이 Slack 스크린샷으로 오가는
+한계가 있다고 지적했다. Kino는 Remotion 기반으로 모든 편집·모션 그래픽·타임라인 조작·3D 씬을 코드로
+표현하는 코드 우선 방식이며, 런칭 영상 제작 때는 5개 이상의 에이전트가 동시에 타임라인을 편집하고 한
+에이전트는 로토스코핑으로 비주얼 이펙트를 만들고 다른 LLM은 LUT 지원으로 전체 색보정을 맡는 식으로
+협업했다고 설명했다.</p>
 
-<h2>11월 초 Claude Ultra 사용량 한도 변경과 소진 체감 논쟁</h2>
-<p>11월 1일부터 Claude Ultra(구 Max)의 5시간 한도가 사라지고 주간 총량만 남는 변경이 있었다 <a href="https://news.ycombinator.com/item?id=50350904">Claude Ultra drops 5-hour limits</a> <span class="ref">(HN · 11/03 20:59)</span>. 이후 사용자들 사이에서 소진 속도를 둘러싼 의문이 쏟아졌다.</p>
-<p>한 사용자는 동일한 설정의 Ultra 계정 두 개로 같은 Opus 5.5 서브에이전트 작업을 돌렸는데, 한 계정(A)이 다른 계정(B)보다 출력 토큰을 거의 두 배 더 쓴다는 것을 발견했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xmgz13/same_claude_code_setup_two_ultra_accounts_one/">Same Claude Code setup, two Ultra accounts: one burns about twice the tokens on Opus 5.5</a> <span class="ref">(Reddit · 11/03 11:25)</span>. 설정 파일을 그대로 복제해도 차이는 로그인한 계정을 따라갔고, 서버가 내려주는 기능 플래그 중 네 개가 두 계정에서 다르다는 것까지 확인했지만 정확한 원인은 밝히지 못했다. 댓글에서는 서버 쪽 A/B 테스트이거나 캐시 관련 플래그 차이일 수 있다는 추측이 나왔다.</p>
-<p>비슷한 시기 다른 사용자는 이번 주 들어 한도가 평소보다 훨씬 빨리 줄어드는 것처럼 느껴진다며 이것이 단순한 체감(placebo)인지 물었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xmmvj1/is_this_placebo_effect/">is this placebo effect?</a> <span class="ref">(Reddit · 11/03 16:44)</span>.</p>
-<p>한 사용자는 Claude Code의 실제 사용량 미터를 토큰 종류별로 역산한 분석을 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xmwjcx/what_a_ultra_previously_max_20x_week_actually/">What a Ultra (previously Max) 20x week actually holds: Claude Code’s usage meter measured per token type</a> <span class="ref">(Reddit · 11/04 00:50)</span>. 이에 따르면 콜드 캐시가 사용량을 가장 많이 깎아먹는 요인이며, 800k 컨텍스트에서 캐시가 식은 턴은 캐시가 따뜻한 턴보다 약 23배 비싸다고 추정했다. 10월 31일부터 Ultra에 5시간 한도가 사라졌으므로, 이제는 하루 안의 페이싱보다 주간 총량만 중요해졌다고 설명했다.</p>
-<p>반대로 한 사용자는 자신의 작업량이 그대로인데도 오류가 눈에 띄게 늘었다며 모델이 "너프"됐다고 주장했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xmxxv0/claude_is_not_nerfed/">"Claude is not nerfed"</a> <span class="ref">(Reddit · 11/04 01:41)</span>.</p>
+<h2>4. I have an ominous feeling that they will take this technology away from us</h2>
+<p>/u/SystematicArt는 특히 에이전틱 기능이 일반인이나 대기업 소속이 아닌 중상급 기술 이용자에게 너무
+강력해서, 이 정도로 좋은 기술이면 규제 당국이나 정부가 결국 개인을 지나치게 강하게 만드는 도구를 막으려
+할 것 같다는 불안을 r/ClaudeCode에 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xnpluu/i_have_an_ominous_feeling_that_they_will_take/">I have an ominous feeling that they will take this technology away from us</a> <span class="ref">(Reddit · 11/04 23:28)</span>. 댓글 대다수는 "빼앗기기"보다 "가격을
+올리기"가 더 현실적인 시나리오라는 데 동의했다.</p>
+<blockquote><p>뺏지 않고 가격을 올릴 것이다. 음모론이 아니라 누구나 예측할 수 있는 수순이다. 손해를 보며 공짜로
+풀어 관심을 끌고, 월 20달러짜리 저가 티어로 대부분의 사용량을 커버하게 한 뒤, 월 100~200달러짜리 프로
+티어로 그 위의 가치를 각인시키고, 무제한처럼 느껴지게 리셋을 주면서 실제로는 제한을 둔다.</p></blockquote>
+<p>Goldman Sachs가 프로 개발자와 전략팀을 제외한 나머지에게서 에이전트 접근권을 거둬갔고 Revolut은
+완전 자체 호스팅으로 돌아섰다는 사례가 나오자, 이는 구독 가격이 아니라 API 가격을 내는 기업 상황이라
+개인과는 다르다는 반박이 이어졌다. Anthropic 매출의 80% 이상이 엔터프라이즈에서 나온다는 점을 들어
+소비자 가격을 몇 배로 올려야 사업성이 맞는다는 주장과, DeepSeek V4 Flash 같은 오픈소스 모델이 이미
+최상위 모델에 근접한 수준으로 저렴하게 돌릴 수 있어 정부가 이를 막을 방법이 없다는 반론이 맞섰다.
+대규모 토큰 사용량을 가진 조직은 자체 하드웨어 구매가 장기적으로 더 쌀 수 있지만, 대부분의 기업은
+그 정도 지출을 하지 않으므로 API나 구독 가격을 계속 쓸 것이고, 결국 현재의 프런티어 가격은 바닥이
+아니라 천장이라는 의견도 나왔다.</p>
 
-<h2>HackerTV: HN 추천 유튜브 영상을 24/7 채널로</h2>
-<p>19년치 HN 댓글에서 반복적으로 언급된 유튜브 영상을 모은 HackerTube를 본 뒤, 영상을 직접 고르는 대신 틀어놓고 볼 수 있는 24시간 TV로 만든 프로젝트가 Show HN에 올라왔다 <a href="https://news.ycombinator.com/item?id=50346755">Show HN: HackerTV – HN's most-recommended Youtube videos as 24/7 TV channels</a> <span class="ref">(HN · 11/03 10:18)</span>. DEVTV, SOLDER, RETRO, ORBIT 등 주제별 채널과 상위 400개를 모은 HN Prime, 음악 채널, 그리고 현지 시간 밤 11시부터 새벽 5시까지만 방송되는 99번 채널까지 소개했다. 제작자는 이 프로젝트 역시 Claude Code로 몇 시간 안에 만들었다고 밝혔다.</p>
+<h2>5. Running 17 Claude Code bots in a real company for $100/month</h2>
+<p>HN 이용자 oi_ops가 실제 회사에서 월 100달러로 Claude Code 봇 17개를 운영하고 있다는 제목의 글을
+올렸다 <a href="https://news.ycombinator.com/item?id=50360720">Running 17 Claude Code bots in a real company for $100/month</a> <span class="ref">(HN · 11/04 11:02)</span>. 본문과 댓글이 따로 달리지 않아 세부 구성은 제목으로만 전해졌지만, 적은
+비용으로 다수의 Claude Code 봇을 실제 업무 환경에 투입했다는 점이 핵심 주제다.</p>
 
-<h2>구직난 토로 글</h2>
-<p>8살 때부터 컴퓨터를 좋아했고 이제 50대를 바라보는 한 사용자가 18개월째 구직에 실패하고 있다며 깊은 좌절과 무력감을 토로했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xmp1bm/shy_computer_nerd_since_8_now_nearing_50_unable/">Shy computer nerd since 8, now nearing 50, unable to find work anymore.</a> <span class="ref">(Reddit · 11/03 19:01)</span>. 더 이상 프로그래밍에서 즐거움을 느끾지 못하고, 자신이 쓰던 작은 셸 스크립트조차 Claude가 대신 해내는 모습을 지켜본다고 적었다.</p>
-<p>댓글은 대체로 위로와 현실적인 조언으로 이어졌다. 여러 사람이 핸디맨(수리공) 일이나 교직으로 옮긴 경험을 나눴고, 프로젝트 매니저로 전환하는 것도 제안했다.</p>
-<blockquote><p>당신은 당신의 직업이 아니다. 당신은 사람이고, 일을 하는 것일 뿐이다.</p></blockquote>
-<blockquote><p>핸디맨 일을 시작하고 나서야 압박감이 줄었다. 아들이 다니는 학교에서 컴퓨터과학과 로봇공학을 가르치는 일도 구해서, 낮에 아들을 볼 수 있어 좋았다.</p></blockquote>
+<h2>6. Welcome to the AI chopping block</h2>
+<p>/u/FiacR가 AI로 인한 해고 물결을 암시하는 "Welcome to the AI chopping block"이라는 글을
+r/ClaudeCode에 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xnz07e/welcome_to_the_ai_chopping_block/">Welcome to the AI chopping block</a> <span class="ref">(Reddit · 11/05 05:30)</span>. 자신이 시니어 개발자라 다행이라는 안도 섞인 댓글부터,
+Claude가 시스템 설계도 꽤 잘한다는 주장까지 다양한 반응이 달렸다. 이에 대해 그렇게 생각한다면
+아키텍처 감각이 부족한 것일 수 있다는 반박과, 문제를 명확히 정의해주면 Claude도 새로운 걸 만들어낼 수
+있다는 의견이 맞섰다.</p>
+<blockquote><p>결국 생존은 실력의 문제가 아니라 권력의 문제다. 원래 늘 권력의 문제였다.</p></blockquote>
+<p>관리 업무조차 자동화 대상이 되면서 화이트칼라 전반의 재교육 논리가 무색해진다는 지적도 나왔다.
+AI 발전 속도를 과소평가하지 말라는 댓글에, 10년 전 바둑 AI의 "Move 37"을 상기시키는 댓글이 달렸고,
+그건 버그였다는 반박이 이어졌다.</p>
 
-<h2>Kairos: 오픈소스 리스크·사기 탐지 플랫폼</h2>
-<p>Finic 팀이 Sift, Sardine 같은 상용 실시간 사기 탐지 플랫폼의 오픈소스 대안인 Kairos를 공개했다 <a href="https://news.ycombinator.com/item?id=50358314">Show HN: Kairos – Open-source risk and fraud decisioning platform</a> <span class="ref">(HN · 11/04 06:16)</span>. 라벨링된 데이터가 부족한 문제를 "이 이메일이 일회용 주소인가?"처럼 자연어 질문으로 판단하는 결정 모델로 보완하고, XGBoost·로지스틱 회귀 같은 전통적인 모델과 함께 쓸 수 있게 했다고 설명했다. 또한 MCP 서버를 두어 Claude Code, Cursor, Codex 같은 에이전트가 직접 의사결정 워크플로를 정의하고 데이터로 모델을 학습시켜 가장 성능이 좋은 변형을 고르게 할 수 있다고 소개했다. Docker로 자체 호스팅하거나 호스팅 버전을 쓸 수 있다.</p>
+<h2>7. Claude Code Mods: Avoiding Being a Meat Proxy &amp; 추천 모드 모음</h2>
+<p>HN에는 Brajeshwar가 공유한 "Avoiding Being a Meat Proxy with Claude Code Mods" 글이
+<a href="https://news.ycombinator.com/item?id=50365976">Avoiding Being a Meat Proxy with Claude Code Mods</a> <span class="ref">(HN · 11/04 23:26)</span>, r/ClaudeCode에는 /u/teefplus가 추천 모드를 정리한 글이 함께 올라왔다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1xo02ig/cool_mods_to_try_in_claude_code/">Cool Mods to try in Claude Code</a> <span class="ref">(Reddit · 11/05 06:12)</span>. teefplus는 Claude가 읽고 수정하는 파일을 보여주는 <code>Claude Code Filetree</code>,
+위험한 셸 명령을 실행 전에 보류하고 어떤 변화가 생길지 보여주는 <code>Blast Radius</code>, 터미널 안에서
+직접 쓰거나 필요에 맞게 고칠 수 있는 진짜 브라우저인 터미널 브라우저 모드를 소개했다. 댓글에서는 터미널
+브라우저가 사람이 보기만 하는 뷰어인지, Claude가 직접 페이지를 조작할 수 있는지 질문이 나왔고, Claude가
+실제로 페이지를 조작할 수 있으며 <code>Ctrl+G</code>로 페이지의 요소를 선택해 에이전트에게 보낼 수 있다는
+답이 달렸다. 컨텍스트가 16만 토큰이 될 때마다 자동으로 새 핸드오프와 새 대화를 만드는 자동 핸드오프
+기능도 괜찮은 출발점으로 언급됐다.</p>
 
-<h2>'Karpathy' CLAUDE.md가 Claude Code 동작을 바꿨다는 분석</h2>
-<p>약 22.8만 스타를 받은 forrestchang/andrej-karpathy-skills 저장소의 CLAUDE.md(카파시 본인이 쓴 것은 아니고 그의 관찰을 바탕으로 만들어졌다)를 켜고 끈 상태로 같은 4개 과제를 3회씩, 총 24회 돌려본 비교 글이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xmhy1d/the_karpathy_claudemd_clearly_changed_claude/">The “Karpathy” CLAUDE.md clearly changed Claude Code’s behavior on 2 of 4 tasks</a> <span class="ref">(Reddit · 11/03 12:11)</span>. 이 파일은 "코딩 전에 생각하라", "단순함을 우선하라", "외과적으로 변경하라", "목표 주도로 실행하라"는 네 가지 규칙으로 되어 있다.</p>
-<p>모호한 요청("날짜를 제대로 처리해줘") 과제에서는 파일이 없을 때 세 번 모두 바로 코드를 쓰고 나서야 가정한 내용을 설명했지만, 파일이 있을 때는 세 번 중 두 번이 먼저 되물었다. 메시지가 섞인 할인 버그 과제에서는 여섯 번 모두 같은 한 줄을 고쳤지만, 파일이 있던 세 번만 회귀 테스트를 추가했다. 재시도 헬퍼 과제와 명확한 버그 과제에서는 차이가 작거나 없었다. 12회씩 합산한 실행 시간과 비용도 파일 유무에 따른 차이가 크지 않았다(274초 대 281초, 2.56달러 대 2.69달러).</p>
-<p>댓글에서는 이미 CLAUDE.md가 있다면 <code>curl -o</code>로 설치하지 말고 내용을 덧붙이라는 원문의 경고에 공감하는 반응이 많았다.</p>
-<blockquote><p>내 글로벌 CLAUDE.md에도 비슷한 규칙이 있다. <code>curl -o</code> 경고도 맞는 말이다, 안 그랬으면 내 파일이 날아갔을 거다.</p></blockquote>
+<h2>8. Show HN: 13M opinions on 48k products extracted from Reddit and HN</h2>
+<p>davidzweig가 Reddit과 HN에서 추출한 4.8만 개 제품에 대한 1300만 개 의견 프로젝트를 다시
+소개했다 <a href="https://news.ycombinator.com/item?id=50364483">Show HN: 13M opinions on 48k products extracted from Reddit and HN</a> <span class="ref">(HN · 11/04 21:09)</span>. 추출 작업은 자신의 집에 있는 NVLink로 연결한 3090 그래픽카드 두 장에서
+<code>vLLM</code>으로 Gemma 4 26B MoE 모델을 돌려 진행했고, 프런트엔드는 Claude로 바이브 코딩했다고 밝혔다.
+여행 관련 의견을 지도 위에 표시한 기능이 특히 볼만하다고 소개했으며, 프로젝트를 이어서 운영할 사람을
+찾는다는 말도 덧붙였다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-11-04 10:01 KST</p>
+  <p>생성 2026-11-05 10:10 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
