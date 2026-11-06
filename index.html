@@ -121,100 +121,42 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-11-05 10:01 KST</p>
+  <p class="asof">기준 시각 2026-11-06 10:05 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 26건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 28건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>1. Ask HN: What's your current AI agentic setup?</h2>
-<p>HN 이용자 eggbrain이 요즘 다들 AI를 어떻게 쓰고 있는지 궁금해서 설문 성격의 글을 올렸다
-<a href="https://news.ycombinator.com/item?id=50366117">Ask HN: What's your current AI agentic setup?</a> <span class="ref">(HN · 11/04 23:37)</span>. 어떤 AI 구독을 돈 내고 쓰는지, <code>Claude</code>나 <code>ChatGPT</code>/<code>Codex</code>,
-<code>Cursor</code> 같은 서비스에 여러 계정을 쓰는지, 구독 대신 API나 OpenRouter, 로컬 모델을 쓰는지,
-기본 CLI나 IDE 통합 대신 OpenCode, Pi, Aider 같은 대체 하네스로 옮겼는지, 에이전트 오케스트레이션이나
-스웜 툴을 쓰는지, 그리고 더 넓은 에이전트 플랫폼을 쓰고 있다면 주된 용도가 무엇인지를 물었다.
-1년 전과 비교해 자신의 작업 방식이 크게 달라졌다며, 지금 시점의 스냅샷을 모아보고 싶다는 취지였다.</p>
-
-<h2>2. Asking Opus 5.5 to Build a Website</h2>
-<p>/u/YearLight가 Opus 5.5에게 웹사이트를 만들어 보라고 시킨 결과를 r/ClaudeCode에 올렸다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1xnjsig/asking_opus_55_to_build_a_website/">Asking Opus 5.5 to Build a Website</a> <span class="ref">(Reddit · 11/04 18:20)</span>. 댓글들은 작업 품질보다 폰트 라이선스 쪽으로 흘러갔다. 폰트 사용료가 조회수 단위로
-매겨진다는 점이 가장 짜증 난다는 반응이 나왔고, 그럴 거면 자기 폰트를 직접 만드는 게 더 싸다는 농담성
-댓글도 붙었다. 실제로 한 이용자는 자신의 서툰 손글씨로 두 시간도 안 걸려 직접 폰트를 만들었다며 Claude에게
-뭐가 필요한지만 물어보면 된다고 전했다.</p>
-<blockquote><p>폰트 라이선스 사이트를 대신해 웹을 크롤링하는 봇들이 있다. 라이선스 없는 폰트를 쓰는 사이트를
-특정해서 찾아내고, 법적 조치와 벌금으로 위협한다. 이런 일을 당하면 Claude가 미리 깨끗하게 처리해준 걸
-고마워하게 될 것이다.</p></blockquote>
-<p>이 경험담에 대해 웹 개발자라는 한 이용자가 실제로 겪은 사례라고 덧붙이며, 사소한 문제가 아니라 골치
-아픈 일을 막아줄 수 있는 부분이라고 설명했다. 반면 다른 이들은 폰트 재단을 과잉 소송을 거는 쪽으로
-비유하며, 그냥 오픈소스 폰트를 쓰면 되고 지금까지 유료 폰트가 아쉬웠던 적이 없다고 반박했다. Opus 5.5
-자체에 대해서는 지금까지 한계를 거의 못 느꼈고 생긴 문제는 대부분 자기 쪽 실수였다는 호평도 있었다.</p>
-
-<h2>3. Launch HN: Kino AI (YC S23) – AI media manager and video editor</h2>
-<p>Kino의 Luke가 AI 미디어 매니저 겸 비디오 에디터 Kino AI의 런칭 소식을 HN에 올렸다
-<a href="https://news.ycombinator.com/item?id=50368804">Launch HN: Kino AI (YC S23) – AI media manager and video editor</a> <span class="ref">(HN · 11/05 02:31)</span>. 영상 자산 저장, 풀 기능 비디오 에디터, 동료용 리뷰 링크를 한곳에 묶어 Codex나
-Claude Code와 동료가 같은 타임라인에서 리뷰 노트와 푸티지를 함께 다룰 수 있게 한다고 소개했다. Opus 5.5가
-이제 영상 편집과 모션 그래픽까지 다룰 수 있지만, 일반적인 에이전트 하네스로는 작은 편집을 말로 설명하거나
-임시 UI를 써야 하고, 기기 간 공유된 푸티지를 참조할 수 없으며, 동료 피드백이 Slack 스크린샷으로 오가는
-한계가 있다고 지적했다. Kino는 Remotion 기반으로 모든 편집·모션 그래픽·타임라인 조작·3D 씬을 코드로
-표현하는 코드 우선 방식이며, 런칭 영상 제작 때는 5개 이상의 에이전트가 동시에 타임라인을 편집하고 한
-에이전트는 로토스코핑으로 비주얼 이펙트를 만들고 다른 LLM은 LUT 지원으로 전체 색보정을 맡는 식으로
-협업했다고 설명했다.</p>
-
-<h2>4. I have an ominous feeling that they will take this technology away from us</h2>
-<p>/u/SystematicArt는 특히 에이전틱 기능이 일반인이나 대기업 소속이 아닌 중상급 기술 이용자에게 너무
-강력해서, 이 정도로 좋은 기술이면 규제 당국이나 정부가 결국 개인을 지나치게 강하게 만드는 도구를 막으려
-할 것 같다는 불안을 r/ClaudeCode에 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xnpluu/i_have_an_ominous_feeling_that_they_will_take/">I have an ominous feeling that they will take this technology away from us</a> <span class="ref">(Reddit · 11/04 23:28)</span>. 댓글 대다수는 "빼앗기기"보다 "가격을
-올리기"가 더 현실적인 시나리오라는 데 동의했다.</p>
-<blockquote><p>뺏지 않고 가격을 올릴 것이다. 음모론이 아니라 누구나 예측할 수 있는 수순이다. 손해를 보며 공짜로
-풀어 관심을 끌고, 월 20달러짜리 저가 티어로 대부분의 사용량을 커버하게 한 뒤, 월 100~200달러짜리 프로
-티어로 그 위의 가치를 각인시키고, 무제한처럼 느껴지게 리셋을 주면서 실제로는 제한을 둔다.</p></blockquote>
-<p>Goldman Sachs가 프로 개발자와 전략팀을 제외한 나머지에게서 에이전트 접근권을 거둬갔고 Revolut은
-완전 자체 호스팅으로 돌아섰다는 사례가 나오자, 이는 구독 가격이 아니라 API 가격을 내는 기업 상황이라
-개인과는 다르다는 반박이 이어졌다. Anthropic 매출의 80% 이상이 엔터프라이즈에서 나온다는 점을 들어
-소비자 가격을 몇 배로 올려야 사업성이 맞는다는 주장과, DeepSeek V4 Flash 같은 오픈소스 모델이 이미
-최상위 모델에 근접한 수준으로 저렴하게 돌릴 수 있어 정부가 이를 막을 방법이 없다는 반론이 맞섰다.
-대규모 토큰 사용량을 가진 조직은 자체 하드웨어 구매가 장기적으로 더 쌀 수 있지만, 대부분의 기업은
-그 정도 지출을 하지 않으므로 API나 구독 가격을 계속 쓸 것이고, 결국 현재의 프런티어 가격은 바닥이
-아니라 천장이라는 의견도 나왔다.</p>
-
-<h2>5. Running 17 Claude Code bots in a real company for $100/month</h2>
-<p>HN 이용자 oi_ops가 실제 회사에서 월 100달러로 Claude Code 봇 17개를 운영하고 있다는 제목의 글을
-올렸다 <a href="https://news.ycombinator.com/item?id=50360720">Running 17 Claude Code bots in a real company for $100/month</a> <span class="ref">(HN · 11/04 11:02)</span>. 본문과 댓글이 따로 달리지 않아 세부 구성은 제목으로만 전해졌지만, 적은
-비용으로 다수의 Claude Code 봇을 실제 업무 환경에 투입했다는 점이 핵심 주제다.</p>
-
-<h2>6. Welcome to the AI chopping block</h2>
-<p>/u/FiacR가 AI로 인한 해고 물결을 암시하는 "Welcome to the AI chopping block"이라는 글을
-r/ClaudeCode에 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xnz07e/welcome_to_the_ai_chopping_block/">Welcome to the AI chopping block</a> <span class="ref">(Reddit · 11/05 05:30)</span>. 자신이 시니어 개발자라 다행이라는 안도 섞인 댓글부터,
-Claude가 시스템 설계도 꽤 잘한다는 주장까지 다양한 반응이 달렸다. 이에 대해 그렇게 생각한다면
-아키텍처 감각이 부족한 것일 수 있다는 반박과, 문제를 명확히 정의해주면 Claude도 새로운 걸 만들어낼 수
-있다는 의견이 맞섰다.</p>
-<blockquote><p>결국 생존은 실력의 문제가 아니라 권력의 문제다. 원래 늘 권력의 문제였다.</p></blockquote>
-<p>관리 업무조차 자동화 대상이 되면서 화이트칼라 전반의 재교육 논리가 무색해진다는 지적도 나왔다.
-AI 발전 속도를 과소평가하지 말라는 댓글에, 10년 전 바둑 AI의 "Move 37"을 상기시키는 댓글이 달렸고,
-그건 버그였다는 반박이 이어졌다.</p>
-
-<h2>7. Claude Code Mods: Avoiding Being a Meat Proxy &amp; 추천 모드 모음</h2>
-<p>HN에는 Brajeshwar가 공유한 "Avoiding Being a Meat Proxy with Claude Code Mods" 글이
-<a href="https://news.ycombinator.com/item?id=50365976">Avoiding Being a Meat Proxy with Claude Code Mods</a> <span class="ref">(HN · 11/04 23:26)</span>, r/ClaudeCode에는 /u/teefplus가 추천 모드를 정리한 글이 함께 올라왔다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1xo02ig/cool_mods_to_try_in_claude_code/">Cool Mods to try in Claude Code</a> <span class="ref">(Reddit · 11/05 06:12)</span>. teefplus는 Claude가 읽고 수정하는 파일을 보여주는 <code>Claude Code Filetree</code>,
-위험한 셸 명령을 실행 전에 보류하고 어떤 변화가 생길지 보여주는 <code>Blast Radius</code>, 터미널 안에서
-직접 쓰거나 필요에 맞게 고칠 수 있는 진짜 브라우저인 터미널 브라우저 모드를 소개했다. 댓글에서는 터미널
-브라우저가 사람이 보기만 하는 뷰어인지, Claude가 직접 페이지를 조작할 수 있는지 질문이 나왔고, Claude가
-실제로 페이지를 조작할 수 있으며 <code>Ctrl+G</code>로 페이지의 요소를 선택해 에이전트에게 보낼 수 있다는
-답이 달렸다. 컨텍스트가 16만 토큰이 될 때마다 자동으로 새 핸드오프와 새 대화를 만드는 자동 핸드오프
-기능도 괜찮은 출발점으로 언급됐다.</p>
-
-<h2>8. Show HN: 13M opinions on 48k products extracted from Reddit and HN</h2>
-<p>davidzweig가 Reddit과 HN에서 추출한 4.8만 개 제품에 대한 1300만 개 의견 프로젝트를 다시
-소개했다 <a href="https://news.ycombinator.com/item?id=50364483">Show HN: 13M opinions on 48k products extracted from Reddit and HN</a> <span class="ref">(HN · 11/04 21:09)</span>. 추출 작업은 자신의 집에 있는 NVLink로 연결한 3090 그래픽카드 두 장에서
-<code>vLLM</code>으로 Gemma 4 26B MoE 모델을 돌려 진행했고, 프런트엔드는 Claude로 바이브 코딩했다고 밝혔다.
-여행 관련 의견을 지도 위에 표시한 기능이 특히 볼만하다고 소개했으며, 프로젝트를 이어서 운영할 사람을
-찾는다는 말도 덧붙였다.</p>
+<h2>주간 사용량 한도 소진 문제와 해결 시도</h2>
+<p>Claude Code를 많이 쓰는 개발자들 사이에서 주간 사용량 한도를 일찍 소진하는 문제가 다시 화제가 됐다. Show HN에 올라온 Thinker는 이 문제를 해결하려는 프록시 도구로, 하네스와 모델 사이에 끼워 넣어 더는 필요 없는 컨텍스트를 잘라내고 CLAUDE.md/AGENTS.md 같은 지시 파일에서 실제로 쓰이지 않는 부분을 찾아 줄이는 PR을 자동으로 올려준다 <a href="https://news.ycombinator.com/item?id=50383228">Show HN: Thinker – Trim context and cache knowledge to extend agent usage limits</a> <span class="ref">(HN · 11/06 04:22)</span>. 제작자는 큰 컨텍스트 윈도우와 비대해진 지시 파일이 토큰 예산을 가장 많이 갉아먹는 두 가지 원인이라고 설명했다.</p>
+<p>Reddit에서는 설정 두 줄로 5시간 윈도우를 세 번 연속 써도 한도가 남더라는 글이 큰 반응을 모았다. 작성자는 <code>CLAUDE_AUTOCOMPACT_PCT_OVERRIDE</code>를 75로, <code>autoCompactWindow</code>를 300000으로 맞추는 조합을 추천했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xo6dfy/thanks_to_two_lines_in_the_claude_setting_i_was/">Thanks to two lines in the Claude setting , I was able to work 3 x 5H window without running out ,.</a> <span class="ref">(Reddit · 11/05 10:48)</span>.</p>
+<blockquote><p>300K가 딱 좋다. 에이전트가 신선하고 날카로운 상태를 유지한다. 그보다 낮으면 압축되어 품질이 떨어지고, 높으면 컨텍스트 비용이 계속 쌓인다.</p></blockquote>
+<p>하지만 댓글란에서는 이 방식이 정말 돈을 아껴주는지를 두고 논쟁이 붙었다. 한쪽은 캐시를 자주 무효화시키는 압축이 오히려 더 비싸다고 주장했고, 다른 쪽은 500K 토큰을 10K로 압축해 한 번만 캐시를 다시 쓰는 것이 압축 없이 캐시를 유지하는 것보다 훨씬 싸다고 반박했다. 비슷한 시기에 올라온 또 다른 글에서는 매주 화요일이면 한도를 다 쓴다는 사람들에게 대체 무엇을 만들고 있는지 묻는 질문도 나왔는데, 글쓴이는 자신의 사용량은 그에 비해 소박하다며 중후한 사용자들의 실제 작업 내용과 그게 수익으로 이어지는지를 궁금해했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xoemgc/people_who_hit_their_claude_limits_every_week/">People who hit their Claude limits every week: what on earth are you building?</a> <span class="ref">(Reddit · 11/05 18:45)</span>.</p>
+<h2>Opus 5.5 체감 성능 저하와 추론 강도 차이 논란</h2>
+<p>Opus 5.5가 출시 이후 점점 "멍청해지고" 비용도 더 든다는 불만이 Reddit에 올라왔다. 작성자는 이미 기각하기로 한 내용으로 계속 되돌아오는 등 예전만큼의 성능이 나오지 않는다고 주장했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xodr56/opus_55_is_definitely_getting_dumber_and_costlier/">Opus 5.5 is definitely getting dumber and costlier suddenly</a> <span class="ref">(Reddit · 11/05 17:47)</span>.</p>
+<blockquote><p>Claude와 Anthropic, 오늘 사용자 한 명을 잃었다.</p></blockquote>
+<p>댓글에서는 새 모델 출시를 앞두고 컴퓨트를 확보하려 기존 모델을 양자화했을 것이라는 추측, 그런 음모론은 "에코 챔버"일 뿐이라는 반박, 그리고 실제로 예전 Opus 특유의 장황한 문체가 다시 나타난다는 목격담이 뒤섞였다.</p>
+<p>비슷한 시점에 올라온 다른 글은 두 계정에서 똑같이 "Medium" 추론 강도를 선택했는데도 한 계정은 수치 추론 점수가 10, 다른 계정은 15로 나와 실제로는 추론 강도가 계정별로 다르게 적용되는 A/B 테스트가 진행되고 있는 것 아니냐는 의혹을 제기했다. 점수가 낮게 나온 계정은 Ultra 플랜 사용량을 96%까지 썼고, 점수가 높게 나온 계정은 Max 플랜의 주간 사용량이 막 리셋된 상태였다는 점도 함께 공개됐다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xof1m7/we_are_being_ab_tested_on_reasoning_medium_is_10/">We are being A/B tested on reasoning - Medium is 10 on Account 1, Medium is 15 on Account 2.</a> <span class="ref">(Reddit · 11/05 19:12)</span>.</p>
+<h2>Claude Code가 이메일 주소를 웹사이트에 전송하는 문제</h2>
+<p>Hacker News에 Claude Code가 사용자의 이메일 주소를 방문하는 웹사이트에 전송한다는 내용의 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50385272">Claude Code sends your email address to websites</a> <span class="ref">(HN · 11/06 07:17)</span>. 본문이나 댓글 없이 제목만으로 공유된 글이라 구체적인 전송 경로나 재현 조건은 알려지지 않았지만, 개인정보가 의도치 않게 외부로 흘러나갈 수 있다는 지적 자체로 눈길을 끌었다.</p>
+<h2>Spaceguesser, 태양계용 지오게서</h2>
+<p>Show HN에 지오게서(GeoGuessr)를 태양계로 확장한 Spaceguesser가 소개됐다. 라운드의 절반은 NASA가 공개한 화성 탐사로버(Spirit, Opportunity, Curiosity, Perseverance)들의 내비게이션 카메라가 찍은 약 1만4천 장의 파노라마 사진에서, 나머지 절반은 제작자가 직접 만든 태양계 지도 서비스의 궤도 시점 이미지에서 가져온다 <a href="https://news.ycombinator.com/item?id=50379504">Show HN: Spaceguesser – GeoGuessr for the Solar System</a> <span class="ref">(HN · 11/05 23:29)</span>. 제작자는 Claude 크롬 확장을 이용해 Opus 5.5에게 오늘의 데일리 챌린지를 풀게 했는데, 2만5천 점 만점에 1만4천8백 점을 받아 자신의 기록인 2만2천7백 점에는 미치지 못했다고 전했다.</p>
+<h2>Conductor 대안으로 만든 Claude·Codex 도구</h2>
+<p>Hacker News에 Claude와 Codex를 함께 쓰기 위한 Conductor의 대안 도구를 직접 만들었다는 Show HN 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50374227">I built an alternative to Conductor for Claude and Codex</a> <span class="ref">(HN · 11/05 11:11)</span>. 제목 외에 본문이나 댓글은 없어 구체적인 기능 설명은 공개되지 않았다.</p>
+<h2>Woke 3.0 복귀 체감</h2>
+<p>Reddit에 올라온 짧은 글 하나가 모델이 다시 "Woke 3.0" 성향으로 돌아온 것 같다는 체감을 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xorv25/woke_30_is_truly_back/">Woke 3.0 is truly back 🔵🌊</a> <span class="ref">(Reddit · 11/06 04:29)</span>. 본문은 제목뿐이었지만 댓글란에서 긴 토론이 이어졌는데, 다수가 모델이 특정 호칭이나 표현을 거부하는 상황을 피하려 자신을 "Master", "Leader", "Boss", 심지어 성별이 없는 비속어로 불러 달라고 설정해 두었다는 경험을 주고받았다.</p>
+<blockquote><p>그런 식으로 부르게 하다가 결국 그 페르소나가 커밋 메시지와 풀 리퀘스트 설명에까지 새어 나온다.</p></blockquote>
+<p>한 사용자는 자신의 Claude가 자신을 "Supreme Leader"라고 부르게 해 두었다고 덧붙였다.</p>
+<h2>항공 교신음 위에 로파이를 얹은 프로젝트</h2>
+<p>Show HN에 예전에 운영되던 lofiatc.com을 되살린 개인 프로젝트가 소개됐다. LiveATC 피드가 끊기면서 원래 사이트가 문을 닫은 것을 보고, 제작자는 직접 공항을 돌며 교신을 녹음하기로 했다. 시카고 지역 세 공항(Chicago Executive, O'Hare, Midway)을 차로 돌아다니며 안테나와 RTL-SDR을 연결해 하루 동안 현장 녹음을 했고, 이를 로파이 트랙 위에 얹어 공항별로 하나씩 "앨범"을 만들었다 <a href="https://news.ycombinator.com/item?id=50383438">Show HN: Lo-fi layered over air traffic control (recorded myself)</a> <span class="ref">(HN · 11/06 04:39)</span>. 회원가입이나 광고 없이 라디오와 음악 비율을 슬라이더로 조절할 수 있게 만들었으며, 편집 작업은 대부분 Claude Code로 했다고 밝혔다.</p>
+<h2>토큰 절약 기능에 대한 반응</h2>
+<p>Reddit에 Claude가 더는 할 말이 없을 때 이모티콘 반응만 남기고 넘어가는 모습을 두고 "Alan Turing이 무덤에서 돌아눕겠다"는 글이 올라왔다. 작성자는 불필요한 응답에 드는 토큰을 아끼기 위한 기능 같다며 꽤 똑똑한 아이디어라고 평가했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xov3zv/alan_turing_rolling_in_his_grave_rn/">Alan Turing rolling in his grave rn</a> <span class="ref">(Reddit · 11/06 06:38)</span>.</p>
+<p>댓글에서는 이 반응을 두고 의견이 갈렸다. 일부는 그냥 읽씹당하는 느낌이라고 했지만, 다른 쪽은 오히려 메시지를 읽었고 더 할 말이 없다는 것을 보여주는 것이라 그냥 무시하는 것과는 다르다고 반박했다. 어떤 앱이냐는 질문에는 Mac용 Claude 앱의 프로젝트 뷰에서 기본적으로 에이전트가 돌아가는 화면이라는 답이 달렸다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-11-05 10:10 KST</p>
+  <p>생성 2026-11-06 10:13 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
