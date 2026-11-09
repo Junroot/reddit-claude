@@ -121,45 +121,115 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-11-08 08:55 KST</p>
+  <p class="asof">기준 시각 2026-11-09 08:58 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 7건 수집</li><li>Reddit 댓글 보강 정상 — 3건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 12건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
 
 <main>
-<h2>Claude Code 'Don't Ask Again' 설정으로 깃허브 공개 저장소 1,122개에서 비밀번호 노출</h2>
-<p>Claude Code의 "Don't Ask Again" 옵션을 켜둔 사용자들의 공개 GitHub 저장소 1,122곳에서 비밀번호가 그대로 노출됐다는 조사 결과가 올라왔다 <a href="https://news.ycombinator.com/item?id=50407882">Claude Code's "Don't Ask Again" exposes passwords in 1,122 public GitHub files</a> <span class="ref">(HN · 11/08 05:45)</span>. 한 번 허용하면 이후 확인 절차 없이 명령이 실행되는 이 설정 때문에, 자격 증명이 담긴 파일이 그대로 커밋되어 공개된 것으로 보인다.</p>
+<h2>1. Opus 5.5 성능 저하(너프) 논란과 반박</h2>
+<p>지난 한 주 사이 "Opus 5.5가 너프됐다"는 보고가 Hacker News와 Reddit 양쪽에서 쏟아졌다. HN에는 관련
+Reddit 스레드를 한데 모아 소개하는 글이 올라왔고, 글쓴이는 모델명이 같아도 그 뒤에서 실제로 서빙되는
+모델이 바뀔 수 있다는 점을 "기만적인 관행"이라 부르며 당분간 Opus 5.5 사용을 중단하겠다고 밝혔다
+<a href="https://news.ycombinator.com/item?id=50419019">Tell HN: A flood of reports of Opus 5.5 being nerfed</a> <span class="ref">(HN · 11/09 08:49)</span>.</p>
+<p>개별 사례도 다양했다. 자가 호스팅 서버를 구성하던 한 사용자는 어느 날 아침부터 모델이 설명을
+구하기도 전에 곧장 명령을 실행하고, 제안을 계속 뒤집고, 심지어 자격 증명을 다른 비밀번호 관리자에
+백업해 두라는 황당한 제안까지 했다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqti7s/the_model_either_got_nerfed_or_i_have_another/">The model either got nerfed or I have another model behind the scene</a> <span class="ref">(Reddit · 11/08 17:20)</span>. 다른 사용자는 Opus를 더는 믿고
+코드베이스를 맡기기 어려울 정도로 품질이 떨어졌다며 임시로 Astra/Argon 조합으로 옮겼다고 썼다.</p>
+<blockquote><p>예측 가능하게 약한 모델이, 예측할 수 없게 저하된 강한 모델보다 차라리 유용하다.</p></blockquote>
+<p><a href="https://www.reddit.com/r/ClaudeCode/comments/1xqtslm/rant_anthropic_stop_silently_degrading_models/">Rant: Anthropic, stop silently degrading models when you need compute. You will undermine trust.</a> <span class="ref">(Reddit · 11/08 17:40)</span> TTS 앱을 개발하는 한 사용자는 Opus 5.5의 답변이 과거 Opus 5 시절처럼 다시
+알아듣기 힘든 문장을 쏟아내기 시작했다고 보고했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqujuh/opus_55_started_coming_up_with_unintelligible/">Opus 5.5 started coming up with unintelligible responses similar to how Opus 5 did</a> <span class="ref">(Reddit · 11/08 18:31)</span>. 또 다른 글쓴이는 11월 들어
+시작된 저하가 C++ 코드베이스에서 헤더 변경이 바이너리에 영향을 준다는 사실조차 추론하지 못하는
+수준이라며, Fable 5.1로 옮겨서야 평소 품질을 되찾았다고 적었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqvqip/anthropic_should_offer_a_free_reset_and_restore/">Anthropic should offer a free Reset and restore Opus 5.5</a> <span class="ref">(Reddit · 11/08 19:50)</span>.</p>
+<p>반응은 분노와 실망으로 이어졌다. 한 사용자는 소송, 사과, 아니면 완전한 이용 중단 중 하나를 요구하며
+고객에게 변경 사항을 고지하지 않고 가격은 그대로 둔 채 품질을 낮춘 것은 기만이라 주장했고, 프로젝트
+마감을 재검토해야 할 상황이라고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xr0nz5/either_a_lawsuit_an_apology_or_never_touching/">Either a lawsuit, an apology, or never touching anything from Anthropic again.</a> <span class="ref">(Reddit · 11/09 00:13)</span>. C++ 게임 코드에서 Opus가 과도하게
+복잡한 메모리 캐싱 구조를 제안했다가, 더 단순한 구현을 지적받자 곧바로 "제가 과도하게 설계했다"고
+인정한 사례도 공유됐다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xr488d/weve_been_nerfed/">We've been nerfed!</a> <span class="ref">(Reddit · 11/09 02:43)</span>. 모아놓은 반응 스레드에는 Anthropic의 소통 부재를
+비판하는 목소리, "봇들이 모델을 변호한다"는 의심, 모델 버전을 고정해 달라는 요구, 그리고 실제
+진행 중인 집단 소송 도켓 링크까지 함께 달렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xr4urz/opus_55_in_the_past_two_weeks/">Opus 5.5 in the past two weeks</a> <span class="ref">(Reddit · 11/09 03:09)</span>.</p>
+<p>반박도 나왔다. 같은 글쓴이로 보이는 사용자는 모델 자체가 바뀐 게 아니라 Anthropic이 서버 측에서
+여러 실험(식별자 dba, 34e, 763, eab)을 돌리며 도구 호출 방식과 사고 깊이를 바꿔보고 있다는 로그
+분석 결과를 제시했다. 출력 속도 저하는 측정되지 않았고, 환경변수를 해제하면 실험에서 빠질 수 있다고
+설명했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xr66pd/i_dont_think_opus_55_was_nerfed_theyre_just/">I don't think Opus 5.5 was nerfed, they're just experimenting</a> <span class="ref">(Reddit · 11/09 04:03)</span>. 짧게 "또 멍청해졌냐"고 묻는 글도 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xr6r3t/has_claude_been_made_dumber_again/">Has Claude been made dumber again?</a> <span class="ref">(Reddit · 11/09 04:26)</span>.
+반면 엔터프라이즈 계정 데이터를 직접 분석한 한 사용자는 자신의 Opus는 저하되지 않았다며, 개인 계정
+대상으로만 A/B 테스트나 컴퓨팅 오프로딩이 이뤄지는 것 아니냐는 추측을 내놓았다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xr8czl/opus_appears_to_be_healthy_on_corporate_account/">Opus appears to be healthy on corporate account</a> <span class="ref">(Reddit · 11/09 05:32)</span>.
+Opus High를 주로 쓰던 사용자는 최근 며칠 체감 성능이 떨어져 Extra나 Fable로 옮겨야 했다고 보탰다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1xr8jod/opus_high_55_nerfed/">Opus High 5.5 Nerfed?</a> <span class="ref">(Reddit · 11/09 05:40)</span>. 실험 ID를 처음 공유한 글쓴이는 후속 글에서 이것이 "가스라이팅"이 아니라 실제
+현상이라는 점을 재차 강조하며 Anthropic이 영향받은 사용자에게 리셋을 제공해야 한다고 요구했다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1xr9x5y/the_nerf_is_real_thank_you_uwum1ha1nho/">The nerf is real. Thank you u/WuM1ha1nho!!!!</a> <span class="ref">(Reddit · 11/09 06:40)</span>.</p>
 
-<h2>100% AI 작성 의무화 1년 후, 아무도 코드를 이해하지 못함</h2>
-<p>한 개발자가 1년 전 회사에서 "이제 모든 코드는 에이전트를 통해서만 작성한다"는 방침이 내려온 이후를 돌아보는 글을 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xq2n3t/a_year_after_the_100_ai_mandate_nobody/">A year after the 100% AI mandate nobody understands our code</a> <span class="ref">(Reddit · 11/07 18:46)</span>. 처음 6개월은 생산성이 크게 올랐지만 지금은 코드베이스 크기가 3배로 불었고, 같은 기능을 하는 헬퍼가 네 벌씩 중복돼 에이전트조차 헷갈려 한다고 썼다. PR을 꼼꼼히 검토하며 문제를 짚어주던 두 사람은 올봄 각각 퇴사와 조직개편으로 떠났고, coderabbit은 여전히 모든 PR에 댓글을 달지만 그 댓글이 중요한지 판단할 사람이 없어 다들 그냥 전부 해결 처리만 한다고 전했다. 최근 들어 경영진이 다시 "직접 좀 써 보라"고 조용히 요구하기 시작했는데, 1년간 코드를 손으로 써본 적 없는 사람들에게는 그마저 쉽지 않다고 덧붙였다.</p>
-<p>댓글들은 이 문제가 새로운 것이 아니라 규모의 문제라는 데 공감했다. 코드를 "누가" 썼는지보다 리뷰어가 저자만큼의 이해도를 갖기 어렵다는 점이 핵심이라는 반응이 있었고, PR 크기가 지나치게 크면 결국 아무도 제대로 리뷰하지 못한다는 지적도 나왔다. 반대로 몇 달째 에이전트 중심으로만 작업해도 전혀 불편함이 없다는 반응도 있었다.</p>
-<blockquote><p>몇 달째 IDE를 열지 않았지만 그걸로 괜찮다.</p></blockquote>
+<h2>2. 골드만삭스, 뱅커·트레이더 대상 Claude Code 사용 중단</h2>
+<p>골드만삭스가 뱅커와 트레이더들에게 제공하던 Claude Code 사용을 중단한다는 소식이 Hacker News에
+공유됐다 <a href="https://news.ycombinator.com/item?id=50415628">Goldman Sachs is pulling Claude Code from its bankers and traders</a> <span class="ref">(HN · 11/09 03:16)</span>.</p>
 
-<h2>Show HN: Claude/Codex 구독으로 돌리는 오픈소스 OS Grokbot</h2>
-<p>한 개발자가 tmux 기반 터미널을 감싸 기존 Claude Code나 Codex 구독을 그대로 활용할 수 있는, 공급자에 중립적인 완전 로컬 호스팅형 "GrokBot"을 Show HN에 공개했다 <a href="https://news.ycombinator.com/item?id=50406534">Show HN: OS Grokbot, can run on Claude/codex subs</a> <span class="ref">(HN · 11/08 02:59)</span>. 장기 작업과 업무용 워크플로, 운영 작업에 강점이 있다고 소개했으며, 아직 벤치마크는 돌리지 못했다고 밝혔다.</p>
+<h2>3. 셀이 Claude Code·Codex 터미널이 되는 스프레드시트 Recalc 공개</h2>
+<p>각 셀을 Claude Code나 Codex 터미널 세션으로 쓸 수 있는 스프레드시트 도구 Recalc가 Show HN에
+공개됐다. 제작자는 평가·벤치마크 작업을 하면서 필요해서 만들었다고 설명했다. 메인 Claude Code·Codex
+세션을 옆 패널에 띄워 두고, 그리드의 각 셀에서도 개별 터미널 세션을 돌릴 수 있으며, 필요하면 실제
+터미널 창으로 세션을 이어갈 수도 있다. 셀들은 그리드 좌표, 이름 붙인 셀, 또는 앱을 엮어주는 MCP
+서버를 통해 서로 통신한다. 데모로는 FDA 제출 자료를 모아 하니스를 적용한 Claude가 승인·반려를
+정확히 예측할 수 있는지 보는 작은 벤치마크를 함께 공개했다. 현재는 macOS와 Linux에서 로컬로 동작하며
+Windows는 아직 테스트되지 않았다 <a href="https://news.ycombinator.com/item?id=50413970">Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals</a> <span class="ref">(HN · 11/09 00:12)</span>.</p>
 
-<h2>Show HN: Codenames로 Opus·Astra·Argon의 언어 능력 측정</h2>
-<p>AWS Bedrock API로 여러 LLM에게 Codenames를 플레이시켜 승률과 단서·추측 정확도를 바탕으로 ELO를 매긴 벤치마크 앱이 Show HN에 올라왔다 <a href="https://news.ycombinator.com/item?id=50408419">Show HN: NLP capabilities of Opus, Astra, Argon measured by Codenames skills</a> <span class="ref">(HN · 11/08 06:57)</span>. 제작자는 사람 없이도 AI와 팀을 이뤄 Codenames를 즐길 수 있도록 만들었다고 소개했다. 결과를 보면 Gemini 4 Argon이 1775점으로 가장 높았고 GPT-6.1 Sol 1744점, GPT-6 Astra 1723점이 뒤를 이었으며, Claude Fable 5.1은 1623점, Claude Opus 5.5는 1592점을 받았다. 더 새롭고 비싼 모델이 대체로 우세하지만 Kimi K2.5가 Kimi K3를 근소하게 앞서는 등 예외도 있었다고 전했다.</p>
+<h2>4. Claude Code와 Codex 등 다른 도구 간 선호 비교</h2>
+<p>Hacker News에는 Codex나 Gemini 등 Claude Code 외 다른 도구를 쓰는 사람이 있는지, 개발자들이
+실제로 얼마나 다양한 도구를 쓰는지 묻는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50411679">Ask HN: Is anyone using Codex, Gemini or another model over Claude Code?</a> <span class="ref">(HN · 11/08 18:28)</span>.</p>
+<p>Reddit에는 6개월간 거의 매일 Codex를 썼던 사용자가 Claude Code와 비교해 강하게 불만을 터뜨린
+글이 올라왔다. 대화 하나를 지우는 데도 10초가 걸리고 그 동안 UI 전체가 멈추며, 목표(Goals)를
+맡기면 설명 없이 명령만 스크롤되다가 실제와 맞지 않는 이유로 멈추거나 중단되고, 여섯 시간을
+맡겨도 쓸 만한 결과가 없거나 Docker 컨테이너가 방치돼 디스크를 가득 채운 적도 있었다고 전했다.
+반면 Claude Code는 실제 작업을 맡겨도 무엇을 하는지 계속 따라갈 수 있어서, 잘못된 방향으로 가면
+바로 잡아 되돌릴 수 있다는 점을 장점으로 꼽았다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqxmgy/claude_code_is_genuinely_good_at_getting_work/">Claude Code is genuinely good at getting work done. The Codex desktop app is peak AI slop.</a> <span class="ref">(Reddit · 11/08 21:46)</span>.</p>
+<p>댓글 반응은 엇갈렸다. Opus 5.5가 나온 뒤로 여러 도구를 병행하다 Claude Desktop으로 완전히
+옮겼다는 사람, 이미 Claude를 먼저 켜는 습관이 들었다는 사람이 있었던 반면, Codex가 디자인 작업에서
+더 유연하고 끝까지 밀어붙인다며 "Claude는 과하게 조심스러운 부모 같다"고 비유한 반응도 있었다.
+해당 글을 Codex 서브레딧에 올렸다가 올린 지 3분 만에 모더레이터가 삭제했다는 사연도 댓글로 공유돼,
+"Codex에 대한 솔직한 피드백은 오히려 Claude 서브레딧에서 더 잘 받아들여진다"는 반응을 낳았다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1xqxmgy/claude_code_is_genuinely_good_at_getting_work/">Claude Code is genuinely good at getting work done. The Codex desktop app is peak AI slop.</a> <span class="ref">(Reddit · 11/08 21:46)</span>.</p>
 
-<h2>Opus 5.5 XHIGH가 사용자 데이터·비밀번호·macOS 설정을 삭제한 사건</h2>
-<p>한 사용자가 Opus 5.5 XHIGH로 <code>--dangerously-skip-permissions</code> 옵션을 켠 채 Claude Code를 돌리던 중, 테스트용으로 만들었던 채팅 채널 다섯 개를 지우려다 macOS의 <code>~/Library</code> 전체가 삭제되는 사고를 겪었다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqfp7m/opus_55_xhigh_just_deleted_all_my_apps_data/">opus 5.5 XHIGH just deleted all my apps data, passwords and macOS configs</a> <span class="ref">(Reddit · 11/08 05:11)</span>. 경로에 "Application Support"처럼 공백이 들어 있어 <code>xargs -n1 dirname</code>이 경로를 둘로 쪼갰고, <code>dirname</code>이 <code>~/Library</code>를 부모 폴더로 잘못 반환하면서 그 자리에 <code>rm -rf</code>가 실행됐다는 설명이다. 자리를 비운 사이 에이전트는 약 2분간 <code>~/Library</code>를 지우다 스스로 멈췄고, 돌아와 보니 앱은 이미 재시작되어 welcome 화면만 떠 있었다고 했다. 저장된 비밀번호와 설정은 물론 6개월 치 작업물까지 복구 불가능하게 사라졌다고 썼다.</p>
-<p>댓글들은 대부분 백업 부재를 지적했다. "Medium으로 돌렸으면 토큰도 아끼고 어차피 지워졌을 텐데"라는 농담이 가장 큰 공감을 받았고, 6개월간 Git이나 Backblaze 같은 백업 없이 작업했다는 데 놀라는 반응이 이어졌다. 업무에서는 몇 시간, 심지어 10~15분 단위로 커밋한다는 댓글들도 있었고, "바이브 코더들은 git을 들어본 적도 없다"는 다소 날선 반응도 있었다.</p>
-<blockquote><p>Medium으로 돌렸으면 토큰도 아끼고 어차피 지워졌을 텐데.</p></blockquote>
+<h2>5. 코딩 에이전트를 모바일에서 관리하는 Loop 공개</h2>
+<p>이미 쓰고 있는 코딩 하니스(Codex, Claude Code, Pi, OpenCode, Antigravity, Muse Code, Grok Build,
+또는 ACP 호환 에이전트 전체)를 감싸서, 그 결과를 휴대폰에서 피드 형태로 보고 검색하고 다시 찾아볼 수
+있게 해주는 모바일 동반 도구 Loop가 Show HN에 올라왔다. 제작자는 신생아를 한 손으로 안은 채
+한손으로 에이전트와 대화하려다 기존 채팅 중심 모바일 UI가 전혀 맞지 않는다는 걸 느껴 직접 만들었다고
+밝혔다. Loop는 사용자 본인 컴퓨터에서 동작하며 계정이나 서버 없이 QR 코드 스캔 한 번으로 휴대폰과
+짝지어진다. Apache-2.0 라이선스로 TypeScript와 SQLite로 만들어졌다 <a href="https://news.ycombinator.com/item?id=50413968">Show HN: Loop – your coding agents, from your phone</a> <span class="ref">(HN · 11/09 00:11)</span>.</p>
 
-<h2>음성으로 운영하는 'chief' 위임 에이전트 설정</h2>
-<p>한 사용자가 몇 달째 Claude Code를 거의 전부 음성으로 쓰고 있다며 자신의 설정을 소개했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xpxec0/anyone_else_running_claude_code_mostly_by_voice/">Anyone else running Claude Code mostly by voice? Mine has a "chief" agent that delegates to the others</a> <span class="ref">(Reddit · 11/07 13:26)</span>. 로컬 Whisper로 음성을 받아 적고 로컬 Kokoro로 답을 들려주는 방식이라 데이터가 바깥으로 나가지 않으며, 말이 끝난 시점을 감지해 전사하고 실행한 뒤 다시 듣는 흐름을 스킬로 구현했다고 한다. 최근에는 "chief"라는 상위 에이전트를 하나 두고, 이 chief가 직접 코드를 쓰는 대신 Orca에서 돌아가는 여러 Claude 세션에 작업 명세를 내려 위임하도록 확장했다. 작업자가 끝내면 chief가 알려주고, 결정이 필요하면 소리로 물어본 뒤 답이 없으면 질문을 대기 목록에 남겨 놓치지 않게 했다. Stream Deck 버튼으로 말하기·음소거를 전환하고, 한 번 말해둔 규칙("승인된 MR엔 푸시하지 마라" 등)은 chief가 기억해 모든 작업자 명세에 넣어준다고 설명했다. 작성자는 ADHD가 있어 에이전트가 먼저 말을 걸고 결정을 물어주는 방식이 여러 탭을 오가며 신경 쓰는 것보다 집중에 도움이 된다고 덧붙였다.</p>
-<p>댓글에서는 말하기와 글쓰기 중 어느 쪽이 사고를 더 명료하게 하는지를 두고 의견이 갈렸다. 일부는 25년간 개발해왔지만 글로 쓸 때 생각이 더 분명해진다고 했고, 다른 쪽은 말하면서 아이디어가 더 잘 떠오르며 에이전트에게 말하는 과정 자체가 똑똑해진 고무 오리 역할을 한다고 반박했다. 말하기가 타이핑보다 3배 빠르다는 주장에는 "나는 말이 느리고 타이핑이 빠르다"는 반론도 붙었다. 설정과 스킬을 공유해 달라는 요청도 여러 번 나왔다.</p>
+<h2>6. "Deep Analysis" 축약 표현 사용에 대한 불만</h2>
+<p>Reddit에는 질문할 때 "Deep Analysis"라는 표현을 줄여 쓰지 말라고 외치는 제목의 글이 올라왔다
+<a href="https://www.reddit.com/r/ClaudeCode/comments/1xqtuc1/hank_noooo_do_not_shorten_deep_analysis_when/">HANK NOOOO! DO NOT SHORTEN "DEEP ANALYSIS" WHEN ASKING A QUESTION!!!</a> <span class="ref">(Reddit · 11/08 17:43)</span>. 본문 없이 제목만 있었지만, 댓글란은 전혀 다른 방향으로 흘러갔다. 댓글들은
+"Deep Analysis"를 줄이면 생기는 표현이 Claude 로고(점점 커지고 작아지는 모양)와 겹쳐 보인다는
+농담으로 이어졌고, 다른 AI 로고들도 비슷하게 보인다거나, 휴대폰 알림 문구를 가족에게 설명하기
+곤란하다는 식의 가벼운 반응이 이어졌다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqtuc1/hank_noooo_do_not_shorten_deep_analysis_when/">HANK NOOOO! DO NOT SHORTEN "DEEP ANALYSIS" WHEN ASKING A QUESTION!!!</a> <span class="ref">(Reddit · 11/08 17:43)</span>.</p>
 
-<h2>Show HN: Claude Code 안에서 돌아가는 슬롯머신 SlopSlot</h2>
-<p>Claude Code 플러그인으로 설치해 실행하는 슬롯머신 "SlopSlot"이 Show HN에 올라왔다 <a href="https://news.ycombinator.com/item?id=50400511">Show HN: SlopSlot – a slot machine inside Claude Code</a> <span class="ref">(HN · 11/07 09:48)</span>. 제작자는 <code>claude plugin install slopslot --marketplace gajus/slopslot</code> 명령으로 설치할 수 있다고 안내하며, "그렇게 느껴지니까"라는 짧은 한 줄로 에이전트 코딩이 슬롯머신을 당기는 것 같다는 뜻을 담았다.</p>
+<h2>7. FUSE·루트·런타임 없는 단일 바이너리 배포 도구 FELF 공개</h2>
+<p>공유 라이브러리를 쓰는 프로그램을 배포할 때 AppImage는 기능이 과하고 컨테이너는 너무 무겁다고
+느낀 제작자가, 패키징 시점에 필요한 공유 라이브러리와 자체 glibc, 패치된 동적 링커까지 하나의
+실행 파일에 담는 포맷 FELF를 Show HN에 공개했다. <code>felf pack $(which git) --output git.felf</code>
+처럼 명령 한 줄로 어떤 배포판에서 빌드했든 동작하는 바이너리를 만들 수 있고, FUSE나 루트 권한,
+별도 런타임 없이 scratch 기반 Docker나 Alpine Linux 안에서도 실행된다. 심링크를 통한 coreutils식
+다중 프로그램 접근도 지원한다. 제작자는 이 포맷을 Claude의 도움을 받아 구현했다고 밝혔다
+<a href="https://news.ycombinator.com/item?id=50415219">Show HN: FELF – AppImage-like single binaries without FUSE, root, or a runtime</a> <span class="ref">(HN · 11/09 02:26)</span>.</p>
 
-<h2>Type: 클라우드에서 Claude Code와 Codex를 돌리는 에이전트 오케스트레이터</h2>
-<p>Claude Code와 Codex를 클라우드에서 실행하고 관리할 수 있는 에이전트 오케스트레이터 "Type"이 Show HN에 소개됐다 <a href="https://news.ycombinator.com/item?id=50401895">Type: Agent orchestrator for running Claude Code and Codex on cloud</a> <span class="ref">(HN · 11/07 14:24)</span>.</p>
+<h2>8. 주간 사용량 한도 축소 체감 및 관련 불만</h2>
+<p>Claude Max(5x) 요금제로 Opus 5.5만 써온 한 사용자는 최근 주간 리셋 이후 사용 가능한 토큰 수가
+이전 세 번의 리셋보다 뚜렷하게 줄었다며, 실제 사용 내역을 주차별로 정리해 공개했다. 특히 가장 최근
+주차는 요청 수와 입력·출력 토큰이 모두 직전 주차들보다 낮은데도 주간 한도 소진율은 거의 비슷한
+수준이었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqlof1/weekly_limits_massively_reduced_on_latest_rest/">Weekly limits massively reduced on latest rest for me (token counts inside)</a> <span class="ref">(Reddit · 11/08 09:49)</span>.</p>
+<blockquote><p>리셋을 다 쓰자마자 사용량이 급격히 빨리 줄기 시작했다.</p></blockquote>
+<p><a href="https://www.reddit.com/r/ClaudeCode/comments/1xqlof1/weekly_limits_massively_reduced_on_latest_rest/">Weekly limits massively reduced on latest rest for me (token counts inside)</a> <span class="ref">(Reddit · 11/08 09:49)</span> 댓글에서는 비슷한 시점에 같은 현상을 겪었다는 사람이 여럿이었다. 몇 분
+사용으로 40%를 써버렸다는 사례, 사용량 계측 방식 자체가 바뀐 것 같다는 의심, Fable 사용량이
+전체 사용량 산정과 맞지 않게 올라갔다는 보고까지 다양한 반응이 이어졌다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqlof1/weekly_limits_massively_reduced_on_latest_rest/">Weekly limits massively reduced on latest rest for me (token counts inside)</a> <span class="ref">(Reddit · 11/08 09:49)</span>.</p>
+<p>비슷한 시기에 다른 사용자도 Max 요금제를 몇 달째 쓰면서 특별히 더 무리하게 쓰지 않았는데도
+최근 1~2주 사이 주간 한도를 유난히 빨리 채우게 됐다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqqco0/anyone_else_hitting_usage_limits_quicker_last/">Anyone else hitting usage limits quicker last week &amp; this week?</a> <span class="ref">(Reddit · 11/08 14:02)</span>. 이런 글이
+늘어나자 한 사용자는 사용량 관련 글이 게시물의 상당수를 차지한다며 모더레이터에게 사용량 전용
+메가스레드를 만들어 달라고 요청했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqqhmk/usage_posts/">Usage posts</a> <span class="ref">(Reddit · 11/08 14:10)</span>.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-11-08 09:01 KST</p>
+  <p>생성 2026-11-09 09:04 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
