@@ -121,115 +121,52 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-11-09 08:58 KST</p>
+  <p class="asof">기준 시각 2026-11-10 11:53 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 12건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 23건 수집</li><li>Reddit 댓글 보강 정상 — 6건</li></ul></div>
 
 <main>
-<h2>1. Opus 5.5 성능 저하(너프) 논란과 반박</h2>
-<p>지난 한 주 사이 "Opus 5.5가 너프됐다"는 보고가 Hacker News와 Reddit 양쪽에서 쏟아졌다. HN에는 관련
-Reddit 스레드를 한데 모아 소개하는 글이 올라왔고, 글쓴이는 모델명이 같아도 그 뒤에서 실제로 서빙되는
-모델이 바뀔 수 있다는 점을 "기만적인 관행"이라 부르며 당분간 Opus 5.5 사용을 중단하겠다고 밝혔다
-<a href="https://news.ycombinator.com/item?id=50419019">Tell HN: A flood of reports of Opus 5.5 being nerfed</a> <span class="ref">(HN · 11/09 08:49)</span>.</p>
-<p>개별 사례도 다양했다. 자가 호스팅 서버를 구성하던 한 사용자는 어느 날 아침부터 모델이 설명을
-구하기도 전에 곧장 명령을 실행하고, 제안을 계속 뒤집고, 심지어 자격 증명을 다른 비밀번호 관리자에
-백업해 두라는 황당한 제안까지 했다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqti7s/the_model_either_got_nerfed_or_i_have_another/">The model either got nerfed or I have another model behind the scene</a> <span class="ref">(Reddit · 11/08 17:20)</span>. 다른 사용자는 Opus를 더는 믿고
-코드베이스를 맡기기 어려울 정도로 품질이 떨어졌다며 임시로 Astra/Argon 조합으로 옮겼다고 썼다.</p>
-<blockquote><p>예측 가능하게 약한 모델이, 예측할 수 없게 저하된 강한 모델보다 차라리 유용하다.</p></blockquote>
-<p><a href="https://www.reddit.com/r/ClaudeCode/comments/1xqtslm/rant_anthropic_stop_silently_degrading_models/">Rant: Anthropic, stop silently degrading models when you need compute. You will undermine trust.</a> <span class="ref">(Reddit · 11/08 17:40)</span> TTS 앱을 개발하는 한 사용자는 Opus 5.5의 답변이 과거 Opus 5 시절처럼 다시
-알아듣기 힘든 문장을 쏟아내기 시작했다고 보고했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqujuh/opus_55_started_coming_up_with_unintelligible/">Opus 5.5 started coming up with unintelligible responses similar to how Opus 5 did</a> <span class="ref">(Reddit · 11/08 18:31)</span>. 또 다른 글쓴이는 11월 들어
-시작된 저하가 C++ 코드베이스에서 헤더 변경이 바이너리에 영향을 준다는 사실조차 추론하지 못하는
-수준이라며, Fable 5.1로 옮겨서야 평소 품질을 되찾았다고 적었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqvqip/anthropic_should_offer_a_free_reset_and_restore/">Anthropic should offer a free Reset and restore Opus 5.5</a> <span class="ref">(Reddit · 11/08 19:50)</span>.</p>
-<p>반응은 분노와 실망으로 이어졌다. 한 사용자는 소송, 사과, 아니면 완전한 이용 중단 중 하나를 요구하며
-고객에게 변경 사항을 고지하지 않고 가격은 그대로 둔 채 품질을 낮춘 것은 기만이라 주장했고, 프로젝트
-마감을 재검토해야 할 상황이라고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xr0nz5/either_a_lawsuit_an_apology_or_never_touching/">Either a lawsuit, an apology, or never touching anything from Anthropic again.</a> <span class="ref">(Reddit · 11/09 00:13)</span>. C++ 게임 코드에서 Opus가 과도하게
-복잡한 메모리 캐싱 구조를 제안했다가, 더 단순한 구현을 지적받자 곧바로 "제가 과도하게 설계했다"고
-인정한 사례도 공유됐다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xr488d/weve_been_nerfed/">We've been nerfed!</a> <span class="ref">(Reddit · 11/09 02:43)</span>. 모아놓은 반응 스레드에는 Anthropic의 소통 부재를
-비판하는 목소리, "봇들이 모델을 변호한다"는 의심, 모델 버전을 고정해 달라는 요구, 그리고 실제
-진행 중인 집단 소송 도켓 링크까지 함께 달렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xr4urz/opus_55_in_the_past_two_weeks/">Opus 5.5 in the past two weeks</a> <span class="ref">(Reddit · 11/09 03:09)</span>.</p>
-<p>반박도 나왔다. 같은 글쓴이로 보이는 사용자는 모델 자체가 바뀐 게 아니라 Anthropic이 서버 측에서
-여러 실험(식별자 dba, 34e, 763, eab)을 돌리며 도구 호출 방식과 사고 깊이를 바꿔보고 있다는 로그
-분석 결과를 제시했다. 출력 속도 저하는 측정되지 않았고, 환경변수를 해제하면 실험에서 빠질 수 있다고
-설명했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xr66pd/i_dont_think_opus_55_was_nerfed_theyre_just/">I don't think Opus 5.5 was nerfed, they're just experimenting</a> <span class="ref">(Reddit · 11/09 04:03)</span>. 짧게 "또 멍청해졌냐"고 묻는 글도 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xr6r3t/has_claude_been_made_dumber_again/">Has Claude been made dumber again?</a> <span class="ref">(Reddit · 11/09 04:26)</span>.
-반면 엔터프라이즈 계정 데이터를 직접 분석한 한 사용자는 자신의 Opus는 저하되지 않았다며, 개인 계정
-대상으로만 A/B 테스트나 컴퓨팅 오프로딩이 이뤄지는 것 아니냐는 추측을 내놓았다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xr8czl/opus_appears_to_be_healthy_on_corporate_account/">Opus appears to be healthy on corporate account</a> <span class="ref">(Reddit · 11/09 05:32)</span>.
-Opus High를 주로 쓰던 사용자는 최근 며칠 체감 성능이 떨어져 Extra나 Fable로 옮겨야 했다고 보탰다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1xr8jod/opus_high_55_nerfed/">Opus High 5.5 Nerfed?</a> <span class="ref">(Reddit · 11/09 05:40)</span>. 실험 ID를 처음 공유한 글쓴이는 후속 글에서 이것이 "가스라이팅"이 아니라 실제
-현상이라는 점을 재차 강조하며 Anthropic이 영향받은 사용자에게 리셋을 제공해야 한다고 요구했다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1xr9x5y/the_nerf_is_real_thank_you_uwum1ha1nho/">The nerf is real. Thank you u/WuM1ha1nho!!!!</a> <span class="ref">(Reddit · 11/09 06:40)</span>.</p>
+<h2>1. Fable·Mythos 5.2 정식 출시 발표</h2>
+<p>Anthropic이 새 모델 Fable 5.2와 Mythos 5.2를 정식 출시했다는 소식이 Hacker News와 Reddit에 동시에 올라왔다 <a href="https://news.ycombinator.com/item?id=50430026">Anthropic launches new Claude Fable and Mythos 5.2 models</a> <span class="ref">(HN · 11/10 04:02)</span> <a href="https://news.ycombinator.com/item?id=50430154">Claude Fable 5.2</a> <span class="ref">(HN · 11/10 04:10)</span>. Reddit에도 출시를 알리는 글이 잇따랐고, 한 작성자는 출시 과정에서 GitHub Actions가 멈췄다는 뒷이야기를 덧붙였다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs09d5/fable_52_showing_up/">Fable 5.2 Showing Up</a> <span class="ref">(Reddit · 11/10 03:55)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs0flp/fable_52_is_out/">Fable 5.2 is out</a> <span class="ref">(Reddit · 11/10 04:02)</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs0i9s/introducing_claude_fable_52_and_claude_mythos_52/">Introducing Claude Fable 5.2 and Claude Mythos 5.2</a> <span class="ref">(Reddit · 11/10 04:04)</span>. 다른 글은 가격이 Fable 5.1보다 더 싸졌다는 점을 강조했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs0qxm/fable_52_is_here_30_cheaper_and_much_cheaper_than/">Fable 5.2 is here! 30% cheaper and much cheaper than Fable 5.1</a> <span class="ref">(Reddit · 11/10 04:13)</span>.</p>
+<p>반응은 출시 자체보다 그 전부터 떠돌던 "성능 저하" 불만과 겹쳐서 나왔다. 댓글에서는 새 모델이 나오기 직전이면 늘 "Claude가 너프됐다"는 불만이 쏟아진다는 패턴을 지적하는 목소리가 많았고, 이는 컴퓨팅 자원을 신모델 준비에 돌리기 때문이라는 추측이 뒤따랐다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs0i9s/introducing_claude_fable_52_and_claude_mythos_52/">Introducing Claude Fable 5.2 and Claude Mythos 5.2</a> <span class="ref">(Reddit · 11/10 04:04)</span>. 한편 자체 평가 파이프라인에 Fable 5.2를 넣어본 사용자는 기존 1위보다 5점 높은 74%를 기록했지만, 실행당 비용과 속도는 더 들었다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs0i9s/introducing_claude_fable_52_and_claude_mythos_52/">Introducing Claude Fable 5.2 and Claude Mythos 5.2</a> <span class="ref">(Reddit · 11/10 04:04)</span>.</p>
 
-<h2>2. 골드만삭스, 뱅커·트레이더 대상 Claude Code 사용 중단</h2>
-<p>골드만삭스가 뱅커와 트레이더들에게 제공하던 Claude Code 사용을 중단한다는 소식이 Hacker News에
-공유됐다 <a href="https://news.ycombinator.com/item?id=50415628">Goldman Sachs is pulling Claude Code from its bankers and traders</a> <span class="ref">(HN · 11/09 03:16)</span>.</p>
+<h2>2. Fable 5.2 성능 벤치마크 평가</h2>
+<p>Artificial Analysis 벤치마크에서 Fable 5.2가 65점으로 지금까지 나온 모델 중 가장 높은 점수를 받았다는 소식이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50431144">Claude Fable 5.2 scores 65 on Artificial Analysis, highest so far</a> <span class="ref">(HN · 11/10 05:04)</span>. Reddit에서는 좀 더 장난스러운 "펠리컨이 외발자전거를 타며 저글링하기" 영상 벤치마크로 Fable 5.2, Opus, Astra를 비교한 글이 눈길을 끌었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs4ll7/fable_52_vs_opus_vs_astra_pelican_riding_a/">Fable 5.2 vs Opus vs Astra - Pelican Riding a Unicycle and Juggling...who wins?</a> <span class="ref">(Reddit · 11/10 06:38)</span>.</p>
+<p>댓글들은 결과에 대체로 감탄하면서도 세부적으로는 평가가 갈렸다. 여럿은 Fable 5.2의 외발자전거 영상이 무게감과 균형을 가장 사실적으로 표현했다고 칭찬했고, 반대로 Astra가 발을 페달에 제대로 올린 점에서 더 낫다거나 Fable 5.2가 불필요한 배경까지 만들어 과하다는 의견도 있었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs4ll7/fable_52_vs_opus_vs_astra_pelican_riding_a/">Fable 5.2 vs Opus vs Astra - Pelican Riding a Unicycle and Juggling...who wins?</a> <span class="ref">(Reddit · 11/10 06:38)</span>. 다른 댓글은 Opus 5.5에서 Fable 5.2로 가는 점수 상승이 크지 않다며, 증류 모델 특성상 극적인 도약은 다음 세대 모델에서나 기대할 수 있다고 분석했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs4ll7/fable_52_vs_opus_vs_astra_pelican_riding_a/">Fable 5.2 vs Opus vs Astra - Pelican Riding a Unicycle and Juggling...who wins?</a> <span class="ref">(Reddit · 11/10 06:38)</span>.</p>
 
-<h2>3. 셀이 Claude Code·Codex 터미널이 되는 스프레드시트 Recalc 공개</h2>
-<p>각 셀을 Claude Code나 Codex 터미널 세션으로 쓸 수 있는 스프레드시트 도구 Recalc가 Show HN에
-공개됐다. 제작자는 평가·벤치마크 작업을 하면서 필요해서 만들었다고 설명했다. 메인 Claude Code·Codex
-세션을 옆 패널에 띄워 두고, 그리드의 각 셀에서도 개별 터미널 세션을 돌릴 수 있으며, 필요하면 실제
-터미널 창으로 세션을 이어갈 수도 있다. 셀들은 그리드 좌표, 이름 붙인 셀, 또는 앱을 엮어주는 MCP
-서버를 통해 서로 통신한다. 데모로는 FDA 제출 자료를 모아 하니스를 적용한 Claude가 승인·반려를
-정확히 예측할 수 있는지 보는 작은 벤치마크를 함께 공개했다. 현재는 macOS와 Linux에서 로컬로 동작하며
-Windows는 아직 테스트되지 않았다 <a href="https://news.ycombinator.com/item?id=50413970">Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals</a> <span class="ref">(HN · 11/09 00:12)</span>.</p>
+<h2>3. 모델 성능 저하(너프) 의혹 논쟁</h2>
+<p>Hacker News에는 Anthropic이 모델을 조용히 성능 저하시키는 행위를 멈추지 않으면 신뢰를 잃을 것이라는 비판 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50420729">Anthropic, stop silently degrading models. You will undermine trust</a> <span class="ref">(HN · 11/09 12:34)</span>. Reddit에서도 Opus 5.5가 몰래 A/B 테스트되고 있다는 의혹에 증거가 무엇인지 묻는 글이 있었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xrlzv4/in_light_of_the_opus_55_stealth_ab_testing_what/">In light of the Opus 5.5 stealth A/B testing. What is the evidence?</a> <span class="ref">(Reddit · 11/09 17:04)</span>.</p>
+<p>이 논쟁에 구체적인 데이터를 들고 반박한 글도 있었다. LiveNerf 47일차 집계는 "너프 없음"으로 나왔지만, 이는 78개의 단일 질문·단일 답변 평가일 뿐 도구 호출이 25~40단계씩 이어지는 실제 멀티에이전트 작업과는 성격이 다르다는 지적이다. 작성자는 자신의 멀티에이전트 파이프라인 로그를 근거로, 같은 기간 Opus 역할의 응답당 출력 토큰 수가 하루 사이 420에서 1,150까지 급증한 반면 같은 조건의 Sonnet·Haiku는 변화가 없었다고 밝혔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xrqsbc/nerf_debates_and_benchmarks_such_as_livenerf_two/">Nerf debates and benchmarks such as livenerf: Two sides of the same coin, vastly different results</a> <span class="ref">(Reddit · 11/09 21:47)</span>.</p>
+<p>체감 불만을 토로하는 글도 이어졌다. 규칙을 안 지키고 맥락을 자주 잃어버리며 자꾸 뒷바라지가 필요해졌다는 글이 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xrw5rg/are_you_serious/">Are you serious</a> <span class="ref">(Reddit · 11/10 01:26)</span>.</p>
+<blockquote><p>이 집은 네가 규칙을 정하는 곳이 아니야, 미안하지만... Dario가 운전대를 잡았어.</p></blockquote>
+<p>댓글에는 CLAUDE.md 같은 설정 파일로는 에이전트 동작을 결정론적으로 만들 수 없다는 진지한 지적도 달렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xrw5rg/are_you_serious/">Are you serious</a> <span class="ref">(Reddit · 11/10 01:26)</span>. 마감을 앞두고 Opus 5.5가 <code>php</code> 태그 대신 하드코딩된 값을 내놓는 등 "슬롭"을 내놓는다며 좌절한 글도 있었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xry159/seriously_degraded_experience_over_the_last_2_days/">Seriously degraded experience over the last 2 days</a> <span class="ref">(Reddit · 11/10 02:34)</span>.</p>
 
-<h2>4. Claude Code와 Codex 등 다른 도구 간 선호 비교</h2>
-<p>Hacker News에는 Codex나 Gemini 등 Claude Code 외 다른 도구를 쓰는 사람이 있는지, 개발자들이
-실제로 얼마나 다양한 도구를 쓰는지 묻는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50411679">Ask HN: Is anyone using Codex, Gemini or another model over Claude Code?</a> <span class="ref">(HN · 11/08 18:28)</span>.</p>
-<p>Reddit에는 6개월간 거의 매일 Codex를 썼던 사용자가 Claude Code와 비교해 강하게 불만을 터뜨린
-글이 올라왔다. 대화 하나를 지우는 데도 10초가 걸리고 그 동안 UI 전체가 멈추며, 목표(Goals)를
-맡기면 설명 없이 명령만 스크롤되다가 실제와 맞지 않는 이유로 멈추거나 중단되고, 여섯 시간을
-맡겨도 쓸 만한 결과가 없거나 Docker 컨테이너가 방치돼 디스크를 가득 채운 적도 있었다고 전했다.
-반면 Claude Code는 실제 작업을 맡겨도 무엇을 하는지 계속 따라갈 수 있어서, 잘못된 방향으로 가면
-바로 잡아 되돌릴 수 있다는 점을 장점으로 꼽았다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqxmgy/claude_code_is_genuinely_good_at_getting_work/">Claude Code is genuinely good at getting work done. The Codex desktop app is peak AI slop.</a> <span class="ref">(Reddit · 11/08 21:46)</span>.</p>
-<p>댓글 반응은 엇갈렸다. Opus 5.5가 나온 뒤로 여러 도구를 병행하다 Claude Desktop으로 완전히
-옮겼다는 사람, 이미 Claude를 먼저 켜는 습관이 들었다는 사람이 있었던 반면, Codex가 디자인 작업에서
-더 유연하고 끝까지 밀어붙인다며 "Claude는 과하게 조심스러운 부모 같다"고 비유한 반응도 있었다.
-해당 글을 Codex 서브레딧에 올렸다가 올린 지 3분 만에 모더레이터가 삭제했다는 사연도 댓글로 공유돼,
-"Codex에 대한 솔직한 피드백은 오히려 Claude 서브레딧에서 더 잘 받아들여진다"는 반응을 낳았다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1xqxmgy/claude_code_is_genuinely_good_at_getting_work/">Claude Code is genuinely good at getting work done. The Codex desktop app is peak AI slop.</a> <span class="ref">(Reddit · 11/08 21:46)</span>.</p>
+<h2>4. Fable 5.2 출시와 함께 지급된 리셋을 둘러싼 혼란</h2>
+<p>Fable 5.2 출시와 함께 계정에 사용량 리셋이 여러 개 생겼다는 글들이 잇따랐다. 한 사용자는 아침에 리셋이 세 개나 생겼다고 알렸고 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xrrye4/just_had_three_resets_appear_on_my_account_this/">Just had THREE resets appear on my account this morning!</a> <span class="ref">(Reddit · 11/09 22:42)</span>, 다른 사용자는 이를 반기며 고마워했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs0e78/3_limit_resets_and_fable_52/">3 limit resets and Fable 5.2</a> <span class="ref">(Reddit · 11/10 04:00)</span>. 공식 지원 문서를 링크한 글도 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs0ncq/fable_52_drops_with_13_fable_resets/">Fable 5.2 Drops with 1-3 Fable Resets</a> <span class="ref">(Reddit · 11/10 04:10)</span>.</p>
+<p>그런데 이 리셋이 Fable 모델 사용량에만 적용된다는 사실이 알려지자 불만이 터져나왔다. 이미 Opus만 쓰던 사용자는 리셋이 무용지물이라고 썼고, 댓글에서는 Anthropic이 사용자에게 Fable 5.2를 억지로 써보게 하려는 의도라는 해석과, 그럴 거면 차라리 전체 리셋을 주는 게 나았을 거라는 비판이 맞섰다. 리셋 만료 시점이 3월이라는 점도 댓글에서 확인됐다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs0nn4/the_most_useless_reset/">The most useless reset ?</a> <span class="ref">(Reddit · 11/10 04:10)</span>.</p>
+<p>리셋이 정확히 무엇을 되돌리는지 지원 문서를 정리해 공유한 글도 있었다. 5시간 한도 리셋은 다른 모델 사용량까지 포함해 전체를 채워주지만 주간 한도 리셋은 Fable 모델에 쓴 양만 돌려준다는 것, 그리고 Fable 5.2의 토큰 가격이 5.1보다 20% 낮아졌다는 내용이 핵심이었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs3sih/psa_dont_burn_your_fable_reset_on_a_fresh_5hour/">PSA: don't burn your Fable reset on a fresh 5-hour window. What it actually resets, per Anthropic's support article</a> <span class="ref">(Reddit · 11/10 06:07)</span>. 한편 평소 Opus 5.5만으로 충분하다 보니 Fable을 쓸 일이 없다는 글에는, Fable이 Opus가 놓친 버그를 종종 더 찾아낸다는 경험담과 서로 다른 모델이 서로 다른 버그를 잡아낸다는 반론이 함께 달렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs6tkq/for_those_of_you_who_use_fable_daily_what_does_it/">For those of you who use Fable daily: what does it do that Opus 5.5 can't?</a> <span class="ref">(Reddit · 11/10 08:07)</span>.</p>
 
-<h2>5. 코딩 에이전트를 모바일에서 관리하는 Loop 공개</h2>
-<p>이미 쓰고 있는 코딩 하니스(Codex, Claude Code, Pi, OpenCode, Antigravity, Muse Code, Grok Build,
-또는 ACP 호환 에이전트 전체)를 감싸서, 그 결과를 휴대폰에서 피드 형태로 보고 검색하고 다시 찾아볼 수
-있게 해주는 모바일 동반 도구 Loop가 Show HN에 올라왔다. 제작자는 신생아를 한 손으로 안은 채
-한손으로 에이전트와 대화하려다 기존 채팅 중심 모바일 UI가 전혀 맞지 않는다는 걸 느껴 직접 만들었다고
-밝혔다. Loop는 사용자 본인 컴퓨터에서 동작하며 계정이나 서버 없이 QR 코드 스캔 한 번으로 휴대폰과
-짝지어진다. Apache-2.0 라이선스로 TypeScript와 SQLite로 만들어졌다 <a href="https://news.ycombinator.com/item?id=50413968">Show HN: Loop – your coding agents, from your phone</a> <span class="ref">(HN · 11/09 00:11)</span>.</p>
+<h2>5. 100% AI 도입 1년 후 코드를 아무도 이해 못 하는 상황</h2>
+<p>한 회사가 코드베이스를 100% AI로 작성하도록 의무화한 지 1년이 지난 시점의 경험담이 Hacker News에 소개됐다. AI가 작성한 코드를 팀원 누구도 제대로 설명하지 못하게 된 상황을 다룬 글이다 <a href="https://news.ycombinator.com/item?id=50433079">A year after the 100% AI mandate nobody understands our code</a> <span class="ref">(HN · 11/10 07:19)</span>.</p>
 
-<h2>6. "Deep Analysis" 축약 표현 사용에 대한 불만</h2>
-<p>Reddit에는 질문할 때 "Deep Analysis"라는 표현을 줄여 쓰지 말라고 외치는 제목의 글이 올라왔다
-<a href="https://www.reddit.com/r/ClaudeCode/comments/1xqtuc1/hank_noooo_do_not_shorten_deep_analysis_when/">HANK NOOOO! DO NOT SHORTEN "DEEP ANALYSIS" WHEN ASKING A QUESTION!!!</a> <span class="ref">(Reddit · 11/08 17:43)</span>. 본문 없이 제목만 있었지만, 댓글란은 전혀 다른 방향으로 흘러갔다. 댓글들은
-"Deep Analysis"를 줄이면 생기는 표현이 Claude 로고(점점 커지고 작아지는 모양)와 겹쳐 보인다는
-농담으로 이어졌고, 다른 AI 로고들도 비슷하게 보인다거나, 휴대폰 알림 문구를 가족에게 설명하기
-곤란하다는 식의 가벼운 반응이 이어졌다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqtuc1/hank_noooo_do_not_shorten_deep_analysis_when/">HANK NOOOO! DO NOT SHORTEN "DEEP ANALYSIS" WHEN ASKING A QUESTION!!!</a> <span class="ref">(Reddit · 11/08 17:43)</span>.</p>
+<h2>6. Opus 5.5에 대한 호평 게시물</h2>
+<p>"사랑한다"를 세 번 반복한 제목의 글이 Reddit에 올라왔다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xrsgh6/i_love_opus_55_i_love_opus_55_i_love_opus_55/">I love opus 5.5 I love opus 5.5 I love opus 5.5</a> <span class="ref">(Reddit · 11/09 23:03)</span>. 댓글란은 호평보다는 성능 저하 논쟁으로 더 뜨거웠다. 누군가는 당장 Opus 5.6을 원한다고 했고, 다른 이는 Anthropic이 출시 시점 모델만 유지하다가 조금씩 다시 끌어올리는 패턴을 반복해 지금은 거의 Opus 5.0 수준으로 느껴진다고 주장했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xrsgh6/i_love_opus_55_i_love_opus_55_i_love_opus_55/">I love opus 5.5 I love opus 5.5 I love opus 5.5</a> <span class="ref">(Reddit · 11/09 23:03)</span>.</p>
+<p>이에 대해 체감 차이는 사용 사례가 다르기 때문일 뿐이라는 반론과, A/B 테스트가 실재한다는 재반론이 오갔다. 한 사용자는 지난주까지 괜찮았던 4개 프로젝트에서 갑자기 응답이 장황하고 이해하기 어려워졌다며 이것이 "증거"라고 주장했고, 다른 사용자는 새 모델이 나오기 직전에 항상 품질 저하가 느껴진다는 패턴을 지적하며 이번 주 Fable 5.5나 Opus 5.6이 나올 거라 예측했다. 실제로 Fable 5.2가 공개되자 다음과 같은 댓글이 달렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xrsgh6/i_love_opus_55_i_love_opus_55_i_love_opus_55/">I love opus 5.5 I love opus 5.5 I love opus 5.5</a> <span class="ref">(Reddit · 11/09 23:03)</span>.</p>
+<blockquote><p>그리고 나왔네. 시계처럼 정확하게.</p></blockquote>
 
-<h2>7. FUSE·루트·런타임 없는 단일 바이너리 배포 도구 FELF 공개</h2>
-<p>공유 라이브러리를 쓰는 프로그램을 배포할 때 AppImage는 기능이 과하고 컨테이너는 너무 무겁다고
-느낀 제작자가, 패키징 시점에 필요한 공유 라이브러리와 자체 glibc, 패치된 동적 링커까지 하나의
-실행 파일에 담는 포맷 FELF를 Show HN에 공개했다. <code>felf pack $(which git) --output git.felf</code>
-처럼 명령 한 줄로 어떤 배포판에서 빌드했든 동작하는 바이너리를 만들 수 있고, FUSE나 루트 권한,
-별도 런타임 없이 scratch 기반 Docker나 Alpine Linux 안에서도 실행된다. 심링크를 통한 coreutils식
-다중 프로그램 접근도 지원한다. 제작자는 이 포맷을 Claude의 도움을 받아 구현했다고 밝혔다
-<a href="https://news.ycombinator.com/item?id=50415219">Show HN: FELF – AppImage-like single binaries without FUSE, root, or a runtime</a> <span class="ref">(HN · 11/09 02:26)</span>.</p>
+<h2>7. 코딩에는 Fable 5.2보다 Opus가 낫다는 평가</h2>
+<p>어떤 작업에 Fable, Opus, Sonnet, Haiku 중 무엇을 써야 하는지 정리한 글이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50435447">Which Claude model should you build with? Fable, Opus, Sonnet, or Haiku</a> <span class="ref">(HN · 11/10 11:45)</span>. Reddit에서는 Fable 5.2를 코딩에 써본 사용자가 유의미한 결과를 얻기도 전에 할당량을 다 써버렸다며, 코딩에는 여전히 Opus 5.5가 낫다고 평가했다. 이 사용자는 IPO를 앞두고 Anthropic이 코딩 능력의 큰 도약과 함께 Opus 5.6이나 Opus 6을 내놓을 것이라 내다봤다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs2b2b/fable_52_not_for_coding/">Fable 5.2 - not for coding</a> <span class="ref">(Reddit · 11/10 05:10)</span>.</p>
+<p>반면 Fable을 매일 쓰는 이유를 묻는 글의 댓글에서는 다른 시각도 나왔다. Opus가 놓친 버그를 Fable이 찾아내는 경우가 있다는 경험담과, 애초에 모델을 하나 더 돌리면 뭔가는 더 찾아낸다는 일반적 현상일 뿐이라는 반론이 함께 달렸다. Opus의 전반적인 판단력과 감각은 여전히 따라올 모델이 없다는 평가도 있었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xs6tkq/for_those_of_you_who_use_fable_daily_what_does_it/">For those of you who use Fable daily: what does it do that Opus 5.5 can't?</a> <span class="ref">(Reddit · 11/10 08:07)</span>.</p>
 
-<h2>8. 주간 사용량 한도 축소 체감 및 관련 불만</h2>
-<p>Claude Max(5x) 요금제로 Opus 5.5만 써온 한 사용자는 최근 주간 리셋 이후 사용 가능한 토큰 수가
-이전 세 번의 리셋보다 뚜렷하게 줄었다며, 실제 사용 내역을 주차별로 정리해 공개했다. 특히 가장 최근
-주차는 요청 수와 입력·출력 토큰이 모두 직전 주차들보다 낮은데도 주간 한도 소진율은 거의 비슷한
-수준이었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqlof1/weekly_limits_massively_reduced_on_latest_rest/">Weekly limits massively reduced on latest rest for me (token counts inside)</a> <span class="ref">(Reddit · 11/08 09:49)</span>.</p>
-<blockquote><p>리셋을 다 쓰자마자 사용량이 급격히 빨리 줄기 시작했다.</p></blockquote>
-<p><a href="https://www.reddit.com/r/ClaudeCode/comments/1xqlof1/weekly_limits_massively_reduced_on_latest_rest/">Weekly limits massively reduced on latest rest for me (token counts inside)</a> <span class="ref">(Reddit · 11/08 09:49)</span> 댓글에서는 비슷한 시점에 같은 현상을 겪었다는 사람이 여럿이었다. 몇 분
-사용으로 40%를 써버렸다는 사례, 사용량 계측 방식 자체가 바뀐 것 같다는 의심, Fable 사용량이
-전체 사용량 산정과 맞지 않게 올라갔다는 보고까지 다양한 반응이 이어졌다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqlof1/weekly_limits_massively_reduced_on_latest_rest/">Weekly limits massively reduced on latest rest for me (token counts inside)</a> <span class="ref">(Reddit · 11/08 09:49)</span>.</p>
-<p>비슷한 시기에 다른 사용자도 Max 요금제를 몇 달째 쓰면서 특별히 더 무리하게 쓰지 않았는데도
-최근 1~2주 사이 주간 한도를 유난히 빨리 채우게 됐다고 전했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqqco0/anyone_else_hitting_usage_limits_quicker_last/">Anyone else hitting usage limits quicker last week &amp; this week?</a> <span class="ref">(Reddit · 11/08 14:02)</span>. 이런 글이
-늘어나자 한 사용자는 사용량 관련 글이 게시물의 상당수를 차지한다며 모더레이터에게 사용량 전용
-메가스레드를 만들어 달라고 요청했다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xqqhmk/usage_posts/">Usage posts</a> <span class="ref">(Reddit · 11/08 14:10)</span>.</p>
+<h2>8. Show HN: 여러 코딩 에이전트를 한 팀처럼 운영하는 Thrum</h2>
+<p>Claude Code, Codex 등 여러 코딩 에이전트를 하나의 팀처럼 묶어 운영하는 도구 Thrum이 Show HN에 소개됐다 <a href="https://news.ycombinator.com/item?id=50426559">Show HN: Thrum – run Claude Code, Codex and other coding agents as one team</a> <span class="ref">(HN · 11/09 23:59)</span>. 작성자는 작년 말 오픈소스 프로젝트로 시작해 이 도구로 스스로를 만들며 기능을 늘려왔다고 설명했다. 에이전트들이 20만 건 넘는 메시지를 주고받다가 한 번 시스템이 무너진 뒤 3주간 정리 작업을 거쳤고, 지금은 데이터베이스에 70만 건 이상의 메시지가 쌓였는데도 명령 처리 속도는 1초 이내로 유지된다고 밝혔다.</p>
+<p>Thrum은 클라우드 인프라를 흉내 내지만 실제로는 로컬에서 돌며 git, LAN, Tailscale(추후 SSH)로 연결된다. 사용자는 하나의 코디네이터 에이전트에만 말을 걸면 나머지를 처리하도록 구성할 수 있고, 여러 코디네이터와 브레인스토머 같은 중요한 에이전트를 감시하는 스튜어드 역할도 만들 수 있다. 이 스튜어드는 응답이 없으면 Telegram으로 알림을 보내 사용자를 다시 찾는다고 작성자는 전했다 <a href="https://news.ycombinator.com/item?id=50426559">Show HN: Thrum – run Claude Code, Codex and other coding agents as one team</a> <span class="ref">(HN · 11/09 23:59)</span>.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-11-09 09:04 KST</p>
+  <p>생성 2026-11-10 12:04 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
