@@ -121,47 +121,40 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-11-17 12:07 KST</p>
+  <p class="asof">기준 시각 2026-11-18 11:34 KST</p>
 </header>
 
-<div class="banner"><b>이번 회차 수집 상태</b><ul><li>Reddit 정상 — 25건 수집</li><li>Hacker News 정상 — 23건 수집</li><li>Reddit 댓글 보강 정상 — 4건</li></ul></div>
+<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b></li><li>Hacker News 정상 — 20건 수집</li></ul></div>
 
 <main>
-<h2>1. Claude Opus로 픽셀 단위까지 동일한 UI를 만들어본 'Fakemetrics.com' 실험</h2>
-<p>개발자 tigranbs가 Claude Opus를 테스트하는 재미로 만든 서비스 Fakemetrics.com을 Show HN에 소개했다 <a href="https://news.ycombinator.com/item?id=50520741">Show HN: Fakemetrics.com – "build in public" like a superstar</a> <span class="ref">(HN · 11/17 03:08)</span>. "주말에 바이브 코딩한 앱으로 월 5만 달러를 벌고 퇴사했다"는 식의 가짜 성공 스크린샷이 흔해진 세태를 풍자하며, 스크린샷만으로 기존 UI를 거의 그대로 복제하는 시스템을 만들었다고 밝혔다. Claude, ChatGPT, Grok 같은 모델이 기본적으로는 UI를 똑같이 베끼는 데 약하지만, 자신이 구축한 시스템을 더하면 스크린샷에서 거의 동일한 결과를 빠르게 뽑아낼 수 있었다고 설명했다. 실용성은 크지 않지만 만드는 과정 자체가 즐거웠다며, 이 UI 클로닝 기능을 오픈소스 제품으로 발전시켜야 할지 커뮤니티에 의견을 구했다.</p>
+<h2>1. Claude Code 팀이 생각하는 검증 방식</h2>
+<p>Claude Code 팀이 코드 변경을 어떻게 검증하는지를 다룬 글 "How the Claude Code team thinks about verification"이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50529612">How the Claude Code team thinks about verification</a> <span class="ref">(HN · 11/17 19:20)</span>.</p>
 
-<h2>2. AI '하네스'가 무엇인지, 왜 회사들이 하네스 개발자를 따로 뽑는지에 대한 논의</h2>
-<p>/u/owen800q가 "하네스 엔지니어" 채용 공고가 늘어나는 이유를 묻는 글을 올렸다. Claude Code나 Codex 같은 에이전트 환경이 이미 있는데 왜 회사들이 자체 하네스를 직접 만들려 하는지 궁금하다는 내용이었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xxk5ak/what_actually_is_an_ai_harness_and_why_are/">What actually is an AI "harness" and why are companies hiring harness developers instead of just using Claude Code?</a> <span class="ref">(Reddit · 11/16 17:26)</span>. 댓글들은 하네스를 모델 자체가 아니라 모델을 둘러싼 "결정론적 런타임"으로 설명했다.</p>
-<blockquote><p>모델이 두뇌라면, 하네스는 그 주변의 모든 것이다. 어떤 도구를 쓸지, 어떤 컨텍스트를 로드할지, 권한이 어떻게 작동할지, 언제 멈출지, 결과를 어떻게 검증하고 재시도할지 같은 것들.</p></blockquote>
-<p>다른 댓글은 하네스가 상태를 어디에 저장하는지, 도구가 무엇을 건드릴 수 있는지, 누가 무엇을 승인해야 하는지를 통제하며, 그렇지 않으면 에이전트가 운영 데이터베이스에 접근할 수 있는지 여부가 프롬프트 한 줄에 의존하게 된다고 지적했다. Claude Code는 훌륭한 범용 하네스지만 회사는 자사의 저장소, CI, 데이터 접근 규칙, 리뷰 프로세스, 비용 제한에 맞춘 하네스가 필요하다는 의견도 있었다. 실무적으로는 테스트 실행 결과의 장황한 로그를 컨텍스트에 넣기 전에 걸러내는 작업이 절반이라는 댓글과, 반대로 동시에 10가지 입력이 겹쳐야 발생하는 엣지 케이스까지 방어할 필요는 없다고 주장하는 쪽이 절반이라는 댓글이 눈에 띄었다. 일부는 Claude Code 같은 벤더에 묶이면 Anthropic이 모델과 가격 정책을 바꿀 때마다 끌려다니게 된다는 우려를 보탰고, 다른 쪽은 "하네스 엔지니어" 채용 열풍이 이력서 치장용 유행일 뿐이라며 냉소적으로 반응했다.</p>
+<h2>2. AI 사용 추적을 보여주는 로컬 앱 Faros Desktop</h2>
+<p>Faros가 로컬 AI 코딩 도구 사용 내역을 한곳에서 시각화해주는 Mac 앱 Faros Desktop을 Show HN에 올렸다 <a href="https://news.ycombinator.com/item?id=50535157">Show HN: Faros Desktop, a local app to see your AI traces and extend your usage</a> <span class="ref">(HN · 11/18 02:42)</span>. Codex, Claude Code, GitHub Copilot, Cursor의 온디바이스 세션 기록을 불러와 사용 패턴을 분석하고, 구독 비용을 아낄 수 있는 "Power Up" 추천을 제공한다. 로그인이나 API 키 없이 무료로 쓸 수 있고, 세션 요약에도 온디바이스 모델만 사용해 데이터가 외부로 나가지 않는다고 설명한다. 제작자는 이전 세션 기록을 다음 세션에 활용하는 방향과, 팀원 간에 메모리를 공유하는 멀티플레이어 모드를 구상 중이라며 의견을 구했다.</p>
 
-<h2>3. 모든 에이전트를 위한 클라우드 컴퓨터 'box' 출시</h2>
-<p>Simular 팀이 모든 에이전트가 함께 쓸 수 있는 클라우드 컴퓨터 box를 Show HN에 공개했다 <a href="https://news.ycombinator.com/item?id=50521067">Show HN: One cloud computer for all your agents</a> <span class="ref">(HN · 11/17 03:32)</span>. box는 Chrome과 셸이 설치된 원격 Ubuntu 데스크톱을 제공하며, 에이전트가 MCP로 이 데스크톱을 직접 조작하는 동안 사용자의 로컬 컴퓨터는 그대로 비워 둘 수 있다고 설명했다. 기본 ChatGPT 플랜도 box를 붙이면 개인 에이전트처럼 쓸 수 있고, Claude Code가 Codex가 하던 작업을 같은 box에서 이어받아 사용량을 최대화하거나, 노트북을 닫은 채 로그인 상태가 유지되는 24시간 상주 환경에서 작업을 계속 돌릴 수 있다고 소개했다. 팀은 OSWorld 벤치마크에서 자사 컴퓨터 사용 성능이 Opus와 GPT보다 더 적은 토큰으로 더 나은 결과를 냈다고 주장했으며, 설치는 명령 한 줄로 가능하고 대시보드에서 box의 동작을 실시간으로 지켜볼 수 있다고 밝혔다.</p>
+<h2>3. 전자공학용 AI 개발 환경 Backplane</h2>
+<p>전자공학 엔지니어가 실제로 쓸 수 있는 AI 개발 환경을 목표로 만든 Backplane이 Show HN에 올라왔다 <a href="https://news.ycombinator.com/item?id=50528196">Show HN: Backplane – An AI Development Environment for Hardware</a> <span class="ref">(HN · 11/17 15:41)</span>. KiCad와 Claude Code, Codex, OpenCode, Grok 등 원하는 에이전트 하네스를 결합해 하드웨어 개발을 가속하는 도구로, 에이전트에게 완전히 맡기거나 작업 중간에 코멘트로 방향을 바꾸며 함께 작업하는 방식을 모두 지원한다. 회로도 편집과 BOM 관리를 돕는 스킬도 포함돼 있다. 제작자는 하드웨어 분야가 아직 "탭으로 수락하는" 코파일럿 단계에 머물러 있고, 완전한 에이전틱 단계에는 이르지 못했다고 평했다.</p>
 
-<h2>4. 저가 태블릿에 데비안을 네이티브로 설치해본 후기</h2>
-<p>/u/MrSimpatia17이 부트로더 잠금이 걸린 저가 태블릿 ouzrs m1에 데비안을 네이티브로 설치한 과정을 올렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xxmmg3/i_did_this_thing_i_dont_know_how_to_feel_about_it/">I did this thing, i don't know how to feel about it</a> <span class="ref">(Reddit · 11/16 20:03)</span>. tech4bot의 rk3562deb 프로젝트에서 아이디어를 얻어 Claude에게 작업을 맡겼는데, Claude가 Rockchip 도구로 ARM용 데비안을 플래싱하려다 태블릿을 완전히 브릭시켰다고 한다. 글쓴이가 기기를 열어 내부 시리얼 포트를 찾아내자 Claude가 시리얼로 기기를 복구했고, 시행착오를 거쳐 데비안 부팅에 성공했다. 이후 SD카드 부팅 방식을 찾아내고 드라이버를 하나씩 리버스 엔지니어링했으며, 그 과정에서 안드로이드가 표시하던 4GB 램이 사실은 2GB뿐이라는 가짜 사양이었다는 것도 밝혀냈다. 글쓴이는 성능은 별로지만 이제 업데이트를 받을 수 있게 됐다며, 이 프로젝트를 공개해야 할지 물었다.</p>
-<p>댓글들은 공개를 권하는 쪽이 많았고, "존재하지 않던 것을 잃을 수는 없다"거나 "램 절반이 날아간 건 기록할 만한 희생"이라는 농담이 이어졌다. 저가 중국산 태블릿이 실제 용량보다 큰 램을 광고하는 일이 흔하며 CPU-Z 같은 검사 도구까지 속이는 경우도 있다는 댓글도 있었다. 또 다른 댓글은 이런 글이 2010년대 인터넷에 올라왔다면 전설이 됐을 거라며, 자신에게는 이런 걸 해낼 기술이 없다고 아쉬워했다.</p>
+<h2>4. 데이터 손실 없이 로그 TCO 절감을 측정하는 도구</h2>
+<p>Chiron 팀이 Splunk 같은 고정밀 로그 저장소에서 데이터 손실이나 마이그레이션 없이 로그 보관 비용을 줄여주는 "무손실 통합" 솔루션을 소개했다 <a href="https://news.ycombinator.com/item?id=50535716">Show HN: Tool to measure log TCO savings without losing or migrating any data</a> <span class="ref">(HN · 11/18 03:14)</span>. 공개한 Palo Alto 방화벽 로그 샘플 기준으로는 약 40%의 절감 효과를 냈다고 한다. 이번에 Show HN에 올린 것은 고객이 직접 자신의 로그로 절감 규모를 미리 추정해볼 수 있는 estimator 도구로, MCP 서버와 스킬 형태로 제공되어 <code>Claude</code>나 <code>Cursor</code>가 로컬 로그 폴더를 가리키게 하면 분석 리포트를 만들어준다. 네트워크 밖으로 데이터가 나가지 않고 모델에도 통계 요약과 메타데이터만 전달된다고 강조했으며, Splunk 내보내기·OTLP JSON·쿠버네티스 컨테이너 로그·일반 텍스트 형식을 지원한다. 분석 엔진 자체는 오픈소스가 아닌 바이너리다.</p>
 
-<h2>5. Fable 5.2가 게으르고 섣부른 결론을 내리며 토큰·할당량을 과도하게 소모한다는 불만</h2>
-<p>/u/ggletsg0은 Fable 5.2가 일반 Claude 채팅은 물론 Code에서도 게으르고 가정에 근거해 성급한 결론을 내린다며, 깊이 파고들게 하려면 억지로 끌고 가야 하고 출시 당시 Fable 5.1만큼의 지능도 느껴지지 않는다고 적었다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xxikj2/fable_52_is_lazy_and_makes_sweeping_conclusions/">Fable 5.2 is lazy and makes sweeping conclusions based on assumptions</a> <span class="ref">(Reddit · 11/16 15:47)</span>. 댓글들은 계획이나 리서치에 써도 안정적이지 않고, 스스로 결과를 제대로 검증하지 않은 채 구멍이 많은 답을 내놓는다는 데 공감했다.</p>
-<blockquote><p>감사 에이전트들이 너무 많은 모순과 구멍을 찾아내서 결국 포기하고 Astra로 바꿨다. 가격도 더 싸면서 모든 면에서 더 꼼꼼하다.</p></blockquote>
-<p>반면 모델 체감 성능은 과학적으로 측정하면 출시 첫날부터 동일하다며 "감정에 근거한" 불만이라고 반박하는 댓글도 있었고, 이 커뮤니티 전체가 집단적 히스테리에 빠져 있으니 Claude Code 실력을 키우려면 r/ClaudeAI나 r/ClaudeWorkflows 같은 다른 커뮤니티로 가라는 조언도 달렸다. 계획과 리서치는 최소 두 가지 관점에서 감사(audit)하고, 다 쓴 에이전트는 새 작업에 재사용하지 말고 폐기하라는 실전 팁도 공유됐다.</p>
-<p>비슷한 불만이 이어졌다. /u/BazzerBiller는 같은 과제를 Opus 5.5와 Fable 5.2에게 각각 오케스트레이터로 맡겨 비교했는데, Opus는 거의 오류 없이 끝낸 반면 Fable은 스스로 두 가지 결정을 내리고 CI를 낭비하는 오류를 두 번 일으켰다고 전했다. Fable이 오케스트레이터로서 자기 모델에 편향되어 있을까 봐 추가로 5~10개의 리뷰 에이전트를 소환했지만, 결국 놓친 오류는 Opus 쪽이 아니라 Fable 자신이 낸 것이었다고 한다. Sonnet을 쓰라고 세 번이나 지시했는데도 계속 추가 에이전트를 띄워 토큰을 빠르게 태웠다며, 이 프로젝트에는 Opus 5.5 쪽이 낫다는 결론을 내렸다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xxsqu4/after_burning_tokens_with_fable_52_i_appreciate/">After burning tokens with Fable 5.2, I appreciate Opus 5.5 more</a> <span class="ref">(Reddit · 11/17 00:47)</span>. /u/DiamondPG1은 Fable 5.2가 단 1초만 활성화됐는데도 5시간치 사용 할당량을 전부 써버렸다는 짧은 불만을 남겼다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xxvbo6/fable_52_used_my_entire_5hour_quota_while_only/">Fable 5.2 used my entire 5-hour quota while only being active for 1 second.</a> <span class="ref">(Reddit · 11/17 02:23)</span>.</p>
+<h2>5. AI 에이전트가 잊지 않는 평이한 영어 규칙 도구 Taster</h2>
+<p>자신이 만든 자율 에이전트의 프롬프트에 넣어둔 규칙이 자꾸 누락되거나 무시되는 문제를 겪은 끝에 Taster라는 도구를 만들었다는 글이 Show HN에 올라왔다 <a href="https://news.ycombinator.com/item?id=50535730">Show HN: Taster – Plain-English rules your AI agent can't forget or ignore</a> <span class="ref">(HN · 11/18 03:15)</span>. 평이한 영어로 적은 규칙을 에이전트가 잊거나 무시하지 못하게 강제하는 방식으로, Claude Code는 물론 LangGraph로 만든 에이전트에도 적용할 수 있다고 소개했다.</p>
 
-<h2>6. AI 코딩에서 실제로 누가 이득을 보는지, 초반 속도 이후 수익이 정체되는 패턴에 대한 토론</h2>
-<p>unclebucknasty는 Claude로 진행한 세 개의 서로 다른 프로젝트에서 같은 패턴을 반복해서 봤다고 적었다. 초반 작업 속도는 빠르지만 점점 느려지다가 결국 수익이 마이너스로 돌아선다는 것이다 <a href="https://news.ycombinator.com/item?id=50525329">Ask HN: Who's really winning with AI-Coding?</a> <span class="ref">(HN · 11/17 08:52)</span>. 모델 동작의 변화와 코드베이스가 커질수록 생기는 "드리프트"가 겹쳐, 코드베이스와 .md 문서로 남긴 작업 이력이 늘어날수록 한 단위 작업 안에서도 일관성을 유지하지 못하는 붕괴가 온다고 설명했다. 예를 들어 기존 요소와 완전히 다른 스타일로 유사한 UI 요소를 추가하는 식으로, 마치 무작위처럼 느껴지는 비일관성이 나타난다고 썼다. 플랜 모드, 결정론적 체크, 스타일 규칙 등 여러 조언을 따라봤지만 두더지 잡기 같았고, 규칙을 실제로 지키는지조차 불분명했다고 덧붙였다. UI 비일관성에 대한 해법으로 모델이 제안한 것도 결국 "작업 후 스타일 체크를 돌리라"는 것이었는데, 그렇다면 처음 생성할 때부터 규칙을 지키지 않는 이유가 뭔지 의문이라고 지적했다. Playwright까지 동원한 UI/UX 리뷰 에이전트를 돌려도 드리프트를 못 잡아냈고, 커밋 전마다 돌리는 수백 개의 자동 생성 테스트가 한 번도 실패한 적이 없는데도 실제로는 버그가 있었다며, 모델이 "잘못된 레이어"를 테스트하는 자기확인적 테스트를 만들어낸 탓이라고 밝혔다. 그는 구글 검색으로는 성공 사례만 쏟아지는데 실제로 이득을 보는 쪽이 누구인지 묻는 질문으로 글을 마쳤다.</p>
+<h2>6. Code Mode로 코드에서 도구 호출 실행하기</h2>
+<p>도구 호출을 코드 형태로 실행하는 방식을 다루는 "Code Mode"에 관한 글이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50538346">Run tool calls from code with Code Mode</a> <span class="ref">(HN · 11/18 06:20)</span>.</p>
 
-<h2>7. Claude Code v2.1.325의 실험적 'Code Mode'(도구 호출을 JS로 묶어 실행) 발견</h2>
-<p>/u/Poatri_US가 체인지로그에서 발견한 실험적 기능 Code Mode를 v2.1.325에서 직접 돌려봤다며 소개했다. 도구 호출을 하나씩 실행하며 원본 출력을 전부 컨텍스트에 쏟아붓는 대신, Claude가 하나의 JS 스크립트를 작성해 작업을 병렬로 묶어 처리하고 노이즈를 로컬에서 걸러낸 뒤 필요한 결과만 돌려준다는 것이다 <a href="https://www.reddit.com/r/ClaudeCode/comments/1xy0xr9/psa_claude_code_has_an_experimental_code_mode_now/">PSA: Claude Code has an experimental "Code Mode" now (batches tool calls into JS)</a> <span class="ref">(Reddit · 11/17 05:53)</span>. 대규모 저장소 전체를 훑는 감사나 버그 추적, 여러 MCP 서버를 연결해 쓰는 작업에서 특히 누적 컨텍스트 절약 효과가 크다고 설명하며, 12일 출시 이후 상시로 쓰는 사람이 있는지, 큰 저장소에서 토큰 사용량이 얼마나 줄었는지 궁금해했다.</p>
-<p>댓글은 대부분 말장난으로 흘렀다. "Claude Code Code Claude Mode"처럼 이름을 비틀거나, "Code Mode를 쓴 지 얼마 안 됐는데 주간 사용 한도에 도달했다"는 농담, 오타를 섞은 농담성 댓글들이 이어졌고 기능 자체에 대한 추가적인 사용 경험 공유는 거의 없었다.</p>
+<h2>7. Claude Code 토큰 사용 내역을 보여주는 macOS 앱 Wake</h2>
+<p>Claude Code 구독 토큰이 어디로 쓰이는지 알고 싶어 무료 오픈소스 macOS 앱 Wake를 만들었다는 글이 Show HN에 올라왔다 <a href="https://news.ycombinator.com/item?id=50529742">Show HN: Wake, see what Claude Code did and where the tokens went</a> <span class="ref">(HN · 11/17 19:41)</span>. 제작자는 구독 사용량 제한이 강화되거나 가격이 오를 것으로 보고 프롬프트와 도구 사용을 최적화하기 시작했다고 밝혔다. Wake를 쓰며 알아낸 예로, 커밋을 요청하기 직전에 컨텍스트를 비우면 대규모 컨텍스트에서 비용이 $0.50에서 $0.02로 줄어든 경우가 있었다고 한다. 최신 버전에는 특정 프롬프트가 코드의 어떤 줄 변경을 유발했는지 추적하는 기능도 추가했다. 현재는 macOS와 Claude Code만 지원하지만 다른 OS나 코딩 에이전트에 대한 수요가 있으면 추가할 의향이 있다고 밝혔다.</p>
 
-<h2>8. 바이브코딩한 웹사이트를 시각적으로 편집하는 방법에 대한 질문</h2>
-<p>keepitverysimpl은 Claude로 친구들의 소규모 사업체용 사이트를 순수 HTML/CSS/JS로 만들어 Cloudflare나 Netlify에 거의 무료로 호스팅해주고 있다고 소개했다 <a href="https://news.ycombinator.com/item?id=50514154">Ask HN: How to visually edit vibe coded websites?</a> <span class="ref">(HN · 11/16 13:49)</span>. 문제는 친구들이 텍스트나 사진을 직접 바꾸고 싶어 하는데 GitHub나 ChatGPT와 GitHub를 함께 쓰는 법을 모른다는 점이었다. Wix나 Squarespace는 일 년에 몇 번 안 되는 수정치고는 과하고 비싸다고 느껴 마음에 드는 해법을 찾지 못했고, 결국 웹사이트 콘텐츠를 시각적으로 편집하면 변경 사항이 GitHub로 바로 올라가는 프로토타입을 직접 만들었다고 밝혔다. 친구들의 반응이 좋아 더 많은 사람이 쓸 수 있게 다듬는 중이며(현재 대기자 명단만 받는 editany.page), 이미 있는 오픈소스 프로젝트에 합류하는 것도 열려 있다고 밝혔다. 복잡한 React 빌드나 마크다운-정적사이트 파이프라인은 원하지 않는다는 전제를 달고, 다른 사람들은 이 문제를 어떻게 해결하는지 커뮤니티에 물었다.</p>
+<h2>8. Claude Code 사용량이 평소보다 2~10배 과금되는 이유</h2>
+<p>Claude Code 사용량이 평소보다 2배에서 최대 10배까지 많이 과금되는 이유를 다룬 글 "Why your Claude Code usage can charge you 2x up to 10x normal"이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50530028">Why your Claude Code usage can charge you 2x up to 10x normal</a> <span class="ref">(HN · 11/17 20:26)</span>.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-11-17 12:15 KST</p>
+  <p>생성 2026-11-18 11:36 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
