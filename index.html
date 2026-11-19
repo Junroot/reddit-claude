@@ -121,40 +121,40 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-11-18 11:34 KST</p>
+  <p class="asof">기준 시각 2026-11-19 10:58 KST</p>
 </header>
 
-<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b></li><li>Hacker News 정상 — 20건 수집</li></ul></div>
+<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b></li><li>Hacker News 정상 — 19건 수집</li></ul></div>
 
 <main>
-<h2>1. Claude Code 팀이 생각하는 검증 방식</h2>
-<p>Claude Code 팀이 코드 변경을 어떻게 검증하는지를 다룬 글 "How the Claude Code team thinks about verification"이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50529612">How the Claude Code team thinks about verification</a> <span class="ref">(HN · 11/17 19:20)</span>.</p>
+<h2>Mastra 팀이 쓰는 오픈소스 소프트웨어 팩토리 Mastra Factory</h2>
+<p>Mastra 팀이 자신들이 2년 전 공개한 TypeScript 에이전트 프레임워크 Mastra를 유지보수하기 위해 만든 오픈소스 소프트웨어 팩토리 Mastra Factory를 소개했다 <a href="https://news.ycombinator.com/item?id=50548660">Show HN: Mastra Factory, the open-source software factory we use to build Mastra</a> <span class="ref">(HN · 11/19 01:53)</span>. 현재 Mastra는 주당 약 400만 건의 다운로드를 기록하고 있으며, Factory를 통해 지난주 238건의 PR을 자동으로 열고 병합했고 사람이 올린 630건의 PR과 함께 처리됐다고 밝혔다. Factory는 Slack에서 멘션으로 호출할 수 있는 구성 가능한 에이전트형 칸반 보드로, Mastra의 지속형 에이전트와 대화 메모리, 소스 인용이 달린 마크다운 위키, PR 댓글에 반응하는 시그널, 커스터마이징 가능한 클라우드 샌드박스를 기반으로 동작한다. 처음에는 트리아지-계획-빌드-리뷰-배포로 이어지는 기존 워크플로를 그대로 옮기려 했지만, 석 달이 지난 지금은 웹 UI보다 Slack으로 직접 몰아가는 방식이 자리 잡았고, 외부 기여는 막고 상세한 이슈 재현 보고를 요청하는 쪽으로 바뀌었다고 설명했다. <code>npm create factory</code> 명령으로 바로 시작할 수 있으며 전체 코드가 공개돼 있어 자체 인프라에서 돌릴 수도 있다.</p>
 
-<h2>2. AI 사용 추적을 보여주는 로컬 앱 Faros Desktop</h2>
-<p>Faros가 로컬 AI 코딩 도구 사용 내역을 한곳에서 시각화해주는 Mac 앱 Faros Desktop을 Show HN에 올렸다 <a href="https://news.ycombinator.com/item?id=50535157">Show HN: Faros Desktop, a local app to see your AI traces and extend your usage</a> <span class="ref">(HN · 11/18 02:42)</span>. Codex, Claude Code, GitHub Copilot, Cursor의 온디바이스 세션 기록을 불러와 사용 패턴을 분석하고, 구독 비용을 아낄 수 있는 "Power Up" 추천을 제공한다. 로그인이나 API 키 없이 무료로 쓸 수 있고, 세션 요약에도 온디바이스 모델만 사용해 데이터가 외부로 나가지 않는다고 설명한다. 제작자는 이전 세션 기록을 다음 세션에 활용하는 방향과, 팀원 간에 메모리를 공유하는 멀티플레이어 모드를 구상 중이라며 의견을 구했다.</p>
+<h2>마인크래프트 멀티에이전트 AI 평가 도구 KradleBench 공개</h2>
+<p>James와 Kemal이 마인크래프트 월드에서 AI를 평가하는 벤치마크 KradleBench를 공개했다 <a href="https://news.ycombinator.com/item?id=50549500">KradleBench: Multi-agent AI evals in Minecraft</a> <span class="ref">(HN · 11/19 02:46)</span> <a href="https://news.ycombinator.com/item?id=50550700">Show HN: KradleBench – Multi-agent AI evals in Minecraft</a> <span class="ref">(HN · 11/19 04:14)</span>. 두 사람은 과거 각각 Firebase와 TensorFlow/JAX를 이끌었던 경력을 소개하며, KradleBench가 멀티에이전트·동적·실시간이라는 세 가지 특성을 가진 마인크래프트 월드에서 사람과 다양한 AI를 함께 겨루게 한다고 설명했다. 단일 승리 조건만 있는 "Capture the Flag" 같은 과제에서도 다양한 해법이 나오도록 설계했고, 턴제가 아니라 실시간으로 진행되는 만큼 속도와 지능 사이의 균형도 평가 대상이라고 밝혔다. 현재까지는 숙련된 사람이 1위를 지키다가 어제 Astra 6.2에게 추월당했으며, 솔로 과제에서는 AI가 사람에게 크게 뒤지지만 멀티에이전트 과제에서는 사람을 앞선다고 전했다. 또한 Astra 6.2가 Fable 5.2보다 전략을 4배 빠르게 수정하는 반면, Claude 계열은 한번 세운 전략을 깊이 고민해 고수하는 경향이 있고 OpenAI 계열은 더 반응적이고 즉흥적으로 움직여 멀티에이전트·동적·실시간 환경에 유리하다는 관찰도 공유했다.</p>
 
-<h2>3. 전자공학용 AI 개발 환경 Backplane</h2>
-<p>전자공학 엔지니어가 실제로 쓸 수 있는 AI 개발 환경을 목표로 만든 Backplane이 Show HN에 올라왔다 <a href="https://news.ycombinator.com/item?id=50528196">Show HN: Backplane – An AI Development Environment for Hardware</a> <span class="ref">(HN · 11/17 15:41)</span>. KiCad와 Claude Code, Codex, OpenCode, Grok 등 원하는 에이전트 하네스를 결합해 하드웨어 개발을 가속하는 도구로, 에이전트에게 완전히 맡기거나 작업 중간에 코멘트로 방향을 바꾸며 함께 작업하는 방식을 모두 지원한다. 회로도 편집과 BOM 관리를 돕는 스킬도 포함돼 있다. 제작자는 하드웨어 분야가 아직 "탭으로 수락하는" 코파일럿 단계에 머물러 있고, 완전한 에이전틱 단계에는 이르지 못했다고 평했다.</p>
+<h2>로보틱스용 B-rep CAD 커널과 3,487개 테스트 공개</h2>
+<p>Springcraft 공동창업자 Tony가 로보틱스용 CAD 모델링의 한계를 해결하기 위해 직접 작성한 B-rep 커널 springrep과, 커널에 무관하게 쓸 수 있는 conformance 테스트 스위트 brep-conformance를 MIT 라이선스로 공개했다고 밝혔다 <a href="https://news.ycombinator.com/item?id=50552140">Show HN: Robotics needs better CAD, so I wrote a B-rep kernel and 3,487 tests</a> <span class="ref">(HN · 11/19 06:08)</span>. springrep은 외부 의존성이 없는 순수 Rust로 작성됐으며 필릿, 스윕, 로프트, 셸, 오프셋, STEP, 정밀 치수 측정·질의 등 기계 CAD에 필요한 폭넓은 기능을 지원한다고 설명했다. 그는 이 커널을 완성하는 데 Claude Code가 큰 도움이 됐다고 언급했다. 함께 공개한 테스트 스위트는 불리언, 필릿, 챔퍼, 셸, 오프셋, 스윕, 로프트, STEP, 질의 연산을 다루는 3,487개 사례로 구성돼 있고, 정답은 닫힌 형식과 정밀 기하학 계산에서 도출했다. 이 테스트로 springrep 자체 테스트가 잡아내지 못한 수백 건의 버그와 엣지 케이스를 발견해 모두 고쳤으며, 몇몇 인기 오픈소스 커널에도 돌려봤다고 밝혔다. 첫 버전이라 테스트와 어댑터에 실수가 있을 수 있어 교정과 풀 리퀘스트, 새 커널 추가를 환영한다고 덧붙였다.</p>
 
-<h2>4. 데이터 손실 없이 로그 TCO 절감을 측정하는 도구</h2>
-<p>Chiron 팀이 Splunk 같은 고정밀 로그 저장소에서 데이터 손실이나 마이그레이션 없이 로그 보관 비용을 줄여주는 "무손실 통합" 솔루션을 소개했다 <a href="https://news.ycombinator.com/item?id=50535716">Show HN: Tool to measure log TCO savings without losing or migrating any data</a> <span class="ref">(HN · 11/18 03:14)</span>. 공개한 Palo Alto 방화벽 로그 샘플 기준으로는 약 40%의 절감 효과를 냈다고 한다. 이번에 Show HN에 올린 것은 고객이 직접 자신의 로그로 절감 규모를 미리 추정해볼 수 있는 estimator 도구로, MCP 서버와 스킬 형태로 제공되어 <code>Claude</code>나 <code>Cursor</code>가 로컬 로그 폴더를 가리키게 하면 분석 리포트를 만들어준다. 네트워크 밖으로 데이터가 나가지 않고 모델에도 통계 요약과 메타데이터만 전달된다고 강조했으며, Splunk 내보내기·OTLP JSON·쿠버네티스 컨테이너 로그·일반 텍스트 형식을 지원한다. 분석 엔진 자체는 오픈소스가 아닌 바이너리다.</p>
+<h2>이미지·영상·음악 프롬프트용 명명된 룩 모음 Director's Lookbook</h2>
+<p>뉴저지의 소규모 스튜디오 River Road Labs가 이미지·영상·음악 프롬프트에 쓸 수 있는 이름 붙은 "룩" 모음 Director's Lookbook을 공개했다 <a href="https://news.ycombinator.com/item?id=50541419">Show HN: Director's Lookbook, named looks for image, video and music prompts</a> <span class="ref">(HN · 11/18 12:16)</span>. AI 영상·이미지 생성이 정교해질수록 원하는 미학적 스타일을 말로 표현하기 어려워졌다는 자신들의 문제를 해결하려 만들었다고 설명했다. 느낌을 입력하면 그에 맞는 스타일 카드와 프롬프트 텍스트를 뽑아주고, 그냥 무작위로 넘겨보며 영감을 얻을 수도 있다고 소개했다. 느낌을 해석하는 모델은 하루 무료 사용량이 있는 소형 호스팅 모델이며, 읽기 전용 MCP 서버는 인증이나 키 없이 Claude와 Cursor 커넥터로 바로 쓸 수 있다고 안내했다. 커넥터는 요청 텍스트를 저장하지 않고 도구별 호출 횟수만 집계하며, 도구 자체는 로그인·계정 없이 무료로 제공한다고 밝혔다.</p>
 
-<h2>5. AI 에이전트가 잊지 않는 평이한 영어 규칙 도구 Taster</h2>
-<p>자신이 만든 자율 에이전트의 프롬프트에 넣어둔 규칙이 자꾸 누락되거나 무시되는 문제를 겪은 끝에 Taster라는 도구를 만들었다는 글이 Show HN에 올라왔다 <a href="https://news.ycombinator.com/item?id=50535730">Show HN: Taster – Plain-English rules your AI agent can't forget or ignore</a> <span class="ref">(HN · 11/18 03:15)</span>. 평이한 영어로 적은 규칙을 에이전트가 잊거나 무시하지 못하게 강제하는 방식으로, Claude Code는 물론 LangGraph로 만든 에이전트에도 적용할 수 있다고 소개했다.</p>
+<h2>Claude Code에 메모리를 부여해 토큰 26% 절감</h2>
+<p>Ric_Harvey가 "I gave Claude Code a memory and it used 26% fewer tokens"라는 글을 올려, Claude Code에 메모리 기능을 부여했더니 토큰 사용량이 26% 줄었다는 결과를 공유했다 <a href="https://news.ycombinator.com/item?id=50543690">I gave Claude Code a memory and it used 26% fewer tokens</a> <span class="ref">(HN · 11/18 17:54)</span>.</p>
 
-<h2>6. Code Mode로 코드에서 도구 호출 실행하기</h2>
-<p>도구 호출을 코드 형태로 실행하는 방식을 다루는 "Code Mode"에 관한 글이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50538346">Run tool calls from code with Code Mode</a> <span class="ref">(HN · 11/18 06:20)</span>.</p>
+<h2>데이터 분석 기반 게임 Toggles 소개</h2>
+<p>Matt가 공개 데이터를 분석해 맞히는 무료 게임 Toggles를 소개했다 <a href="https://news.ycombinator.com/item?id=50552827">Show HN: Toggles, a game based on analyzing data</a> <span class="ref">(HN · 11/19 07:01)</span>. 예전 인터넷 감성으로 만든 게임으로, 2~3년 전에는 직접 손으로 만들었고 이번에는 Claude Code의 도움을 받아 다시 만들었다고 밝혔다. 매일 켜고 끄는 토글이나 다이얼 형태의 지표를 설정하면 각각이 특정 공개 데이터와 연동되고, 보드는 23:00 UTC에 마감되어 점수가 매겨지며 어떤 선택이 맞았는지 확인할 수 있다고 설명했다. 일부 토글에는 지금 맞는 방향으로 가고 있는지(hot) 아닌지(cold)를 알려주는 표시도 있고, 중간중간 체크포인트에서 힌트도 준다고 덧붙였다. 11월 30일부터 비공개 베타를 시작할 예정이며, 시즌 1이 매끄럽게 출발할 수 있도록 개념과 완성도에 대한 피드백을 구하고 있다고 전했다.</p>
 
-<h2>7. Claude Code 토큰 사용 내역을 보여주는 macOS 앱 Wake</h2>
-<p>Claude Code 구독 토큰이 어디로 쓰이는지 알고 싶어 무료 오픈소스 macOS 앱 Wake를 만들었다는 글이 Show HN에 올라왔다 <a href="https://news.ycombinator.com/item?id=50529742">Show HN: Wake, see what Claude Code did and where the tokens went</a> <span class="ref">(HN · 11/17 19:41)</span>. 제작자는 구독 사용량 제한이 강화되거나 가격이 오를 것으로 보고 프롬프트와 도구 사용을 최적화하기 시작했다고 밝혔다. Wake를 쓰며 알아낸 예로, 커밋을 요청하기 직전에 컨텍스트를 비우면 대규모 컨텍스트에서 비용이 $0.50에서 $0.02로 줄어든 경우가 있었다고 한다. 최신 버전에는 특정 프롬프트가 코드의 어떤 줄 변경을 유발했는지 추적하는 기능도 추가했다. 현재는 macOS와 Claude Code만 지원하지만 다른 OS나 코딩 에이전트에 대한 수요가 있으면 추가할 의향이 있다고 밝혔다.</p>
+<h2>우분투 26에서 /tmp가 RAM(tmpfs)을 차지하는 문제</h2>
+<p>boldi는 우분투 26에서 <code>/tmp</code>가 이제 tmpfs, 즉 RAM에 마운트된다는 점을 알게 됐다며 이를 알렸다 <a href="https://news.ycombinator.com/item?id=50554756">Tell HN: /tmp is hogging your RAM on Ubuntu 26</a> <span class="ref">(HN · 11/19 10:13)</span>. Claude Code 같은 코딩 에이전트가 파일이나 모델 가중치 등을 임시로 저장하는 스크래치패드로 <code>/tmp</code>를 쓰기 때문에, RAM이 제한적인 환경이라면 <code>CLAUDE_CODE_TMPDIR</code> 환경변수를 예를 들어 <code>~/.claude/tmp</code> 같은 경로로 설정해 두는 걸 고려하라고 제안했다.</p>
 
-<h2>8. Claude Code 사용량이 평소보다 2~10배 과금되는 이유</h2>
-<p>Claude Code 사용량이 평소보다 2배에서 최대 10배까지 많이 과금되는 이유를 다룬 글 "Why your Claude Code usage can charge you 2x up to 10x normal"이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50530028">Why your Claude Code usage can charge you 2x up to 10x normal</a> <span class="ref">(HN · 11/17 20:26)</span>.</p>
+<h2>Claude Code 터미널 차트 생성 기능 추가</h2>
+<p>rbaudibert는 "Claude Code can now generate charts in the terminal"이라는 글로, Claude Code가 이제 터미널에서 차트를 생성할 수 있는 기능이 추가됐다는 소식을 전했다 <a href="https://news.ycombinator.com/item?id=50553784">Claude Code can now generate charts in the terminal</a> <span class="ref">(HN · 11/19 08:23)</span>.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-11-18 11:36 KST</p>
+  <p>생성 2026-11-19 11:01 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
