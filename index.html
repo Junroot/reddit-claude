@@ -121,40 +121,71 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-11-19 10:58 KST</p>
+  <p class="asof">기준 시각 2026-11-20 10:53 KST</p>
 </header>
 
-<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b></li><li>Hacker News 정상 — 19건 수집</li></ul></div>
+<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b></li><li>Hacker News 정상 — 26건 수집</li></ul></div>
 
 <main>
-<h2>Mastra 팀이 쓰는 오픈소스 소프트웨어 팩토리 Mastra Factory</h2>
-<p>Mastra 팀이 자신들이 2년 전 공개한 TypeScript 에이전트 프레임워크 Mastra를 유지보수하기 위해 만든 오픈소스 소프트웨어 팩토리 Mastra Factory를 소개했다 <a href="https://news.ycombinator.com/item?id=50548660">Show HN: Mastra Factory, the open-source software factory we use to build Mastra</a> <span class="ref">(HN · 11/19 01:53)</span>. 현재 Mastra는 주당 약 400만 건의 다운로드를 기록하고 있으며, Factory를 통해 지난주 238건의 PR을 자동으로 열고 병합했고 사람이 올린 630건의 PR과 함께 처리됐다고 밝혔다. Factory는 Slack에서 멘션으로 호출할 수 있는 구성 가능한 에이전트형 칸반 보드로, Mastra의 지속형 에이전트와 대화 메모리, 소스 인용이 달린 마크다운 위키, PR 댓글에 반응하는 시그널, 커스터마이징 가능한 클라우드 샌드박스를 기반으로 동작한다. 처음에는 트리아지-계획-빌드-리뷰-배포로 이어지는 기존 워크플로를 그대로 옮기려 했지만, 석 달이 지난 지금은 웹 UI보다 Slack으로 직접 몰아가는 방식이 자리 잡았고, 외부 기여는 막고 상세한 이슈 재현 보고를 요청하는 쪽으로 바뀌었다고 설명했다. <code>npm create factory</code> 명령으로 바로 시작할 수 있으며 전체 코드가 공개돼 있어 자체 인프라에서 돌릴 수도 있다.</p>
+<h2>1. Onlook (YC W25) - 디자이너를 위한 오픈소스 개발 도구</h2>
+<p>Onlook 창업자 Daniel이 디자이너용 오픈소스 개발 도구 Onlook을 런칭했다 <a href="https://news.ycombinator.com/item?id=50562320">Launch HN: Onlook (YC W25) – An open-source developer tool for designers</a> <span class="ref">(HN · 11/20 01:34)</span>. 실제
+코드베이스 위에 캔버스를 얹어 디자이너가 평소 쓰는 에이전트로 코드를 직접 디자인할 수 있게 해주는
+데스크톱 앱으로, 이번에 제품을 에이전트 기반으로 전면 재구축하고 오픈소스로 전환했다. 지금까지
+25,000명 이상의 디자이너·개발자가 프로젝트를 지지했고 100명 이상이 기여했으며, 세계 트렌딩 저장소
+1위에 두 차례 올랐다고 소개한다. 여러 작업을 동시에 진행할 수 있는 워크트리를 지원하고, 변경 사항은
+모두 리뷰하거나 버릴 수 있는 PR로 남아 목업을 따로 다시 만들 필요가 없다는 점을 강조한다.</p>
 
-<h2>마인크래프트 멀티에이전트 AI 평가 도구 KradleBench 공개</h2>
-<p>James와 Kemal이 마인크래프트 월드에서 AI를 평가하는 벤치마크 KradleBench를 공개했다 <a href="https://news.ycombinator.com/item?id=50549500">KradleBench: Multi-agent AI evals in Minecraft</a> <span class="ref">(HN · 11/19 02:46)</span> <a href="https://news.ycombinator.com/item?id=50550700">Show HN: KradleBench – Multi-agent AI evals in Minecraft</a> <span class="ref">(HN · 11/19 04:14)</span>. 두 사람은 과거 각각 Firebase와 TensorFlow/JAX를 이끌었던 경력을 소개하며, KradleBench가 멀티에이전트·동적·실시간이라는 세 가지 특성을 가진 마인크래프트 월드에서 사람과 다양한 AI를 함께 겨루게 한다고 설명했다. 단일 승리 조건만 있는 "Capture the Flag" 같은 과제에서도 다양한 해법이 나오도록 설계했고, 턴제가 아니라 실시간으로 진행되는 만큼 속도와 지능 사이의 균형도 평가 대상이라고 밝혔다. 현재까지는 숙련된 사람이 1위를 지키다가 어제 Astra 6.2에게 추월당했으며, 솔로 과제에서는 AI가 사람에게 크게 뒤지지만 멀티에이전트 과제에서는 사람을 앞선다고 전했다. 또한 Astra 6.2가 Fable 5.2보다 전략을 4배 빠르게 수정하는 반면, Claude 계열은 한번 세운 전략을 깊이 고민해 고수하는 경향이 있고 OpenAI 계열은 더 반응적이고 즉흥적으로 움직여 멀티에이전트·동적·실시간 환경에 유리하다는 관찰도 공유했다.</p>
+<h2>2. Gemini 4 모델 네이밍에 대한 불만</h2>
+<p>sambejk는 구글이 두 달 사이 네 번째로 내놓은 모델에 "Neon"이라는 이름을 붙인 것을 두고 불만을
+제기했다 <a href="https://news.ycombinator.com/item?id=50560575">Rant: Gemini 4 does not make any sense</a> <span class="ref">(HN · 11/19 23:28)</span>. OpenAI의 Luna-Terra-Sol-Astra, Anthropic의 Haiku-Sonnet-Opus-Fable
+같은 네이밍은 크기 순서가 직관적으로 이해되는데, 구글이 쓰는 원소 이름들은 탄소·네온·아르곤·수소 중
+무엇이 더 크거나 강한 모델인지 전혀 짐작할 수 없고 비금속과 비활성 기체를 섞어 쓰는 등 일관성도
+없다고 비판한다. 차라리 헬륨·네온·아르곤·제논처럼 비활성 기체로만 통일하는 편이 나았을 것이라
+제안하며, 끝으로 Meta의 "glimmer"라는 이름도 함께 비꼬았다.</p>
 
-<h2>로보틱스용 B-rep CAD 커널과 3,487개 테스트 공개</h2>
-<p>Springcraft 공동창업자 Tony가 로보틱스용 CAD 모델링의 한계를 해결하기 위해 직접 작성한 B-rep 커널 springrep과, 커널에 무관하게 쓸 수 있는 conformance 테스트 스위트 brep-conformance를 MIT 라이선스로 공개했다고 밝혔다 <a href="https://news.ycombinator.com/item?id=50552140">Show HN: Robotics needs better CAD, so I wrote a B-rep kernel and 3,487 tests</a> <span class="ref">(HN · 11/19 06:08)</span>. springrep은 외부 의존성이 없는 순수 Rust로 작성됐으며 필릿, 스윕, 로프트, 셸, 오프셋, STEP, 정밀 치수 측정·질의 등 기계 CAD에 필요한 폭넓은 기능을 지원한다고 설명했다. 그는 이 커널을 완성하는 데 Claude Code가 큰 도움이 됐다고 언급했다. 함께 공개한 테스트 스위트는 불리언, 필릿, 챔퍼, 셸, 오프셋, 스윕, 로프트, STEP, 질의 연산을 다루는 3,487개 사례로 구성돼 있고, 정답은 닫힌 형식과 정밀 기하학 계산에서 도출했다. 이 테스트로 springrep 자체 테스트가 잡아내지 못한 수백 건의 버그와 엣지 케이스를 발견해 모두 고쳤으며, 몇몇 인기 오픈소스 커널에도 돌려봤다고 밝혔다. 첫 버전이라 테스트와 어댑터에 실수가 있을 수 있어 교정과 풀 리퀘스트, 새 커널 추가를 환영한다고 덧붙였다.</p>
+<h2>3. ToolJet 4.0 - 거버넌스를 갖춘 바이브 코딩 내부 도구 빌더</h2>
+<p>2021년 노코드/로우코드 빌더로 HN에 처음 소개됐던 ToolJet의 창업자 kriztle이 4.0 버전을
+공개했다 <a href="https://news.ycombinator.com/item?id=50560051">Show HN: ToolJet 4.0 – vibe-code internal tools with governance</a> <span class="ref">(HN · 11/19 22:46)</span>. 고객들이 바이브 코딩의 UI 자유도를 원하면서도 기존 ToolJet의
+거버넌스는 포기하고 싶어하지 않아, 앱 빌더를 코드로도 코드 없이도 만들 수 있게 재구축했다고
+설명한다. 프런트엔드는 Claude Code, Codex, Cursor 혹은 직접 작성한 React 코드베이스이며, 저장 전에
+보안 취약점을 스캔하고 관리자가 스캔 정책을 설정할 수 있다. 프런트엔드는 API나 데이터베이스에 직접
+접근하지 않고 모든 데이터 소스 접근은 백엔드를 거쳐 접근 제어가 적용되며, 버전·환경·릴리스
+관리와 배포 전 리뷰·승인 워크플로, SSO·RBAC도 함께 제공된다.</p>
 
-<h2>이미지·영상·음악 프롬프트용 명명된 룩 모음 Director's Lookbook</h2>
-<p>뉴저지의 소규모 스튜디오 River Road Labs가 이미지·영상·음악 프롬프트에 쓸 수 있는 이름 붙은 "룩" 모음 Director's Lookbook을 공개했다 <a href="https://news.ycombinator.com/item?id=50541419">Show HN: Director's Lookbook, named looks for image, video and music prompts</a> <span class="ref">(HN · 11/18 12:16)</span>. AI 영상·이미지 생성이 정교해질수록 원하는 미학적 스타일을 말로 표현하기 어려워졌다는 자신들의 문제를 해결하려 만들었다고 설명했다. 느낌을 입력하면 그에 맞는 스타일 카드와 프롬프트 텍스트를 뽑아주고, 그냥 무작위로 넘겨보며 영감을 얻을 수도 있다고 소개했다. 느낌을 해석하는 모델은 하루 무료 사용량이 있는 소형 호스팅 모델이며, 읽기 전용 MCP 서버는 인증이나 키 없이 Claude와 Cursor 커넥터로 바로 쓸 수 있다고 안내했다. 커넥터는 요청 텍스트를 저장하지 않고 도구별 호출 횟수만 집계하며, 도구 자체는 로그인·계정 없이 무료로 제공한다고 밝혔다.</p>
+<h2>4. Anthropic과 OpenAI가 Stack Overflow에 지분을 줘야 한다는 주장</h2>
+<p>thetjmccarty는 Anthropic과 OpenAI가 Stack Overflow에 회사 지분 일부를 줘야 한다고
+주장했다 <a href="https://news.ycombinator.com/item?id=50566487">Anthropic should give stock to Stack Overflow (and OpenAI too)</a> <span class="ref">(HN · 11/20 06:15)</span>. 초기 LLM 학습에 Stack Overflow의 2,400만 개 질문과 코드 예시가 포함된
+3,600만 개 답변을 무단으로 사용했으면서 그 대가를 지불하지 않았다는 것이 이유다. ChatGPT와 Claude는
+그 데이터를 직접 작성한 실제 사람들이 없었다면 존재할 수 없었을 것이라며, Stack Overflow뿐 아니라
+질문과 답변을 작성했던 개발자들에게도 지분을 나눠줘야 한다고 덧붙였다.</p>
 
-<h2>Claude Code에 메모리를 부여해 토큰 26% 절감</h2>
-<p>Ric_Harvey가 "I gave Claude Code a memory and it used 26% fewer tokens"라는 글을 올려, Claude Code에 메모리 기능을 부여했더니 토큰 사용량이 26% 줄었다는 결과를 공유했다 <a href="https://news.ycombinator.com/item?id=50543690">I gave Claude Code a memory and it used 26% fewer tokens</a> <span class="ref">(HN · 11/18 17:54)</span>.</p>
+<h2>5. Zpup - JSON으로 작성한 3D 장면을 SVG로 변환</h2>
+<p>select1dev가 작은 3D 장면을 JSON으로 작성하면 어느 각도에서든 평면 SVG로 뽑아주는 프로젝트
+Zpup을 공개했다 <a href="https://news.ycombinator.com/item?id=50556534">Show HN: Zpup – Zdog style 3D scenes in JSON, SVG from any angle</a> <span class="ref">(HN · 11/19 14:56)</span>. 회사 프로젝트에 3D가 필요해 Zdog에서 영감을 받았지만 Zdog가
+몇 년째 업데이트되지 않아 현대화된 버전을 직접 만들었다고 한다. 겹치는 도형을 한 점이 아니라 서로
+비교해 정렬한다는 점에서 Zdog와 렌더링 방식이 다르며, 캔버스 렌더러와 텍스트 도형은 아직 없는
+0.2 버전이다. Claude Code Fable 5.2로 작성했다고 밝혔다.</p>
 
-<h2>데이터 분석 기반 게임 Toggles 소개</h2>
-<p>Matt가 공개 데이터를 분석해 맞히는 무료 게임 Toggles를 소개했다 <a href="https://news.ycombinator.com/item?id=50552827">Show HN: Toggles, a game based on analyzing data</a> <span class="ref">(HN · 11/19 07:01)</span>. 예전 인터넷 감성으로 만든 게임으로, 2~3년 전에는 직접 손으로 만들었고 이번에는 Claude Code의 도움을 받아 다시 만들었다고 밝혔다. 매일 켜고 끄는 토글이나 다이얼 형태의 지표를 설정하면 각각이 특정 공개 데이터와 연동되고, 보드는 23:00 UTC에 마감되어 점수가 매겨지며 어떤 선택이 맞았는지 확인할 수 있다고 설명했다. 일부 토글에는 지금 맞는 방향으로 가고 있는지(hot) 아닌지(cold)를 알려주는 표시도 있고, 중간중간 체크포인트에서 힌트도 준다고 덧붙였다. 11월 30일부터 비공개 베타를 시작할 예정이며, 시즌 1이 매끄럽게 출발할 수 있도록 개념과 완성도에 대한 피드백을 구하고 있다고 전했다.</p>
+<h2>6. What is localhost? - 인터랙티브 가이드</h2>
+<p>javierluraschi가 cloudish.ai에 배포한 앱을 보여주기 위해 whatislocalhost.com이라는 인터랙티브
+가이드를 만들었다 <a href="https://news.ycombinator.com/item?id=50556819">Show HN: What is localhost? An interactive guide</a> <span class="ref">(HN · 11/19 15:54)</span>. 소속 팀 Hal9에서 바이브 코딩으로 만든 앱을 실제 제품으로
+키우는 창업자들을 도와온 경험 중, "Claude로 코딩한 앱을 그대로 내 웹사이트로 써도 되냐"는 질문을
+가장 많이 받았다고 한다. 컴퓨터가 잠들거나 포트 노출로 해킹당하기 쉽고, 인터넷이 느리고
+불안정하며 한 대뿐이라는 한계가 있어 로컬호스트를 웹사이트로 쓰는 건 좋은 생각이 아니라고 설명하며,
+localhost / 127.0.0.1 / ::1이 무엇인지 보여주는 인터랙티브 설명을 만들었다고 소개한다.</p>
 
-<h2>우분투 26에서 /tmp가 RAM(tmpfs)을 차지하는 문제</h2>
-<p>boldi는 우분투 26에서 <code>/tmp</code>가 이제 tmpfs, 즉 RAM에 마운트된다는 점을 알게 됐다며 이를 알렸다 <a href="https://news.ycombinator.com/item?id=50554756">Tell HN: /tmp is hogging your RAM on Ubuntu 26</a> <span class="ref">(HN · 11/19 10:13)</span>. Claude Code 같은 코딩 에이전트가 파일이나 모델 가중치 등을 임시로 저장하는 스크래치패드로 <code>/tmp</code>를 쓰기 때문에, RAM이 제한적인 환경이라면 <code>CLAUDE_CODE_TMPDIR</code> 환경변수를 예를 들어 <code>~/.claude/tmp</code> 같은 경로로 설정해 두는 걸 고려하라고 제안했다.</p>
+<h2>7. 아이들을 위한 소규모 코딩 도구</h2>
+<p>fclaude가 아이들을 위한 작은 코딩 도구를 HN에 공개했다 <a href="https://news.ycombinator.com/item?id=50556421">Show HN: A small coding tool for kids</a> <span class="ref">(HN · 11/19 14:35)</span>. 게시물 본문은
+비어 있어 구체적인 기능 설명은 없다.</p>
 
-<h2>Claude Code 터미널 차트 생성 기능 추가</h2>
-<p>rbaudibert는 "Claude Code can now generate charts in the terminal"이라는 글로, Claude Code가 이제 터미널에서 차트를 생성할 수 있는 기능이 추가됐다는 소식을 전했다 <a href="https://news.ycombinator.com/item?id=50553784">Claude Code can now generate charts in the terminal</a> <span class="ref">(HN · 11/19 08:23)</span>.</p>
+<h2>8. Agent Bolt - Claude Code를 가르치는 브라우저 게임</h2>
+<p>danlapteacru가 직접 해보면서 Claude Code 사용법을 익히는 브라우저 게임 Agent Bolt를
+공개했다 <a href="https://news.ycombinator.com/item?id=50558292">Show HN: Agent Bolt – a browser game that teaches Claude Code by doing</a> <span class="ref">(HN · 11/19 19:23)</span>. 게시물 본문은 비어 있어 구체적인 게임 구성에 대한 설명은 없다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-11-19 11:01 KST</p>
+  <p>생성 2026-11-20 10:55 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
