@@ -121,71 +121,72 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-11-20 10:53 KST</p>
+  <p class="asof">기준 시각 2026-11-21 10:42 KST</p>
 </header>
 
-<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b></li><li>Hacker News 정상 — 26건 수집</li></ul></div>
+<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b></li><li>Hacker News 정상 — 10건 수집</li></ul></div>
 
 <main>
-<h2>1. Onlook (YC W25) - 디자이너를 위한 오픈소스 개발 도구</h2>
-<p>Onlook 창업자 Daniel이 디자이너용 오픈소스 개발 도구 Onlook을 런칭했다 <a href="https://news.ycombinator.com/item?id=50562320">Launch HN: Onlook (YC W25) – An open-source developer tool for designers</a> <span class="ref">(HN · 11/20 01:34)</span>. 실제
-코드베이스 위에 캔버스를 얹어 디자이너가 평소 쓰는 에이전트로 코드를 직접 디자인할 수 있게 해주는
-데스크톱 앱으로, 이번에 제품을 에이전트 기반으로 전면 재구축하고 오픈소스로 전환했다. 지금까지
-25,000명 이상의 디자이너·개발자가 프로젝트를 지지했고 100명 이상이 기여했으며, 세계 트렌딩 저장소
-1위에 두 차례 올랐다고 소개한다. 여러 작업을 동시에 진행할 수 있는 워크트리를 지원하고, 변경 사항은
-모두 리뷰하거나 버릴 수 있는 PR로 남아 목업을 따로 다시 만들 필요가 없다는 점을 강조한다.</p>
-
-<h2>2. Gemini 4 모델 네이밍에 대한 불만</h2>
-<p>sambejk는 구글이 두 달 사이 네 번째로 내놓은 모델에 "Neon"이라는 이름을 붙인 것을 두고 불만을
-제기했다 <a href="https://news.ycombinator.com/item?id=50560575">Rant: Gemini 4 does not make any sense</a> <span class="ref">(HN · 11/19 23:28)</span>. OpenAI의 Luna-Terra-Sol-Astra, Anthropic의 Haiku-Sonnet-Opus-Fable
-같은 네이밍은 크기 순서가 직관적으로 이해되는데, 구글이 쓰는 원소 이름들은 탄소·네온·아르곤·수소 중
-무엇이 더 크거나 강한 모델인지 전혀 짐작할 수 없고 비금속과 비활성 기체를 섞어 쓰는 등 일관성도
-없다고 비판한다. 차라리 헬륨·네온·아르곤·제논처럼 비활성 기체로만 통일하는 편이 나았을 것이라
-제안하며, 끝으로 Meta의 "glimmer"라는 이름도 함께 비꼬았다.</p>
-
-<h2>3. ToolJet 4.0 - 거버넌스를 갖춘 바이브 코딩 내부 도구 빌더</h2>
-<p>2021년 노코드/로우코드 빌더로 HN에 처음 소개됐던 ToolJet의 창업자 kriztle이 4.0 버전을
-공개했다 <a href="https://news.ycombinator.com/item?id=50560051">Show HN: ToolJet 4.0 – vibe-code internal tools with governance</a> <span class="ref">(HN · 11/19 22:46)</span>. 고객들이 바이브 코딩의 UI 자유도를 원하면서도 기존 ToolJet의
-거버넌스는 포기하고 싶어하지 않아, 앱 빌더를 코드로도 코드 없이도 만들 수 있게 재구축했다고
-설명한다. 프런트엔드는 Claude Code, Codex, Cursor 혹은 직접 작성한 React 코드베이스이며, 저장 전에
-보안 취약점을 스캔하고 관리자가 스캔 정책을 설정할 수 있다. 프런트엔드는 API나 데이터베이스에 직접
-접근하지 않고 모든 데이터 소스 접근은 백엔드를 거쳐 접근 제어가 적용되며, 버전·환경·릴리스
-관리와 배포 전 리뷰·승인 워크플로, SSO·RBAC도 함께 제공된다.</p>
-
-<h2>4. Anthropic과 OpenAI가 Stack Overflow에 지분을 줘야 한다는 주장</h2>
-<p>thetjmccarty는 Anthropic과 OpenAI가 Stack Overflow에 회사 지분 일부를 줘야 한다고
-주장했다 <a href="https://news.ycombinator.com/item?id=50566487">Anthropic should give stock to Stack Overflow (and OpenAI too)</a> <span class="ref">(HN · 11/20 06:15)</span>. 초기 LLM 학습에 Stack Overflow의 2,400만 개 질문과 코드 예시가 포함된
-3,600만 개 답변을 무단으로 사용했으면서 그 대가를 지불하지 않았다는 것이 이유다. ChatGPT와 Claude는
-그 데이터를 직접 작성한 실제 사람들이 없었다면 존재할 수 없었을 것이라며, Stack Overflow뿐 아니라
-질문과 답변을 작성했던 개발자들에게도 지분을 나눠줘야 한다고 덧붙였다.</p>
-
-<h2>5. Zpup - JSON으로 작성한 3D 장면을 SVG로 변환</h2>
-<p>select1dev가 작은 3D 장면을 JSON으로 작성하면 어느 각도에서든 평면 SVG로 뽑아주는 프로젝트
-Zpup을 공개했다 <a href="https://news.ycombinator.com/item?id=50556534">Show HN: Zpup – Zdog style 3D scenes in JSON, SVG from any angle</a> <span class="ref">(HN · 11/19 14:56)</span>. 회사 프로젝트에 3D가 필요해 Zdog에서 영감을 받았지만 Zdog가
-몇 년째 업데이트되지 않아 현대화된 버전을 직접 만들었다고 한다. 겹치는 도형을 한 점이 아니라 서로
-비교해 정렬한다는 점에서 Zdog와 렌더링 방식이 다르며, 캔버스 렌더러와 텍스트 도형은 아직 없는
-0.2 버전이다. Claude Code Fable 5.2로 작성했다고 밝혔다.</p>
-
-<h2>6. What is localhost? - 인터랙티브 가이드</h2>
-<p>javierluraschi가 cloudish.ai에 배포한 앱을 보여주기 위해 whatislocalhost.com이라는 인터랙티브
-가이드를 만들었다 <a href="https://news.ycombinator.com/item?id=50556819">Show HN: What is localhost? An interactive guide</a> <span class="ref">(HN · 11/19 15:54)</span>. 소속 팀 Hal9에서 바이브 코딩으로 만든 앱을 실제 제품으로
-키우는 창업자들을 도와온 경험 중, "Claude로 코딩한 앱을 그대로 내 웹사이트로 써도 되냐"는 질문을
-가장 많이 받았다고 한다. 컴퓨터가 잠들거나 포트 노출로 해킹당하기 쉽고, 인터넷이 느리고
-불안정하며 한 대뿐이라는 한계가 있어 로컬호스트를 웹사이트로 쓰는 건 좋은 생각이 아니라고 설명하며,
-localhost / 127.0.0.1 / ::1이 무엇인지 보여주는 인터랙티브 설명을 만들었다고 소개한다.</p>
-
-<h2>7. 아이들을 위한 소규모 코딩 도구</h2>
-<p>fclaude가 아이들을 위한 작은 코딩 도구를 HN에 공개했다 <a href="https://news.ycombinator.com/item?id=50556421">Show HN: A small coding tool for kids</a> <span class="ref">(HN · 11/19 14:35)</span>. 게시물 본문은
-비어 있어 구체적인 기능 설명은 없다.</p>
-
-<h2>8. Agent Bolt - Claude Code를 가르치는 브라우저 게임</h2>
-<p>danlapteacru가 직접 해보면서 Claude Code 사용법을 익히는 브라우저 게임 Agent Bolt를
-공개했다 <a href="https://news.ycombinator.com/item?id=50558292">Show HN: Agent Bolt – a browser game that teaches Claude Code by doing</a> <span class="ref">(HN · 11/19 19:23)</span>. 게시물 본문은 비어 있어 구체적인 게임 구성에 대한 설명은 없다.</p>
+<h2>1. 범용 로봇에 에이전트를 넣지 못하는 이유에 대한 질문</h2>
+<p>HN에 올라온 질문 글에서 작성자 ex-aws-dude는 Claude를 여러 달 사용해본 뒤 에이전트를 범용
+로봇에 넣는 것이 당연한 다음 단계처럼 느껴진다며, 추론 능력은 이미 충분해 보이는데 무엇이 이
+분야의 발전을 막고 있는지 물었다 <a href="https://news.ycombinator.com/item?id=50582662">Ask HN: What's stopping us from putting agents in general purpose robots?</a> <span class="ref">(HN · 11/21 06:44)</span>. 그는 업데이트 루프 속도나 반복 횟수가
+느려 실용적이지 않은 것인지, 아니면 이미지·영상 해석이 컨텍스트와 비용을 폭증시키는 것인지를
+구체적으로 궁금해했다. 댓글이 달리지 않아 다른 사용자들의 반응은 확인되지 않는다.</p>
+<h2>2. XSquads, 여러 코딩 하니스에서 돌아가는 메타 에이전트 하니스</h2>
+<p>vincirufus는 "XSquads"라는 프로젝트를 HN에 공개했다 <a href="https://news.ycombinator.com/item?id=50582844">Show HN: XSquads– Set a mission, agents work on it autonomously in your harness</a> <span class="ref">(HN · 11/21 06:56)</span>. 미션을 설정해두면
+에이전트들이 기존에 구독 중인 코딩 하니스 위에서 자율적으로 작업을 수행하는 메타 하니스로,
+Claude Code, Codex, Pi Coding Agent, Open Code, Antigravity, Hermes, Grok 등 여러 하니스를
+그대로 활용할 수 있다고 소개했다. 댓글은 달리지 않아 반응은 확인되지 않는다.</p>
+<h2>3. Three.js로 만든 온라인 컬링 게임/시뮬레이터 공개</h2>
+<p>nrjames는 Three.js로 만든 온라인 컬링 게임/시뮬레이터를 공개했다 <a href="https://news.ycombinator.com/item?id=50576133">Show HN: Online curling game/SIM with Three.js</a> <span class="ref">(HN · 11/21 00:29)</span>. 자신이
+참여하는 컬링 리그에서 마주친 까다로운 스톤 배치를 재현하고 다양한 샷을 실험해보고 싶어 시작한
+사이드 프로젝트로, Claude Code의 도움을 받아 간단한 시뮬레이터를 플레이 가능한 게임으로
+발전시켰다고 설명했다. 컬링은 전략이 깊어 "체스 온 아이스"로도 불리는데, 엔드마다 해머(마지막
+스톤)를 유지하기 위해 일부러 블랭크 엔드를 노릴지, 가드를 높게 또는 낮게 둘지, 포인트를 훔치려
+할지 등 컴퓨터 플레이어의 전략적 판단을 구현하는 것이 가장 어려웠다고 밝혔다. 설정에서 디버그
+모드를 켜면 아직 문서화되지 않은 다양한 파라미터를 조절할 수 있는 패널도 열린다. 댓글은 없어
+다른 반응은 확인되지 않는다.</p>
+<h2>4. 100개 라벨링된 작업으로 LLM 라우터를 만드는 방법에 대한 질문</h2>
+<p>zodwick은 약 100개 작업에 대해 정확도·충실도·소통 방식 등 기준으로 루브릭을 만들고, 각
+작업마다 80점 이상을 받는 가장 싸고 빠른 모델이 무엇인지 라벨링한 데이터셋을 구축한 뒤, 이를
+바탕으로 LLM 라우터를 만드는 방법을 물었다 <a href="https://news.ycombinator.com/item?id=50575992">Ask HN: How does one build an LLM router with a labelled set of 100 tasks?</a> <span class="ref">(HN · 11/21 00:23)</span>. Claude의 도움을 받아 예/아니오
+질문으로 작업을 분류하는 방식, 작업 임베딩에 대한 kNN, 프롬프트 복잡도 분류기 등을 시도했지만
+모두 만족스럽지 않았다고 밝혔다. 그는 작업이 얼마나 어려운지는 실제로 작업에 들어가 봐야 알 수
+있는데 분류는 시작 시점에 이뤄져야 한다는 근본적인 한계 때문에, 이런 라우터가 애초에 가능한
+것인지 의심하기 시작했다고 덧붙였다. 댓글이 없어 다른 의견은 확인되지 않는다.</p>
+<h2>5. 에이전트로 개발한 플랫포머 게임 Trichroma 공개</h2>
+<p>namirsab은 몇 주 동안 만든 플랫포머 게임 "Trichroma"를 공개했다 <a href="https://news.ycombinator.com/item?id=50582578">Show HN: Trichroma, a Platformer of Light</a> <span class="ref">(HN · 11/21 06:38)</span>. 빛의
+색에 따라 다르게 보이는 그림을 실험하던 화가인 형과 10년 전 나눈 대화에서 아이디어를 얻었고,
+Claude Code를 이용해 전부 휴대폰으로 개발했다고 밝혔다. Celeste나 Meatboy에서 영감을 받은
+도전적이면서도 귀여운 게임으로, 죽음이 게임의 일부이며 63개 레벨에 걸쳐 빛 메커니즘이 점차
+소개된다. 플레이테스트에 많은 시간을 들이고 친구들의 피드백도 반영했다고 전했다. 댓글은 없어
+다른 반응은 확인되지 않는다.</p>
+<h2>6. Claude Code로 퍼블리싱 작업을 자동화해 글쓰기에 집중하기</h2>
+<p>alfredlua는 "Automating publishing tasks with Claude Code so I can focus on writing"라는
+제목으로, Claude Code를 이용해 퍼블리싱 관련 작업을 자동화해 글쓰기 자체에 더 집중할 수 있게
+된 경험을 공유했다 <a href="https://news.ycombinator.com/item?id=50574228">Automating publishing tasks with Claude Code so I can focus on writing</a> <span class="ref">(HN · 11/20 22:15)</span>. 본문과 댓글이 모두 비어 있어 구체적인 자동화 방식이나
+반응은 확인되지 않는다.</p>
+<h2>7. 코드베이스에서 아키텍처 다이어그램을 생성하는 ArkViz 공개</h2>
+<p>ArkViz 창업자 bofia는 코드베이스로부터 AI를 이용해 소프트웨어 아키텍처 다이어그램을 자동으로
+생성하는 제품 "ArkViz"를 공개했다 <a href="https://news.ycombinator.com/item?id=50580994">Show HN: ArkViz – AI generated software architecture diagrams</a> <span class="ref">(HN · 11/21 04:58)</span>. 사람에게는 확대·축소, 검색, 구성 파일
+표시 등이 가능한 시각적 문서를 제공하고, AI 에이전트에게는 구조화된 모델 다이어그램으로 더 깊은
+관계형 컨텍스트를 제공하는 것이 목표라고 설명했다. CLAUDE.md, AGENTS.md, ARCHITECTURE.md 같은
+텍스트 기반 컨텍스트 파일이 이미 자리를 잡은 것처럼, ArkViz는 ARCHITECTURE.md를 보완해 컴포넌트
+간 연결과 구성 관계를 더 깊이 보여주는 것을 지향한다고 밝혔다. 다이어그램 유지보수에 시간이 많이
+들어 흔히 없거나 오래된 상태로 방치된다는 문제를 자동화로 해결하려 한다는 점도 강조했다. 댓글은
+없어 다른 반응은 확인되지 않는다.</p>
+<h2>8. Claude Code가 충분한 상황에서 새 코딩 하니스를 만들 가치가 있는지에 대한 질문</h2>
+<p>deepcover는 Claude Code가 엔지니어에게 필요한 거의 모든 것을 갖춘 것처럼 보이는 상황에서,
+모델을 전환할 수 있는 내장 라우터와 메모리를 갖춘 경량 코딩 하니스를 새로 만드는 것이 여전히
+가치가 있는지 물었다 <a href="https://news.ycombinator.com/item?id=50571425">Is it still worth building Coding Harness?</a> <span class="ref">(HN · 11/20 16:46)</span>. 여러 모델 제공사가 함께 작업하는 구조로 작업 해결에
+최적화한 하니스를 염두에 두고 있다고 덧붙였다. 댓글이 없어 다른 사용자들의 생각은 확인되지
+않는다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-11-20 10:55 KST</p>
+  <p>생성 2026-11-21 10:44 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
