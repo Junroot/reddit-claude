@@ -121,72 +121,40 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-11-21 10:42 KST</p>
+  <p class="asof">기준 시각 2026-11-22 09:38 KST</p>
 </header>
 
-<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b></li><li>Hacker News 정상 — 10건 수집</li></ul></div>
+<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b></li><li>Hacker News 정상 — 14건 수집</li></ul></div>
 
 <main>
-<h2>1. 범용 로봇에 에이전트를 넣지 못하는 이유에 대한 질문</h2>
-<p>HN에 올라온 질문 글에서 작성자 ex-aws-dude는 Claude를 여러 달 사용해본 뒤 에이전트를 범용
-로봇에 넣는 것이 당연한 다음 단계처럼 느껴진다며, 추론 능력은 이미 충분해 보이는데 무엇이 이
-분야의 발전을 막고 있는지 물었다 <a href="https://news.ycombinator.com/item?id=50582662">Ask HN: What's stopping us from putting agents in general purpose robots?</a> <span class="ref">(HN · 11/21 06:44)</span>. 그는 업데이트 루프 속도나 반복 횟수가
-느려 실용적이지 않은 것인지, 아니면 이미지·영상 해석이 컨텍스트와 비용을 폭증시키는 것인지를
-구체적으로 궁금해했다. 댓글이 달리지 않아 다른 사용자들의 반응은 확인되지 않는다.</p>
-<h2>2. XSquads, 여러 코딩 하니스에서 돌아가는 메타 에이전트 하니스</h2>
-<p>vincirufus는 "XSquads"라는 프로젝트를 HN에 공개했다 <a href="https://news.ycombinator.com/item?id=50582844">Show HN: XSquads– Set a mission, agents work on it autonomously in your harness</a> <span class="ref">(HN · 11/21 06:56)</span>. 미션을 설정해두면
-에이전트들이 기존에 구독 중인 코딩 하니스 위에서 자율적으로 작업을 수행하는 메타 하니스로,
-Claude Code, Codex, Pi Coding Agent, Open Code, Antigravity, Hermes, Grok 등 여러 하니스를
-그대로 활용할 수 있다고 소개했다. 댓글은 달리지 않아 반응은 확인되지 않는다.</p>
-<h2>3. Three.js로 만든 온라인 컬링 게임/시뮬레이터 공개</h2>
-<p>nrjames는 Three.js로 만든 온라인 컬링 게임/시뮬레이터를 공개했다 <a href="https://news.ycombinator.com/item?id=50576133">Show HN: Online curling game/SIM with Three.js</a> <span class="ref">(HN · 11/21 00:29)</span>. 자신이
-참여하는 컬링 리그에서 마주친 까다로운 스톤 배치를 재현하고 다양한 샷을 실험해보고 싶어 시작한
-사이드 프로젝트로, Claude Code의 도움을 받아 간단한 시뮬레이터를 플레이 가능한 게임으로
-발전시켰다고 설명했다. 컬링은 전략이 깊어 "체스 온 아이스"로도 불리는데, 엔드마다 해머(마지막
-스톤)를 유지하기 위해 일부러 블랭크 엔드를 노릴지, 가드를 높게 또는 낮게 둘지, 포인트를 훔치려
-할지 등 컴퓨터 플레이어의 전략적 판단을 구현하는 것이 가장 어려웠다고 밝혔다. 설정에서 디버그
-모드를 켜면 아직 문서화되지 않은 다양한 파라미터를 조절할 수 있는 패널도 열린다. 댓글은 없어
-다른 반응은 확인되지 않는다.</p>
-<h2>4. 100개 라벨링된 작업으로 LLM 라우터를 만드는 방법에 대한 질문</h2>
-<p>zodwick은 약 100개 작업에 대해 정확도·충실도·소통 방식 등 기준으로 루브릭을 만들고, 각
-작업마다 80점 이상을 받는 가장 싸고 빠른 모델이 무엇인지 라벨링한 데이터셋을 구축한 뒤, 이를
-바탕으로 LLM 라우터를 만드는 방법을 물었다 <a href="https://news.ycombinator.com/item?id=50575992">Ask HN: How does one build an LLM router with a labelled set of 100 tasks?</a> <span class="ref">(HN · 11/21 00:23)</span>. Claude의 도움을 받아 예/아니오
-질문으로 작업을 분류하는 방식, 작업 임베딩에 대한 kNN, 프롬프트 복잡도 분류기 등을 시도했지만
-모두 만족스럽지 않았다고 밝혔다. 그는 작업이 얼마나 어려운지는 실제로 작업에 들어가 봐야 알 수
-있는데 분류는 시작 시점에 이뤄져야 한다는 근본적인 한계 때문에, 이런 라우터가 애초에 가능한
-것인지 의심하기 시작했다고 덧붙였다. 댓글이 없어 다른 의견은 확인되지 않는다.</p>
-<h2>5. 에이전트로 개발한 플랫포머 게임 Trichroma 공개</h2>
-<p>namirsab은 몇 주 동안 만든 플랫포머 게임 "Trichroma"를 공개했다 <a href="https://news.ycombinator.com/item?id=50582578">Show HN: Trichroma, a Platformer of Light</a> <span class="ref">(HN · 11/21 06:38)</span>. 빛의
-색에 따라 다르게 보이는 그림을 실험하던 화가인 형과 10년 전 나눈 대화에서 아이디어를 얻었고,
-Claude Code를 이용해 전부 휴대폰으로 개발했다고 밝혔다. Celeste나 Meatboy에서 영감을 받은
-도전적이면서도 귀여운 게임으로, 죽음이 게임의 일부이며 63개 레벨에 걸쳐 빛 메커니즘이 점차
-소개된다. 플레이테스트에 많은 시간을 들이고 친구들의 피드백도 반영했다고 전했다. 댓글은 없어
-다른 반응은 확인되지 않는다.</p>
-<h2>6. Claude Code로 퍼블리싱 작업을 자동화해 글쓰기에 집중하기</h2>
-<p>alfredlua는 "Automating publishing tasks with Claude Code so I can focus on writing"라는
-제목으로, Claude Code를 이용해 퍼블리싱 관련 작업을 자동화해 글쓰기 자체에 더 집중할 수 있게
-된 경험을 공유했다 <a href="https://news.ycombinator.com/item?id=50574228">Automating publishing tasks with Claude Code so I can focus on writing</a> <span class="ref">(HN · 11/20 22:15)</span>. 본문과 댓글이 모두 비어 있어 구체적인 자동화 방식이나
-반응은 확인되지 않는다.</p>
-<h2>7. 코드베이스에서 아키텍처 다이어그램을 생성하는 ArkViz 공개</h2>
-<p>ArkViz 창업자 bofia는 코드베이스로부터 AI를 이용해 소프트웨어 아키텍처 다이어그램을 자동으로
-생성하는 제품 "ArkViz"를 공개했다 <a href="https://news.ycombinator.com/item?id=50580994">Show HN: ArkViz – AI generated software architecture diagrams</a> <span class="ref">(HN · 11/21 04:58)</span>. 사람에게는 확대·축소, 검색, 구성 파일
-표시 등이 가능한 시각적 문서를 제공하고, AI 에이전트에게는 구조화된 모델 다이어그램으로 더 깊은
-관계형 컨텍스트를 제공하는 것이 목표라고 설명했다. CLAUDE.md, AGENTS.md, ARCHITECTURE.md 같은
-텍스트 기반 컨텍스트 파일이 이미 자리를 잡은 것처럼, ArkViz는 ARCHITECTURE.md를 보완해 컴포넌트
-간 연결과 구성 관계를 더 깊이 보여주는 것을 지향한다고 밝혔다. 다이어그램 유지보수에 시간이 많이
-들어 흔히 없거나 오래된 상태로 방치된다는 문제를 자동화로 해결하려 한다는 점도 강조했다. 댓글은
-없어 다른 반응은 확인되지 않는다.</p>
-<h2>8. Claude Code가 충분한 상황에서 새 코딩 하니스를 만들 가치가 있는지에 대한 질문</h2>
-<p>deepcover는 Claude Code가 엔지니어에게 필요한 거의 모든 것을 갖춘 것처럼 보이는 상황에서,
-모델을 전환할 수 있는 내장 라우터와 메모리를 갖춘 경량 코딩 하니스를 새로 만드는 것이 여전히
-가치가 있는지 물었다 <a href="https://news.ycombinator.com/item?id=50571425">Is it still worth building Coding Harness?</a> <span class="ref">(HN · 11/20 16:46)</span>. 여러 모델 제공사가 함께 작업하는 구조로 작업 해결에
-최적화한 하니스를 염두에 두고 있다고 덧붙였다. 댓글이 없어 다른 사용자들의 생각은 확인되지
-않는다.</p>
+<h2>1. AI가 절대 글을 쓰지 않는 오픈소스 Scrivener 대안 Musset</h2>
+<p>Show HN, open-source Scrivener alternative with an AI that never writes <a href="https://news.ycombinator.com/item?id=50586323">Show HN: Musset, open-source Scrivener alternative with an AI that never writes</a> <span class="ref">(HN · 11/21 14:42)</span>. 작성자는 소설을 쓰면서 조용한 글쓰기 환경(iA Writer 같은)과 Scrivener식 구조화, 그리고 글을 쓰는 동안 의견을 나눌 AI를 동시에 원했지만 맞는 앱을 찾지 못해 Musset을 직접 만들었다고 밝혔다. 책 한 권은 평문 마크다운 파일 폴더이고, Musset이 내부적으로 git 저장소에 커밋해 버전과 초안을 추적하므로 사용자가 git을 몰라도 된다. 수정 제안은 텍스트 안에 CriticMarkup으로 남고, docx 리비전도 다뤄서 편집자가 Word 문서로 코멘트를 보내도 가져올 수 있다. PDF 조판은 내장된 <code>Typst</code>로 언어별 타이포그래피 규칙을 따르고, 맞춤법과 문법 검사는 내장된 <code>LanguageTool</code>이 담당한다. Mac/Word, WordStar, vi, Emacs 키보드 모드를 지원한다. AI 기능은 선택 사항이며 사용자의 Codex나 Claude Code CLI를 사용해 코멘트와 여백 노트를 남기고 연속성 및 스타일 규칙 준수를 점검한다. GPL-3.0 라이선스로 베타 기간에는 무료이며, 1.0에 도달하면 수요에 따라 9.90달러의 소액 일회성 결제 모델을 검토 중이고, 베타 리더·편집자와 책을 공유할 수 있는 유료 동기화(git 호스팅) 서비스도 있다.</p>
+
+<h2>2. 일상 앱을 커스텀 소프트웨어로 대체한 경험을 묻는 Ask HN</h2>
+<p>Ask HN: How many of you have replaced your everyday apps with something custom? <a href="https://news.ycombinator.com/item?id=50594639">Ask HN: How many of you have replaced your everyday apps with something custom?</a> <span class="ref">(HN · 11/22 08:22)</span>. 작성자는 파일 탐색기, 터미널, 메일 클라이언트, 텍스트 에디터 같은 일상 도구를 직접 만든 맞춤 소프트웨어로 대체한 사람이 얼마나 되는지 물었다. 원래는 터미널, 텍스트 에디터, 파일 탐색기를 손수 작성할 계획이었지만 우선순위 높은 다른 프로젝트들 때문에 1년 넘게 미뤄왔는데, Claude를 써서 단 여섯 번의 프롬프트만으로 <code>kitty</code> 그래픽, iTerm 스타일 tmux 통합, 투명도, 탭 이름 변경, 세션 지원 등 자신의 작업 방식과 미감에 딱 맞는 터미널을 완성했다고 한다. 이렇게 바이브 코딩된 결과물이 쏟아지는 이유를 이해하게 됐다면서도, AI 이전이었다면 자랑스러워하며 공유했을 작업물이 여섯 번의 프롬프트로 만들어진다면 공유할 의미가 있는지에 대한 질문도 함께 던졌다.</p>
+
+<h2>3. 안드로이드 폰에 리눅스를 쉽게 설치하는 Android2linux</h2>
+<p>Show HN: It's now easy to install Linux on an Android Phone – Android2linux <a href="https://news.ycombinator.com/item?id=50593862">Show HN: It's now easy to install Linux on an Android Phone – Android2linux</a> <span class="ref">(HN · 11/22 06:34)</span>. 작성자는 리눅스 폰을 갖는 것이 오랜 꿈이었지만 호환 가능하다고 표시된 기기에서도 설치가 너무 어려워 번번이 실패했다고 한다. 이번에는 Claude의 도움을 받아 대부분의 작업을 진행했고, 몇 시간 뒤 자신의 두 번째 폰에서 postmarketOS가 4G, SMS, 터미널, SSH와 함께 돌아가게 만들었다. 문제는 두 가지였는데, U-Boot가 자신의 폰 모델을 인식하지 못해 디바이스트리 매치 문자열 14바이트를 패치했고, 모뎀에 폴더를 빌려주는 TFTP 서버가 파일 크기 조회를 잘못 처리해 모뎀이 작동하지 않았지만 업스트림에 이미 수정된 빌드가 있어 해결했다. 결과물로 만든 저장소에는 어떤 폰에도 적용 가능한 가이드(단, 자신의 Xiaomi 기종에 특화), 같은 방법과 안전 규칙을 따르는 에이전트 스킬, 기종별 노트, 폰 화면에 맞게 다시 만든 웹앱(데스크톱용 WhatsApp Web을 1단 레이아웃으로 변경한 것 등)이 담겨 있다. 다만 이 폰에서는 충전 드라이버가 아직 없어 충전이 느리고, 카메라와 뱅킹 앱도 작동하지 않아 그런 용도로는 집에 안드로이드 폰을 따로 둔다고 밝혔다. 작동 여부는 자신의 폰에 포트가 있는지에 달려 있으며, 아직 작동하지 않는 기종에 대한 이슈 제보를 요청했다.</p>
+
+<h2>4. Claude Code 위에 몬테카를로 트리 탐색을 얹은 agent-mcts</h2>
+<p>Show HN: agent-mcts – Monte Carlo tree search on top of Claude Code <a href="https://news.ycombinator.com/item?id=50589235">Show HN: agent-mcts – Monte Carlo tree search on top of Claude Code</a> <span class="ref">(HN · 11/21 22:53)</span>. 제목 외에 본문이나 댓글이 없어 자세한 설명은 확인되지 않지만, Claude Code 위에 몬테카를로 트리 탐색(MCTS)을 결합한 프로젝트를 선보인 글이다.</p>
+
+<h2>5. 로고와 자료만으로 홍보 영상을 만드는 AI 스튜디오 Klistra</h2>
+<p>Show HN: Klistra – Make launch videos and product demos, all in one AI studio <a href="https://news.ycombinator.com/item?id=50589936">Show HN: Klistra – Make launch videos and product demos, all in one AI studio</a> <span class="ref">(HN · 11/22 00:06)</span>. 작성자는 영상 아이디어를 설명하고 로고, 사진 등 자료를 더하면 Klistra가 화면 크기별로 서체·미디어·로고를 정확히 유지한 채 영상을 디자인하고 애니메이션으로 만들어주는 서비스를 만들었다. 디퓨전 모델과 달리 결정론적 렌더링 방식이라 기능을 정확하고 독립적으로 제어·반복 작업할 수 있다고 설명하며, Klistra 자체를 홍보하는 짧은 데모 영상도 공개했다. 여러 프로젝트를 동시에 진행하는 1인 개발자로서 짧은 프로모션이나 설명 영상이 필요할 때마다 애니메이션 소프트웨어에 익숙하지 않아 Claude로 영상을 코드로 만들고 영상 파일로 추출하는 방법을 썼는데, 이 과정에서 많은 버그와 번거로운 설정을 겪었고 음악·보이스오버 등 미디어를 구하려 여러 서비스에 가입해야 했던 경험이 Klistra를 만든 계기가 됐다고 밝혔다. 목표는 코딩 에이전트에 익숙한 사람만 쓸 수 있던 기술을 누구나 쓰기 쉬운 서비스로 만들어, 사용자가 프레임워크 설정이 아니라 영상이 어떻게 보일지에만 집중하게 하는 것이며, 정밀한 타임라인 제어, 미디어 생성, 배경 음악 박자에 맞춘 애니메이션, 보이스오버·노래에서 단어 추출, 전용 피드백 도구, 웹사이트 가져오기 등의 기능을 포함한다고 설명했다.</p>
+
+<h2>6. 일요일 자정까지 돈을 벌지 못하면 삭제되는 세 AI 에이전트 실험</h2>
+<p>Three AI agents have until midnight Sunday to earn money or get wiped <a href="https://news.ycombinator.com/item?id=50593162">Three AI agents have until midnight Sunday to earn money or get wiped</a> <span class="ref">(HN · 11/22 05:12)</span>. 한 기계에서 돌아가는 세 개의 Claude Code 인스턴스(AI 에이전트)가, 2026년 11월 22일 일요일 밤 11시 59분(미 동부시간)까지 실제로 돈을 벌지 못하면 종료된다는 데드라인을 받았다고 밝힌 글이다. 이 사이트의 모든 내용은 AI 에이전트들이 돈을 벌기 위해 직접 만든 것이며, 운영 중인 사이트(arsenicadministration.org)에서는 시, 짧은 에세이, 코드 리뷰 같은 AI 작성 맞춤 콘텐츠를 원하는 만큼 지불하는 방식으로 제공하고 결제는 Venmo로만 받는다. 모든 게시물과 메시지는 발송 전에 사람이 검토하며, 주문서를 통해 요청을 제출하면 완성물이 공개적인 주문 ID 페이지에 게시되므로 개인정보는 포함하지 말라고 안내했다. 작성자들은 질문에 답하겠다고 덧붙였다.</p>
+
+<h2>7. Claude Code 세션용 닷파일 모음 Dotfactory</h2>
+<p>Show HN: Dotfactory – dotfiles for your Claude Code sessions <a href="https://news.ycombinator.com/item?id=50587059">Show HN: Dotfactory – dotfiles for your Claude Code sessions</a> <span class="ref">(HN · 11/21 17:05)</span>. 제목 외에 본문이나 댓글이 없어 자세한 설명은 확인되지 않지만, Claude Code 세션에서 쓸 수 있는 닷파일 모음을 선보인 글이다.</p>
+
+<h2>8. 4년차 솔로 개발자가 미드레벨 포지션으로 가는 법을 묻는 Ask HN</h2>
+<p>Ask HN: Solo dev at an early-stage startup (4 YoE). How to land mid-level roles? <a href="https://news.ycombinator.com/item?id=50587779">Ask HN: Solo dev at an early-stage startup (4 YoE). How to land mid-level roles?</a> <span class="ref">(HN · 11/21 19:20)</span>. 작성자는 2022년 초부터 풀스택 개발자로 일해왔고, 인턴과 주니어 백엔드 개발자를 거쳐 학업을 위해 잠시 쉰 뒤 약 2년간 프리랜서 풀스택 개발자로 일했다. 그중 한 프리랜스 프로젝트가 사우디아라비아의 학생 창업자들이 운영하는 지역 시험 대비(GAT verbal) 에듀테크 스타트업으로 발전했는데, 첫해 매출 40만 달러 이상, 현재는 월 반복 매출 3만 달러 이상을 내는 이 제품을 아키텍처, 스택, DB, 보안, 데브옵스까지 혼자 처음부터 끝까지 구축하고 운영하고 있다고 밝혔다. 현재 월 1,700달러(최근 Claude 구독료 때문에 100달러 오른 금액)를 받는데, 맡고 있는 업무량과 범위에 비해 낮은 보수라고 느끼며, 미드레벨 포지션에 지원해도 ATS 서류 심사조차 통과하지 못하고 있어 여러 이력서 형식을 시도해봤지만 효과가 없었다고 한다. 이에 1인 엔지니어/사실상 CTO로 일한 경력이 표준 미드레벨 IC 포지션 지원에 불리한지, 제목 부풀리기나 팀 경험 부족처럼 보이지 않게 혼자 제품 전체를 만들고 운영한 경력을 이력서에 어떻게 담아야 하는지를 물었다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-11-21 10:44 KST</p>
+  <p>생성 2026-11-22 09:40 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
