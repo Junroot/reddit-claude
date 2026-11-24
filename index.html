@@ -121,40 +121,40 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-11-23 10:06 KST</p>
+  <p class="asof">기준 시각 2026-11-24 13:57 KST</p>
 </header>
 
-<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b></li><li>Hacker News 정상 — 10건 수집</li></ul></div>
+<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b></li><li>Hacker News 정상 — 14건 수집</li></ul></div>
 
 <main>
-<h2>1. 나델라, IDE 쇠퇴와 Claude Code의 부상 언급</h2>
-<p>Hacker News에는 마이크로소프트 CEO 사티아 나델라가 통합 개발 환경(IDE)이 예전만큼 쓰이지 않고 있다고 말하면서, Visual Studio를 언급하는 동시에 Claude Code가 그 자리를 대신하며 부상하고 있다는 취지의 발언을 전한 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50605057">"IDEs kind of faded away" – Nadella on VS Studio, as Claude Code takes the lead</a> <span class="ref">(HN · 11/23 08:13)</span>.</p>
+<h2>1. Anthropic, 코드 변경을 검토·수정·승인하는 Claude Ship 출시</h2>
+<p>Anthropic이 코드 변경을 검토하고 수정하고 승인까지 수행하는 새로운 에이전트 Claude Ship을 출시했다는 소식이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50621162">Anthropic launches Claude Ship, agents review, fix, &amp; approve code changes now</a> <span class="ref">(HN · 11/24 08:39)</span>. 본문과 댓글이 없어 구체적인 기능 설명과 반응은 제목만으로는 확인되지 않는다.</p>
 
-<h2>2. Claude와 ChatGPT가 동작하는 오픈소스 CRM Relaticle</h2>
-<p>2024년 8월부터 개발된 오픈소스 CRM Relaticle이 Show HN에 소개됐다 <a href="https://news.ycombinator.com/item?id=50600315">Show HN: Relaticle, an open-source CRM that Claude and ChatGPT can work in</a> <span class="ref">(HN · 11/22 23:59)</span>. 작성자는 Laravel과 PostgreSQL로 만든 이 CRM의 core 앱 안에 AI 에이전트를 위한 MCP 서버를 직접 넣어 Claude와 ChatGPT가 연결해 작업할 수 있게 했다고 설명했다. 테스트 워크스페이스에서 어시스턴트 rela에게 작업과 노트 작성을 요청하면 변경 사항을 한 줄씩 보여주는 계획과 승인 버튼이 뜨고, 승인을 눌러야 실제로 반영됐다고 전했다. 반면 MCP 프로토콜로 연결한 Claude와 ChatGPT는 계획이나 승인 버튼 없이 쓰기 작업이 바로 적용되는데, 이 쓰기 작업도 승인을 거쳐야 하는지는 아직 확신하지 못한다고 덧붙였다. 소스는 AGPL-3.0 라이선스로 공개했고 README의 compose 파일로 직접 실행해볼 수 있으며, 에이전트가 실제 시스템에 쓰기를 하도록 허용해본 사람들의 경험을 듣고 싶다고 했다.</p>
+<h2>2. Show HN: 코딩 에이전트 간 파일 충돌을 경고하는 Blobby</h2>
+<p>개발자 jakobildstad가 동시에 3~4개의 코딩 에이전트(Claude Code, Codex 등)를 돌리다가 질문에 막혀 20분째 대기 중인 에이전트를 놓치는 일이 반복되자, 이를 막기 위한 macOS 앱 Blobby를 만들어 공개했다 <a href="https://news.ycombinator.com/item?id=50612033">Show HN: Blobby – warns when two coding agents edit the same file (macOS)</a> <span class="ref">(HN · 11/23 23:23)</span>. 각 에이전트를 맥북 노치 옆에 작은 블롭으로 표시해 작업 중·완료·대기 상태를 보여주고, 클릭하면 해당 터미널 탭으로 바로 이동한다. 두 에이전트가 같은 파일을 동시에 편집하면 경고를 띄우고, 에이전트마다 별도의 git worktree를 줄 수 있으며, 작업이 끝나면 변경 내용과 테스트 통과 여부를 보여주는 점을 다른 노치 앱들과의 차별점으로 들었다. Claude Code, Codex, Gemini CLI가 이미 제공하는 훅을 이용해 각 세션 상태를 맥 로컬 폴더에 기록하는 방식이라 텔레메트리가 없고 세션 정보가 기기 밖으로 나가지 않는다고 설명했다. 가입 없이 무료로 써볼 수 있고 프로 버전은 19달러 평생 이용권이며, Apple 실리콘·macOS 26용으로 만들었다고 밝혔다. 아직 댓글은 달리지 않았다.</p>
 
-<h2>3. Code Mode로 코드에서 툴 호출 실행하기</h2>
-<p>Hacker News에는 "Code Mode"라는 방식으로 코드 안에서 직접 툴 호출을 실행하는 내용을 소개한 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50602092">Run tool calls from code with Code Mode</a> <span class="ref">(HN · 11/23 02:56)</span>.</p>
+<h2>3. 코딩 에이전트 보안을 위한 엔터프라이즈 가이드</h2>
+<p>코딩 에이전트를 안전하게 도입하기 위한 엔터프라이즈 가이드가 Hacker News에 공유됐다 <a href="https://news.ycombinator.com/item?id=50623157">The enterprise guide to securing coding agents</a> <span class="ref">(HN · 11/24 12:14)</span>. 본문과 댓글이 없어 구체적인 내용과 반응은 제목만으로는 확인되지 않는다.</p>
 
-<h2>4. 바이브코딩 앱을 위한 CVE 자동 침투테스트 앱</h2>
-<p>Show HN에 자신이 바이브코딩한 앱들을 스스로 침투테스트할 수 있는 웹사이트가 소개됐다 <a href="https://news.ycombinator.com/item?id=50603596">Show HN: I've made a CVE auto pentest app</a> <span class="ref">(HN · 11/23 05:34)</span>. 작성자는 cve.now에서 CVE를 자동으로 추적해 각 CVE를 엔진의 새로운 공격으로 등록하며, 서브 에이전트가 들어간 자체 샌드박스를 띄워 IDOR 공격 등을 테스트할 수도 있다고 설명했다. Claude 구독이 코딩 세션을 사이버 안전장치로 금방 플래그를 걸 수 있는 만큼 이런 도구가 유용할 것이라며 제안과 피드백을 구했다.</p>
+<h2>4. Show HN: 시간과 달의 위상에 따라 변하는 인터랙티브 앨범</h2>
+<p>blouis가 시작과 끝이 없는 열 곡으로 구성된 앨범이자 브라우저 음악 플레이어 "Return to Repeat"를 공개했다 <a href="https://news.ycombinator.com/item?id=50612272">Show HN: An interactive album that changes with stuff like time and moon phase</a> <span class="ref">(HN · 11/23 23:32)</span>. 일부는 직접 조작할 수 있고 일부는 날짜, 시간대, 방문 횟수, 현재 달의 위상 같은 조건에 따라 자동으로 변주되며, 트랙 3의 새소리를 시작점으로 추천했다. 디지털 음악을 발표하고 경험하는 다른 방식을 탐구하고 음악과 "함께 있는" 감각을 되찾고 싶었다고 밝혔고, 이전에는 세 장만 찍은 카세트로 발매한 적이 있다고 덧붙였다. Tone.js와 Web Audio API로 만들었으며 코드 작성과 디버깅에 Claude의 도움을 받았고, 음악은 여러 스템으로 변주되는 긴 끊김 없는 루프로 구성했다고 설명했다. 백그라운드 재생이 안 되는 점을 감수하고 앱 형태는 포기했으며 에어플레이 관련 버그도 대부분 잡았다고 밝혔다. 아직 댓글은 달리지 않았다.</p>
 
-<h2>5. Tend, 모든 Claude Code 세션을 모아 보는 로컬 페이지</h2>
-<p>Hacker News에는 Claude Code의 모든 세션을 한곳에서 볼 수 있는 로컬 페이지 Tend를 소개하는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50601786">Tend. one local page for all your Claude Code sessions</a> <span class="ref">(HN · 11/23 02:28)</span>.</p>
+<h2>5. Claude Opus 4.5 출시 1주년</h2>
+<p>zkldi가 Claude Opus 4.5가 출시된 지 1년이 됐다는 소식을 올리며, 1년이라는 시간이 훨씬 길게 느껴질 만큼 업계 전체가 달라졌고 이 모델이 에이전틱 코딩의 전환점으로 널리 받아들여지고 있다고 평했다 <a href="https://news.ycombinator.com/item?id=50621878">Tell HN: Claude Opus 4.5 turns one year old today</a> <span class="ref">(HN · 11/24 09:44)</span>. 1년 전 올라온 관련 스레드를 다시 읽어볼 만하다고 링크를 덧붙이며, 내년 이맘때는 또 어떤 모습일지 모르겠다고 적었다. 아직 댓글은 달리지 않았다.</p>
 
-<h2>6. Qlaude, 자체 모델 서버에서 동작하는 Claude Code</h2>
-<p>Hacker News에는 자체적으로 구축한 모델 서버를 상대로 Claude Code를 동작시키는 프로젝트 Qlaude를 소개하는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50597098">Qlaude – Claude Code against your own model server</a> <span class="ref">(HN · 11/22 16:20)</span>.</p>
+<h2>6. Show HN: 오픈소스 개인 예산 관리 앱 Budget</h2>
+<p>hendriknl이 Mac과 Windows용 무료 오픈소스 예산 관리 앱 Budget을 공개했다 <a href="https://news.ycombinator.com/item?id=50619761">Show HN: Budget – an open-source private budgeting app for Mac and Windows</a> <span class="ref">(HN · 11/24 06:39)</span>. 기본 모드는 예산을 정하고 지출을 추적하는 평범한 기능을 제공하지만, 확장 모드에서는 남은 예산을 다음 달로 이월하거나 지출을 여러 예산에 나눠 배분하고, 자동차 보험처럼 연 단위로 나가는 큰 지출까지 고려해 남은 기간에 얼마나 자유롭게 쓸 수 있는지 보여주는 기능까지 지원한다고 소개했다. 몇 년 전 스프레드시트로 지출을 관리하다 맥북에서 편집이 느려질 정도로 무거워지자 이를 앱으로 만들게 됐고, 2024년 중반까지 소프트웨어 업계에서 일했지만 최근 LLM 성능에 대한 긍정적인 평가를 듣고 Claude Opus 5.5의 도움을 받아 스프레드시트를 앱으로 옮겼다고 밝혔다. 텍스트 정렬 오류나 번역 키로 영어 문장을 그대로 쓰는 것 같은 버그와 잘못된 설계를 몇 차례 직접 짚어줘야 했지만 전반적으로 잘 작동했다고 평가했다. 쿠키·광고·유료 기능·유료 사용 중 하나를 강요하는 기존 예산 앱들과 달리, 쿠키와 광고, 요금, 원격 데이터 저장이 전혀 없고 코드가 오픈소스이며 데이터를 손쉽게 내보내고 불러올 수 있고 자동 백업도 제공한다는 점을 특징으로 들었다. 아직 댓글은 달리지 않았다.</p>
 
-<h2>7. 터미널 셸에서 바로 Claude/Codex를 실행하는 셸 플러그인</h2>
-<p>Show HN에는 터미널에서 명령어를 잘못 입력해 코딩 지시를 치곤 하던 작성자가, command not found 에러를 가로채 그 내용을 코딩 에이전트에게 전달하는 셸 플러그인을 만들어 공개했다 <a href="https://news.ycombinator.com/item?id=50601485">Show HN: Type prompts directly in terminal shell to kickoff Claude and codex</a> <span class="ref">(HN · 11/23 02:03)</span>. 이를 이용하면 "work on the next task in PLAN.md"처럼 평범한 영어 문장을 입력해도 해당 디렉터리에서 Claude Code가 열린다. <code>git status</code> 같은 일반 명령은 그대로 실행되도록 했고, 셸이 명령을 찾지 못하면 llmao가 먼저 흔한 오타인지 확인한 뒤 프롬프트로 처리한다. 예를 들어 <code>gti status</code>처럼 입력하면 git을 제안한다. zsh, bash, Fish에서 모두 동작한다.</p>
+<h2>7. 여러 모델에 대한 Elevated Errors</h2>
+<p>Topfi가 여러 모델에서 오류율이 상승했다는 내용의 글 "Elevated Errors for Multiple Models"를 공유했다 <a href="https://news.ycombinator.com/item?id=50609569">Elevated Errors for Multiple Models</a> <span class="ref">(HN · 11/23 18:54)</span>. 본문과 댓글이 없어 구체적인 내용과 반응은 제목만으로는 확인되지 않는다.</p>
 
-<h2>8. FlightTrack을 처음부터 다시 작성한 이야기</h2>
-<p>Show HN에 아이폰 항공편 추적 앱 FlightTrack을 처음부터 다시 쓴 사연이 올라왔다 <a href="https://news.ycombinator.com/item?id=50604007">Show HN: I wrote FlightTrack twice</a> <span class="ref">(HN · 11/23 06:19)</span>. 작성자는 2008년 사이드 프로젝트로 FlightTrack을 처음 만들었고 4년간 베스트셀러 여행 앱에 오르며 회사를 차렸다가 2010년 Expedia에 인수됐지만 Expedia는 2017년 앱 서비스를 종료했다고 전했다. 이후 번아웃을 겪고 성악에 집중했지만 이 앱이 계속 마음에 남아, 올여름부터 암스테르담 스키폴 공항의 사이니지에서 영감을 받은 디자인으로 Claude와 함께 Go 서버와 Swift iOS 앱을 처음부터 다시 만들었다고 밝혔다. 2008년 1.0 버전은 저녁·주말 작업으로 6주가 걸렸는데 이번에도 비슷한 기간이 걸렸지만, Claude 덕분에 인바운드 항공편 추적 같은 더 많은 기능을 넣을 수 있었고 디자인도 목업이 아니라 동작하는 코드로 통째로 실험해볼 수 있었다고 전했다. 데이터 비용이 훨씬 비싸져 연 59.99달러 구독제로 운영하지만 첫 100명 구독자에게는 1년을 무료로 준다고 덧붙였고, 추수감사절 여행에 맞춰 이번 버전을 먼저 내놓았으며 기능은 계속 추가하겠다고 말했다.</p>
+<h2>8. Show HN: Claude Code가 읽은 내용을 보여주는 Show-context</h2>
+<p>bsampera가 Claude Code 세션에서 어떤 파일과 내용을 읽었는지 보여주는 도구 Show-context를 공개했다 <a href="https://news.ycombinator.com/item?id=50608941">Show HN: Show-context, see what Claude Code read in a session</a> <span class="ref">(HN · 11/23 17:27)</span>. 본문과 댓글이 없어 구체적인 기능 설명과 반응은 제목만으로는 확인되지 않는다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-11-23 10:09 KST</p>
+  <p>생성 2026-11-24 13:59 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
