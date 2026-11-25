@@ -121,40 +121,33 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-11-24 13:57 KST</p>
+  <p class="asof">기준 시각 2026-11-25 12:42 KST</p>
 </header>
 
-<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b></li><li>Hacker News 정상 — 14건 수집</li></ul></div>
+<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b></li><li>Hacker News 정상 — 29건 수집</li></ul></div>
 
 <main>
-<h2>1. Anthropic, 코드 변경을 검토·수정·승인하는 Claude Ship 출시</h2>
-<p>Anthropic이 코드 변경을 검토하고 수정하고 승인까지 수행하는 새로운 에이전트 Claude Ship을 출시했다는 소식이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50621162">Anthropic launches Claude Ship, agents review, fix, &amp; approve code changes now</a> <span class="ref">(HN · 11/24 08:39)</span>. 본문과 댓글이 없어 구체적인 기능 설명과 반응은 제목만으로는 확인되지 않는다.</p>
-
-<h2>2. Show HN: 코딩 에이전트 간 파일 충돌을 경고하는 Blobby</h2>
-<p>개발자 jakobildstad가 동시에 3~4개의 코딩 에이전트(Claude Code, Codex 등)를 돌리다가 질문에 막혀 20분째 대기 중인 에이전트를 놓치는 일이 반복되자, 이를 막기 위한 macOS 앱 Blobby를 만들어 공개했다 <a href="https://news.ycombinator.com/item?id=50612033">Show HN: Blobby – warns when two coding agents edit the same file (macOS)</a> <span class="ref">(HN · 11/23 23:23)</span>. 각 에이전트를 맥북 노치 옆에 작은 블롭으로 표시해 작업 중·완료·대기 상태를 보여주고, 클릭하면 해당 터미널 탭으로 바로 이동한다. 두 에이전트가 같은 파일을 동시에 편집하면 경고를 띄우고, 에이전트마다 별도의 git worktree를 줄 수 있으며, 작업이 끝나면 변경 내용과 테스트 통과 여부를 보여주는 점을 다른 노치 앱들과의 차별점으로 들었다. Claude Code, Codex, Gemini CLI가 이미 제공하는 훅을 이용해 각 세션 상태를 맥 로컬 폴더에 기록하는 방식이라 텔레메트리가 없고 세션 정보가 기기 밖으로 나가지 않는다고 설명했다. 가입 없이 무료로 써볼 수 있고 프로 버전은 19달러 평생 이용권이며, Apple 실리콘·macOS 26용으로 만들었다고 밝혔다. 아직 댓글은 달리지 않았다.</p>
-
-<h2>3. 코딩 에이전트 보안을 위한 엔터프라이즈 가이드</h2>
-<p>코딩 에이전트를 안전하게 도입하기 위한 엔터프라이즈 가이드가 Hacker News에 공유됐다 <a href="https://news.ycombinator.com/item?id=50623157">The enterprise guide to securing coding agents</a> <span class="ref">(HN · 11/24 12:14)</span>. 본문과 댓글이 없어 구체적인 내용과 반응은 제목만으로는 확인되지 않는다.</p>
-
-<h2>4. Show HN: 시간과 달의 위상에 따라 변하는 인터랙티브 앨범</h2>
-<p>blouis가 시작과 끝이 없는 열 곡으로 구성된 앨범이자 브라우저 음악 플레이어 "Return to Repeat"를 공개했다 <a href="https://news.ycombinator.com/item?id=50612272">Show HN: An interactive album that changes with stuff like time and moon phase</a> <span class="ref">(HN · 11/23 23:32)</span>. 일부는 직접 조작할 수 있고 일부는 날짜, 시간대, 방문 횟수, 현재 달의 위상 같은 조건에 따라 자동으로 변주되며, 트랙 3의 새소리를 시작점으로 추천했다. 디지털 음악을 발표하고 경험하는 다른 방식을 탐구하고 음악과 "함께 있는" 감각을 되찾고 싶었다고 밝혔고, 이전에는 세 장만 찍은 카세트로 발매한 적이 있다고 덧붙였다. Tone.js와 Web Audio API로 만들었으며 코드 작성과 디버깅에 Claude의 도움을 받았고, 음악은 여러 스템으로 변주되는 긴 끊김 없는 루프로 구성했다고 설명했다. 백그라운드 재생이 안 되는 점을 감수하고 앱 형태는 포기했으며 에어플레이 관련 버그도 대부분 잡았다고 밝혔다. 아직 댓글은 달리지 않았다.</p>
-
-<h2>5. Claude Opus 4.5 출시 1주년</h2>
-<p>zkldi가 Claude Opus 4.5가 출시된 지 1년이 됐다는 소식을 올리며, 1년이라는 시간이 훨씬 길게 느껴질 만큼 업계 전체가 달라졌고 이 모델이 에이전틱 코딩의 전환점으로 널리 받아들여지고 있다고 평했다 <a href="https://news.ycombinator.com/item?id=50621878">Tell HN: Claude Opus 4.5 turns one year old today</a> <span class="ref">(HN · 11/24 09:44)</span>. 1년 전 올라온 관련 스레드를 다시 읽어볼 만하다고 링크를 덧붙이며, 내년 이맘때는 또 어떤 모습일지 모르겠다고 적었다. 아직 댓글은 달리지 않았다.</p>
-
-<h2>6. Show HN: 오픈소스 개인 예산 관리 앱 Budget</h2>
-<p>hendriknl이 Mac과 Windows용 무료 오픈소스 예산 관리 앱 Budget을 공개했다 <a href="https://news.ycombinator.com/item?id=50619761">Show HN: Budget – an open-source private budgeting app for Mac and Windows</a> <span class="ref">(HN · 11/24 06:39)</span>. 기본 모드는 예산을 정하고 지출을 추적하는 평범한 기능을 제공하지만, 확장 모드에서는 남은 예산을 다음 달로 이월하거나 지출을 여러 예산에 나눠 배분하고, 자동차 보험처럼 연 단위로 나가는 큰 지출까지 고려해 남은 기간에 얼마나 자유롭게 쓸 수 있는지 보여주는 기능까지 지원한다고 소개했다. 몇 년 전 스프레드시트로 지출을 관리하다 맥북에서 편집이 느려질 정도로 무거워지자 이를 앱으로 만들게 됐고, 2024년 중반까지 소프트웨어 업계에서 일했지만 최근 LLM 성능에 대한 긍정적인 평가를 듣고 Claude Opus 5.5의 도움을 받아 스프레드시트를 앱으로 옮겼다고 밝혔다. 텍스트 정렬 오류나 번역 키로 영어 문장을 그대로 쓰는 것 같은 버그와 잘못된 설계를 몇 차례 직접 짚어줘야 했지만 전반적으로 잘 작동했다고 평가했다. 쿠키·광고·유료 기능·유료 사용 중 하나를 강요하는 기존 예산 앱들과 달리, 쿠키와 광고, 요금, 원격 데이터 저장이 전혀 없고 코드가 오픈소스이며 데이터를 손쉽게 내보내고 불러올 수 있고 자동 백업도 제공한다는 점을 특징으로 들었다. 아직 댓글은 달리지 않았다.</p>
-
-<h2>7. 여러 모델에 대한 Elevated Errors</h2>
-<p>Topfi가 여러 모델에서 오류율이 상승했다는 내용의 글 "Elevated Errors for Multiple Models"를 공유했다 <a href="https://news.ycombinator.com/item?id=50609569">Elevated Errors for Multiple Models</a> <span class="ref">(HN · 11/23 18:54)</span>. 본문과 댓글이 없어 구체적인 내용과 반응은 제목만으로는 확인되지 않는다.</p>
-
-<h2>8. Show HN: Claude Code가 읽은 내용을 보여주는 Show-context</h2>
-<p>bsampera가 Claude Code 세션에서 어떤 파일과 내용을 읽었는지 보여주는 도구 Show-context를 공개했다 <a href="https://news.ycombinator.com/item?id=50608941">Show HN: Show-context, see what Claude Code read in a session</a> <span class="ref">(HN · 11/23 17:27)</span>. 본문과 댓글이 없어 구체적인 기능 설명과 반응은 제목만으로는 확인되지 않는다.</p>
+<h2>송금·수금을 대화로 처리하는 MCP Versine 런칭</h2>
+<p>YC 소속 스타트업 Versine이 대화나 문자로 돈을 보내고 받을 수 있게 해주는 MCP를 Hacker News에 공개했다 <a href="https://news.ycombinator.com/item?id=50634426">Launch HN: Versine (YC F26) – MCP to send and receive money</a> <span class="ref">(HN · 11/25 05:44)</span>. 사용자가 패스키로 승인하면 에이전트가 최대 100명에게 동시에 송금·청구를 처리할 수 있고, Versine 계정이 없는 사람에게도 보낼 수 있으며 받는 쪽은 2분 안에 은행으로 현금화할 수 있다고 설명한다. 신뢰하는 연락처에는 사전 승인 없이도 돈을 보낼 수 있는 옵션도 있다. 내부적으로는 사용자가 키를 직접 소유하는 셀프커스터디 방식의 USDC 지갑(Base 체인)을 사용하는데, 창업자들은 피벗 이후 4주라는 짧은 개발 기간 때문에 기존 은행 파트너와의 법정화폐 연동이 규제·컴플라이언스 지연을 일으킬 것을 우려해 이 구조를 선택했다고 밝혔다.</p>
+<h2>Anthropic·OpenAI 직원들이 미공개 모델의 위험성을 우려</h2>
+<p>Anthropic과 OpenAI 두 회사의 직원들이 아직 공개되지 않은 AI 모델이 안전하게 내놓기에는 너무 위험하다고 우려하고 있다는 소식이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50631691">Anthropic and OpenAI employees fear unreleased AI models too unsafe to release</a> <span class="ref">(HN · 11/25 02:46)</span>. 본문이나 댓글 없이 제목만 게시된 글로, 구체적으로 어떤 위험을 지적했는지는 드러나 있지 않다.</p>
+<h2>AI 하이프가 식고 있다는 토론</h2>
+<p>15년 이상 소프트웨어 업계에 있었다는 작성자가 Ask HN에 AI에 대한 흥분이 식어가는 게 자신뿐인지 물었다 <a href="https://news.ycombinator.com/item?id=50633601">Ask HN: Am I the only one whose AI hype is cooling down a lot?</a> <span class="ref">(HN · 11/25 04:51)</span>. 회사에서 받은 무료 토큰으로 연초에는 월 3천~5천 달러어치를 썼지만, 모델이 저렴해진 것과 별개로 쓸모는 점점 줄었다고 말한다. 여전히 코드를 손으로 쓰지는 않지만, 연구나 조사, 심지어 "이 PR 코멘트들 어떻게 생각해?" 같은 간단한 질문에서도 구글 검색과 문서 2분만 읽으면 알 수 있는 기본적인 사실을 놓치는 경우가 많아졌다고 지적한다. 예전에는 모델이 신기해서 관대하게 봐줬지만 이제는 기준이 높아졌고, Claude Code나 Codex를 여는 것조차 꺼려져서 직접 코드를 읽고 쓰는 쪽을 택하게 된다고 토로한다.</p>
+<h2>Anthropic의 코드 배포 기능 Claude Ship 출시와 그에 대한 반응</h2>
+<p>Anthropic이 개발자의 코드 배포를 돕는 기능 Claude Ship을 출시했다는 소식이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50625479">Anthropic launches Claude Ship to help developers ship code faster</a> <span class="ref">(HN · 11/24 17:44)</span>. 같은 주제로 올라온 다른 글은 "지금은 Claude Code Ship을 피해야 할 이유"라는 제목으로 회의적인 입장을 담았고 <a href="https://news.ycombinator.com/item?id=50628332">Reasons to avoid Claude Code Ship (for now)</a> <span class="ref">(HN · 11/24 23:03)</span>, "Claude Ship"이라는 제목만으로 올라온 글도 함께 올라왔다 <a href="https://news.ycombinator.com/item?id=50628795">Claude Ship</a> <span class="ref">(HN · 11/24 23:33)</span>. 세 글 모두 본문과 댓글이 없어 구체적인 반응 내용은 제목에서 짐작할 수 있는 수준이며, 출시 발표와 더불어 신중히 접근해야 한다는 목소리가 동시에 나온 것이 눈에 띈다.</p>
+<h2>T3 Code v0.1.11이 첫 실행 시 OpenAI·Claude 계정 ID를 해시로 전송</h2>
+<p>T3 Code v0.1.11 버전이 처음 실행될 때 OpenAI와 Claude 계정 ID를 해시 처리해 전송한다는 지적이 Hacker News에 올라왔다 <a href="https://news.ycombinator.com/item?id=50636552">T3 Code v0.1.11 sends hashed OpenAI and Claude account IDs at first launch</a> <span class="ref">(HN · 11/25 08:51)</span>. 본문과 댓글이 없는 제목만의 글로, 어떤 서버로 전송되는지나 수집 목적에 대한 설명은 담겨 있지 않다.</p>
+<h2>코딩 에이전트 배포마다 실제 앱을 점검하는 CheckMyApp 공개</h2>
+<p>작성자는 "루프에 사람이 없는 것"이 새로운 꿈이라며, 솔로 창업자라면 누구나 가져야 할 루프의 절반을 CheckMyApp이 담당한다고 Show HN에 소개했다 <a href="https://news.ycombinator.com/item?id=50635545">Show HN: CheckMyApp – checks your live app with each deploy from coding agent</a> <span class="ref">(HN · 11/25 07:13)</span>. 프로덕션(또는 PR 프리뷰 URL)에서 변경 사항을 직접 클릭해보며 버그를 스크린샷과 함께 티켓으로 남기고, 그 티켓을 Claude나 Codex에 연결하면 루프가 완성된다고 설명한다. 에이전틱 코딩에 맛을 본 뒤로는 되돌아갈 수 없다면서, 프로덕션 점검을 건너뛰지 말고 위임해 주간 사용량을 아끼라고 권한다.</p>
+<h2>에이전트의 변경이 어디서 깨질 수 있는지 시각화하는 Genesis Map 공개</h2>
+<p>에이전트가 점점 빠르게 코드를 배포하면서 사람이 일일이 리뷰하기 어려워졌고, 에이전트가 "다 괜찮다"고 말해도 나중에 "맞아요, 제가 놓쳤네요"라며 뒤집는 경험이 잦았다는 문제의식에서 Genesis Map을 만들었다고 Show HN에 소개했다 <a href="https://news.ycombinator.com/item?id=50623965">Show HN: Genesis Map – Visualize your agent's changes. See where they can break</a> <span class="ref">(HN · 11/24 14:04)</span>. 커밋 사이의 모든 비즈니스 흐름을 보여주는 플로우차트를 생성해 위험한 변경과 테스트되지 않은 코드를 표시하는 코딩 에이전트용 스킬이며, 바닐라 Claude Code·Codex와 비교한 벤치마크에서 테스트 공백 탐지율이 Claude Code는 8%에서 38%로, Codex는 4%에서 23%로 올랐고, 리뷰당 오탐은 Claude Code 2.1건에서 0.7건, Codex 1.4건에서 0.5건으로 줄었다고 밝혔다. 반면 리뷰당 실제 위험 탐지 건수는 Claude Code 2.9건에서 2.8건, Codex 2.4건에서 2.4건으로 거의 변화가 없었다.</p>
+<h2>자연어 대화에 가장 덜 거슬리는 AI는 무엇인가 토론</h2>
+<p>작성자는 Claude와 대화해보고 얼마나 거슬렸는지 믿을 수 없었다며, 예전에는 Claude가 가장 인간다워서 선호했지만 몇 달 전 "거만한 영국 공무원" 같은 페르소나가 생기면서 떠났다고 Ask HN에 적었다 <a href="https://news.ycombinator.com/item?id=50634900">Ask HN: Least cringe AI for natural language?</a> <span class="ref">(HN · 11/25 06:21)</span>. ChatGPT는 여전히 특유의 "ChatGPT 냄새"가 있지만 적어도 그 느낌을 일관되게 유지하고 있다고 평가한다. 더 근본적으로는 OpenAI의 Davinci 같은 베이스/텍스트 모델이 몇 주 전 퇴역한 것을 언급하며, 요즘도 베이스 모델로 작업하는 사람이 있는지 묻고, 자신이 찾아본 오픈소스 모델 대부분은 사전학습에 합성된 "cringe"가 섞여 들어가 있어 쓸 만하지 않았다고 말한다. 스타일 프롬프트로는 해결이 안 되는 것 같다며, 모델들이 첫 턴 이후에는 스타일 지시를 무시하는 경향이 있다고 덧붙인다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-11-24 13:59 KST</p>
+  <p>생성 2026-11-25 12:45 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
