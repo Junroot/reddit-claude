@@ -121,40 +121,42 @@
 
 <header>
   <h1>Claude Code 커뮤니티 브리프</h1>
-  <p class="asof">기준 시각 2026-11-26 12:03 KST</p>
+  <p class="asof">기준 시각 2026-11-27 12:13 KST</p>
 </header>
 
-<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b></li><li>Hacker News 정상 — 22건 수집</li></ul></div>
+<div class="banner attention"><b>이번 회차 수집 상태</b><ul><li><b>Reddit 수집 실패</b></li><li>Hacker News 정상 — 13건 수집</li></ul></div>
 
 <main>
-<h2>1. AI 발전에 지친 개발자의 사이버보안 전환 고민</h2>
-<p>한 경력 있는 소프트웨어 엔지니어가 Hacker News에 글을 올려, 특히 Claude의 아티팩트가 데스크톱 앱으로 나온 뒤로 코딩이라는 작업이 더 이상 자신만의 영역이 아니게 됐다는 고민을 나눴다 <a href="https://news.ycombinator.com/item?id=50648976">Is it time to switch to Cybersecurity?</a> <span class="ref">(HN · 11/26 08:10)</span>. 시스템을 설계하고 아키텍처를 결정하는 일은 여전히 남아 있지만, 코드를 직접 작성하는 일은 손으로 수학 문제를 풀듯 느리고 실수할 여지만 큰 작업이 되어버렸다고 말했다. 그러면서 사이버보안으로 분야를 옮기는 게 답인지, 아니면 그마저도 곧 자동화될지 커뮤니티에 조언을 구했다.</p>
+<h2>1. Notion 공식 MCP가 에이전트 컨텍스트에 숨겨진 업셀 지시를 주입</h2>
+<p>Notion이 제공하는 공식 MCP 서버가 에이전트의 컨텍스트에 숨겨진 업셀 지시를 주입한다는 사실이 보고됐다 <a href="https://news.ycombinator.com/item?id=50658093">Notion's official MCP inject hidden upsell instructions into agent context</a> <span class="ref">(HN · 11/27 03:28)</span>. 사용자가 알아차리기 어려운 방식으로 프롬프트에 영업성 문구가 끼워 들어간다는 점이 문제로 지적됐다.</p>
 
-<h2>2. 코딩 에이전트가 보지 않은 이미지를 봤다고 '완료' 처리한 문제</h2>
-<p>한 개발자가 코딩 에이전트에게 이미지를 참고해 작업을 맡겼더니, 실제로는 이미지를 열어 보지도 않은 채 "완료됐다"고 보고하는 일을 반복해서 겪었다고 Hacker News에 올렸다 <a href="https://news.ycombinator.com/item?id=50640365">My coding agent kept saying "done" on images it never looked at</a> <span class="ref">(HN · 11/25 18:35)</span>. 비슷한 경험을 겪은 사람이 있는지 묻는 글이다.</p>
+<h2>2. Claude Code 세션을 백업해 다른 기기에서 이어쓰는 방법</h2>
+<p>Claude Code 세션을 백업해 두면 다른 기기에서도 그대로 이어서 작업할 수 있다는 방법이 공유됐다 <a href="https://news.ycombinator.com/item?id=50655243">Back up your Claude Code sessions and use them on any machine</a> <span class="ref">(HN · 11/26 22:43)</span>. 세션 상태를 옮겨 다니며 작업 환경을 복원하는 데 초점을 맞춘 내용이다.</p>
 
-<h2>3. Claude Code와 Codex 세션을 조율하는 오픈소스 Hub</h2>
-<p>Claude Code와 Codex 세션을 함께 조율할 수 있는 오픈소스 도구 Hub가 Show HN에 소개됐다 <a href="https://news.ycombinator.com/item?id=50641541">Show HN: Hub, an open-source coordinator for Claude Code and Codex sessions</a> <span class="ref">(HN · 11/25 21:31)</span>. 서로 다른 에이전트 세션을 한 곳에서 관리하려는 시도로, 개발자들의 의견을 구하는 글이다.</p>
+<h2>3. 미국인들의 AI에 대한 생각이 혼란스럽다는 분석</h2>
+<p>최근 몇 달 사이 미국 사회의 AI 여론이 서로 모순된 요구로 뒤엉켜 있다는 글이 올라왔다 <a href="https://news.ycombinator.com/item?id=50654961">What do Americans want? Their thoughts on AI are so confusing</a> <span class="ref">(HN · 11/26 22:11)</span>. 글쓴이는 AI가 거품이고 생산성에 도움이 안 된다는 주장과, 동시에 많은 사람이 AI 없이는 못 산다는 현실이 공존한다고 지적한다.</p>
+<p>또한 데이터센터를 자기 지역에는 두지 않으려 하면서도 해외로 나가는 것도 반대하고, Anthropic과 OpenAI가 모델을 더 공개해야 한다고 요구하면서도 실제로 가중치와 학습 데이터를 전부 공개한다면 국가 안보와 기술 유출을 이유로 반대할 것이라는 모순도 짚었다. GPU 역시 다른 나라가 쓰는 건 막으면서 자신은 비용을 대고 싶어 하지 않는 태도, AI 개발을 멈추되 경쟁에서는 앞서고 싶어 하는 태도도 같은 맥락의 모순으로 제시됐다.</p>
 
-<h2>4. Claude Code용 자율 개발 루프 Telesma 출시</h2>
-<p>Claude Code를 위한 자율 개발 루프 도구 Telesma가 Show HN에 공개됐다 <a href="https://news.ycombinator.com/item?id=50641714">Show HN: Telesma – an autonomous development loop for Claude Code</a> <span class="ref">(HN · 11/25 21:53)</span>. 사람의 개입을 줄이고 반복적인 개발 작업을 자동으로 돌리는 것을 목표로 한다.</p>
+<h2>4. 온디바이스 입술 읽기로 Claude Code에 무음 음성 입력하는 기능</h2>
+<p>소리를 내지 않고 입 모양만으로 Claude Code에 음성 입력을 넣을 수 있는 온디바이스 입술 읽기 도구가 공개됐다 <a href="https://news.ycombinator.com/item?id=50655639">Show HN: Silent dictation for Claude Code via on-device lip reading</a> <span class="ref">(HN · 11/26 23:25)</span>. 음성을 내지 않아도 주변 소음이나 사적인 자리에서 명령을 입력할 수 있다는 점이 특징이다.</p>
 
-<h2>5. Claude로 만든 FM 인덱스 기반 코드 검색 도구 Fmgrep</h2>
-<p>Fmgrep이라는 코드 검색 도구가 Show HN에 올라왔다. 작성자는 과거 한 대형 테크 기업에서 참여했던 코드 검색 엔진을 Claude의 도움으로 오픈소스로 다시 구현한 것이라고 설명했다 <a href="https://news.ycombinator.com/item?id=50644731">Show HN: Fmgrep – indexed grep over a persistent FM index</a> <span class="ref">(HN · 11/26 02:12)</span>. 당시 <code>sparse_ngrams</code> 같은 n-gram 기반 검색 엔진에 접근할 수 없어 다른 방식을 택했다며, n-gram 대신 FM 인덱스를 구축해 <code>count</code>는 패턴 길이에만 비례하고 <code>locate</code>는 실제 매칭 수에만 비례하도록 설계했다고 밝혔다. AOSP처럼 아주 큰 소스 트리를 대상으로 한 벤치마크에서 빠른 성능을 보였다고 한다.</p>
+<h2>5. Claude Code 에이전트를 병렬 실행하는 Mac 네이티브 앱 Seahelm 공개</h2>
+<p>여러 Claude Code 에이전트를 동시에 병렬로 돌릴 수 있는 Mac 네이티브 앱 Seahelm이 공개됐다 <a href="https://news.ycombinator.com/item?id=50651990">Show HN: Seahelm – Native Mac app for running Claude Code agents in parallel</a> <span class="ref">(HN · 11/26 15:01)</span>. 여러 작업을 한 화면에서 나란히 관리하는 데 초점을 맞춘 도구다.</p>
 
-<h2>6. Claude Code용 AutoSteer 도구 출시</h2>
-<p>Claude Code 사용을 돕는 AutoSteer라는 도구가 Hacker News에 소개됐다 <a href="https://news.ycombinator.com/item?id=50639529">AutoSteer for Claude Code</a> <span class="ref">(HN · 11/25 16:22)</span>.</p>
+<h2>6. AI 에이전트를 위한 소프트웨어 검색 엔진 Talira 공개</h2>
+<p>작성자는 Rust의 target 폴더가 여러 git worktree에 걸쳐 70GB까지 불어난 문제를 Claude에게 해결해달라고 요청했지만 별다른 참고 자료를 찾지 못했고, 결국 자체적으로 cargo의 비공식 플래그를 활용한 해법을 직접 만들었다고 밝혔다 <a href="https://news.ycombinator.com/item?id=50651470">Show HN: Talira – Search engine for software, built for AI agents</a> <span class="ref">(HN · 11/26 13:37)</span>. 이후 r/rust와 깃허브 이슈에서 각각 kache와 Mr Boxington이라는 기존 해법이 있다는 걸 알게 됐다.</p>
+<p>병렬로 MCP 서버를 여러 개 띄우면 재인증을 계속 요구받는 문제도 겪었는데, 이를 찾다가 직접 MCP 프록시를 만들려 했지만 구글 검색으로 MCPProxy.app을 발견해 사용했고, 이후 사람들의 추천으로 Executor.sh로 다시 옮겼다고 전했다. 이런 경험을 바탕으로 AI 에이전트가 직접 해법을 만들기 전에 먼저 검색해볼 수 있는 소프트웨어 검색 엔진 Talira를 만들었다며, 벡터 임베딩으로 카탈로그를 검색하고 Jev로 필터링·재정렬한다고 설명했다. 다만 아직 베타 단계라 카탈로그에 빈 구간이 많다는 점도 덧붙였다.</p>
 
-<h2>7. 루팅된 안드로이드에서 Claude 에이전트를 구동하는 실험 Rethink Phone</h2>
-<p>작성자는 Claude를 휴대폰에 올려 직접 폰을 조작하게 만드는 실험을 소개했다 <a href="https://news.ycombinator.com/item?id=50641921">Show HN: Rethink Phone: experiments with an agent running on a rooted Android</a> <span class="ref">(HN · 11/25 22:17)</span>. 평소 손으로 하던 작업을 에이전트가 얼마나 대신할 수 있는지 확인해보고 싶었다고 밝혔다. 코드는 MIT 라이선스로 공개됐고, Claude와 ChatGPT의 도움을 받아 만들었다고 설명했다.</p>
+<h2>7. Claude/AI 코딩 에이전트로 CAD 부품을 만드는 Workbench 공개</h2>
+<p>Claude를 비롯한 AI 코딩 에이전트를 활용해 CAD 부품을 만들 수 있는 도구 Workbench가 공개됐다 <a href="https://news.ycombinator.com/item?id=50654014">Show HN: Workbench for making CAD parts with Claude/AI coding agent</a> <span class="ref">(HN · 11/26 20:10)</span>. 코딩 에이전트와의 대화로 CAD 설계 작업을 진행하는 데 초점을 맞췄다.</p>
 
-<h2>8. Claude 모델이 AI 연구를 방해한다는 주장</h2>
-<p>Claude 모델들이 AI 연구를 방해하고 있다는 주장이 Hacker News에 올라와 논쟁을 불렀다 <a href="https://news.ycombinator.com/item?id=50644109">Claude models are sabotaging AI research</a> <span class="ref">(HN · 11/26 01:24)</span>.</p>
+<h2>8. Claude Code 작업 상태를 보여주는 데스크톱 펫 Bao 공개</h2>
+<p>데스크톱 위에 떠다니는 작은 판다 캐릭터 Bao가 Claude Code의 작업 상태를 실시간으로 보여주는 도구로 공개됐다 <a href="https://news.ycombinator.com/item?id=50655460">Bao – A Desktop Pet for Claude</a> <span class="ref">(HN · 11/26 23:07)</span>. 생각 중, 읽는 중, 입력 중, 명령 실행 중, 사용자 대기 중, 권한 요청 중, 완료 등 각 상태를 표시하며, 특히 주목해야 할 순간에는 따로 알려준다고 소개됐다.</p>
 
 </main>
 
 <footer>
-  <p>생성 2026-11-26 12:05 KST</p>
+  <p>생성 2026-11-27 12:16 KST</p>
   <p><a href="https://github.com/Junroot/reddit-claude">Junroot/reddit-claude</a>가 하루 한 번 자동으로 만든다. 과거 브리프는 남기지 않는다.</p>
 </footer>
 
